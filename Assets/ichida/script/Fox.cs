@@ -1,9 +1,21 @@
+//=============================================================================
+//
+// 狐
+//
+// 作成日:2022/10/11
+// 作成者:伊地田真衣
+//
+// <開発履歴>
+// 2022/10/11 作成
+//
+//=============================================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fox : MonoBehaviour {
-    private GameObject foxWindow;
+    //private GameObject foxWindow;
+    [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
     private SpriteRenderer sr;  // 狐のスプライトレンダラー
     private float alpha;    // 狐のアルファ値
@@ -15,7 +27,7 @@ public class Fox : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        foxWindow = GameObject.FindWithTag("FoxWindow");
+        //foxWindow = GameObject.FindWithTag("FoxWindow");
         isWindowColl = false;
 
         lookStopTimer = lookStopTime;
@@ -27,6 +39,7 @@ public class Fox : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        //----- 注視判定 -----
         if (isWindowColl) {
             lookStopTimer -= Time.deltaTime;
             if (lookStopTimer < 0 && alpha < 1.0f) {
