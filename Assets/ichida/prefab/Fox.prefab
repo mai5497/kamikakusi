@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1002431546807909656}
   - component: {fileID: 1529652715146047141}
+  - component: {fileID: 4568981965684598773}
+  - component: {fileID: 5255233695756308561}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -84,3 +86,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4568981965684598773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841445404333199094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1565fe882b5d2ab4aa5991a866ad5681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5255233695756308561
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841445404333199094}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.955

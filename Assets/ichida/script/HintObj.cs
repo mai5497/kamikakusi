@@ -31,6 +31,8 @@ public class HintObj : MonoBehaviour
                                 // キャンバスを取得する
     private ShowHintManager _ShowHint; // 上で書いたオブジェクトとUIのヒント番号を比較して表示する為のスクリプト
 
+    private GameObject window;
+    private mado _mado;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +43,15 @@ public class HintObj : MonoBehaviour
 
         canvas = GameObject.Find("Canvas");
         _ShowHint = canvas.GetComponent<ShowHintManager>();
+
+        window = GameObject.Find("mado");
+        _mado = window.GetComponent<mado>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isWindowColl) {
+        if (isWindowColl && _mado.IsLooKing) {
             lookStopTimer -= Time.deltaTime;    
             if (lookStopTimer < 0) {
                 _ShowHint.ShowHintUI(hintNum);  // このオブジェクトのヒント番号を持っていく
@@ -58,13 +63,13 @@ public class HintObj : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.tag == "FoxWindow") {
+        if (collision.tag == "FoxWindow") {
             isWindowColl = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if(collision.tag == "FoxWindow") {
+        if (collision.tag == "FoxWindow") {
             isWindowColl = false;
         }
     }

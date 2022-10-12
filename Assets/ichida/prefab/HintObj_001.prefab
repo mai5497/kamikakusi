@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 904095519015727634}
   - component: {fileID: 901205522317252278}
   - component: {fileID: 8715628625492300061}
+  - component: {fileID: 8826886143715913230}
   m_Layer: 0
   m_Name: HintObj_001
   m_TagString: Untagged
@@ -182,6 +183,27 @@ CapsuleCollider2D:
   m_Offset: {x: -1.4399626, y: -1.3403763}
   m_Size: {x: 0.98276186, y: 1.0826437}
   m_Direction: 0
+--- !u!50 &8826886143715913230
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893372400289795360}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8407347080396158552
 GameObject:
   m_ObjectHideFlags: 0
