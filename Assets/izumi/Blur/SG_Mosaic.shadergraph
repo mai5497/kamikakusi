@@ -75,20 +75,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "48711536c80e4cf994011e2ba9d7bacf"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "bf19488e4b3c49f8962a1d4d9cf36816"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "77fcaacdac4c41c1b2c3eb7175b5cfde"
                 },
                 "m_SlotId": 2
@@ -159,8 +145,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 56.0000114440918,
-            "y": -219.20004272460938
+            "x": 132.0,
+            "y": 41.60001754760742
         },
         "m_Blocks": [
             {
@@ -176,8 +162,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 56.0000114440918,
-            "y": -13.600040435791016
+            "x": 132.0,
+            "y": 247.1999969482422
         },
         "m_Blocks": [
             {
@@ -793,7 +779,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "826a8874c9264393a2455082878d3873",
     "m_Id": 0,
-    "m_DisplayName": "I_Mosaic",
+    "m_DisplayName": "T_Mosaic",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -940,10 +926,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -782.4000244140625,
-            "y": -246.4000244140625,
-            "width": 208.0,
-            "height": 311.2000732421875
+            "x": -778.3999633789063,
+            "y": -184.80001831054688,
+            "width": 207.99993896484376,
+            "height": 311.20001220703127
         }
     },
     "m_Slots": [
@@ -1032,10 +1018,10 @@
     "m_Guid": {
         "m_GuidSerialized": "acfab657-48eb-4bf5-a700-caf0710cfd2e"
     },
-    "m_Name": "I_Mosaic",
+    "m_Name": "T_Mosaic",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "I_Mosaic",
-    "m_DefaultReferenceName": "_I_Mosaic",
+    "m_RefNameGeneratedByDisplayName": "T_Mosaic",
+    "m_DefaultReferenceName": "_T_Mosaic",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1168,10 +1154,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -98.39999389648438,
-            "y": 259.20001220703127,
-            "width": 128.8000030517578,
-            "height": 33.5999755859375
+            "x": -415.20001220703127,
+            "y": 538.4000854492188,
+            "width": 129.60000610351563,
+            "height": 33.59991455078125
         }
     },
     "m_Slots": [
@@ -1273,10 +1259,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 57.01762008666992,
-            "y": 259.552490234375,
-            "width": 0.0,
-            "height": 0.0
+            "x": -259.9999694824219,
+            "y": 539.2000732421875,
+            "width": 207.99996948242188,
+            "height": 432.0
         }
     },
     "m_Slots": [

@@ -4,6 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/izumi.unity
+    guid: ce9b12056fe067a4d86a37b8675632e6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bebc9c897a427bc41b2f57e032388074, type: 2}
