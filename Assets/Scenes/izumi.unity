@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779d3dade779fb448a6d84d7f384447c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!43 &99947754
+--- !u!43 &522416946
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,8 +436,8 @@ MonoBehaviour:
   - {x: 0.5, y: 0.5, z: 0}
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 99947754}
-  m_InstanceId: 28576
+  m_Mesh: {fileID: 522416946}
+  m_InstanceId: 68582
 --- !u!114 &1228389235 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6687588190055028840, guid: 671cbee24d9c0a9429c1df5e38eddcb2, type: 3}
