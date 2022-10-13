@@ -56,12 +56,12 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Kitune"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e00935ac-ef2e-462b-a30b-cc9542d96bf0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Cyuusi"",
@@ -74,12 +74,12 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Pose"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b8a066a3-ec21-4cce-8816-9aacb49654cd"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -163,7 +163,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""fc27719e-32e6-4ffc-abf4-2c2729715afa"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -174,7 +174,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""f05ee5f8-c84e-46b6-80ba-06b049bebe5c"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -218,7 +218,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""6aeb4864-7776-4d19-8986-859f3043395a"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -229,7 +229,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""d7b98f4f-0aac-43dc-9024-810846135f9d"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

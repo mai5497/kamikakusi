@@ -61,7 +61,7 @@ public class BlurIn : MonoBehaviour
     void Update()
     {
         // ‚Ú‚©‚µ‚ð‚©‚¯‚é‚©
-        if (isBlur)
+        if (isBlur && !CPData.isRightAnswer)
         {
             // ‚Ú‚©‚µ‘¬“x
             float speedBlur = 0;
@@ -110,5 +110,7 @@ public class BlurIn : MonoBehaviour
                 valueLerpNowBlur = 0;
             }
         }
+
+        CPData.isRightAnswer = false;
     }
 }

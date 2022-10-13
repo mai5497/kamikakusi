@@ -22,14 +22,6 @@ public class mado : MonoBehaviour {
 
     private CircleCollider2D windowCol;
 
-    private bool isLooking;
-
-    public bool IsLooKing {
-        get { 
-            return isLooking; 
-        }
-    }
-
     // Start is called before the first frame update
     void Start() {
         fox = GameObject.FindWithTag("Fox");
@@ -37,38 +29,13 @@ public class mado : MonoBehaviour {
         foxCol = fox.GetComponent<CircleCollider2D>();
 
         windowCol = GetComponent<CircleCollider2D>();
-
-        isLooking = false;
     }
 
     // Update is called once per frame
     void Update() {
-        // ìKìñÇ…Ç¬ÇØÇΩëãÇÃà⁄ìÆ
-        Keyboard _keyboard = Keyboard.current;
-        if (_keyboard != null) {
-            if (_keyboard.dKey.isPressed) {
-                this.transform.position = new Vector3(this.transform.position.x + 0.01f, this.transform.position.y, this.transform.position.z);
-            }
-            if (_keyboard.aKey.isPressed) {
-                this.transform.position = new Vector3(this.transform.position.x - 0.01f, this.transform.position.y, this.transform.position.z);
-            }
-            if (_keyboard.wKey.isPressed) {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.01f, this.transform.position.z);
-            }
-            if (_keyboard.sKey.isPressed) {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.01f, this.transform.position.z);
-            }
-
-            if (_keyboard.shiftKey.isPressed) {
-                isLooking = true;
-            } else {
-                isLooking = false;
-            }
-        }
-
         // éwíËÇµÇΩîÕàÕÇ…ÉÇÉmÇ™Ç†ÇÈÇ©ÇÃîªíË
         if (Physics2D.OverlapCircle(fox.transform.position, 0) == windowCol) {
-            if (isLooking) {
+            if (CPData.isLook) {
                 _Fox.isWindowColl = true;
                 Debug.Log("Ç´Ç¬ÇÀÅI");
             } else {

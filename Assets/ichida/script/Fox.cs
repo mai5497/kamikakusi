@@ -41,6 +41,7 @@ public class Fox : MonoBehaviour {
     void Update() {
         //----- íçéãîªíË -----
         if (isWindowColl) {
+            CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
             if (lookStopTimer < 0 && alpha < 1.0f) {
                 alpha += Time.deltaTime / appearTime;

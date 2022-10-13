@@ -32,7 +32,6 @@ public class HintObj : MonoBehaviour
     private ShowHintManager _ShowHint; // 上で書いたオブジェクトとUIのヒント番号を比較して表示する為のスクリプト
 
     private GameObject window;
-    private mado _mado;
 
     // Start is called before the first frame update
     void Start()
@@ -42,19 +41,23 @@ public class HintObj : MonoBehaviour
         lookStopTimer = lookStopTime;
 
         canvas = GameObject.Find("Canvas");
-        _ShowHint = canvas.GetComponent<ShowHintManager>();
+        if (canvas != null) {
+            _ShowHint = canvas.GetComponent<ShowHintManager>();
+        }
 
-        window = GameObject.Find("mado");
-        _mado = window.GetComponent<mado>();
+        window = GameObject.FindWithTag("FoxWindow");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isWindowColl && _mado.IsLooKing) {
-            lookStopTimer -= Time.deltaTime;    
+        if (isWindowColl && CPData.isLook) {
+            lookStopTimer -= Time.deltaTime;
+            CPData.isRightAnswer = true;
             if (lookStopTimer < 0) {
-                _ShowHint.ShowHintUI(hintNum);  // このオブジェクトのヒント番号を持っていく
+                if (canvas != null) {
+                    _ShowHint.ShowHintUI(hintNum);  // このオブジェクトのヒント番号を持っていく
+                }
             }
             /*
              * もう一度注視で表示することを想定していないのでlookStopTimerの初期化は無し
