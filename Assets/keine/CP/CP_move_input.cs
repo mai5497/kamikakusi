@@ -348,6 +348,15 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fade"",
+                    ""type"": ""Button"",
+                    ""id"": ""95c515a7-8f53-4570-8102-8ba8b0ee930c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -460,6 +469,17 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a3f2dfd-2158-442b-b627-0d49fe857088"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -539,6 +559,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
         m_UI_Decision = m_UI.FindAction("Decision", throwIfNotFound: true);
+        m_UI_Fade = m_UI.FindAction("Fade", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -673,12 +694,14 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Select;
     private readonly InputAction m_UI_Decision;
+    private readonly InputAction m_UI_Fade;
     public struct UIActions
     {
         private @CP_move_input m_Wrapper;
         public UIActions(@CP_move_input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Select => m_Wrapper.m_UI_Select;
         public InputAction @Decision => m_Wrapper.m_UI_Decision;
+        public InputAction @Fade => m_Wrapper.m_UI_Fade;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -694,6 +717,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Decision.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDecision;
                 @Decision.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDecision;
                 @Decision.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDecision;
+                @Fade.started -= m_Wrapper.m_UIActionsCallbackInterface.OnFade;
+                @Fade.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnFade;
+                @Fade.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnFade;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -704,6 +730,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Decision.started += instance.OnDecision;
                 @Decision.performed += instance.OnDecision;
                 @Decision.canceled += instance.OnDecision;
+                @Fade.started += instance.OnFade;
+                @Fade.performed += instance.OnFade;
+                @Fade.canceled += instance.OnFade;
             }
         }
     }
@@ -766,5 +795,6 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     {
         void OnSelect(InputAction.CallbackContext context);
         void OnDecision(InputAction.CallbackContext context);
+        void OnFade(InputAction.CallbackContext context);
     }
 }
