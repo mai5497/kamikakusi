@@ -69,7 +69,7 @@ public class PauseManager : MonoBehaviour
     private bool isDecision;                // 決定
     private bool isConfirm;                   // ファイナルアンサー？
 
-    //private Game_pad UIActionAssets;        // InputActionのUIを扱う
+    private CP_move_input UIActionAssets;        // InputActionのUIを扱う
     //private InputAction LeftStickSelect;    // InputActionのselectを扱う
     //private InputAction RightStickSelect;   // InputActionのselectを扱う
 
@@ -84,9 +84,9 @@ public class PauseManager : MonoBehaviour
     private bool notShowPause;              // ポーズではないときにUIを表示しないようにするための変数
 
 
-    //void Awake() {
-    //    //UIActionAssets = new Game_pad();            // InputActionインスタンスを生成
-    //}
+    void Awake() {
+        UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
+    }
 
     private void Start() {
         quitSelect = (int)eQuitState.YES;
@@ -141,6 +141,24 @@ public class PauseManager : MonoBehaviour
          */
 
     }
+
+    private void OnEnable() {
+        //---Actionイベントを登録
+        //UIActionAssets.UI.LeftStickSelect.started += OnLeftStick;
+        //UIActionAssets.UI.RightStickSelect.started += OnRightStick;
+        //UIActionAssets.UI.Decision.canceled += OnDecision;
+
+
+        //---InputActionの有効化
+        UIActionAssets.UI.Enable();
+    }
+
+
+    private void OnDisable() {
+        //---InputActionの無効化
+        UIActionAssets.UI.Disable();
+    }
+
 
     // Update is called once per frame
     void Update() {
@@ -255,26 +273,6 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    //private void OnEnable() {
-    //    //---スティックの値を取るための設定
-    //    LeftStickSelect = UIActionAssets.UI.LeftStickSelect;
-    //    RightStickSelect = UIActionAssets.UI.RightStickSelect;
-
-    //    //---Actionイベントを登録
-    //    UIActionAssets.UI.LeftStickSelect.started += OnLeftStick;
-    //    UIActionAssets.UI.RightStickSelect.started += OnRightStick;
-    //    UIActionAssets.UI.Decision.canceled += OnDecision;
-
-
-    //    //---InputActionの有効化
-    //    UIActionAssets.UI.Enable();
-    //}
-
-
-    //private void OnDisable() {
-    //    //---InputActionの無効化
-    //    UIActionAssets.UI.Disable();
-    //}
 
     /// <summary>
     /// 左スティック
