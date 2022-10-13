@@ -71,6 +71,33 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pose"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8a066a3-ec21-4cce-8816-9aacb49654cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pose_kettei"",
+                    ""type"": ""Button"",
+                    ""id"": ""27718c86-243a-4eab-9510-52798ddad41b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UI_key"",
+                    ""type"": ""Button"",
+                    ""id"": ""2058c7db-6ef0-4f83-9004-cb536cd92472"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -123,6 +150,17 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""id"": ""93d53fe5-b625-4d02-9f3e-858ddfacfae1"",
                     ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3274bebf-00b1-40b4-8b03-48dc586a9328"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
@@ -280,6 +318,94 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Cyuusi"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4255d2cb-d55a-4c11-9f1b-6c681cfbf016"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17b9f645-8bd2-4096-ad11-24cd77f41412"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61620af0-6fb4-4ab9-ac18-3735a0d179d4"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pose_kettei"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2218c29-da49-40fc-b087-db4d2be5d40f"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pose_kettei"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5fc384f4-108e-45bf-8be2-ab6f86d2e95f"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI_key"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc3ea3ab-8124-453d-a4d9-5cf146122fe6"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI_key"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba2d7269-9dbe-4e17-af5e-2597f10364d9"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI_key"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdbc97a7-15b1-4969-b16d-58da0b2ab09e"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UI_key"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -872,6 +998,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Kitune = m_Player.FindAction("Kitune", throwIfNotFound: true);
         m_Player_Cyuusi = m_Player.FindAction("Cyuusi", throwIfNotFound: true);
+        m_Player_Pose = m_Player.FindAction("Pose", throwIfNotFound: true);
+        m_Player_Pose_kettei = m_Player.FindAction("Pose_kettei", throwIfNotFound: true);
+        m_Player_UI_key = m_Player.FindAction("UI_key", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -948,6 +1077,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Kitune;
     private readonly InputAction m_Player_Cyuusi;
+    private readonly InputAction m_Player_Pose;
+    private readonly InputAction m_Player_Pose_kettei;
+    private readonly InputAction m_Player_UI_key;
     public struct PlayerActions
     {
         private @CP_move_input m_Wrapper;
@@ -957,6 +1089,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Kitune => m_Wrapper.m_Player_Kitune;
         public InputAction @Cyuusi => m_Wrapper.m_Player_Cyuusi;
+        public InputAction @Pose => m_Wrapper.m_Player_Pose;
+        public InputAction @Pose_kettei => m_Wrapper.m_Player_Pose_kettei;
+        public InputAction @UI_key => m_Wrapper.m_Player_UI_key;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -981,6 +1116,15 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Cyuusi.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCyuusi;
                 @Cyuusi.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCyuusi;
                 @Cyuusi.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCyuusi;
+                @Pose.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
+                @Pose.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
+                @Pose.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
+                @Pose_kettei.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose_kettei;
+                @Pose_kettei.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose_kettei;
+                @Pose_kettei.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose_kettei;
+                @UI_key.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUI_key;
+                @UI_key.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUI_key;
+                @UI_key.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUI_key;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1000,6 +1144,15 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Cyuusi.started += instance.OnCyuusi;
                 @Cyuusi.performed += instance.OnCyuusi;
                 @Cyuusi.canceled += instance.OnCyuusi;
+                @Pose.started += instance.OnPose;
+                @Pose.performed += instance.OnPose;
+                @Pose.canceled += instance.OnPose;
+                @Pose_kettei.started += instance.OnPose_kettei;
+                @Pose_kettei.performed += instance.OnPose_kettei;
+                @Pose_kettei.canceled += instance.OnPose_kettei;
+                @UI_key.started += instance.OnUI_key;
+                @UI_key.performed += instance.OnUI_key;
+                @UI_key.canceled += instance.OnUI_key;
             }
         }
     }
@@ -1161,6 +1314,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnKitune(InputAction.CallbackContext context);
         void OnCyuusi(InputAction.CallbackContext context);
+        void OnPose(InputAction.CallbackContext context);
+        void OnPose_kettei(InputAction.CallbackContext context);
+        void OnUI_key(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
