@@ -5,8 +5,11 @@ using UnityEngine;
 public class CPData : MonoBehaviour
 {
     public static  bool isLook = false;     // 注視しているフラグ
-    public static bool isMove = true;       //動いてるか・・(未使用)狐の窓の際に動かないように使う
+    public static bool isLens = false;      // 動いているかレンズ使ってるか
     
     public static bool isPose = false;      //ポーズしているかフラグ
 
+    public static Vector2 playerPos = Vector2.zero; // プレイヤーの座標    
+
+    public static bool isRightAnswer = false;   // 覗いてるところがあってるのであれあばtrue
 }
