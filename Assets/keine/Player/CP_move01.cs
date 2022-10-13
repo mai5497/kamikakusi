@@ -252,12 +252,12 @@ public class CP_move01 : MonoBehaviour
 
         if (Pose && !isPose)
         {
-            Debug.Log("ポーズ中！！！！！！！！！！！！！！！！");
+          //  Debug.Log("ポーズ中！！！！！！！！！！！！！！！！");
             isPose = true;
         }
         else if (Pose && isPose) 
         {
-            Debug.Log("ポーズじゃない！！！！！！！！！！！！！！！！");
+          //  Debug.Log("ポーズじゃない！！！！！！！！！！！！！！！！");
             isPose = false;
         }
 
@@ -265,7 +265,7 @@ public class CP_move01 : MonoBehaviour
 
         if(Pose_kettei && isPose)
         {
-            Debug.Log("ポーズ中の決定！！！！！！！！！！！！！！！！");
+          //  Debug.Log("ポーズ中の決定！！！！！！！！！！！！！！！！");
         }
 
 
