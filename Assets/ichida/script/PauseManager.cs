@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
@@ -70,8 +71,8 @@ public class PauseManager : MonoBehaviour
     private bool isConfirm;                   // ファイナルアンサー？
 
     private CP_move_input UIActionAssets;        // InputActionのUIを扱う
-    //private InputAction LeftStickSelect;    // InputActionのselectを扱う
-    //private InputAction RightStickSelect;   // InputActionのselectを扱う
+    private InputAction LeftStickSelect;    // InputActionのselectを扱う
+    private InputAction RightStickSelect;   // InputActionのselectを扱う
 
     private int pauseSelect;                // ポーズ選択
     private int quitSelect;                 // 最終確認選択
@@ -143,10 +144,12 @@ public class PauseManager : MonoBehaviour
     }
 
     private void OnEnable() {
+        //---スティックの値を取るための設定
+        LeftStickSelect = UIActionAssets.UI.Select;
+        RightStickSelect = UIActionAssets.UI.Select;
+
         //---Actionイベントを登録
-        //UIActionAssets.UI.LeftStickSelect.started += OnLeftStick;
-        //UIActionAssets.UI.RightStickSelect.started += OnRightStick;
-        //UIActionAssets.UI.Decision.canceled += OnDecision;
+        UIActionAssets.UI.Select.started += Select;
 
 
         //---InputActionの有効化
@@ -273,39 +276,6 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// 左スティック
-    /// </summary>
-    /// <param name="obj"></param>
-    //private void OnLeftStick(InputAction.CallbackContext obj) {
-    //    if (!Pause.isPause || SaveManager.canSave || Warp.shouldWarp || GameData.isFadeIn || GameData.isFadeOut || GameOver.GameOverFlag || Optionmanager.activeSelf || notShowPause) {
-    //        if (SousaImage.GetComponent<Image>().enabled) {
-    //            // ポーズ中ではないとき、操作方法表示中ははじく
-    //            return;
-    //        }
-    //    }
-
-    //    //---左ステックのステック入力を取得
-    //    Vector2 doLeftStick = Vector2.zero;
-    //    doLeftStick = LeftStickSelect.ReadValue<Vector2>();
-    //    if (pauseSelect == (int)eSTATEPAUSE.QUITQUESTION) {
-    //        //---少しでも倒されたら処理に入る
-    //        if (doLeftStick.x > 0.0f) {
-    //            SelectRight();
-    //        } else if (doLeftStick.x < 0.0f) {
-    //            SelectLeft();
-    //        }
-    //    } else {
-    //        //---少しでも倒されたら処理に入る
-    //        if (doLeftStick.y > 0.0f) {
-    //            SelectUp();
-    //        } else if (doLeftStick.y < 0.0f) {
-    //            SelectDown();
-    //        }
-    //    }
-    //}
-
     //private void OnRightStick(InputAction.CallbackContext obj) {
     //    if (!Pause.isPause || SaveManager.canSave || Warp.shouldWarp || GameData.isFadeIn || GameData.isFadeOut || GameOver.GameOverFlag || Optionmanager.activeSelf || notShowPause) {
     //        if (SousaImage.GetComponent<Image>().enabled) {
@@ -333,6 +303,35 @@ public class PauseManager : MonoBehaviour
     //        }
     //    }
     //}
+
+    private void Select(InputAction.CallbackContext obj) {
+        if (!Pause.isPause) {
+            //if (SousaImage.GetComponent<Image>().enabled) {
+            //    // ポーズ中ではないとき、操作方法表示中ははじく
+            //    return;
+            //}
+        }
+
+        //---左ステックのステック入力を取得
+        Vector2 doLeftStick = Vector2.zero;
+        doLeftStick = LeftStickSelect.ReadValue<Vector2>();
+        if (pauseSelect == (int)eSTATEPAUSE.QUITQUESTION) {
+            //---少しでも倒されたら処理に入る
+            if (doLeftStick.x > 0.0f) {
+                SelectRight();
+            } else if (doLeftStick.x < 0.0f) {
+                SelectLeft();
+            }
+        } else {
+            //---少しでも倒されたら処理に入る
+            if (doLeftStick.y > 0.0f) {
+                SelectUp();
+            } else if (doLeftStick.y < 0.0f) {
+                SelectDown();
+            }
+        }
+
+    }
 
     /// <summary>
     /// 決定ボタン
