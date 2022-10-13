@@ -310,16 +310,16 @@
             "id": "2f65e29a-9ab3-4d4c-b5b2-2cf16f59181d",
             "actions": [
                 {
-                    "name": "key",
-                    "type": "Button",
+                    "name": "Select",
+                    "type": "Value",
                     "id": "8c2700db-314b-41b2-b8b7-74ef9d2a37e2",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "kettei",
+                    "name": "Decision",
                     "type": "Button",
                     "id": "8c793e9e-0c8b-443a-ae1f-cf1f8c32abdc",
                     "expectedControlType": "Button",
@@ -331,56 +331,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "26200285-ad45-481b-83cc-85911863d8ea",
-                    "path": "<XInputController>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "key",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3c86cddc-574f-487c-acfc-2af87d7425c7",
-                    "path": "<XInputController>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "key",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7068f016-590e-4536-b492-9fe721e31e6e",
-                    "path": "<XInputController>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "key",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d1b0d1e2-b09a-49de-8d29-86e951bc62d6",
-                    "path": "<XInputController>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "key",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "917f847e-c66e-453e-894c-5e5b0b67991d",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "kettei",
+                    "action": "Decision",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -391,9 +347,97 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "kettei",
+                    "action": "Decision",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a201c25d-480b-4bb7-b5b9-1b3b57b57dc0",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ef9265c-28ce-42e0-b48b-d64b9fa868b4",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf285d20-b337-49dd-a24e-1cc8cef33306",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "be450a1f-9075-45aa-8376-3daeaf9bd882",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "3eea6f02-1be4-4c41-b0d3-88eea05af622",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5cf4a515-7976-4924-a2b5-8b7889d13c53",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "742504a4-db0f-490c-b494-b21d8830e3be",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7b3269ce-12be-4e9f-85da-e0965b307d94",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
