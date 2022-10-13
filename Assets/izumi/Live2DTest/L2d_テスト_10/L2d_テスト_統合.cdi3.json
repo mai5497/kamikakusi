@@ -1,0 +1,32 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "角度 X_仮面あり"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "仮面着脱"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "右腕_仮面持ちあげ"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "小森のL2d_テスト"
+		}
+	]
+}
