@@ -88,9 +88,6 @@ public class PauseManager : MonoBehaviour
     //    //UIActionAssets = new Game_pad();            // InputActionインスタンスを生成
     //}
 
-
-
-
     private void Start() {
         quitSelect = (int)eQuitState.YES;
         pauseSelect = (int)eSTATEPAUSE.RETURNGAME;       // 選択のモードの初期化
