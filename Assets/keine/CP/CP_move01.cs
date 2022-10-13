@@ -1,3 +1,33 @@
+
+
+
+
+
+//=============================================================================
+//
+//プレイヤーデータ
+//
+// 作成日:2022/10/11
+// 作成者:八木橋慧音
+//
+// <開発履歴>
+// 2022/10/12 作成
+//
+//=============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
@@ -26,13 +56,14 @@ public class CP_move01 : MonoBehaviour
 
 
     //アクション取得用
-    private InputAction _moveAction, _fireAction,_kituneAction,_cyuusiAction;
+    private InputAction _moveAction, _fireAction,_kituneAction,_cyuusiAction, _poseAction, _pose_ketteiAction, _ui_keyAction;
 
     //注視
     public bool isLook=false;
-
+    //動いてるか・・まだ使ってない狐の窓の際に動かないように使う
     public bool isMove = true;
-
+    //ポーズ
+    public bool isPose = false;
 
     enum Mode
     {
@@ -60,8 +91,9 @@ public class CP_move01 : MonoBehaviour
         _fireAction = actionMap["Fire"];
         _kituneAction = actionMap["Kitune"];
         _cyuusiAction = actionMap["Cyuusi"];
-
-
+        _poseAction = actionMap["Pose"];
+        _pose_ketteiAction = actionMap["Pose_kettei"];
+        _ui_keyAction = actionMap["UI_key"];
     }
 
     void Update()
@@ -113,17 +145,17 @@ public class CP_move01 : MonoBehaviour
 
       //  bool isFire = _fireAction.triggered;
 
-        // shiftキーの入力状態取得
-        var shiftKey = current.shiftKey;
-       // shiftキーが押されたかどうか
-        if (shiftKey.isPressed)
-        {
-           // Debug.Log("shiftキーが押された！");
+       // // shiftキーの入力状態取得
+       // var shiftKey = current.shiftKey;
+       //// shiftキーが押されたかどうか
+       // if (shiftKey.isPressed)
+       // {
+       //    // Debug.Log("shiftキーが押された！");
 
-            //走ってるかどうか
-            isDash = true;
+       //     //走ってるかどうか
+       //     isDash = true;
         
-        }
+       // }
       
        
 
@@ -176,15 +208,20 @@ public class CP_move01 : MonoBehaviour
 
         //狐の窓展開！！！！！！！！！！！！！！！１１
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        bool KituneMado = _kituneAction.IsPressed();
-        if(KituneMado)
+        bool KituneMado = _kituneAction.WasPerformedThisFrame();
+        if(KituneMado&& mode == Mode.not_mado)
         {
-              Debug.Log("狐の窓展開！！！！！！！！！！！！！！！！");
-            isLook = true;
+          //    Debug.Log("狐の窓展開！！！！！！！！！！！！！！！！");
+          //  isLook = true;
             mode =  Mode.in_mado;
 
         }
-    
+         else if (KituneMado && mode == Mode.in_mado)
+            {
+            //    Debug.Log("窓終わり！！！！！！！！！！！！！！！！");
+               // isLook = false;
+                 mode = Mode.not_mado;
+            }
        
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///
@@ -192,23 +229,52 @@ public class CP_move01 : MonoBehaviour
         //注視します//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         bool Cyuusi = _cyuusiAction.IsPressed();
-        if(Cyuusi && isLook && mode == Mode.in_mado)
+        if(Cyuusi && mode == Mode.in_mado)
         {
-            Debug.Log("注視！！！！！！！！！！！！！！！！");
+         //   Debug.Log("注視！！！！！！！！！！！！！！！！");
            
         }
         else 
         {
-            Debug.Log("注視できない！！！！！！！！！！！！！！！！");
+           // Debug.Log("注視できない！！！！！！！！！！！！！！！！");
 
-            isLook = false;
-
-          if(isLook && mode == Mode.in_mado)
-             {
-                Debug.Log("窓終わり！！！！！！！！！！！！！！！！");
-                mode = Mode.not_mado;
-            }
+          
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+
+        //ポーズします//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        bool Pose = _poseAction.WasPerformedThisFrame();
+
+        if (Pose && !isPose)
+        {
+            Debug.Log("ポーズ中！！！！！！！！！！！！！！！！");
+            isPose = true;
+        }
+        else if (Pose && isPose) 
+        {
+            Debug.Log("ポーズじゃない！！！！！！！！！！！！！！！！");
+            isPose = false;
+        }
+
+        bool Pose_kettei = _pose_ketteiAction.WasPerformedThisFrame();
+
+        if(Pose_kettei && isPose)
+        {
+            Debug.Log("ポーズ中の決定！！！！！！！！！！！！！！！！");
+        }
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///十字きー設定
+        //bool UI_key = _ui_keyAction.IsPressed();
+
+
+
+
+
+
 
 
 
@@ -217,5 +283,5 @@ public class CP_move01 : MonoBehaviour
 
 
     }
-   
+
 }
