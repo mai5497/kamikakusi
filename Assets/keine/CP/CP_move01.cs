@@ -43,6 +43,7 @@ public class CP_move01 : MonoBehaviour
     //パッド用
     //public InputAction m_inputMover;
     //public Vector2 m_movementValue;
+    [Header("移動スピード")]
     public float fSpeed = 0.01f;
     //private void OnEnable()
     //{
@@ -59,10 +60,12 @@ public class CP_move01 : MonoBehaviour
     private InputAction _moveAction, _fireAction,_kituneAction,_cyuusiAction, _poseAction, _pose_ketteiAction, _ui_keyAction;
 
     //注視
+    [Header("注視してるか")]
     public bool isLook=false;
     //動いてるか・・まだ使ってない狐の窓の際に動かないように使う
     public bool isMove = true;
     //ポーズ
+    [Header("ポーズしてるか")]
     public bool isPose = false;
 
     enum Mode
@@ -268,9 +271,17 @@ public class CP_move01 : MonoBehaviour
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///十字きー設定
-        //bool UI_key = _ui_keyAction.IsPressed();
+        //
+       // bool UI_key = _ui_keyAction.IsPressed();
 
+        Vector2 UI_key = _ui_keyAction.ReadValue<Vector2>();
 
+        transform.Translate(
+            UI_key.x ,
+            UI_key.y,
+            0.0f);
+
+       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
