@@ -1,92 +1,49 @@
-
-
-
-
-
 //=============================================================================
 //
 //プレイヤーデータ
 //
 // 作成日:2022/10/11
 // 作成者:八木橋慧音
+// 編集者:伊地田真衣
 //
 // <開発履歴>
 // 2022/10/12 作成
+// 2022/10/13 マージのためにいろいろ変更
 //
 //=============================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CP_move01 : MonoBehaviour
-{
-    public  bool isDash = false;
+public class CP_move01 : MonoBehaviour {
+    public bool isDash = false;
 
-  //  public float fMove;
-
-
-    //パッド用
-    //public InputAction m_inputMover;
-    //public Vector2 m_movementValue;
     [Header("移動スピード")]
-    public float fSpeed = 0.01f;
-    //private void OnEnable()
-    //{
-    //    m_inputMover.Enable();
-    //}
-    //private void OnDisable()
-    //{
-    //    m_inputMover.Disable();
-    //}
-
-
+    public float fSpeed = 0.01f;    // プレイヤーの移動と窓の移動スピード兼ねてる
 
     //アクション取得用
-    private InputAction _moveAction, _fireAction,_kituneAction,_cyuusiAction, _poseAction, _pose_ketteiAction, _ui_keyAction;
+    private InputAction _moveAction, _fireAction, _kituneAction, _cyuusiAction, _poseAction;
+    //private CP_move_input ActionAssets;        // InputActionを扱う
 
-    //注視
-    [Header("注視してるか")]
-    public bool isLook=false;
-    //動いてるか・・まだ使ってない狐の窓の際に動かないように使う
-    public bool isMove = true;
-    //ポーズ
-    [Header("ポーズしてるか")]
-    public bool isPose = false;
+    private LensManager _LensManager;
 
-    enum Mode
-    {
+    enum Mode {
         not_mado,
         in_mado,
     }
 
-    Mode mode= Mode.not_mado; 
+    Mode mode = Mode.not_mado;
 
-    //public float fDash = 1.0f;
+    void Start() {
+        _LensManager = this.GetComponent<LensManager>();
+    }
 
-
-    void Start()
-    {
-        //  float fSpeed = 0.01f;
-       // fMove = 0.03f;
-        var pInput = GetComponent<PlayerInput>();
-      
+    void Awake() {
+        //ActionAssets = new CP_move_input();            // InputActionインスタンスを生成
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
+        var pInput = GetComponent<PlayerInput>();
         var actionMap = pInput.currentActionMap;
 
         //アクションマップからアクションを取得
@@ -95,204 +52,112 @@ public class CP_move01 : MonoBehaviour
         _kituneAction = actionMap["Kitune"];
         _cyuusiAction = actionMap["Cyuusi"];
         _poseAction = actionMap["Pose"];
-        _pose_ketteiAction = actionMap["Pose_kettei"];
-        _ui_keyAction = actionMap["UI_key"];
     }
 
-    void Update()
-    {
+    private void OnEnable() {
+        //---Actionイベントを登録
+        _poseAction.canceled += OnPoseKey;
+        _kituneAction.canceled += OnLens;
+        _cyuusiAction.started += LookStart;
+        _cyuusiAction.canceled += LookFin;
 
-      //   Transform transform = this.transform;
-        //Vector3 pos = transform.position
+        //---InputActionの有効化
+        //ActionAssets.Player.Enable();
+    }
 
-
-         var current = Keyboard.current;
-
-        // // キーボード接続チェック
-        // if (current == null)
-        // {
-        //     // キーボードが接続されていないと
-        //     // Keyboard.currentがnullになる
-        //     return;
-        // }
-
-        // // Aキーの入力状態取得
-        // var aKey = current.aKey;
-        // // Dキーの入力状態取得
-        // var dKey = current.dKey;
-        // //ゲームパッドの入力状態取得
-        // //  var gamepad = Gamepad.leftStick.ReadValue();
-        //// var gamepad = Gamepad.current.leftStick;
-        // // キーが押されたかどうか
-        // if (aKey.isPressed )
-        // {
-        //     Debug.Log("Aキーが押された！");
-
-        //     // pos.x -= 0.01f;
-
-        //      transform.position -= transform.right * fMove;   
-
-        // }
-        // // キーが押されたかどうか
-        // else if (dKey.isPressed)
-        // {
-        //     Debug.Log("Dキーが押された！");
-
-        //     // pos.x -= 0.01f;
-
-        //     transform.position += transform.right * fMove ;
-
-        // }
+    private void OnDisable() {
+        //---InputActionの無効化
+        //ActionAssets.Player.Disable();
+    }
 
 
+    void Update() {
+        if (!CPData.isLens) {
+            //プレイヤーの移動処理
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Vector2 move = _moveAction.ReadValue<Vector2>();
 
-      //  bool isFire = _fireAction.triggered;
+            transform.Translate(
+                move.x * fSpeed,
+                0.0f,
+                0.0f);
 
-       // // shiftキーの入力状態取得
-       // var shiftKey = current.shiftKey;
-       //// shiftキーが押されたかどうか
-       // if (shiftKey.isPressed)
-       // {
-       //    // Debug.Log("shiftキーが押された！");
+            bool fire = _fireAction.IsPressed();
 
-       //     //走ってるかどうか
-       //     isDash = true;
-        
-       // }
-      
-       
-
-
-        //パッド用
-        //m_movementValue = m_inputMover.ReadValue<Vector2>();
-        //transform.Translate(
-        //    m_movementValue.x * fSpeed,
-        //    0.0f,
-        //    0.0f);
-
-
-      
-         //プレイヤーの移動処理
-         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Vector2 move = _moveAction.ReadValue<Vector2>();
-
-        transform.Translate(
-            move.x * fSpeed,
-            0.0f,
-            0.0f);
-
-        bool fire = _fireAction.IsPressed();
-        
-        if(fire)
-        {
-          //  Debug.Log("shiftキーが押された！");
-            isDash = true;
-        }
-        else 
-        {
-          //  Debug.Log("aaaaaaaaaaaaaasdasadsa！");
-            isDash = false;
-        }
-        
-        if (isDash)
-        {
-            fSpeed = 0.02f;
-        } 
-        else 
-        {
-            isDash = false;
-
-            if (!isDash) 
-            {
-                fSpeed = 0.01f;
+            if (fire) {
+                //  Debug.Log("shiftキーが押された！");
+                isDash = true;
+            } else {
+                //  Debug.Log("aaaaaaaaaaaaaasdasadsa！");
+                isDash = false;
             }
-        }
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //狐の窓展開！！！！！！！！！！！！！！！１１
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        bool KituneMado = _kituneAction.WasPerformedThisFrame();
-        if(KituneMado&& mode == Mode.not_mado)
-        {
-          //    Debug.Log("狐の窓展開！！！！！！！！！！！！！！！！");
-          //  isLook = true;
-            mode =  Mode.in_mado;
+            if (isDash) {
+                fSpeed = 0.02f;
+            } else {
+                isDash = false;
 
-        }
-         else if (KituneMado && mode == Mode.in_mado)
-            {
-            //    Debug.Log("窓終わり！！！！！！！！！！！！！！！！");
-               // isLook = false;
-                 mode = Mode.not_mado;
+                if (!isDash) {
+                    fSpeed = 0.01f;
+                }
             }
-       
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///
 
-        //注視します//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //狐の窓展開！！！！！！！！！！！！！！！１１
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //if (CPData.isLens) {
+            //    //    Debug.Log("狐の窓展開！！！！！！！！！！！！！！！！");
+            //    //  isLook = true;
+            //    mode = Mode.in_mado;
+            //} else {
+            //    //    Debug.Log("窓終わり！！！！！！！！！！！！！！！！");
+            //    // isLook = false;
+            //    mode = Mode.not_mado;
+            //}
 
-        bool Cyuusi = _cyuusiAction.IsPressed();
-        if(Cyuusi && mode == Mode.in_mado)
-        {
-         //   Debug.Log("注視！！！！！！！！！！！！！！！！");
-           
+            CPData.playerPos = this.transform.position;
+
+        } else {
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///
+            //注視します//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //bool Cyuusi = _cyuusiAction.IsPressed();
+            //if (Cyuusi && mode == Mode.in_mado) {
+            //    //   Debug.Log("注視！！！！！！！！！！！！！！！！");
+            //    CPData.isLook = true;
+            //} else {
+            //    // Debug.Log("注視してない！！！！！！！！！！！！！！！！");
+            //    CPData.isLook = false;
+            //}
+
         }
-        else 
-        {
-           // Debug.Log("注視できない！！！！！！！！！！！！！！！！");
 
-          
-        }
+
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///
-
         //ポーズします//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        bool Pose = _poseAction.WasPerformedThisFrame();
+    }
 
-        if (Pose && !isPose)
-        {
-          //  Debug.Log("ポーズ中！！！！！！！！！！！！！！！！");
-            isPose = true;
-        }
-        else if (Pose && isPose) 
-        {
-          //  Debug.Log("ポーズじゃない！！！！！！！！！！！！！！！！");
-            isPose = false;
-        }
+    public Vector2 GetMoveValue() {
+        return _moveAction.ReadValue<Vector2>();
+    }
 
-        bool Pose_kettei = _pose_ketteiAction.WasPerformedThisFrame();
+    private void OnLens(InputAction.CallbackContext obj) {
+        CPData.isLens = !CPData.isLens;
+    }
+    private void OnPoseKey(InputAction.CallbackContext obj) {
+        CPData.isPose = !CPData.isPose;
+    }
 
-        if(Pose_kettei && isPose)
-        {
-          //  Debug.Log("ポーズ中の決定！！！！！！！！！！！！！！！！");
-        }
-
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///十字きー設定
-        //
-       // bool UI_key = _ui_keyAction.IsPressed();
-
-        Vector2 UI_key = _ui_keyAction.ReadValue<Vector2>();
-
-        transform.Translate(
-            UI_key.x ,
-            UI_key.y,
-            0.0f);
-
-       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
+    private void LookStart(InputAction.CallbackContext obj) {
+        CPData.isLook = true;
+    }
+    private void LookFin(InputAction.CallbackContext obj) {
+        CPData.isLook = false;
     }
 
 }
