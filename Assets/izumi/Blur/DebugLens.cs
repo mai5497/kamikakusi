@@ -36,6 +36,11 @@ public class DebugLens : MonoBehaviour
     public BlurIn blurIn;
     [Header("ぼかしの現在の補間値確認用テキスト")]
     public Text valueLerpText;
+    [Header("モード確認用テキスト")]
+    public Text modeText;
+
+    [Header("ズーム")]
+    public ZoomLens zoomLens;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +73,27 @@ public class DebugLens : MonoBehaviour
         // ぼかし補間値の表示
         valueLerpText.text = blurIn.valueLerpNowBlur.ToString();
 
+        // モードの表示
+        if (blurIn.isBlur)
+        {
+            switch (blurIn.blurMode)
+            {
+                case BlurIn.BlurMode.Normal:
+                    modeText.text = "狐の窓";
+                    break;
+                case BlurIn.BlurMode.PressInit:
+                    modeText.text = "注視始め";
+                    break;
+                case BlurIn.BlurMode.Press:
+                    modeText.text = "注視";
+                    break;
+            }
+        }
+        else
+        {
+            modeText.text = "通常";
+        }
+
         // 入力
         // レンズの使用切替
         if (keyboard.spaceKey.wasPressedThisFrame)
@@ -85,22 +111,26 @@ public class DebugLens : MonoBehaviour
                 enableLens.EnableImage(false);
             }
         }
-        // レンズ移動
-        if (keyboard.aKey.isPressed)
+        float moveSpeed = 1 * Time.deltaTime;
+        // レンズ移動(通常時のみ)
+        if (blurIn.blurMode == BlurIn.BlurMode.Normal)
         {
-            lensObj.transform.position = new Vector3(lensObj.transform.position.x + (-1 * Time.deltaTime), lensObj.transform.position.y, lensObj.transform.position.z);
-        }
-        if (keyboard.dKey.isPressed)
-        {
-            lensObj.transform.position = new Vector3(lensObj.transform.position.x + (1 * Time.deltaTime), lensObj.transform.position.y, lensObj.transform.position.z);
-        }
-        if (keyboard.sKey.isPressed)
-        {
-            lensObj.transform.position = new Vector3(lensObj.transform.position.x, lensObj.transform.position.y + (-1 * Time.deltaTime), lensObj.transform.position.z);
-        }
-        if (keyboard.wKey.isPressed)
-        {
-            lensObj.transform.position = new Vector3(lensObj.transform.position.x, lensObj.transform.position.y + (1 * Time.deltaTime), lensObj.transform.position.z);
+            if (keyboard.aKey.isPressed)
+            {
+                lensObj.transform.position = new Vector3(lensObj.transform.position.x - moveSpeed, lensObj.transform.position.y, lensObj.transform.position.z);
+            }
+            if (keyboard.dKey.isPressed)
+            {
+                lensObj.transform.position = new Vector3(lensObj.transform.position.x + moveSpeed, lensObj.transform.position.y, lensObj.transform.position.z);
+            }
+            if (keyboard.sKey.isPressed)
+            {
+                lensObj.transform.position = new Vector3(lensObj.transform.position.x, lensObj.transform.position.y - moveSpeed, lensObj.transform.position.z);
+            }
+            if (keyboard.wKey.isPressed)
+            {
+                lensObj.transform.position = new Vector3(lensObj.transform.position.x, lensObj.transform.position.y + moveSpeed, lensObj.transform.position.z);
+            }
         }
         // レンズの注視(ぼかしモード変更)
         if (keyboard.shiftKey.isPressed)
@@ -108,11 +138,15 @@ public class DebugLens : MonoBehaviour
             if (blurIn.blurMode == BlurIn.BlurMode.Normal)
             {
                 blurIn.blurMode = BlurIn.BlurMode.PressInit;
+                // ズーム処理
+                zoomLens.isZoom = true;
             }
         }
         else
         {
             blurIn.blurMode = BlurIn.BlurMode.Normal;
+            // ズーム解除処理
+            zoomLens.isZoom = false;
         }
 
     }
