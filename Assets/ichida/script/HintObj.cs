@@ -19,23 +19,19 @@ public class HintObj : MonoBehaviour
     private string objName;     // 何番目のヒントのオブジェクトか格納
                                 // この番号と対応するヒントが出るため
                                 // ヒント側でも設定が必要
-    public string ObjNama {
-        get { return objName; }
-    }
 
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
 
+    private mado _mado;     // 窓オブジェクトについている窓スクリプト
+
     private const float lookStopTime = 3.0f;    // 注視して止まらないといけない時間
-    //private const float appearTime = 1.5f;  // アルファ値が上がりきるまでの時間
 
     private float lookStopTimer;    // 注視して止まらないといけない時間のカウント用タイマー
 
-    private GameObject canvas;  // シーンのキャンバスにオブジェクトとUIヒント番号を比較して表示するのをいれてあるので
-                                // キャンバスを取得する
-    private ShowHintManager _ShowHint; // 上で書いたオブジェクトとUIのヒント番号を比較して表示する為のスクリプト
-
-    private GameObject window;
+    //private GameObject canvas;  // シーンのキャンバスにオブジェクトとUIヒント番号を比較して表示するのをいれてあるので
+    //                            // キャンバスを取得する
+    //private ShowHintManager _ShowHint; // 上で書いたオブジェクトとUIのヒント番号を比較して表示する為のスクリプト
 
     // Start is called before the first frame update
     void Start()
@@ -44,12 +40,12 @@ public class HintObj : MonoBehaviour
 
         lookStopTimer = lookStopTime;
 
-        canvas = GameObject.Find("Canvas");
+        //canvas = GameObject.Find("Canvas");
         //if (canvas != null) {
         //    _ShowHint = canvas.GetComponent<ShowHintManager>();
         //}
 
-        window = GameObject.FindWithTag("FoxWindow");
+        _mado = GameObject.Find("Lens").GetComponent<mado>();
     }
 
     // Update is called once per frame
@@ -73,12 +69,14 @@ public class HintObj : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = true;
+            _mado.SetLookObjName(objName);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = false;
+            _mado.SetLookObjName(null);
         }
     }
 }
