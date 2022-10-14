@@ -16,9 +16,13 @@ using UnityEngine;
 public class HintObj : MonoBehaviour
 {
     [SerializeField]
-    private int hintNum;    // 何番目のヒントのオブジェクトか格納
-                            // この番号と対応するヒントが出るため
-                            // ヒント側でも設定が必要
+    private string objName;     // 何番目のヒントのオブジェクトか格納
+                                // この番号と対応するヒントが出るため
+                                // ヒント側でも設定が必要
+    public string ObjNama {
+        get { return objName; }
+    }
+
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
 
@@ -41,9 +45,9 @@ public class HintObj : MonoBehaviour
         lookStopTimer = lookStopTime;
 
         canvas = GameObject.Find("Canvas");
-        if (canvas != null) {
-            _ShowHint = canvas.GetComponent<ShowHintManager>();
-        }
+        //if (canvas != null) {
+        //    _ShowHint = canvas.GetComponent<ShowHintManager>();
+        //}
 
         window = GameObject.FindWithTag("FoxWindow");
     }
@@ -54,12 +58,13 @@ public class HintObj : MonoBehaviour
         if (isWindowColl && CPData.isLook) {
             lookStopTimer -= Time.deltaTime;
             CPData.isRightAnswer = true;
-            if (lookStopTimer < 0) {
-                if (canvas != null) {
-                    _ShowHint.ShowHintUI(hintNum);  // このオブジェクトのヒント番号を持っていく
-                }
-            }
+            //if (lookStopTimer < 0) {
+            //    if (canvas != null) {
+            //        _ShowHint.ShowHintUI(hintNum);  // このオブジェクトのヒント番号を持っていく
+            //    }
+            //}
             /*
+             * 注視でヒントが出なくなったのでコメントアウト
              * もう一度注視で表示することを想定していないのでlookStopTimerの初期化は無し
              */
         }

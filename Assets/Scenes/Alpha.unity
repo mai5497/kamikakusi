@@ -843,6 +843,10 @@ PrefabInstance:
       propertyPath: zoomLens
       value: 
       objectReference: {fileID: 1899646077}
+    - target: {fileID: 9100411136746622272, guid: 4f289428824edad429a9bd5456f6eb43, type: 3}
+      propertyPath: lensSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f289428824edad429a9bd5456f6eb43, type: 3}
