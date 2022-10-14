@@ -62,8 +62,15 @@ public class LensManager : MonoBehaviour
 
             oldIsLens = CPData.isLens;
         }
+
+        //if (!CPData.isHint) {
+        //    blurIn.isBlur = false;
+        //} else {
+        //    blurIn.isBlur = true;
+        //}
+
         // レンズ移動(通常時のみ)
-        if (CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
+        if (!CPData.isHint && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
             //if (keyboard.aKey.isPressed) {
             //    lensObj.transform.position = new Vector3(lensObj.transform.position.x - moveSpeed, lensObj.transform.position.y, lensObj.transform.position.z);
             //}
@@ -86,7 +93,7 @@ public class LensManager : MonoBehaviour
             lensObj.transform.position = new Vector3(lensObj.transform.position.x + moveVal.x, lensObj.transform.position.y + moveVal.y, lensObj.transform.position.z);
         }
         // レンズの注視(ぼかしモード変更)
-        if (CPData.isLook) {
+        if (CPData.isLook && CPData.isLens) {
             if (blurIn.blurMode == BlurIn.BlurMode.Normal) {
                 blurIn.blurMode = BlurIn.BlurMode.PressInit;
                 // ズーム処理

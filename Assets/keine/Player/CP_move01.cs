@@ -23,7 +23,7 @@ public class CP_move01 : MonoBehaviour {
     public float fSpeed = 0.01f;    // プレイヤーの移動と窓の移動スピード兼ねてる
 
     //アクション取得用
-    private InputAction _moveAction, _fireAction, _kituneAction, _cyuusiAction, _poseAction;
+    private InputAction _moveAction, _fireAction, _kituneAction, _cyuusiAction, _poseAction, _hintAction;
     //private CP_move_input ActionAssets;        // InputActionを扱う
 
     private LensManager _LensManager;
@@ -52,6 +52,7 @@ public class CP_move01 : MonoBehaviour {
         _kituneAction = actionMap["Kitune"];
         _cyuusiAction = actionMap["Cyuusi"];
         _poseAction = actionMap["Pose"];
+        _hintAction = actionMap["Hint"];
     }
 
     private void OnEnable() {
@@ -60,6 +61,7 @@ public class CP_move01 : MonoBehaviour {
         _kituneAction.canceled += OnLens;
         _cyuusiAction.started += LookStart;
         _cyuusiAction.canceled += LookFin;
+        _hintAction.canceled += OpenHint;
 
         //---InputActionの有効化
         //ActionAssets.Player.Enable();
@@ -73,73 +75,48 @@ public class CP_move01 : MonoBehaviour {
 
     void Update() {
         if (!CPData.isLens) {
-            //プレイヤーの移動処理
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            Vector2 move = _moveAction.ReadValue<Vector2>();
+            if (!CPData.isHint) {
+                //プレイヤーの移動処理
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                Vector2 move = _moveAction.ReadValue<Vector2>();
 
-            transform.Translate(
-                move.x * fSpeed,
-                0.0f,
-                0.0f);
+                transform.Translate(
+                    move.x * fSpeed,
+                    0.0f,
+                    0.0f);
 
-            bool fire = _fireAction.IsPressed();
+                bool fire = _fireAction.IsPressed();
 
-            if (fire) {
-                //  Debug.Log("shiftキーが押された！");
-                isDash = true;
-            } else {
-                //  Debug.Log("aaaaaaaaaaaaaasdasadsa！");
-                isDash = false;
+                if (fire) {
+                    //  Debug.Log("shiftキーが押された！");
+                    isDash = true;
+                } else {
+                    //  Debug.Log("aaaaaaaaaaaaaasdasadsa！");
+                    isDash = false;
+                }
+
+                if (isDash) {
+                    fSpeed = 0.02f;
+                } else {
+                    isDash = false;
+
+                    if (!isDash) {
+                        fSpeed = 0.01f;
+                    }
+                }
+                CPData.playerPos = this.transform.position;
             }
-
-            if (isDash) {
-                fSpeed = 0.02f;
-            } else {
-                isDash = false;
-
-                if (!isDash) {
-                    fSpeed = 0.01f;
+        } else {
+            /*
+             * 狐の窓使用時は別スクリプト
+             */
+            if (CPData.isLook) {
+                if (CPData.isHint) {
+                    CPData.isLook = false;
                 }
             }
 
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //狐の窓展開！！！！！！！！！！！！！！！１１
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //if (CPData.isLens) {
-            //    //    Debug.Log("狐の窓展開！！！！！！！！！！！！！！！！");
-            //    //  isLook = true;
-            //    mode = Mode.in_mado;
-            //} else {
-            //    //    Debug.Log("窓終わり！！！！！！！！！！！！！！！！");
-            //    // isLook = false;
-            //    mode = Mode.not_mado;
-            //}
-
-            CPData.playerPos = this.transform.position;
-
-        } else {
-
-
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///
-            //注視します//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            //bool Cyuusi = _cyuusiAction.IsPressed();
-            //if (Cyuusi && mode == Mode.in_mado) {
-            //    //   Debug.Log("注視！！！！！！！！！！！！！！！！");
-            //    CPData.isLook = true;
-            //} else {
-            //    // Debug.Log("注視してない！！！！！！！！！！！！！！！！");
-            //    CPData.isLook = false;
-            //}
-
         }
-
-
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///
-        //ポーズします//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     public Vector2 GetMoveValue() {
@@ -147,6 +124,9 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void OnLens(InputAction.CallbackContext obj) {
+        if (CPData.isHint) {
+            return;
+        }
         CPData.isLens = !CPData.isLens;
     }
     private void OnPoseKey(InputAction.CallbackContext obj) {
@@ -154,10 +134,16 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void LookStart(InputAction.CallbackContext obj) {
+        if (CPData.isHint) {
+            return;
+        }
         CPData.isLook = true;
     }
     private void LookFin(InputAction.CallbackContext obj) {
         CPData.isLook = false;
     }
 
+    private void OpenHint(InputAction.CallbackContext obj) {
+        CPData.isHint = !CPData.isHint;
+    }
 }

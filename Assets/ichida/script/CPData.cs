@@ -12,4 +12,6 @@ public class CPData : MonoBehaviour
     public static Vector2 playerPos = Vector2.zero; // プレイヤーの座標    
 
     public static bool isRightAnswer = false;   // 覗いてるところがあってるのであれあばtrue
+
+    public static bool isHint = false;      // こっくりさん画面をだしてるか
 }
