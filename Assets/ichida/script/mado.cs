@@ -23,6 +23,9 @@ public class mado : MonoBehaviour {
     private CircleCollider2D windowCol;
 
     private string lookObjName; // 今見ているオブジェクトの名前
+    private string lookUraObjName; // 今見ているオブジェクトの名前
+
+    private Kokkurisan kokkurisan;
 
     // Start is called before the first frame update
     void Start() {
@@ -31,6 +34,8 @@ public class mado : MonoBehaviour {
         foxCol = fox.GetComponent<CircleCollider2D>();
 
         windowCol = GetComponent<CircleCollider2D>();
+
+        kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
     }
 
     // Update is called once per frame
@@ -49,14 +54,19 @@ public class mado : MonoBehaviour {
                 _Fox.isWindowColl = false;
             }
         }
+
+        kokkurisan.kituneAnswerStr = lookUraObjName;
+        kokkurisan.answerStr = lookObjName;
+
     }
 
     /// <summary>
     /// 今見ているオブジェクトの名前を保存
     /// </summary>
     /// <param name="_lookObjName"></param>
-    public void SetLookObjName(string _lookObjName) {
+    public void SetLookObjName(string _lookObjName,string _lookUraObjName) {
         lookObjName = _lookObjName;
+        lookUraObjName = _lookUraObjName;
     }
 
     /// <summary>
@@ -66,4 +76,8 @@ public class mado : MonoBehaviour {
     public string GetLookObjName() {
         return lookObjName;
     }
+    public string GetLookUraObjName() {
+        return lookUraObjName;
+    }
+
 }

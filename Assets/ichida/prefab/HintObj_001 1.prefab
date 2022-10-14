@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ce4e79ea77c9a7c4ab723e4c2a49a02a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b3f7fec7d9a9114eb22bd08a65337cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 901205522317252278}
   - component: {fileID: 8715628625492300061}
   m_Layer: 0
-  m_Name: HintObj_001
+  m_Name: HintObj_001 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c058790d77e9449b40241de6f498df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objName: "\u3042\u304B\u3044\u306A\u3059"
-  uraObjName: "\u3042\u304A\u3044\u3057\u304B\u304F"
+  objName: "\u3042\u304B\u3044\u3057\u304B\u304F"
+  uraObjName: "\u3042\u304A\u3044\u306A\u3059"
 --- !u!70 &904095519015727634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 871681bba5bbfd244943e28a298c11dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6cd1996a360b8964fadd4b37e67d0937, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

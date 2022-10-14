@@ -19,6 +19,8 @@ public class HintObj : MonoBehaviour
     private string objName;     // 何番目のヒントのオブジェクトか格納
                                 // この番号と対応するヒントが出るため
                                 // ヒント側でも設定が必要
+    [SerializeField]
+    private string uraObjName;
 
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
@@ -69,14 +71,14 @@ public class HintObj : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = true;
-            _mado.SetLookObjName(objName);
+            _mado.SetLookObjName(objName,uraObjName);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = false;
-            _mado.SetLookObjName(null);
+            _mado.SetLookObjName(null,null);
         }
     }
 }
