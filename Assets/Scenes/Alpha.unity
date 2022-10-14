@@ -140,6 +140,10 @@ PrefabInstance:
       value: "\u3042\u304B\u3044\u3066\u3059"
       objectReference: {fileID: 0}
     - target: {fileID: 9182974026010747652, guid: e30011f20aa9ba2438ef6beed7da6a27, type: 3}
+      propertyPath: kituneClearStr
+      value: "\u3042\u304A\u3044\u3057\u304B\u304F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182974026010747652, guid: e30011f20aa9ba2438ef6beed7da6a27, type: 3}
       propertyPath: kituneAnswerStr
       value: "\u3042\u304A\u3044\u3057\u304B\u304F"
       objectReference: {fileID: 0}

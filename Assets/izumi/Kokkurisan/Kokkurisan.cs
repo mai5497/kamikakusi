@@ -22,16 +22,19 @@ public class Kokkurisan : MonoBehaviour
     [Header("狐の目を表示するか")]
     public bool isFox;
 
+    bool isNormalBefore;
+    bool isFoxBefore;
+
     [Header("答えを表示するか")]
     public bool isAnswer;
 
     [Header("狐の窓の回答の文字")]
     public string kituneAnswerStr;
     [Header("狐の窓の正解の文字")]
-    [System.NonSerialized]
+    //[System.NonSerialized]
     public string kituneClearStr;
     [Header("回答の文字")]
-    [System.NonSerialized]
+    //[System.NonSerialized]
     public string answerStr;
     [Header("正解の文字")]
     public string clearStr;
@@ -67,6 +70,15 @@ public class Kokkurisan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isNormal != isNormalBefore)
+        {
+            ResetParam();
+        }
+        if (isFox != isFoxBefore)
+        {
+            ResetParam();
+        }
+
         // 表示速度
         if (isAnswer || isNormal || isFox)
         {
@@ -85,142 +97,290 @@ public class Kokkurisan : MonoBehaviour
         // 回答した文字の表示
         if (isAnswer)
         {
-            char[] answerChara = answerStr.ToCharArray();
-            for (int i = 0; i < answerChara.Length; i++)
+            if (isNormal)
             {
-                // 数字の場合
-                if ((int)answerChara[i] <= 57)
+
+                char[] answerChara = answerStr.ToCharArray();
+                for (int i = 0; i < answerChara.Length; i++)
                 {
-                    int answerNo = answerChara[i] - 48;
-                    if (numList[answerNo] != null)
+                    // 数字の場合
+                    if ((int)answerChara[i] <= 57)
                     {
-                        numList[answerNo].enabled = true;
-                        numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
+                        int answerNo = answerChara[i] - 48;
+                        if (numList[answerNo] != null)
+                        {
+                            numList[answerNo].enabled = true;
+                            numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
+                        }
+                    }
+                    // 文字の場合
+                    else
+                    {
+                        int answerNo = (int)answerChara[i] - 12354;
+
+                        if (charList[answerNo] != null)
+                        {
+                            charList[answerNo].enabled = true;
+                            charList[answerNo].color = new Color(charList[answerNo].color.r, charList[answerNo].color.g, charList[answerNo].color.b, valueNowAnswer);
+                        }
                     }
                 }
-                // 文字の場合
-                else
+                // 正解した文字の場合は〇で文字を囲む
+                if (markObjList.Count == 0)
                 {
-                    int answerNo = (int)answerChara[i] - 12354;
-
-                    if (charList[answerNo] != null)
+                    char[] clearChara = clearStr.ToCharArray();
+                    for (int i = 0; i < clearChara.Length; i++)
                     {
-                        charList[answerNo].enabled = true;
-                        charList[answerNo].color = new Color(charList[answerNo].color.r, charList[answerNo].color.g, charList[answerNo].color.b, valueNowAnswer);
+                        // 回答した文字列の中で正解の文字を含んでいた場合
+                        if (answerStr.Contains(clearChara[i]))
+                        {
+                            int clearNo = (int)clearChara[i] - 12354;
+                            // あ行
+                            int width = 0;
+                            int height = 0;
+                            if (clearNo < 9)
+                            {
+                                height = clearNo;
+                                width = 0;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // か行
+                            else if (clearNo < 18)
+                            {
+                                height = clearNo - 9;
+                                width = 1;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // さ行
+                            else if (clearNo < 27)
+                            {
+                                height = clearNo - 18;
+                                width = 2;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // た行
+                            else if (clearNo < 36)
+                            {
+                                height = clearNo - 27;
+                                width = 3;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // な行
+                            else if (clearNo < 45)
+                            {
+                                height = clearNo - 36;
+                                width = 4;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // は行
+                            else if (clearNo < 54)
+                            {
+                                height = clearNo - 45;
+                                width = 5;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // ま行
+                            else if (clearNo < 63)
+                            {
+                                height = clearNo - 54;
+                                width = 6;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // や行
+                            else if (clearNo < 68)
+                            {
+                                height = clearNo - 63;
+                                width = 7;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // ら行
+                            else if (clearNo < 77)
+                            {
+                                height = clearNo - 68;
+                                width = 8;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // わ行
+                            else if (clearNo < 82)
+                            {
+                                height = clearNo - 77;
+                                width = 9;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                        }
                     }
                 }
             }
-            // 正解した文字の場合は〇で文字を囲む
-            if (markObjList.Count == 0)
+            if (isFox)
             {
-                char[] clearChara = clearStr.ToCharArray();
-                for (int i = 0; i < clearChara.Length; i++)
+
+                char[] answerChara = kituneAnswerStr.ToCharArray();
+                for (int i = 0; i < answerChara.Length; i++)
                 {
-                    // 回答した文字列の中で正解の文字を含んでいた場合
-                    if (answerStr.Contains(clearChara[i]))
+                    // 数字の場合
+                    if ((int)answerChara[i] <= 57)
                     {
-                        int clearNo = (int)clearChara[i] - 12354;
-                        // あ行
-                        int width = 0;
-                        int height = 0;
-                        if (clearNo < 9)
+                        int answerNo = answerChara[i] - 48;
+                        if (numList[answerNo] != null)
                         {
-                            height = clearNo;
-                            width = 0;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
+                            numList[answerNo].enabled = true;
+                            numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
                         }
-                        // か行
-                        else if (clearNo < 18)
+                    }
+                    // 文字の場合
+                    else
+                    {
+                        int answerNo = (int)answerChara[i] - 12354;
+
+                        if (charList[answerNo] != null)
                         {
-                            height = clearNo - 9;
-                            width = 1;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
+                            charList[answerNo].enabled = true;
+                            charList[answerNo].color = new Color(charList[answerNo].color.r, charList[answerNo].color.g, charList[answerNo].color.b, valueNowAnswer);
                         }
-                        // さ行
-                        else if (clearNo < 27)
+                    }
+                }
+                // 正解した文字の場合は〇で文字を囲む
+                if (markObjList.Count == 0)
+                {
+                    char[] clearChara = kituneClearStr.ToCharArray();
+                    for (int i = 0; i < clearChara.Length; i++)
+                    {
+                        // 回答した文字列の中で正解の文字を含んでいた場合
+                        if (kituneAnswerStr.Contains(clearChara[i]))
                         {
-                            height = clearNo - 18;
-                            width = 2;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // た行
-                        else if (clearNo < 36)
-                        {
-                            height = clearNo - 27;
-                            width = 3;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // な行
-                        else if (clearNo < 45)
-                        {
-                            height = clearNo - 36;
-                            width = 4;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // は行
-                        else if (clearNo < 54)
-                        {
-                            height = clearNo - 45;
-                            width = 5;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // ま行
-                        else if (clearNo < 63)
-                        {
-                            height = clearNo - 54;
-                            width = 6;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // や行
-                        else if (clearNo < 68)
-                        {
-                            height = clearNo - 63;
-                            width = 7;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // ら行
-                        else if (clearNo < 77)
-                        {
-                            height = clearNo - 68;
-                            width = 8;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
-                        }
-                        // わ行
-                        else if (clearNo < 82)
-                        {
-                            height = clearNo - 77;
-                            width = 9;
-                            GameObject markObj = Instantiate(markClear.gameObject, this.transform);
-                            markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
-                            markObj.SetActive(true);
-                            markObjList.Add(markObj);
+                            int clearNo = (int)clearChara[i] - 12354;
+                            // あ行
+                            int width = 0;
+                            int height = 0;
+                            if (clearNo < 9)
+                            {
+                                height = clearNo;
+                                width = 0;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // か行
+                            else if (clearNo < 18)
+                            {
+                                height = clearNo - 9;
+                                width = 1;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // さ行
+                            else if (clearNo < 27)
+                            {
+                                height = clearNo - 18;
+                                width = 2;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // た行
+                            else if (clearNo < 36)
+                            {
+                                height = clearNo - 27;
+                                width = 3;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // な行
+                            else if (clearNo < 45)
+                            {
+                                height = clearNo - 36;
+                                width = 4;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // は行
+                            else if (clearNo < 54)
+                            {
+                                height = clearNo - 45;
+                                width = 5;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // ま行
+                            else if (clearNo < 63)
+                            {
+                                height = clearNo - 54;
+                                width = 6;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // や行
+                            else if (clearNo < 68)
+                            {
+                                height = clearNo - 63;
+                                width = 7;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // ら行
+                            else if (clearNo < 77)
+                            {
+                                height = clearNo - 68;
+                                width = 8;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
+                            // わ行
+                            else if (clearNo < 82)
+                            {
+                                height = clearNo - 77;
+                                width = 9;
+                                GameObject markObj = Instantiate(markClear.gameObject, this.transform);
+                                markObj.transform.localPosition = new Vector3(440 - width * 100, 110 - (height / 2) * 75, markClear.transform.position.z);
+                                markObj.SetActive(true);
+                                markObjList.Add(markObj);
+                            }
                         }
                     }
                 }
@@ -280,5 +440,38 @@ public class Kokkurisan : MonoBehaviour
             normalNoImage.enabled = true;
             foxNoImage.enabled = true;
         }
+
+        isNormalBefore = isNormal;
+        isFoxBefore = isFox;
+    }
+
+    void ResetParam()
+    {
+        for (int i = 0; i < charList.Count; i++)
+        {
+            if (charList[i] != null)
+            {
+                charList[i].enabled = false;
+            }
+        }
+        for (int i = 0; i < numList.Count; i++)
+        {
+            if (numList[i] != null)
+            {
+                numList[i].enabled = false;
+            }
+        }
+
+        //マークを全消し
+        if (markObjList.Count != 0)
+        {
+            for (int i = 0; i < markObjList.Count; i++)
+            {
+                Destroy(markObjList[i]);
+            }
+            markObjList.Clear();
+        }
     }
 }
+
+

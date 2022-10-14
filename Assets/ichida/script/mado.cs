@@ -41,6 +41,9 @@ public class mado : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         Debug.Log(lookObjName);
+
+        kokkurisan.kituneAnswerStr = lookUraObjName;
+        kokkurisan.answerStr = lookObjName;
         if (!CPData.isLens) {
             return; // 窓使用中でなければこのスクリプトにやることはないので返す
         }
@@ -55,8 +58,7 @@ public class mado : MonoBehaviour {
             }
         }
 
-        kokkurisan.kituneAnswerStr = lookUraObjName;
-        kokkurisan.answerStr = lookObjName;
+
 
     }
 
