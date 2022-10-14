@@ -25,7 +25,7 @@ public class Kokkurisan : MonoBehaviour
     public bool isAnswer;
 
     [Header("表示する答え")]
-    public List<char> answer;
+    public string answerStr;
 
     [Header("表示速度")]
     public float answerSpeed = 0.5f;
@@ -68,13 +68,13 @@ public class Kokkurisan : MonoBehaviour
         // 答えを表示する
         if (isAnswer)
         {
-
-            for (int i = 0; i < answer.Count; i++)
+            char[] answerChara = answerStr.ToCharArray();
+            for (int i = 0; i < answerChara.Length; i++)
             {
                 // 数字の場合
-                if ((int)answer[i] <= 57)
+                if ((int)answerChara[i] <= 57)
                 {
-                    int answerNo = answer[i] - 48;
+                    int answerNo = answerChara[i] - 48;
                     if (numList[answerNo] != null)
                     {
                         numList[answerNo].enabled = true;
@@ -84,7 +84,7 @@ public class Kokkurisan : MonoBehaviour
                 // 文字の場合
                 else
                 {
-                    int answerNo = (int)answer[i] - 12354;
+                    int answerNo = (int)answerChara[i] - 12354;
 
                     if (charList[answerNo] != null)
                     {
