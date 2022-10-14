@@ -9,7 +9,6 @@
 // 2022/10/13 ì¬
 //
 //=============================================================================
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,10 +25,17 @@ public class Kokkurisan : MonoBehaviour
     [Header("“š‚¦‚ğ•\¦‚·‚é‚©")]
     public bool isAnswer;
 
+    [Header("ŒÏ‚Ì‘‹‚Ì‰ñ“š‚Ì•¶š")]
+    public string kituneAnswerStr;
+    [Header("ŒÏ‚Ì‘‹‚Ì³‰ğ‚Ì•¶š")]
+    [System.NonSerialized]
+    public string kituneClearStr;
     [Header("‰ñ“š‚Ì•¶š")]
+    [System.NonSerialized]
     public string answerStr;
     [Header("³‰ğ‚Ì•¶š")]
     public string clearStr;
+
 
     [Header("•\¦‘¬“x")]
     public float answerSpeed = 0.5f;
