@@ -20,7 +20,7 @@ public class CP_move01 : MonoBehaviour {
     public bool isDash = false;
 
     [Header("移動スピード")]
-    public float fSpeed = 0.01f;    // プレイヤーの移動と窓の移動スピード兼ねてる
+    public float fSpeed = 0.04f;    // プレイヤーの移動と窓の移動スピード兼ねてる
 
     //アクション取得用
     private InputAction _moveAction, _fireAction, _kituneAction, _cyuusiAction, _poseAction, _hintAction;
