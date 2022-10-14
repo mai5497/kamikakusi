@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c058790d77e9449b40241de6f498df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintNum: 0
+  objName: "\u306D\u304C\u307D\u3058\u304B\u3089\u3042\u3052"
 --- !u!70 &904095519015727634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

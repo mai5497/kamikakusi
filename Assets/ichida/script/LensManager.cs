@@ -13,6 +13,9 @@ public class LensManager : MonoBehaviour
     [Header("ズーム")]
     [SerializeField]
     private ZoomLens zoomLens;
+    [Header("レンズ速度倍率")]
+    [SerializeField]
+    private float lensSpeed = 0.05f;
 
 
     private CP_move01 _Player;
@@ -78,8 +81,8 @@ public class LensManager : MonoBehaviour
                 isLensInit = false;
             }
             Vector2 moveVal;
-            moveVal.x = _Player.GetMoveValue().x * _Player.fSpeed;
-            moveVal.y = _Player.GetMoveValue().y * _Player.fSpeed;
+            moveVal.x = _Player.GetMoveValue().x * lensSpeed;
+            moveVal.y = _Player.GetMoveValue().y * lensSpeed;
             lensObj.transform.position = new Vector3(lensObj.transform.position.x + moveVal.x, lensObj.transform.position.y + moveVal.y, lensObj.transform.position.z);
         }
         // レンズの注視(ぼかしモード変更)

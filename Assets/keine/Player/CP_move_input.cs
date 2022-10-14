@@ -80,6 +80,15 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hint"",
+                    ""type"": ""Value"",
+                    ""id"": ""93877388-9ed4-4511-9b60-687fdfc72d34"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -324,6 +333,28 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""action"": ""Pose"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0dac333b-6ba6-4fad-bcb6-a7e823b2aff2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c519c035-3a38-489a-ad70-9b2c8b44e203"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -555,6 +586,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         m_Player_Kitune = m_Player.FindAction("Kitune", throwIfNotFound: true);
         m_Player_Cyuusi = m_Player.FindAction("Cyuusi", throwIfNotFound: true);
         m_Player_Pose = m_Player.FindAction("Pose", throwIfNotFound: true);
+        m_Player_Hint = m_Player.FindAction("Hint", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Fade = m_UI.FindAction("Fade", throwIfNotFound: true);
@@ -625,6 +657,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Kitune;
     private readonly InputAction m_Player_Cyuusi;
     private readonly InputAction m_Player_Pose;
+    private readonly InputAction m_Player_Hint;
     public struct PlayerActions
     {
         private @CP_move_input m_Wrapper;
@@ -635,6 +668,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         public InputAction @Kitune => m_Wrapper.m_Player_Kitune;
         public InputAction @Cyuusi => m_Wrapper.m_Player_Cyuusi;
         public InputAction @Pose => m_Wrapper.m_Player_Pose;
+        public InputAction @Hint => m_Wrapper.m_Player_Hint;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -662,6 +696,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Pose.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
                 @Pose.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
                 @Pose.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
+                @Hint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHint;
+                @Hint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHint;
+                @Hint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHint;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -684,6 +721,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Pose.started += instance.OnPose;
                 @Pose.performed += instance.OnPose;
                 @Pose.canceled += instance.OnPose;
+                @Hint.started += instance.OnHint;
+                @Hint.performed += instance.OnHint;
+                @Hint.canceled += instance.OnHint;
             }
         }
     }
@@ -790,6 +830,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         void OnKitune(InputAction.CallbackContext context);
         void OnCyuusi(InputAction.CallbackContext context);
         void OnPose(InputAction.CallbackContext context);
+        void OnHint(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
