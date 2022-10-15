@@ -43,7 +43,7 @@ public class mado : MonoBehaviour {
         Debug.Log(lookObjName);
 
         kokkurisan.kituneAnswerStr = lookUraObjName;
-        kokkurisan.answerStr = lookObjName;
+        kokkurisan.normalAnswerStr = lookObjName;
         if (!CPData.isLens) {
             return; // 窓使用中でなければこのスクリプトにやることはないので返す
         }
