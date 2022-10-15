@@ -49,7 +49,7 @@ public class Fox1 : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //----- íçéãîªíË -----
-        byakko = fox.GetByakko_delete();
+        //byakko = fox.GetByakko_delete();
 
         if (byakko)
         {
