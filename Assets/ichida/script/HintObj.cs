@@ -15,12 +15,12 @@ using UnityEngine;
 
 public class HintObj : MonoBehaviour
 {
+
     [SerializeField]
-    private string objName;     // 何番目のヒントのオブジェクトか格納
-                                // この番号と対応するヒントが出るため
-                                // ヒント側でも設定が必要
+    private string objName;    // このオブジェクトの名前をインスペクターで設定しておく
     [SerializeField]
     private string uraObjName;
+
 
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
@@ -80,5 +80,12 @@ public class HintObj : MonoBehaviour
             isWindowColl = false;
             _mado.SetLookObjName(null,null);
         }
+    }
+
+    public string GetObjName() {
+        return objName;
+    }
+    public string GetUraObjName() {
+        return uraObjName;
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 244140812719779401}
   - component: {fileID: 3711256201819200494}
   m_Layer: 0
-  m_Name: karaage_2
+  m_Name: obj_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 8715628625492300061}
   m_Layer: 0
   m_Name: HintObj_001
-  m_TagString: Untagged
+  m_TagString: SearchObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 8751968749102397823}
   - component: {fileID: 289109746337199590}
   m_Layer: 0
-  m_Name: karaage_1
+  m_Name: obj_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

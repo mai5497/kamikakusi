@@ -98,8 +98,8 @@ GameObject:
   - component: {fileID: 901205522317252278}
   - component: {fileID: 8715628625492300061}
   m_Layer: 0
-  m_Name: HintObj_001 1
-  m_TagString: Untagged
+  m_Name: HintObj_002
+  m_TagString: SearchObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

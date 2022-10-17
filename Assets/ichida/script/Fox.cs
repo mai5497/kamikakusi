@@ -69,7 +69,7 @@ public class Fox : MonoBehaviour {
             //if (isByakko_return) {
             //    if (isByakko_flag) {
             //        isByakko_return = false;
-            //        //GetByakko_delete();   
+            //        GetByakko_delete();   
             //    }
             //}
 

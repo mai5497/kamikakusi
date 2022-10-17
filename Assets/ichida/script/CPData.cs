@@ -32,8 +32,9 @@ public class CPData : MonoBehaviour
 
     public static bool isRightAnswer = false;   // 覗いてるところがあってるのであれあばtrue
 
-    public static bool isHint = false;      // こっくりさん画面をだしてるか
+    public static bool isKokkurisan = false;      // こっくりさん画面をだしてるか
 
+    public static bool isObjNameUI = false;      // ヒントとオブジェクトの名前を表示する 
 
     public static int paperCnt = 5;         // 紙を見ることができる回数（※）
     public static int lookCnt = 5;          // 注視できる回数（※）
