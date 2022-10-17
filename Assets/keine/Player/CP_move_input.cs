@@ -388,6 +388,15 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Switching"",
+                    ""type"": ""Value"",
+                    ""id"": ""e8679d21-853d-4a70-b382-fc8efae106a1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -511,6 +520,28 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""action"": ""Dicision"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78507758-3377-42e6-86e4-b068dbfec137"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switching"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6974a72-7103-428b-a656-b756342f4f2f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switching"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -592,6 +623,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         m_UI_Fade = m_UI.FindAction("Fade", throwIfNotFound: true);
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
         m_UI_Dicision = m_UI.FindAction("Dicision", throwIfNotFound: true);
+        m_UI_Switching = m_UI.FindAction("Switching", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -735,6 +767,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Fade;
     private readonly InputAction m_UI_Select;
     private readonly InputAction m_UI_Dicision;
+    private readonly InputAction m_UI_Switching;
     public struct UIActions
     {
         private @CP_move_input m_Wrapper;
@@ -742,6 +775,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         public InputAction @Fade => m_Wrapper.m_UI_Fade;
         public InputAction @Select => m_Wrapper.m_UI_Select;
         public InputAction @Dicision => m_Wrapper.m_UI_Dicision;
+        public InputAction @Switching => m_Wrapper.m_UI_Switching;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -760,6 +794,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Dicision.started -= m_Wrapper.m_UIActionsCallbackInterface.OnDicision;
                 @Dicision.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnDicision;
                 @Dicision.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnDicision;
+                @Switching.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitching;
+                @Switching.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitching;
+                @Switching.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitching;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -773,6 +810,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Dicision.started += instance.OnDicision;
                 @Dicision.performed += instance.OnDicision;
                 @Dicision.canceled += instance.OnDicision;
+                @Switching.started += instance.OnSwitching;
+                @Switching.performed += instance.OnSwitching;
+                @Switching.canceled += instance.OnSwitching;
             }
         }
     }
@@ -837,5 +877,6 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         void OnFade(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
         void OnDicision(InputAction.CallbackContext context);
+        void OnSwitching(InputAction.CallbackContext context);
     }
 }

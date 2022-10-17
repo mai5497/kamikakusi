@@ -44,32 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12546514b470c344b85f7e60edf18e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm_title: {fileID: 0}
-  bgm_kitchen: {fileID: 0}
-  bgm_kitchenBoss: {fileID: 0}
-  bgm_exstage: {fileID: 0}
-  bgm_lastboss: {fileID: 0}
-  se_jump: {fileID: 0}
-  se_land: {fileID: 0}
-  se_shield: {fileID: 0}
-  se_reflection: {fileID: 0}
-  se_reflectionstar: {fileID: 0}
-  se_damege: {fileID: 0}
-  se_heal: {fileID: 0}
-  se_player_death: {fileID: 0}
-  se_boss1Dashu: {fileID: 0}
-  se_boss1Strawberry: {fileID: 0}
-  se_boss1Knife: {fileID: 0}
-  se_boss1Damege: {fileID: 0}
-  se_lastboss_ult: {fileID: 0}
-  se_lastboss_bullet: {fileID: 0}
-  se_burokori: {fileID: 0}
-  se_ninjin: {fileID: 0}
-  se_tomatobomb: {fileID: 0}
-  se_tomatobound: {fileID: 0}
-  se_kettei: {fileID: 0}
-  se_select: {fileID: 0}
-  se_gameover: {fileID: 0}
-  se_gateopen: {fileID: 0}
-  se_extinguish: {fileID: 0}
-  se_switch: {fileID: 0}
+  bgm_title: {fileID: 8300000, guid: 48aa1030c61f47d488377a7087b90de9, type: 3}
+  bgm_select: {fileID: 8300000, guid: 00b6cea3d9f130c4da31a6e08dfb00a1, type: 3}
+  bgm_game01: {fileID: 8300000, guid: faf8266304614da428deb5a7df5d860f, type: 3}
+  bgm_game02: {fileID: 8300000, guid: d62afdf9b6701044d9872820c5d49d99, type: 3}
+  bgm_game03: {fileID: 8300000, guid: 5fef77309f79b0345a5bf5a89717bfbe, type: 3}
+  se_back: {fileID: 8300000, guid: 8dcbd972657cb4a41a3f118b9a28d1d5, type: 3}
+  se_decision: {fileID: 8300000, guid: 133cae78680c6da44ba8418d4218bb4c, type: 3}
+  se_select: {fileID: 8300000, guid: e27ac8198e81d924ba3278f04d91d56e, type: 3}
