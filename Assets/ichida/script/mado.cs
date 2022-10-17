@@ -44,22 +44,21 @@ public class mado : MonoBehaviour {
 
         kokkurisan.kituneAnswerStr = lookUraObjName;
         kokkurisan.normalAnswerStr = lookObjName;
-        if (!CPData.isLens) {
-            return; // 窓使用中でなければこのスクリプトにやることはないので返す
-        }
+        
+        //if (!CPData.isLens) {
+        //    return; // 窓使用中でなければこのスクリプトにやることはないので返す
+        //}
 
-        // 指定した範囲にモノがあるかの判定
-        if (Physics2D.OverlapCircle(fox.transform.position, 0) == windowCol) {
-            if (CPData.isLook) {
-                _Fox.isWindowColl = true;
-                Debug.Log("きつね！");
-            } else {
-                _Fox.isWindowColl = false;
-            }
-        }
-
-
-
+        //// 指定した範囲にモノがあるかの判定
+        //if (Physics2D.OverlapCircle(fox.transform.position, 0) == windowCol) {
+        //Debug.Log("きつね?");
+        //    if (CPData.isLook) {
+        //        _Fox.isWindowColl = true;
+        //        Debug.Log("きつね！");
+        //    } else {
+        //        _Fox.isWindowColl = false;
+        //    }
+        //}
     }
 
     /// <summary>

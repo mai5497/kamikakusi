@@ -47,9 +47,10 @@ public class Fox : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         //----- íçéãîªíË -----
-        if (isWindowColl) {
+        if (isWindowColl && CPData.isLook) {
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
+
             if (lookStopTimer < 0 && alpha < 1.0f) {
                 alpha += Time.deltaTime / appearTime;
                 sr.color = new Color(1, 1, 1, alpha);
@@ -79,4 +80,17 @@ public class Fox : MonoBehaviour {
         //}
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "FoxWindow") {
+            isWindowColl = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.tag == "FoxWindow") {
+            isWindowColl = false;
+        }
+    }
+
 }
