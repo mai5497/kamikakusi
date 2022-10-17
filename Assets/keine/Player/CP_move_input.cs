@@ -315,7 +315,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4255d2cb-d55a-4c11-9f1b-6c681cfbf016"",
-                    ""path"": ""<XInputController>/start"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

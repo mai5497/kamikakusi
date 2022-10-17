@@ -70,7 +70,7 @@ public class LensManager : MonoBehaviour
         //}
 
         // ƒŒƒ“ƒYˆÚ“®(’Êí‚Ì‚İ)
-        if (!CPData.isHint && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
+        if (!CPData.isKokkurisan && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
             //if (keyboard.aKey.isPressed) {
             //    lensObj.transform.position = new Vector3(lensObj.transform.position.x - moveSpeed, lensObj.transform.position.y, lensObj.transform.position.z);
             //}

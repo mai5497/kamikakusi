@@ -75,7 +75,7 @@ public class CP_move01 : MonoBehaviour {
 
     void Update() {
         if (!CPData.isLens) {
-            if (!CPData.isHint) {
+            if (!CPData.isKokkurisan) {
                 //プレイヤーの移動処理
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
@@ -118,7 +118,7 @@ public class CP_move01 : MonoBehaviour {
              * 狐の窓使用時は別スクリプト
              */
             if (CPData.isLook) {
-                if (CPData.isHint) {
+                if (CPData.isKokkurisan) {
                     CPData.isLook = false;
                 }
             }
@@ -131,7 +131,7 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void OnLens(InputAction.CallbackContext obj) {
-        if (CPData.isHint) {
+        if (CPData.isKokkurisan) {
             return;
         }
         CPData.isLens = !CPData.isLens;
@@ -141,7 +141,7 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void LookStart(InputAction.CallbackContext obj) {
-        if (CPData.isHint) {
+        if (CPData.isKokkurisan) {
             return;
         }
         CPData.isLook = true;
@@ -151,6 +151,6 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void OpenHint(InputAction.CallbackContext obj) {
-        CPData.isHint = !CPData.isHint;
+        CPData.isKokkurisan = !CPData.isKokkurisan;
     }
 }

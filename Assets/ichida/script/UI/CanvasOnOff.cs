@@ -29,7 +29,7 @@ public class CanvasOnOff : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (CPData.isHint) {
+        if (CPData.isKokkurisan) {
             CanvasOn();
             Keyboard _keyboard = Keyboard.current;
             if (_keyboard != null) {
