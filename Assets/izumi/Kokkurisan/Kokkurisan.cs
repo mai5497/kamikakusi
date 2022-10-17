@@ -30,14 +30,14 @@ public class Kokkurisan : MonoBehaviour
 
     [Header("狐の窓の回答の文字")]
     public string kituneAnswerStr;
-    [Header("狐の窓の正解の文字")]
-    //[System.NonSerialized]
-    public string kituneClearStr;
+    //[Header("狐の窓の正解の文字")] // ゲームマネージャーへ移動
+    //[SerializeField]
+    //private string _kituneClearStr;
     [Header("通常時の回答の文字")]
-    //[System.NonSerialized]
     public string normalAnswerStr;
-    [Header("通常時の正解の文字")]
-    public string normalClearStr;
+    //[Header("通常時の正解の文字")] // ゲームマネージャーへ移動
+    //[SerializeField]
+    //private string _normalClearStr;
 
 
     [Header("表示速度")]
@@ -65,6 +65,7 @@ public class Kokkurisan : MonoBehaviour
     void Start()
     {
         markClear.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -103,12 +104,12 @@ public class Kokkurisan : MonoBehaviour
             if (isNormal)
             {
                 answerStr = normalAnswerStr;
-                clearStr = normalClearStr;
+                clearStr = CPData.normalClearStr;
             }
             if (isFox)
             {
                 answerStr = kituneAnswerStr;
-                clearStr = kituneClearStr;
+                clearStr = CPData.kituneClearStr;
             }
 
             char[] answerChara = answerStr.ToCharArray();

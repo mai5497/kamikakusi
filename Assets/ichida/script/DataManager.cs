@@ -33,68 +33,21 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private AudioClip bgm_title;
     [SerializeField]
-    private AudioClip bgm_kitchen;
+    private AudioClip bgm_select;
     [SerializeField]
-    private AudioClip bgm_kitchenBoss;
+    private AudioClip bgm_game01;
     [SerializeField]
-    private AudioClip bgm_exstage;
+    private AudioClip bgm_game02;
     [SerializeField]
-    private AudioClip bgm_lastboss;
+    private AudioClip bgm_game03;
 
 
     [SerializeField]
-    private AudioClip se_jump;
+    private AudioClip se_back;
     [SerializeField]
-    private AudioClip se_land;
-    [SerializeField]
-    private AudioClip se_shield;
-    [SerializeField]
-    private AudioClip se_reflection;
-    [SerializeField]
-    private AudioClip se_reflectionstar;
-    [SerializeField]
-    private AudioClip se_damege;
-    [SerializeField]
-    private AudioClip se_heal;
-    [SerializeField]
-    private AudioClip se_player_death;
-
-    [SerializeField]
-    private AudioClip se_boss1Dashu;
-    [SerializeField]
-    private AudioClip se_boss1Strawberry;
-    [SerializeField]
-    private AudioClip se_boss1Knife;
-    [SerializeField]
-    private AudioClip se_boss1Damege;
-
-    [SerializeField]
-    private AudioClip se_lastboss_ult;
-    [SerializeField]
-    private AudioClip se_lastboss_bullet;
-
-    [SerializeField]
-    private AudioClip se_burokori;
-    [SerializeField]
-    private AudioClip se_ninjin;
-    [SerializeField]
-    private AudioClip se_tomatobomb;
-    [SerializeField]
-    private AudioClip se_tomatobound;
-
-    [SerializeField]
-    private AudioClip se_kettei;
+    private AudioClip se_decision;
     [SerializeField]
     private AudioClip se_select;
-    [SerializeField]
-    private AudioClip se_gameover;
-
-    [SerializeField]
-    private AudioClip se_gateopen;
-    [SerializeField]
-    private AudioClip se_extinguish;
-    [SerializeField]
-    private AudioClip se_switch;
 
 
     //-----------------------------------------------------
@@ -152,65 +105,18 @@ public class DataManager : MonoBehaviour
         // BGMÅESE
         //-----------------------------------------------------
         SoundData.BGMDataSet(bgm_title, (int)SoundData.eBGM.BGM_TITLE);
-        SoundData.BGMDataSet(bgm_kitchen, (int)SoundData.eBGM.BGM_KITCHEN);
-        SoundData.BGMDataSet(bgm_kitchenBoss, (int)SoundData.eBGM.BGM_BOSS1);
-        SoundData.BGMDataSet(bgm_exstage, (int)SoundData.eBGM.BGM_EXSTAGE);
-        SoundData.BGMDataSet(bgm_lastboss, (int)SoundData.eBGM.BGM_LASTBOSS);
+        SoundData.BGMDataSet(bgm_select, (int)SoundData.eBGM.BGM_SELECT);
+        SoundData.BGMDataSet(bgm_game01, (int)SoundData.eBGM.BGM_GAME01);
+        SoundData.BGMDataSet(bgm_game02, (int)SoundData.eBGM.BGM_GAME02);
+        SoundData.BGMDataSet(bgm_game03, (int)SoundData.eBGM.BGM_GAME03);
 
-        SoundData.SEDataSet(se_jump, (int)SoundData.eSE.SE_JUMP);
-        SoundData.SEDataSet(se_land, (int)SoundData.eSE.SE_LAND);
-        SoundData.SEDataSet(se_shield, (int)SoundData.eSE.SE_SHIELD);
-        SoundData.SEDataSet(se_reflection, (int)SoundData.eSE.SE_REFLECTION);
-        SoundData.SEDataSet(se_reflectionstar, (int)SoundData.eSE.SE_REFLECTION_STAR);
-        SoundData.SEDataSet(se_damege, (int)SoundData.eSE.SE_DAMEGE);
-        SoundData.SEDataSet(se_heal, (int)SoundData.eSE.SE_HEAL);
-        SoundData.SEDataSet(se_player_death, (int)SoundData.eSE.SE_PLAYER_DEATH);
-
-        SoundData.SEDataSet(se_boss1Dashu, (int)SoundData.eSE.SE_BOOS1_DASHU);
-        SoundData.SEDataSet(se_boss1Strawberry, (int)SoundData.eSE.SE_BOOS1_STRAWBERRY);
-        SoundData.SEDataSet(se_boss1Knife, (int)SoundData.eSE.SE_BOOS1_KNIFE);
-        SoundData.SEDataSet(se_boss1Damege, (int)SoundData.eSE.SE_BOOS1_DAMEGE);
-
-        SoundData.SEDataSet(se_lastboss_ult, (int)SoundData.eSE.SE_LASTBOSS_ULT);
-        SoundData.SEDataSet(se_lastboss_bullet, (int)SoundData.eSE.SE_LASTBOSS_BULLET);
-
-        SoundData.SEDataSet(se_burokori, (int)SoundData.eSE.SE_BUROKORI);
-        SoundData.SEDataSet(se_ninjin, (int)SoundData.eSE.SE_NINJIN);
-        SoundData.SEDataSet(se_tomatobomb, (int)SoundData.eSE.SE_TOMATO_BOMB);
-        SoundData.SEDataSet(se_tomatobound, (int)SoundData.eSE.SE_TOMATO_BOUND);
-
-        SoundData.SEDataSet(se_kettei, (int)SoundData.eSE.SE_KETTEI);
+        SoundData.SEDataSet(se_back, (int)SoundData.eSE.SE_BACK);
         SoundData.SEDataSet(se_select, (int)SoundData.eSE.SE_SELECT);
-        SoundData.SEDataSet(se_gameover, (int)SoundData.eSE.SE_GAMEOVER);
+        SoundData.SEDataSet(se_decision, (int)SoundData.eSE.SE_DICISION);
 
-        SoundData.SEDataSet(se_gateopen, (int)SoundData.eSE.SE_GATEOPEN);
-        SoundData.SEDataSet(se_extinguish, (int)SoundData.eSE.SE_EXTINGUISH);
-        SoundData.SEDataSet(se_switch, (int)SoundData.eSE.SE_SWITCH);
-
-        SoundData.SEVolume[(int)SoundData.eSE.SE_JUMP] = 0.4f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_LAND] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_SHIELD] = 1.0f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_REFLECTION] = 1.0f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_REFLECTION_STAR] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_DAMEGE] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_HEAL] = 0.3f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_PLAYER_DEATH] = 1.0f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_BOOS1_DASHU] = 1.0f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_BOOS1_KNIFE] = 0.9f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_BOOS1_STRAWBERRY] = 0.1f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_BOOS1_DAMEGE] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_LASTBOSS_ULT] = 1.0f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_LASTBOSS_BULLET] = 0.3f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_BUROKORI] = 0.4f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_NINJIN] = 0.4f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_TOMATO_BOMB] = 0.15f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_TOMATO_BOUND] = 0.2f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_KETTEI] = 0.3f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_SELECT] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_GAMEOVER] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_GATEOPEN] = 0.6f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_EXTINGUISH] = 0.5f;
-        SoundData.SEVolume[(int)SoundData.eSE.SE_SWITCH] = 0.5f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_BACK] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_SELECT] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_DICISION] = 1.0f;
 
         //-----------------------------------------------------
         // Efect
