@@ -85,25 +85,32 @@ public class CP_move01 : MonoBehaviour {
                     0.0f,
                     0.0f);
 
-                bool fire = _fireAction.IsPressed();
+               // bool fire = _fireAction.IsPressed();
 
-                if (fire) {
-                    //  Debug.Log("shiftキーが押された！");
-                    isDash = true;
-                } else {
-                    //  Debug.Log("aaaaaaaaaaaaaasdasadsa！");
-                    isDash = false;
-                }
+                //if (fire)
+                //{
+                //    Debug.Log("shiftキーが押された！");
+                //    isDash = true;
+                //}
+                //else
+                //{
+                //    Debug.Log("aaaaaaaaaaaaaasdasadsa！");
+                //    isDash = false;
+                //}
 
-                if (isDash) {
-                    fSpeed = 0.02f;
-                } else {
-                    isDash = false;
+                //if (isDash)
+                //{
+                //    fSpeed = 0.02f;
+                //}
+                //else
+                //{
+                //    isDash = false;
 
-                    if (!isDash) {
-                        fSpeed = 0.01f;
-                    }
-                }
+                //    if (!isDash)
+                //    {
+                //        fSpeed = 0.01f;
+                //    }
+                //}
                 CPData.playerPos = this.transform.position;
             }
         } else {
