@@ -575,6 +575,45 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Tutorial"",
+            ""id"": ""16c60c4c-9053-4c62-9de9-0207a621208c"",
+            ""actions"": [
+                {
+                    ""name"": ""Dicision"",
+                    ""type"": ""Value"",
+                    ""id"": ""0df61ccb-0093-4eae-9aa1-f1bb2f96176b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""df81f4df-a2fd-41bf-97b8-6289f685df2e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dicision"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff6c6d3d-f5e5-4363-ae8a-adfacdf0014e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dicision"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -656,6 +695,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         m_UI_Dicision = m_UI.FindAction("Dicision", throwIfNotFound: true);
         m_UI_Switching = m_UI.FindAction("Switching", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
+        // Tutorial
+        m_Tutorial = asset.FindActionMap("Tutorial", throwIfNotFound: true);
+        m_Tutorial_Dicision = m_Tutorial.FindAction("Dicision", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -857,6 +899,39 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Tutorial
+    private readonly InputActionMap m_Tutorial;
+    private ITutorialActions m_TutorialActionsCallbackInterface;
+    private readonly InputAction m_Tutorial_Dicision;
+    public struct TutorialActions
+    {
+        private @CP_move_input m_Wrapper;
+        public TutorialActions(@CP_move_input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Dicision => m_Wrapper.m_Tutorial_Dicision;
+        public InputActionMap Get() { return m_Wrapper.m_Tutorial; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TutorialActions set) { return set.Get(); }
+        public void SetCallbacks(ITutorialActions instance)
+        {
+            if (m_Wrapper.m_TutorialActionsCallbackInterface != null)
+            {
+                @Dicision.started -= m_Wrapper.m_TutorialActionsCallbackInterface.OnDicision;
+                @Dicision.performed -= m_Wrapper.m_TutorialActionsCallbackInterface.OnDicision;
+                @Dicision.canceled -= m_Wrapper.m_TutorialActionsCallbackInterface.OnDicision;
+            }
+            m_Wrapper.m_TutorialActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Dicision.started += instance.OnDicision;
+                @Dicision.performed += instance.OnDicision;
+                @Dicision.canceled += instance.OnDicision;
+            }
+        }
+    }
+    public TutorialActions @Tutorial => new TutorialActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -919,5 +994,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         void OnDicision(InputAction.CallbackContext context);
         void OnSwitching(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+    }
+    public interface ITutorialActions
+    {
+        void OnDicision(InputAction.CallbackContext context);
     }
 }
