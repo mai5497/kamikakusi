@@ -1,21 +1,9 @@
-//=============================================================================
-//
-// 狐
-//
-// 作成日:2022/10/11
-// 作成者:伊地田真衣
-// 編集者：八木橋慧音
-//
-// <開発履歴>
-// 2022/10/11 作成
-// 2022/10/17 白狐の演出追加
-//
-//=============================================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fox : MonoBehaviour {
+public class FoxByakko : MonoBehaviour
+{
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
     private SpriteRenderer sr;  // 狐のスプライトレンダラー
@@ -25,6 +13,11 @@ public class Fox : MonoBehaviour {
     private const float appearTime = 1.5f;  // アルファ値が上がりきるまでの時間
 
     private float lookStopTimer;    // 注視して止まらないといけない時間のカウント用タイマー
+
+    private bool isByakko_delete = true;
+    private bool isByakko_flag = false;
+    private bool isByakko_return = true;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -47,9 +40,29 @@ public class Fox : MonoBehaviour {
             if (lookStopTimer < 0 && alpha < 1.0f) {
                 alpha += Time.deltaTime / appearTime;
                 sr.color = new Color(1, 1, 1, alpha);
-            } 
+            } else {
+                if (alpha >= 1.0f && isByakko_delete) {
+                    isByakko_delete = false;
+                }
+            }
+        }
+
+        if (!isByakko_delete) {
+            alpha -= Time.deltaTime / appearTime;
+            sr.color = new Color(1, 1, 1, alpha);
+            isByakko_flag = true;
+        }
+        if (isByakko_return) {
+            if (isByakko_flag) {
+                isByakko_return = false;
+            }
         }
     }
+    public bool GetByakko_delete() {
+        return isByakko_flag;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = true;

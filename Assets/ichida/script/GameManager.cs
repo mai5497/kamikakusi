@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //----- サウンド -----
-        for (int i = 0; i < SoundData.GameAudioList.Length; ++i) {
-            SoundData.GameAudioList[i] = gameObject.AddComponent<AudioSource>();
-        }
-        SoundManager.Play(SoundData.eBGM.BGM_GAME01,SoundData.GameAudioList);
+        //for (int i = 0; i < SoundData.GameAudioList.Length; ++i) {
+        //    SoundData.GameAudioList[i] = gameObject.AddComponent<AudioSource>();
+        //}
+        //SoundManager.Play(SoundData.eBGM.BGM_GAME01,SoundData.GameAudioList);
 
         //----- デバッグ用に値変更 -----
         if(paperCnt != CPData.paperCnt) {
