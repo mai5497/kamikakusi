@@ -30,14 +30,27 @@ public class StageSelect : MonoBehaviour
     }
     [Header("モード")]
     public Mode mode = Mode.WorldSelectInit;
+    [System.SerializableAttribute]
+    public class StringList
+    {
+        public List<string> List = new List<string>();
+
+        public StringList(List<string> list)
+        {
+            List = list;
+        }
+    }
     [Header("メインシーン名")]
-    public string mainSceneName;
+    public List<StringList> mainSceneName;
     [Header("タイトルシーン名")]
     public string titleSceneName;
     [Header("ワールドセレクトからステージセレクトへの遷移速度")]
     public float speedWorldSelectToStageSelect;
+    [Header("ステージセレクトからワールドセレクトへの遷移速度")]
+    public float speedStageSelectToWorldSelect;
     // ワールドセレクトからステージセレクトへの遷移補間値
     private float lerpWorldSelectToStageSelect;
+    // ワールドセレクトからステージセレクトへ遷移前の初期位置リスト
     private List<Vector3> positionInitWorldSelectToStageSelectList=new List<Vector3>();
 
     // 入力用///////////////////////////////////////////////
@@ -170,7 +183,7 @@ public class StageSelect : MonoBehaviour
 
                 if (lerpWorldSelectToStageSelect >= 1.0f)
                 {
-                    lerpWorldSelectToStageSelect = 0;
+                    lerpWorldSelectToStageSelect = 1.0f;
                     mode = Mode.StageSelectInit;
                 }
                 break;
@@ -189,6 +202,36 @@ public class StageSelect : MonoBehaviour
             case Mode.StageSelectUpdate:
                 UpdateSelect(ref selectStageNo, ref selectStageNoMin, ref selectStageNoMax, ref cursorStageObj, ref selectStageObjList);
                 break;
+            // ステージセレクトからワールドセレクトへ
+            case Mode.StageSelectToWorldSelect:
+                worldSelectParentObj.SetActive(true);
+                stageSelectParentObj.SetActive(false);
+                lerpWorldSelectToStageSelect -= Time.deltaTime * speedStageSelectToWorldSelect;
+
+                for (int i = 0; i < stageSelectSelectWorldObjList.Count; i++)
+                {
+                    Vector3 nowPosition;
+                    if (i == selectWorldNo)
+                    {
+                        //左を戻す
+                        nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], stageSelectSelectWorldParentObj.transform.position, lerpWorldSelectToStageSelect);
+                        selectWorldObjList[i - selectWorldNoMin].transform.position = nowPosition;
+                        cursorWorldObj.transform.position = nowPosition;
+                    }
+                    else
+                    {
+                        //右を戻す
+                        nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], new Vector3(15, 0, 0), lerpWorldSelectToStageSelect);
+                        selectWorldObjList[i - selectWorldNoMin].transform.position = nowPosition;
+                    }
+                }
+
+                if (lerpWorldSelectToStageSelect <= 0.0f)
+                {
+                    lerpWorldSelectToStageSelect = 0.0f;
+                    mode = Mode.WorldSelectInit;
+                }
+                break;
         }
         #endregion
 
@@ -200,11 +243,13 @@ public class StageSelect : MonoBehaviour
             {
                 // ワールドセレクトの場合,ワールドセレクトからステージセレクトへの遷移
                 case Mode.WorldSelectUpdate:
+                    lerpWorldSelectToStageSelect = 0.0f;
                     mode = Mode.WorldSelectToStageSelect;
                     break;
                 // ステージセレクトの場合,メインシーンへ
                 case Mode.StageSelectUpdate:
-                    SceneManager.LoadScene(mainSceneName);
+                    SceneManager.LoadScene(mainSceneName[selectWorldNo].List[selectStageNo]);
+
                     break;
             }
             inputDicision = false;
@@ -222,7 +267,11 @@ public class StageSelect : MonoBehaviour
                     break;
                 // ステージセレクトの場合,ワールドセレクトへ
                 case Mode.StageSelectUpdate:
-                    mode = Mode.WorldSelectInit;
+                    lerpWorldSelectToStageSelect = 1.0f;
+                    mode = Mode.StageSelectToWorldSelect;
+
+                    // ステージ選択番号を最小値に戻す
+                    selectStageNo = selectStageNoMin;
                     break;
             }
             inputBack = false;
