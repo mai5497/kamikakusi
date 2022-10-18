@@ -2957,6 +2957,7 @@ GameObject:
   - component: {fileID: 9182974026010747675}
   - component: {fileID: 9182974026010747672}
   - component: {fileID: 9182974026010747652}
+  - component: {fileID: 1766496824441850143}
   m_Layer: 5
   m_Name: CanvasKokkurisan
   m_TagString: Untagged
@@ -3187,6 +3188,18 @@ MonoBehaviour:
   foxYesImage: {fileID: 3932081730559282473}
   normalNoImage: {fileID: 2337088241625587330}
   foxNoImage: {fileID: 8107478440582859827}
+--- !u!114 &1766496824441850143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182974026010747673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ea1b938dc65984ebe3721b706ce063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9182974026111314438
 GameObject:
   m_ObjectHideFlags: 0
