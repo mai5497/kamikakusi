@@ -61,6 +61,10 @@ public class Kokkurisan : MonoBehaviour
     [Header("”ñ•\¦ŒÏ‚Ì–Ú")]
     public Image foxNoImage;
 
+
+    // ŠÔˆá‚¢•¶š”
+    private int missNum;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,19 +119,19 @@ public class Kokkurisan : MonoBehaviour
             char[] answerChara = answerStr.ToCharArray();
             for (int i = 0; i < answerChara.Length; i++)
             {
-                // ”š‚Ìê‡
-                if ((int)answerChara[i] <= 57)
-                {
-                    int answerNo = answerChara[i] - 48;
-                    if (numList[answerNo] != null)
-                    {
-                        numList[answerNo].enabled = true;
-                        numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
-                    }
-                }
-                // •¶š‚Ìê‡
-                else
-                {
+                //// ”š‚Ìê‡
+                //if ((int)answerChara[i] <= 57)
+                //{
+                //    int answerNo = answerChara[i] - 48;
+                //    if (numList[answerNo] != null)
+                //    {
+                //        numList[answerNo].enabled = true;
+                //        numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
+                //    }
+                //}
+                //// •¶š‚Ìê‡
+                //else
+                //{
                     int answerNo = (int)answerChara[i] - 12354;
 
                     if (charList[answerNo] != null)
@@ -135,12 +139,13 @@ public class Kokkurisan : MonoBehaviour
                         charList[answerNo].enabled = true;
                         charList[answerNo].color = new Color(charList[answerNo].color.r, charList[answerNo].color.g, charList[answerNo].color.b, valueNowAnswer);
                     }
-                }
+                //}
             }
             // ³‰ğ‚µ‚½•¶š‚Ìê‡‚ÍZ‚Å•¶š‚ğˆÍ‚Ş
             if (markObjList.Count == 0)
             {
                 char[] clearChara = clearStr.ToCharArray();
+                missNum = 0;
                 for (int i = 0; i < clearChara.Length; i++)
                 {
                     // ‰ñ“š‚µ‚½•¶š—ñ‚Ì’†‚Å³‰ğ‚Ì•¶š‚ğŠÜ‚ñ‚Å‚¢‚½ê‡
@@ -152,7 +157,19 @@ public class Kokkurisan : MonoBehaviour
                         markObj.SetActive(true);
                         markObjList.Add(markObj);
                     }
+                    else
+                    {
+                        // ŠÔˆá‚¢•¶š”‚ğ’Ç‰Á
+                        missNum++;
+                    }
                 }
+            }
+
+            // ŠÔˆá‚¦‚½•¶š”‚ğ•\¦
+            if (numList[missNum] != null)
+            {
+                numList[missNum].enabled = true;
+                numList[missNum].color = new Color(numList[missNum].color.r, numList[missNum].color.g, numList[missNum].color.b, valueNowAnswer);
             }
 
         }
