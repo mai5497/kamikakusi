@@ -13,6 +13,7 @@ public class FirstHintUIChar : MonoBehaviour
     private string firstHintKitune;
     private string firstHintNormal;
 
+
     // Start is called before the first frame update
     void Start() {
         hintCharText = GetComponent<Text>();

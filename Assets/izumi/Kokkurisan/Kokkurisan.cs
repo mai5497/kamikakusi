@@ -64,6 +64,11 @@ public class Kokkurisan : MonoBehaviour
 
     // ŠÔˆá‚¢•¶š”
     private int missNum;
+    public int MissNum {
+        get {
+            return missNum;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

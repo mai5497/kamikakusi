@@ -10,9 +10,7 @@ public class FoxNormal : MonoBehaviour
     private const float appearTime = 1.5f;  // アルファ値が上がりきるまでの時間
 
 
-    private bool isByakko;
-
-    private bool byakko;
+    private bool isDelete;
 
     private FoxByakko fox;
 
@@ -28,9 +26,9 @@ public class FoxNormal : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        byakko = fox.GetByakko_delete();
+        isDelete = fox.GetByakko_delete();
 
-        if (byakko) {
+        if (isDelete) {
             Alpha += Time.deltaTime / appearTime;
             sr.color = new Color(1, 1, 1, Alpha);
         }

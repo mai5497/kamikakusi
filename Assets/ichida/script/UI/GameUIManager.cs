@@ -30,12 +30,23 @@ public class GameUIManager : MonoBehaviour
 
     private CP_move_input UIActionAssets;        // InputActionのUIを扱う
 
+    private GameObject tutorial;
+    private bool isTutorial;
+
+
     void Awake() {
         UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
     }
 
     // Start is called before the first frame update
     void Start() {
+        tutorial = GameObject.Find("StageSelectMgr");
+        if (tutorial) {
+            isTutorial = true;
+        } else {
+            isTutorial = false;
+        }
+
         //----- キャンバスが見つからなかったらキャンバスを作成する -----
         canvasObj = GameObject.Find("Canvas");
         if (canvasObj) {
@@ -100,6 +111,9 @@ public class GameUIManager : MonoBehaviour
     }
 
     private void OnSwitchUI(InputAction.CallbackContext obj) {
+        if (isTutorial) {
+            return;
+        }
         CPData.isObjNameUI = !CPData.isObjNameUI;
     }       
 }
