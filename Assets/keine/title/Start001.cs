@@ -1,3 +1,23 @@
+
+
+
+//=============================================================================
+//スタートボタン
+//
+//
+// 作成日:2022/10/13
+// 作成者:八木橋慧音
+//
+// <開発履歴>
+// 2022/10/18 作成
+//
+//=============================================================================
+
+
+
+
+
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
@@ -19,17 +39,25 @@ public class Start001 : MonoBehaviour
     //GameObject titlle; 
 
 
-    public bool titlle;
+    public bool titlle_delete;
 
-    public Fade_title Titlle;
+    public Fade_title_haikei Titlle;
 
     public select sel;
 
     public bool isSelect;
 
-    public Fade_out fade;
+    public Fade_out002 fadeout;
+
+    public Fade_in002 fadein;
 
     public Image image;
+
+    public Image img;
+
+    public bool finish;
+
+    public bool isFade;
 
     // Start is called before the first frame update
     void Start()
@@ -50,20 +78,31 @@ public class Start001 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        titlle = Titlle.GetTitlle_delete();
+        titlle_delete = Titlle.GetTitlle_delete();
         isSelect = sel.isStartOK;
+        finish = fadeout.fadeOut_finish;
 
-
-        Debug.Log(titlle);
+        //  Debug.Log(titlle);
 
         var current = Keyboard.current;
         bool Fade = _fadeAction.WasPerformedThisFrame();
 
-        if (Fade && titlle && isSelect)
+        if (Fade&& titlle_delete)
         {
-            Debug.Log("ボタン");
-           // SceneManager.LoadScene("Alpha 1");
-           fade.fade_out_use("Alpha 1",image);
+            isFade = true;
+        }
+        if (isSelect&&isFade)
+        {
+            fadein.fade_in_use("Alpha 1", image);
+            //Debug.Log("ボタン");
+            //// SceneManager.LoadScene("Alpha 1");
+
+            //fadeout.fade_out_use(img, true);
+            //if (finish)
+            //{
+            //    fadein.fade_in_use("Alpha 1", image);
+            //}
+
         }
 
 

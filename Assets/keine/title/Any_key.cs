@@ -6,19 +6,26 @@ using UnityEngine.UI;
 public class Any_key : MonoBehaviour
 {
 
-    public Fade_title titlle;
+    public Fade_title_haikei titlle;
+    //タイトルが終わったか
     bool Titlle;
 
-    private Image ima;
+    private Text text;
+    //タイトルロゴが出たか
+    public Fade_titlle_logo fade_titlle;
+    bool fadeIn_false;
 
     float timer = 0.0f;
+    //点滅
     float tikutaku = 0.0f;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        ima = GetComponent<Image>();
-        ima.color = new Color(1, 1, 1, 1);
+        text = GetComponent<Text>();
+        text.color = new Color(1, 1, 1, 0);
 
     }
 
@@ -26,30 +33,39 @@ public class Any_key : MonoBehaviour
     void Update()
     {
         Titlle = titlle.title_finish;
-        
+        fadeIn_false = fade_titlle.fadeIn;
 
 
-
-        if(Titlle)
+      //  Debug.Log(fadeIn_false);
+        if (!fadeIn_false)
         {
-            Debug.Log("any");
-            ima.color = new Color(1, 1, 1, 1- timer);
+           // text.color = new Color(1, 1, 1, 0);
 
-        }
-        else
-        {
-            ima.color = new Color(1, 1, 1, 1 - tikutaku);
 
+
+
+
+            if (Titlle)
+            {
+                //  Debug.Log("any");
+                text.color = new Color(1, 1, 1, 0 );
+
+            }
+            else
+            {
+                text.color = new Color(1, 1, 1, 0 + tikutaku);
+
+            }
+            if (tikutaku <= 0)
+            {
+                tikutaku = 1;
+            }
+            if (tikutaku >= 1)
+            {
+                tikutaku = 0;
+            }
+            tikutaku += Time.deltaTime;
+            timer += Time.deltaTime;
         }
-        if(tikutaku<=0)
-        {
-            tikutaku = 1;
-        }
-         if(tikutaku>=1)
-        {
-            tikutaku=0;
-        }
-        tikutaku += Time.deltaTime;
-        timer += Time.deltaTime;
     }
 }

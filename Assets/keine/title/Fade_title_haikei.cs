@@ -6,7 +6,7 @@
 // 作成者:八木橋慧音
 //
 // <開発履歴>
-// 2022/10/13 作成
+// 2022/10/18 作成
 //
 //=============================================================================
 
@@ -20,7 +20,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class Fade_in : MonoBehaviour
+public class Fade_title_haikei : MonoBehaviour
 {
     private Image img = null;
     private float timer = 0.0f;
@@ -32,11 +32,7 @@ public class Fade_in : MonoBehaviour
     private InputAction _fadeAction;
 
     private bool fading = false;
-    // Scene _scene;
-    public bool fade_out;
-
-
-
+    public bool title_finish = false;
     void Start()
     {
         img = GetComponent<Image>();
@@ -51,11 +47,8 @@ public class Fade_in : MonoBehaviour
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
         var actionMap = pInput.currentActionMap;
 
-
-
         //アクションマップからアクションを取得
         _fadeAction = actionMap["Fade"];
-
 
 
     }
@@ -77,7 +70,7 @@ public class Fade_in : MonoBehaviour
             {
                 if (fadeIn)
                 {
-                    //フェード中 
+                    //フェードイン中 
                     if (timer < 1)
                     {
                         img.color = new Color(1, 1, 1, 1 - timer);
@@ -93,36 +86,17 @@ public class Fade_in : MonoBehaviour
                         fadeIn = false;
                         fadeOut = true;
                         fading = false;
-                        // ChangeScene(_scene);
+                        title_finish = true;
+                        GetTitlle_delete();
+
+                       // Debug.Log("ボタン1");
+
                     }
                     timer += Time.deltaTime;
 
 
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //if (fading)
             //{
             //    if (fadeOut)
@@ -147,32 +121,24 @@ public class Fade_in : MonoBehaviour
             //        timer += Time.deltaTime;
 
             //    }
-            //}
+            //  }
         }
+
+
+
         ++frameCount;
+
     }
 
-    public void fade_in_use()
+    /// <summary>
+    /// タイトル削除
+    /// </summary>
+    /// <returns></returns>
+   
+    public bool GetTitlle_delete()
     {
-        fadeIn = true;
+        return title_finish;
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

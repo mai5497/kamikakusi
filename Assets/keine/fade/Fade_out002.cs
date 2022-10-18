@@ -6,7 +6,7 @@
 // 作成者:八木橋慧音
 //
 // <開発履歴>
-// 2022/10/13 作成
+// 2022/10/18 作成
 //
 //=============================================================================
 
@@ -20,35 +20,48 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class Fade_title : MonoBehaviour
+public class Fade_out002 : MonoBehaviour
 {
+    //フェードする画像
     private Image img = null;
+
     private float timer = 0.0f;
+
     private int frameCount = 0;
-    private bool fadeIn = false;
+   // public bool fadeIn = false;
+   //フェードアウト
     private bool fadeOut = false;
+    //フェードアウトが終わった
+    public bool fadeOut_finish = false;
 
     //アクション取得用
-    private InputAction _fadeAction;
+  //  private InputAction _fadeAction;
 
-    private bool fading = false;
-    public bool title_finish = false;
+    private bool fading = true;
+    // Scene _scene;
+    public bool fade_out;
+
+
+
     void Start()
     {
         img = GetComponent<Image>();
         img.color = new Color(1, 1, 1, 1);
         img.fillAmount = 1;
         img.raycastTarget = true;
-        fadeIn = true;
+        fadeOut = false;
 
-        var pInput = GetComponent<PlayerInput>();
+      //  var pInput = GetComponent<PlayerInput>();
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        var actionMap = pInput.currentActionMap;
+       // var actionMap = pInput.currentActionMap;
+
+
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+       // _fadeAction = actionMap["Fade"];
+
 
 
     }
@@ -60,43 +73,45 @@ public class Fade_title : MonoBehaviour
         if (frameCount > 2)
         {
 
-            bool Fade = _fadeAction.WasPerformedThisFrame();
+         //   bool Fade = _fadeAction.WasPerformedThisFrame();
 
-            if (Fade)
-            {
-                fading = true;
-            }
+            fade_out_use(img, fadeOut);
+
+            //if (fadeOut)
+            //{
+
+            //    fading = true;
+            //フェードアウト開始
             if (fading)
             {
-                if (fadeIn)
+
+                //    //フェード中 
+                if (timer < 1)
                 {
-                    //フェードイン中 
-                    if (timer < 1)
-                    {
-                        img.color = new Color(1, 1, 1, 1 - timer);
-                        img.fillAmount = 1 - timer;
-                    }
-                    //フェードイン完了 
-                    else
-                    {
-                        img.color = new Color(1, 1, 1, 0);
-                        img.fillAmount = 0;
-                        img.raycastTarget = false;
-                        timer = 0.0f;
-                        fadeIn = false;
-                        fadeOut = true;
-                        fading = false;
-                        title_finish = true;
-                        GetTitlle_delete();
+                    // Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
 
-                        Debug.Log("ボタン1");
-
-                    }
-                    timer += Time.deltaTime;
-
-
+                    img.color = new Color(1, 1, 1, 1 - timer);
+                    img.fillAmount = 1 - timer;
                 }
+                //フェードアウト完了 
+                else
+                {
+                    img.color = new Color(1, 1, 1, 0);
+                    img.fillAmount = 1;
+                    img.raycastTarget = false;
+                    timer = 0.0f;
+                    fadeOut = false;
+                    //  fadeOut = true;
+                    fading = false;
+                    // ChangeScene(_scene);
+                    fadeOut_finish = true;
+                }
+                timer += Time.deltaTime;
+
             }
+                //   }
+         //   }
+
             //if (fading)
             //{
             //    if (fadeOut)
@@ -121,23 +136,41 @@ public class Fade_title : MonoBehaviour
             //        timer += Time.deltaTime;
 
             //    }
-            //  }
+            //}
         }
-
-
-
         ++frameCount;
+    }
 
-    }
-  
-    /// <summary>
-    /// タイトル削除
-    /// </summary>
-    /// <returns></returns>
-    public bool GetTitlle_delete()
+    public void fade_out_use(Image image, bool FadeIn)
     {
-        return title_finish;
+        img = image;
+        fadeOut = FadeIn;
     }
+
+
+    //フェードアウトが終わったか
+    public bool Fade_out_finish()
+    {
+        return fadeOut_finish;
+    }
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

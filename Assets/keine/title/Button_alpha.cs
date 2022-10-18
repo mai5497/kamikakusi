@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Button_alpha : MonoBehaviour
 {
-    public Fade_title title;
+    public Fade_title_haikei title;
 
     public bool title_finish;
 
