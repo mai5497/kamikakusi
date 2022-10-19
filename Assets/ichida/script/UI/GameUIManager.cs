@@ -31,7 +31,7 @@ public class GameUIManager : MonoBehaviour
     private CP_move_input UIActionAssets;        // InputActionのUIを扱う
 
     private GameObject tutorial;
-    private bool isTutorial;
+    private Tutorial _Tutorial;
 
 
     void Awake() {
@@ -40,11 +40,9 @@ public class GameUIManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        tutorial = GameObject.Find("StageSelectMgr");
+        tutorial = GameObject.Find("FoxTutorial");
         if (tutorial) {
-            isTutorial = true;
-        } else {
-            isTutorial = false;
+            _Tutorial = tutorial.GetComponent<Tutorial>();
         }
 
         //----- キャンバスが見つからなかったらキャンバスを作成する -----
@@ -111,9 +109,12 @@ public class GameUIManager : MonoBehaviour
     }
 
     private void OnSwitchUI(InputAction.CallbackContext obj) {
-        if (isTutorial) {
-            return;
+        if (tutorial) {
+            if (_Tutorial.isTutorial) {
+                return;
+            }
         }
+        
         CPData.isObjNameUI = !CPData.isObjNameUI;
     }       
 }
