@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/keine/title.unity
     guid: 726799d960806ab46a4a39cddb2bcb88
   - enabled: 1
+    path: Assets/izumi/StageSelect/StageSelect.unity
+    guid: 25b2c4ad6f45a6042bc56c959dac424b
+  - enabled: 1
     path: Assets/keine/Alpha 1.unity
     guid: 22f892d51df0d1f478a8ff4328d32557
   - enabled: 1

@@ -18,6 +18,8 @@ public class ZoomLens : MonoBehaviour
 {
     [Header("カメラフラグ")]
     public bool isZoom;
+    // カメラ前フレームフラグ
+    private bool isBeforeZoom;
     [Header("カメラ")]
     public Camera _camera;
     [Header("カメラの初期値")]
@@ -34,10 +36,14 @@ public class ZoomLens : MonoBehaviour
     // canvas
     private Canvas canvasLens;
 
+    private Vector3 cameraInitPos;
+
     // Start is called before the first frame update
     void Start()
     {
         canvasLens = this.GetComponent<Canvas>();
+
+        cameraInitPos = _camera.transform.position;
     }
 
     // Update is called once per frame
@@ -46,6 +52,10 @@ public class ZoomLens : MonoBehaviour
         // ズーム
         if (isZoom == true)
         {
+            if (isBeforeZoom != isZoom)
+            {
+                cameraInitPos = _camera.transform.position;
+            }
             // canvasをワールド座標に(手がズームと一緒に動かないようにするため)
             canvasLens.renderMode = RenderMode.WorldSpace;
 
@@ -57,18 +67,22 @@ public class ZoomLens : MonoBehaviour
             }
 
             _camera.orthographicSize = Mathf.Lerp(cameraInit, cameraZoom, valueZoomLerp);
-            _camera.transform.position = Vector3.Lerp(new Vector3(0, 0, _camera.transform.position.z), new Vector3(pointZoom.position.x, pointZoom.position.y, _camera.transform.position.z), valueZoomLerp);
+            _camera.transform.position = Vector3.Lerp(new Vector3(cameraInitPos.x, cameraInitPos.y, _camera.transform.position.z), new Vector3(pointZoom.position.x, pointZoom.position.y, _camera.transform.position.z), valueZoomLerp);
         }
         // ズーム解除
         else
         {
-            // canvasを画面固定に戻す
-            canvasLens.renderMode = RenderMode.ScreenSpaceCamera;
+            if (isBeforeZoom != isZoom)
+            {
+                // canvasを画面固定に戻す
+                canvasLens.renderMode = RenderMode.ScreenSpaceCamera;
 
-            //リセット
-            valueZoomLerp = 0;
-            _camera.orthographicSize = cameraInit;
-            _camera.transform.position = new Vector3(0, 0, _camera.transform.position.z);
+                //リセット
+                valueZoomLerp = 0;
+                _camera.orthographicSize = cameraInit;
+                _camera.transform.position = new Vector3(cameraInitPos.x, cameraInitPos.y, _camera.transform.position.z);
+            }
         }
+        isBeforeZoom = isZoom;
     }
 }
