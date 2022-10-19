@@ -61,12 +61,25 @@ public class Kokkurisan : MonoBehaviour
     [Header("非表示狐の目")]
     public Image foxNoImage;
 
+    [Header("こっくりさんクリア")]
+    //[System.NonSerialized]
+    public bool isClear;
 
     // 間違い文字数
-    private int missNum;
-    public int MissNum {
+    // 人の目
+    private int normalMissNum;
+    // 狐の目
+    private int foxMissNum;
+    public int NormalMissNum {
         get {
-            return missNum;
+            return normalMissNum;
+        }
+    }
+    public int FoxMissNum
+    {
+        get
+        {
+            return foxMissNum;
         }
     }
 
@@ -110,20 +123,38 @@ public class Kokkurisan : MonoBehaviour
         {
             string answerStr = "";
             string clearStr = "";
+            int missNum = 0;
+
             if (isNormal)
             {
                 answerStr = normalAnswerStr;
                 clearStr = CPData.normalClearStr;
+                missNum = normalMissNum;
             }
             if (isFox)
             {
                 answerStr = kituneAnswerStr;
                 clearStr = CPData.kituneClearStr;
+                missNum = foxMissNum;
             }
 
 
             if (answerStr != null && clearStr != null)
             {
+                // クリア判定
+                bool isNormalClear = ClearJudge(normalAnswerStr, CPData.normalClearStr, ref normalMissNum, false);
+                bool isFoxClear = ClearJudge(kituneAnswerStr, CPData.kituneClearStr, ref foxMissNum, false);
+                // 人の目,狐の目両方クリアの場合は、こっくりさんクリア
+                if (isNormalClear && isFoxClear)
+                {
+                    isClear = true;
+                }
+                else
+                {
+                    isClear = false;
+                }
+
+                // それぞれの目での処理
                 char[] answerChara = answerStr.ToCharArray();
                 for (int i = 0; i < answerChara.Length; i++)
                 {
@@ -152,7 +183,7 @@ public class Kokkurisan : MonoBehaviour
                 // 正解した文字の場合は〇で文字を囲む
                 if (markObjList.Count == 0)
                 {
-                    ClearJudge(answerStr, clearStr);
+                    ClearJudge(answerStr, clearStr, ref missNum, true);
                 }
 
 
@@ -166,6 +197,7 @@ public class Kokkurisan : MonoBehaviour
             // 回答も正解も何も入ってない場合(エラー)
             else
             {
+                isClear = false;
                 missNum = -1;
             }
 
@@ -208,6 +240,7 @@ public class Kokkurisan : MonoBehaviour
     // モード遷移時のリセット
     void ResetParam()
     {
+        isClear = false;
         // 赤文字の非表示
         for (int i = 0; i < charList.Count; i++)
         {
@@ -238,8 +271,8 @@ public class Kokkurisan : MonoBehaviour
         }
     }
 
-    // 正解文字を〇で囲む処理
-    void ClearJudge(string answerStr,string clearStr)
+    // クリア判定(isMarkPrintがtrueだと正解文字を〇で囲む)
+    bool ClearJudge(string answerStr, string clearStr, ref int missNum, bool isMarkPrint)
     {
         char[] clearChara = clearStr.ToCharArray();
         missNum = 0;
@@ -247,10 +280,10 @@ public class Kokkurisan : MonoBehaviour
         {
             bool isClear = false;
             // 回答した文字列の中で正解の文字を含んでいた場合
-            for(int j = 0; j < answerStr.Length; j++)
+            for (int j = 0; j < answerStr.Length; j++)
             {
                 // 表示文字リストで同じ文字の場合、正解と判定
-                if(charList[i] == charList[j])
+                if (charList[i] == charList[j])
                 {
                     isClear = true;
                 }
@@ -259,11 +292,15 @@ public class Kokkurisan : MonoBehaviour
             // 正解だったら(文字を含むか)
             if (isClear)
             {
-                int clearNo = (int)clearChara[i] - 12353;
-                GameObject markObj = Instantiate(markClear.gameObject, charList[clearNo].transform);
-                markObj.transform.localPosition = new Vector3(-100, -25, 0);
-                markObj.SetActive(true);
-                markObjList.Add(markObj);
+                // isMarkPrintがtrueの場合は〇で囲む
+                if (isMarkPrint)
+                {
+                    int clearNo = (int)clearChara[i] - 12353;
+                    GameObject markObj = Instantiate(markClear.gameObject, charList[clearNo].transform);
+                    markObj.transform.localPosition = new Vector3(-100, -25, 0);
+                    markObj.SetActive(true);
+                    markObjList.Add(markObj);
+                }
             }
             // 不正解だったら(文字を含んでなかった)
             else
@@ -271,6 +308,16 @@ public class Kokkurisan : MonoBehaviour
                 // 間違い文字数を追加
                 missNum++;
             }
+        }
+
+        // 間違い文字数が0の場合はクリア
+        if (missNum == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
