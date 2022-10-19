@@ -37,24 +37,6 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""6fc07f2d-2793-42fe-9b36-fbc956cdc287"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Fire"",
-                    ""type"": ""Button"",
-                    ""id"": ""33429e10-9bae-4c68-bd14-fd465e0ae80f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Kitune"",
                     ""type"": ""Value"",
                     ""id"": ""e00935ac-ef2e-462b-a30b-cc9542d96bf0"",
@@ -82,82 +64,43 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Hint"",
+                    ""name"": ""HintButton"",
                     ""type"": ""Value"",
                     ""id"": ""93877388-9ed4-4511-9b60-687fdfc72d34"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HintKey"",
+                    ""type"": ""Value"",
+                    ""id"": ""d669122e-0e6c-456e-9524-227abb362a00"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HintSwitch"",
+                    ""type"": ""Value"",
+                    ""id"": ""0f3bca62-7d35-49fd-be53-e147c839309f"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HintClose"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3c3aaf3-4142-458e-8f28-671a62c76604"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""c1f7a91b-d0fd-4a62-997e-7fb9b69bf235"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
-                    ""path"": ""<Pointer>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3e5f5442-8668-4b27-a940-df99bad7e831"",
-                    ""path"": ""<Joystick>/{Hatswitch}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6f456bb3-5e7a-42e8-96e1-c3c2f09f0b82"",
-                    ""path"": ""<XInputController>/rightTrigger"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""93d53fe5-b625-4d02-9f3e-858ddfacfae1"",
-                    ""path"": ""<XInputController>/leftTrigger"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3274bebf-00b1-40b4-8b03-48dc586a9328"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""stick"",
                     ""id"": ""6183bdaf-6880-4be5-ab63-6c132673cd6d"",
@@ -336,25 +279,124 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0dac333b-6ba6-4fad-bcb6-a7e823b2aff2"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Hint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c519c035-3a38-489a-ad70-9b2c8b44e203"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Hint"",
+                    ""action"": ""HintButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""40572afb-44e8-4394-93ef-c96e53bb0ed5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintSwitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""4af5d79e-6de2-4986-8a0d-354679ab1836"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7ce4a8f6-f967-4844-b638-5b0e9b3b9786"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""54413cf7-b81d-4edf-ae6b-c5ffd6a69857"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintSwitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""090c8de2-6197-427f-a2c3-6e5d1702368c"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7090a5b5-9454-473b-ae4f-047458925f4d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83276089-8cfe-4cf3-90ac-98801663032b"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintClose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""cbcfa1b8-b492-4c23-b138-14bfd20ba884"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintKey"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""184ccc3c-a17a-4de2-8070-9ec9f9aeb3e4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e980382e-fd15-4599-9113-09ada9cfe41b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HintKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -682,12 +724,13 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Kitune = m_Player.FindAction("Kitune", throwIfNotFound: true);
         m_Player_Cyuusi = m_Player.FindAction("Cyuusi", throwIfNotFound: true);
         m_Player_Pose = m_Player.FindAction("Pose", throwIfNotFound: true);
-        m_Player_Hint = m_Player.FindAction("Hint", throwIfNotFound: true);
+        m_Player_HintButton = m_Player.FindAction("HintButton", throwIfNotFound: true);
+        m_Player_HintKey = m_Player.FindAction("HintKey", throwIfNotFound: true);
+        m_Player_HintSwitch = m_Player.FindAction("HintSwitch", throwIfNotFound: true);
+        m_Player_HintClose = m_Player.FindAction("HintClose", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Fade = m_UI.FindAction("Fade", throwIfNotFound: true);
@@ -758,23 +801,25 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Kitune;
     private readonly InputAction m_Player_Cyuusi;
     private readonly InputAction m_Player_Pose;
-    private readonly InputAction m_Player_Hint;
+    private readonly InputAction m_Player_HintButton;
+    private readonly InputAction m_Player_HintKey;
+    private readonly InputAction m_Player_HintSwitch;
+    private readonly InputAction m_Player_HintClose;
     public struct PlayerActions
     {
         private @CP_move_input m_Wrapper;
         public PlayerActions(@CP_move_input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Kitune => m_Wrapper.m_Player_Kitune;
         public InputAction @Cyuusi => m_Wrapper.m_Player_Cyuusi;
         public InputAction @Pose => m_Wrapper.m_Player_Pose;
-        public InputAction @Hint => m_Wrapper.m_Player_Hint;
+        public InputAction @HintButton => m_Wrapper.m_Player_HintButton;
+        public InputAction @HintKey => m_Wrapper.m_Player_HintKey;
+        public InputAction @HintSwitch => m_Wrapper.m_Player_HintSwitch;
+        public InputAction @HintClose => m_Wrapper.m_Player_HintClose;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -787,12 +832,6 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Kitune.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKitune;
                 @Kitune.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKitune;
                 @Kitune.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKitune;
@@ -802,9 +841,18 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Pose.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
                 @Pose.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
                 @Pose.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPose;
-                @Hint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHint;
-                @Hint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHint;
-                @Hint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHint;
+                @HintButton.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintButton;
+                @HintButton.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintButton;
+                @HintButton.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintButton;
+                @HintKey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintKey;
+                @HintKey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintKey;
+                @HintKey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintKey;
+                @HintSwitch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintSwitch;
+                @HintSwitch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintSwitch;
+                @HintSwitch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintSwitch;
+                @HintClose.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintClose;
+                @HintClose.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintClose;
+                @HintClose.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHintClose;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -812,12 +860,6 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
                 @Kitune.started += instance.OnKitune;
                 @Kitune.performed += instance.OnKitune;
                 @Kitune.canceled += instance.OnKitune;
@@ -827,9 +869,18 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 @Pose.started += instance.OnPose;
                 @Pose.performed += instance.OnPose;
                 @Pose.canceled += instance.OnPose;
-                @Hint.started += instance.OnHint;
-                @Hint.performed += instance.OnHint;
-                @Hint.canceled += instance.OnHint;
+                @HintButton.started += instance.OnHintButton;
+                @HintButton.performed += instance.OnHintButton;
+                @HintButton.canceled += instance.OnHintButton;
+                @HintKey.started += instance.OnHintKey;
+                @HintKey.performed += instance.OnHintKey;
+                @HintKey.canceled += instance.OnHintKey;
+                @HintSwitch.started += instance.OnHintSwitch;
+                @HintSwitch.performed += instance.OnHintSwitch;
+                @HintSwitch.canceled += instance.OnHintSwitch;
+                @HintClose.started += instance.OnHintClose;
+                @HintClose.performed += instance.OnHintClose;
+                @HintClose.canceled += instance.OnHintClose;
             }
         }
     }
@@ -980,12 +1031,13 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
         void OnKitune(InputAction.CallbackContext context);
         void OnCyuusi(InputAction.CallbackContext context);
         void OnPose(InputAction.CallbackContext context);
-        void OnHint(InputAction.CallbackContext context);
+        void OnHintButton(InputAction.CallbackContext context);
+        void OnHintKey(InputAction.CallbackContext context);
+        void OnHintSwitch(InputAction.CallbackContext context);
+        void OnHintClose(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

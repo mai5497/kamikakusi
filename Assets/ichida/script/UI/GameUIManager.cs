@@ -55,7 +55,10 @@ public class GameUIManager : MonoBehaviour
             canvasObj.AddComponent<Canvas>();
 
             canvas = canvasObj.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Camera.main;
+            canvas.sortingLayerName = "TopLayer";
+            canvas.sortingOrder = 2;
             canvasObj.AddComponent<CanvasScaler>();
             canvasObj.AddComponent<GraphicRaycaster>();
         }
@@ -116,5 +119,5 @@ public class GameUIManager : MonoBehaviour
         }
         
         CPData.isObjNameUI = !CPData.isObjNameUI;
-    }       
+    }
 }

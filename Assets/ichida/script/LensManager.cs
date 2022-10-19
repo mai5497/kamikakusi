@@ -63,26 +63,8 @@ public class LensManager : MonoBehaviour
             oldIsLens = CPData.isLens;
         }
 
-        //if (!CPData.isHint) {
-        //    blurIn.isBlur = false;
-        //} else {
-        //    blurIn.isBlur = true;
-        //}
-
         // ÉåÉìÉYà⁄ìÆ(í èÌéûÇÃÇ›)
         if (!CPData.isKokkurisan && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
-            //if (keyboard.aKey.isPressed) {
-            //    lensObj.transform.position = new Vector3(lensObj.transform.position.x - moveSpeed, lensObj.transform.position.y, lensObj.transform.position.z);
-            //}
-            //if (keyboard.dKey.isPressed) {
-            //    lensObj.transform.position = new Vector3(lensObj.transform.position.x + moveSpeed, lensObj.transform.position.y, lensObj.transform.position.z);
-            //}
-            //if (keyboard.sKey.isPressed) {
-            //    lensObj.transform.position = new Vector3(lensObj.transform.position.x, lensObj.transform.position.y - moveSpeed, lensObj.transform.position.z);
-            //}
-            //if (keyboard.wKey.isPressed) {
-            //    lensObj.transform.position = new Vector3(lensObj.transform.position.x, lensObj.transform.position.y + moveSpeed, lensObj.transform.position.z);
-            //}
             if (isLensInit) {
                 lensObj.transform.position = CPData.playerPos;
                 isLensInit = false;
