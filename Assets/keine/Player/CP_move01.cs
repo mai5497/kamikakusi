@@ -23,7 +23,7 @@ public class CP_move01 : MonoBehaviour {
     public float fSpeed = 0.04f;    // プレイヤーの移動と窓の移動スピード兼ねてる
 
     //アクション取得用
-    private InputAction _moveAction, _fireAction, _kituneAction, _cyuusiAction, _poseAction, _hintAction;
+    private InputAction _moveAction, _kituneAction, _cyuusiAction, _poseAction, _hintOpenKeyAction, _hintOpenButtonAction, _hintCloseAction;
     //private CP_move_input ActionAssets;        // InputActionを扱う
 
     private LensManager _LensManager;
@@ -48,11 +48,12 @@ public class CP_move01 : MonoBehaviour {
 
         //アクションマップからアクションを取得
         _moveAction = actionMap["Move"];
-        _fireAction = actionMap["Fire"];
         _kituneAction = actionMap["Kitune"];
         _cyuusiAction = actionMap["Cyuusi"];
         _poseAction = actionMap["Pose"];
-        _hintAction = actionMap["Hint"];
+        _hintOpenKeyAction = actionMap["HintKey"];
+        _hintOpenButtonAction = actionMap["HintButton"];
+        _hintCloseAction = actionMap["HintClose"];
     }
 
     private void OnEnable() {
@@ -61,7 +62,10 @@ public class CP_move01 : MonoBehaviour {
         _kituneAction.canceled += OnLens;
         _cyuusiAction.started += LookStart;
         _cyuusiAction.canceled += LookFin;
-        _hintAction.canceled += OpenHint;
+        _hintOpenKeyAction.started += OpenHintKey;
+        _hintOpenButtonAction.canceled += OpenHintButton;
+
+        _hintCloseAction.canceled += CloseHint;
 
         //---InputActionの有効化
         //ActionAssets.Player.Enable();
@@ -74,7 +78,7 @@ public class CP_move01 : MonoBehaviour {
 
 
     void Update() {
-        if (!CPData.isLens) {
+        if (!CPData.isLens) {   // レンズ使用中処理か移動処理か
             if (!CPData.isKokkurisan) {
                 //プレイヤーの移動処理
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,7 +154,26 @@ public class CP_move01 : MonoBehaviour {
         CPData.isLook = false;
     }
 
-    private void OpenHint(InputAction.CallbackContext obj) {
+    private void OpenHintKey(InputAction.CallbackContext obj) {
+        CPData.isKokkurisan = true;
+    }
+
+    private void OpenHintButton(InputAction.CallbackContext obj) {
         CPData.isKokkurisan = !CPData.isKokkurisan;
+    }
+
+
+    private void CloseHint(InputAction.CallbackContext obj) {
+        if (CPData.isKokkurisan) {
+            Keyboard keyboard = Keyboard.current;
+            if (keyboard != null) {
+                if (!keyboard.enterKey.wasReleasedThisFrame &&
+                    !keyboard.escapeKey.wasReleasedThisFrame &&
+                    !keyboard.eKey.wasReleasedThisFrame &&
+                    !keyboard.qKey.wasReleasedThisFrame) {
+                    CPData.isKokkurisan = false;
+                }
+            }
+        }
     }
 }

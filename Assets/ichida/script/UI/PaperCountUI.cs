@@ -14,6 +14,6 @@ public class PaperCountUI : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        paperCntText.text = CPData.lookCnt.ToString();
+        paperCntText.text = CPData.paperCnt.ToString();
     }
 }

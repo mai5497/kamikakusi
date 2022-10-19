@@ -83,11 +83,18 @@ public class Kokkurisan : MonoBehaviour
         }
     }
 
+    private Canvas canvas;  // キャンバスにメインカメラを設定するために取得
+
     // Start is called before the first frame update
     void Start()
     {
         markClear.gameObject.SetActive(false);
+        canvas = GetComponent<Canvas>();
 
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
+        canvas.sortingLayerName = "TopLayer";
+        canvas.sortingOrder = 1;
     }
 
     // Update is called once per frame
