@@ -248,8 +248,8 @@ public class StageSelect : MonoBehaviour
                     break;
                 // ステージセレクトの場合,メインシーンへ
                 case Mode.StageSelectUpdate:
-                    SceneManager.LoadScene(mainSceneName[selectWorldNo].List[selectStageNo]);
-
+                    //SceneManager.LoadScene(mainSceneName[selectWorldNo].List[selectStageNo]);
+                    Fade_in003.fade_in_use(mainSceneName[selectWorldNo].List[selectStageNo]);
                     break;
             }
             inputDicision = false;
@@ -263,7 +263,8 @@ public class StageSelect : MonoBehaviour
             {
                 // ワールドセレクトの場合,タイトルシーンへ
                 case Mode.WorldSelectUpdate:
-                    SceneManager.LoadScene(titleSceneName);
+                    //SceneManager.LoadScene(titleSceneName);
+                    Fade_in003.fade_in_use(titleSceneName);
                     break;
                 // ステージセレクトの場合,ワールドセレクトへ
                 case Mode.StageSelectUpdate:
