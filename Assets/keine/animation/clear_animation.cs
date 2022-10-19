@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_hyouji : MonoBehaviour
+public class clear_animation : MonoBehaviour
 {
+    Animator anim;
+
     public Fade_in_crear fade_crear;
     public bool fadeIn;
-    private SpriteRenderer oder = null;
     // Start is called before the first frame update
     void Start()
     {
-        oder = GetComponent<SpriteRenderer>();
-        //  oder.sortingOrder;
-        oder.color = new Color(1,1,1,0);
+        this.anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         fadeIn = fade_crear.fadeIn;
 
-        if(!fadeIn)
+       // Debug.Log("aaaaaa"+fadeIn);
+
+        if (!fadeIn)
         {
-            oder.color = new Color(1, 1, 1, 1);
-            oder.sortingOrder = 6;
+            
+            anim.SetBool("Clear_finish",true);
         }
 
-
-        
     }
 }

@@ -72,7 +72,7 @@ public class Fade_in_crear : MonoBehaviour
     {
         // fade_in = Fadein.fadeIn;
 
-        isFadeOk = start.isClear;
+       // isFadeOk = start.isClear;
 
         var current = Keyboard.current;
         if (frameCount > 2)
@@ -116,8 +116,8 @@ public class Fade_in_crear : MonoBehaviour
 
             //if (fading)
             //{
-            Debug.Log(isFadeOk);
-            Debug.Log("クリア！！！");
+          //  Debug.Log(isFadeOk);
+          //  Debug.Log("クリア！！！");
             if (isFadeOk)
             {
                 if (fadeIn)

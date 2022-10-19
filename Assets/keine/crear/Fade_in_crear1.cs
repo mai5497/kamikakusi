@@ -72,7 +72,7 @@ public class Fade_in_crear1 : MonoBehaviour
     {
         // fade_in = Fadein.fadeIn;
 
-        isFadeOk = start.isClear;
+      //  isFadeOk = start.isClear;
 
       //  var current = Keyboard.current;
         if (frameCount > 2)

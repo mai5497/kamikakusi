@@ -81,7 +81,7 @@ public class Start001 : MonoBehaviour
     void Update()
     {
         titlle_delete = Titlle.GetTitlle_delete();
-        isSelect = sel.isStartOK;
+        isSelect = sel.NO1;
         finish = fadeout.fadeOut_finish;
 
         //  Debug.Log(titlle);
