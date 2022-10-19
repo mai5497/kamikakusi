@@ -1,5 +1,7 @@
 //=============================================================================
 //
+// サウンドマネージャー2
+//
 // 作成日:2022/03/16
 // 作成者:伊地田真衣
 // 編集者：泉優樹
@@ -25,6 +27,15 @@ public static class SoundManager2
     public static float bgmVolume = 1.0f;
     //SEボリューム
     public static float seVolume = 1.0f;
+    //フェードアウト
+    private static bool isFadeOut;
+    private static float fadeOutValue = 0.0f;
+    public static float fadeOutSpeed = 0.1f;
+    //フェードイン
+    private static bool isFadeIn;
+    private static float fadeInValue = 0.0f;
+    public static float fadeInSpeed = 0.1f;
+
     /// <summary>
     /// 未使用のAudioSourceを探す
     /// </summary>
@@ -183,11 +194,64 @@ public static class SoundManager2
     //}
 
     /// <summary>
-    /// サウンドのフェードイン
+    /// サウンドのフェードアウト再生
     /// </summary>
     /// <param name="_audioSourceList">そのシーンで使用しているオーディオリスト</param>
-    public static void SoundFadeIn()
+    public static void Play_FadeOut(SoundData.eBGM _bgmDataNumber, AudioSource[] _audioSourceList)
     {
+        isFadeOut = true;
+        Play(_bgmDataNumber, _audioSourceList);
+    }
 
+    /// <summary>
+    /// サウンドのフェードイン再生終了
+    /// </summary>
+    /// <param name="_audioSourceList">そのシーンで使用しているオーディオリスト</param>
+    public static void Stop_FadeIn(AudioSource[] _audioSourceList)
+    {
+        isFadeIn = true;
+    }
+
+    /// <summary>
+    /// サウンドのフェード更新
+    /// </summary>
+    /// <param name="_audioSourceList">そのシーンで使用しているオーディオリスト</param>
+    public static void UpdateFade(AudioSource[] _audioSourceList)
+    {
+        // フェードアウト
+        if (isFadeOut)
+        {
+            for (int i = 0; i < _audioSourceList.Length; ++i)
+            {
+                fadeOutValue += Time.deltaTime * fadeOutSpeed;
+                _audioSourceList[i].volume = Mathf.Lerp(0, bgmVolume, fadeOutValue);
+            }
+            // フェードアウト終了
+            if (fadeOutValue >= 1.0f)
+            {
+                isFadeOut = false;
+                fadeOutValue = 0.0f;
+            }
+        }
+        //フェードイン
+        if (isFadeIn)
+        {
+            for (int i = 0; i < _audioSourceList.Length; ++i)
+            {
+                fadeInValue += Time.deltaTime * fadeInSpeed;
+                _audioSourceList[i].volume = Mathf.Lerp(bgmVolume, 0, fadeInValue);
+            }
+            //フェードイン終了
+            if (fadeInValue >= 1.0f)
+            {
+                for (int i = 0; i < _audioSourceList.Length; ++i)
+                {
+                    isFadeIn = false;
+                    fadeInValue = 0.0f;
+                    _audioSourceList[i].Stop();
+                    _audioSourceList[i].clip = null;
+                }
+            }
+        }
     }
 }
