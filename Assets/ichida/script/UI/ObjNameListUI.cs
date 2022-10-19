@@ -79,10 +79,10 @@ public class ObjNameListUI : MonoBehaviour
 
             if (i > 4) {    // âEë§
                 rightText.text = rightText.text + nameList[i] + "\n";
-                iconObjEntity[i].transform.localPosition = new Vector3(rightText.transform.localPosition.x - 250, rightText.transform.localPosition.y - (i - 7) * 100, -5);
+                iconObjEntity[i].transform.localPosition = new Vector3(rightText.transform.localPosition.x - 300, rightText.transform.localPosition.y - (i - 7) * 110, -5);
             } else {    // ç∂ë§
                 leftText.text = leftText.text + nameList[i] + "\n";
-                iconObjEntity[i].transform.localPosition = new Vector3(leftText.transform.localPosition.x - 250, leftText.transform.localPosition.y - (i - 2) * 100, -5);
+                iconObjEntity[i].transform.localPosition = new Vector3(leftText.transform.localPosition.x - 300, leftText.transform.localPosition.y - (i - 2) * 110, -5);
             }
         }
     }

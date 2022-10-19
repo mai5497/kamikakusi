@@ -31,6 +31,7 @@ public class FoxNormal : MonoBehaviour
         if (isDelete) {
             Alpha += Time.deltaTime / appearTime;
             sr.color = new Color(1, 1, 1, Alpha);
+            fox.isClear = true;
         }
     }
 }

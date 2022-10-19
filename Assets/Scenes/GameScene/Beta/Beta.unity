@@ -1210,11 +1210,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3561199095733398226, guid: 762b6e51afa153e40868d2bcbb7bca2d, type: 3}
       propertyPath: _kituneClearStr
-      value: "\u3057\u304B\u304F"
+      value: "\u3042\u304A\u3044\u3057\u304B\u304F"
       objectReference: {fileID: 0}
     - target: {fileID: 3561199095733398226, guid: 762b6e51afa153e40868d2bcbb7bca2d, type: 3}
       propertyPath: _normalClearStr
-      value: "\u306A\u3059"
+      value: "\u3042\u304B\u3044\u306A\u3059"
       objectReference: {fileID: 0}
     - target: {fileID: 3561199095733398227, guid: 762b6e51afa153e40868d2bcbb7bca2d, type: 3}
       propertyPath: m_Name
@@ -1285,11 +1285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4979186074215458662, guid: 33b52f9de3cae3c41827a1be2eebbc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.01
       objectReference: {fileID: 0}
     - target: {fileID: 4979186074215458662, guid: 33b52f9de3cae3c41827a1be2eebbc78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 4979186074215458662, guid: 33b52f9de3cae3c41827a1be2eebbc78, type: 3}
       propertyPath: m_LocalPosition.z

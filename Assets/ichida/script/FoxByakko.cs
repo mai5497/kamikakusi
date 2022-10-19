@@ -14,11 +14,14 @@ public class FoxByakko : MonoBehaviour
 
     private float lookStopTimer;    // 注視して止まらないといけない時間のカウント用タイマー
 
-    private bool isByakko_delete = false;
-    private bool isDeleting;
+    private bool isByakko_delete = false;   // 白狐が消えたらtrue
+    private bool isDeleting;    // 消してる最中のフラグ
 
-    private Kokkurisan kokkurisan;
-    private bool isClear;
+    private Kokkurisan _Kokkurisan;  // こっくりさんのスクリプト取得
+    [System.NonSerialized]
+    public bool isClear;    // ゲームクリアのフラグ
+
+    private bool oldIsLook;
 
     // Start is called before the first frame update
     void Start() {
@@ -32,36 +35,38 @@ public class FoxByakko : MonoBehaviour
         alpha = 0.0f;
         sr.color = new Color(1, 1, 1, alpha);
 
-        kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
-        if (kokkurisan.isClear == true) {
-            isClear = true;
-        }
+        _Kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
+        isClear = false;
+
+        oldIsLook = CPData.isLook;
     }
 
     // Update is called once per frame
     void Update() {
-        if (kokkurisan.isClear == true) {
-            isClear = true;
+        //----- 注視判定 -----
+        if(!isWindowColl && !oldIsLook && CPData.isLook) {    // 窓が当たっていないときに注視されたとき
+            CPData.lookCnt--;
         }
 
-        //----- 注視判定 -----
-        if (isClear && isWindowColl && CPData.isLook && !isDeleting) {
+        if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
 
             if (lookStopTimer < 0 && alpha <= 1.0f) {
                 alpha += Time.deltaTime / appearTime;
                 sr.color = new Color(1, 1, 1, alpha);
-            } else if(alpha > 1.0){
+            } else if (alpha > 1.0) {
                 isDeleting = true;
             }
-        } else if(isDeleting) {
-                alpha -= Time.deltaTime / appearTime;
-                sr.color = new Color(1, 1, 1, alpha);
-                if (alpha < 0.0f) {
-                    isByakko_delete = true;
-                }
+        } else if (isDeleting) {
+            alpha -= Time.deltaTime / appearTime;
+            sr.color = new Color(1, 1, 1, alpha);
+            if (alpha < 0.0f) {
+                isByakko_delete = true;
+            }
         }
+
+        oldIsLook = CPData.isLook;
     }
     public bool GetByakko_delete() {
         return isByakko_delete;
