@@ -49,6 +49,7 @@ public class CanvasOnOff : MonoBehaviour
             }
         } else {
             CanvasOff();
+            this.GetComponent<Kokkurisan>().isAnswer = false;
         }
     }
 

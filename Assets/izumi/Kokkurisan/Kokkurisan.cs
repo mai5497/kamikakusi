@@ -121,22 +121,25 @@ public class Kokkurisan : MonoBehaviour
                 clearStr = CPData.kituneClearStr;
             }
 
-            char[] answerChara = answerStr.ToCharArray();
-            for (int i = 0; i < answerChara.Length; i++)
+
+            if (answerStr != null && clearStr != null)
             {
-                //// ”Žš‚Ìê‡
-                //if ((int)answerChara[i] <= 57)
-                //{
-                //    int answerNo = answerChara[i] - 48;
-                //    if (numList[answerNo] != null)
-                //    {
-                //        numList[answerNo].enabled = true;
-                //        numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
-                //    }
-                //}
-                //// •¶Žš‚Ìê‡
-                //else
-                //{
+                char[] answerChara = answerStr.ToCharArray();
+                for (int i = 0; i < answerChara.Length; i++)
+                {
+                    //// ”Žš‚Ìê‡
+                    //if ((int)answerChara[i] <= 57)
+                    //{
+                    //    int answerNo = answerChara[i] - 48;
+                    //    if (numList[answerNo] != null)
+                    //    {
+                    //        numList[answerNo].enabled = true;
+                    //        numList[answerNo].color = new Color(numList[answerNo].color.r, numList[answerNo].color.g, numList[answerNo].color.b, valueNowAnswer);
+                    //    }
+                    //}
+                    //// •¶Žš‚Ìê‡
+                    //else
+                    //{
                     int answerNo = (int)answerChara[i] - 12353;
 
                     if (charList[answerNo] != null)
@@ -144,19 +147,26 @@ public class Kokkurisan : MonoBehaviour
                         charList[answerNo].enabled = true;
                         charList[answerNo].color = new Color(charList[answerNo].color.r, charList[answerNo].color.g, charList[answerNo].color.b, valueNowAnswer);
                     }
-                //}
-            }
-            // ³‰ð‚µ‚½•¶Žš‚Ìê‡‚ÍZ‚Å•¶Žš‚ðˆÍ‚Þ
-            if (markObjList.Count == 0)
-            {
-                ClearJudge(answerStr, clearStr);
-            }
+                    //}
+                }
+                // ³‰ð‚µ‚½•¶Žš‚Ìê‡‚ÍZ‚Å•¶Žš‚ðˆÍ‚Þ
+                if (markObjList.Count == 0)
+                {
+                    ClearJudge(answerStr, clearStr);
+                }
 
-            // ŠÔˆá‚¦‚½•¶Žš”‚ð•\Ž¦
-            if (numList[missNum] != null)
+
+                // ŠÔˆá‚¦‚½•¶Žš”‚ð•\Ž¦
+                if (numList[missNum] != null)
+                {
+                    numList[missNum].enabled = true;
+                    numList[missNum].color = new Color(numList[missNum].color.r, numList[missNum].color.g, numList[missNum].color.b, valueNowAnswer);
+                }
+            }
+            // ‰ñ“š‚à³‰ð‚à‰½‚à“ü‚Á‚Ä‚È‚¢ê‡(ƒGƒ‰[)
+            else
             {
-                numList[missNum].enabled = true;
-                numList[missNum].color = new Color(numList[missNum].color.r, numList[missNum].color.g, numList[missNum].color.b, valueNowAnswer);
+                missNum = -1;
             }
 
         }
