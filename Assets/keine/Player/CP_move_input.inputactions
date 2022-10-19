@@ -42,24 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HintButton",
-                    "type": "Value",
-                    "id": "93877388-9ed4-4511-9b60-687fdfc72d34",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "HintKey",
-                    "type": "Value",
-                    "id": "d669122e-0e6c-456e-9524-227abb362a00",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "HintSwitch",
                     "type": "Value",
                     "id": "0f3bca62-7d35-49fd-be53-e147c839309f",
@@ -256,17 +238,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "c519c035-3a38-489a-ad70-9b2c8b44e203",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HintButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "1D Axis",
                     "id": "40572afb-44e8-4394-93ef-c96e53bb0ed5",
                     "path": "1DAxis",
@@ -342,39 +313,6 @@
                     "action": "HintClose",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "cbcfa1b8-b492-4c23-b138-14bfd20ba884",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HintKey",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "184ccc3c-a17a-4de2-8070-9ec9f9aeb3e4",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HintKey",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "e980382e-fd15-4599-9113-09ada9cfe41b",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HintKey",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         },
@@ -422,6 +360,24 @@
                     "name": "Back",
                     "type": "Button",
                     "id": "82066831-b707-4375-a7a6-7731cb41c757",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "KeyKokkurisan",
+                    "type": "Button",
+                    "id": "75f16f8e-9244-4cc1-ab6d-b39b1814745b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ButtonKokkurisan",
+                    "type": "Button",
+                    "id": "1997e27b-0467-439a-98f0-2621a62ec0ab",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -591,6 +547,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d8fa743-e863-4ee8-852c-69fc42a61d32",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyKokkurisan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4fe8add-e87b-4b24-9cc4-b836980ecc3c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyKokkurisan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e13cb549-69e1-4fc5-825e-dc1da272b9e3",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonKokkurisan",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

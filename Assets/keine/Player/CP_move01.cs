@@ -23,8 +23,8 @@ public class CP_move01 : MonoBehaviour {
     public float fSpeed = 0.04f;    // プレイヤーの移動と窓の移動スピード兼ねてる
 
     //アクション取得用
-    private InputAction _moveAction, _kituneAction, _cyuusiAction, _poseAction, _hintOpenKeyAction, _hintOpenButtonAction, _hintCloseAction;
-    //private CP_move_input ActionAssets;        // InputActionを扱う
+    private InputAction _moveAction, _kituneAction, _cyuusiAction, _poseAction, /*_hintOpenKeyAction, _hintOpenButtonAction,*/ _hintCloseAction;
+    private CP_move_input UIAction;        // InputActionを扱う
 
     private LensManager _LensManager;
 
@@ -40,7 +40,7 @@ public class CP_move01 : MonoBehaviour {
     }
 
     void Awake() {
-        //ActionAssets = new CP_move_input();            // InputActionインスタンスを生成
+        UIAction = new CP_move_input();            // InputActionインスタンスを生成
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
         var pInput = GetComponent<PlayerInput>();
@@ -51,8 +51,8 @@ public class CP_move01 : MonoBehaviour {
         _kituneAction = actionMap["Kitune"];
         _cyuusiAction = actionMap["Cyuusi"];
         _poseAction = actionMap["Pose"];
-        _hintOpenKeyAction = actionMap["HintKey"];
-        _hintOpenButtonAction = actionMap["HintButton"];
+        //_hintOpenKeyAction = actionMap["HintKey"];
+        //_hintOpenButtonAction = actionMap["HintButton"];
         _hintCloseAction = actionMap["HintClose"];
     }
 
@@ -62,18 +62,22 @@ public class CP_move01 : MonoBehaviour {
         _kituneAction.canceled += OnLens;
         _cyuusiAction.started += LookStart;
         _cyuusiAction.canceled += LookFin;
-        _hintOpenKeyAction.started += OpenHintKey;
-        _hintOpenButtonAction.canceled += OpenHintButton;
+        //_hintOpenKeyAction.started += OpenHintKey;
+        //_hintOpenButtonAction.canceled += OpenHintButton;
 
         _hintCloseAction.canceled += CloseHint;
 
+        UIAction.UI.KeyKokkurisan.started += OpenHintKey;
+        UIAction.UI.ButtonKokkurisan.started += OpenHintButton;
+
+
         //---InputActionの有効化
-        //ActionAssets.Player.Enable();
+        UIAction.UI.Enable();
     }
 
     private void OnDisable() {
         //---InputActionの無効化
-        //ActionAssets.Player.Disable();
+        UIAction.UI.Disable();
     }
 
 
@@ -89,32 +93,6 @@ public class CP_move01 : MonoBehaviour {
                     0.0f,
                     0.0f);
 
-               // bool fire = _fireAction.IsPressed();
-
-                //if (fire)
-                //{
-                //    Debug.Log("shiftキーが押された！");
-                //    isDash = true;
-                //}
-                //else
-                //{
-                //    Debug.Log("aaaaaaaaaaaaaasdasadsa！");
-                //    isDash = false;
-                //}
-
-                //if (isDash)
-                //{
-                //    fSpeed = 0.02f;
-                //}
-                //else
-                //{
-                //    isDash = false;
-
-                //    if (!isDash)
-                //    {
-                //        fSpeed = 0.01f;
-                //    }
-                //}
                 CPData.playerPos = this.transform.position;
             }
         } else {
