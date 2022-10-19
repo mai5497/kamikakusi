@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Any_key : MonoBehaviour
 {
 
-    public Fade_title_haikei titlle;
+    public Fade_title_haikei1 titlle;
     //タイトルが終わったか
     bool Titlle;
 

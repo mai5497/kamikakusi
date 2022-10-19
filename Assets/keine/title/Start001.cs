@@ -41,7 +41,7 @@ public class Start001 : MonoBehaviour
 
     public bool titlle_delete;
 
-    public Fade_title_haikei Titlle;
+    public Fade_title_haikei1 Titlle;
 
     public select sel;
 
@@ -58,6 +58,8 @@ public class Start001 : MonoBehaviour
     public bool finish;
 
     public bool isFade;
+
+    
 
     // Start is called before the first frame update
     void Start()

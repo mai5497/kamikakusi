@@ -43,7 +43,7 @@ public class Fade_titlle_logo : MonoBehaviour
     //   public Fade_in Fadein;
     // public bool fade_in;
 
-    public Fade_title_haikei Titlle;
+    public Fade_title_haikei1 Titlle;
     bool Titlle_finish;
     public float titlle_alpha = 1.0f;
 
@@ -156,8 +156,8 @@ public class Fade_titlle_logo : MonoBehaviour
                 //if (timer < 1)
                 //{
                // Debug.Log("sssssssssssssssssss");
-                img.color = new Color(1, 1, 1, 1 - timer);
-                img.fillAmount = 1 - timer;
+              //  img.color = new Color(1, 1, 1, 1 - timer);
+              //  img.fillAmount = 1 - timer;
                 //   }
                 //フェードアウト完了 
                 //else
