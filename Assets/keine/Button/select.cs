@@ -27,6 +27,7 @@ public class select : MonoBehaviour
     public bool isStartOK = false;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +43,7 @@ public class select : MonoBehaviour
     void Update()
     {
         inputSelect = inputAction.ReadValue<Vector2>();
+
 
         UpdateSelect(ref selectNo, ref selectNoMin, ref selectNoMax, ref cursorObj, ref selectObjList);
 
