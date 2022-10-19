@@ -5,14 +5,47 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/izumi.unity
     guid: ce9b12056fe067a4d86a37b8675632e6
+  - enabled: 1
+    path: Assets/keine/title.unity
+    guid: 726799d960806ab46a4a39cddb2bcb88
   - enabled: 1
     path: Assets/keine/Alpha 1.unity
     guid: 22f892d51df0d1f478a8ff4328d32557
   - enabled: 1
-    path: Assets/keine/title.unity
-    guid: 726799d960806ab46a4a39cddb2bcb88
+    path: Assets/izumi/Tutorial/Tutorial.unity
+    guid: 90a9a4d0274cfd94b833d72c2b8db8cd
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Beta/Beta.unity
+    guid: e2b150d0e7fe583409d86084277bc652
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage1_01.unity
+    guid: f3b31ff122bc57f4696a7e2cc85933fd
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage1_02.unity
+    guid: 8609ccc66cd8ac04c9147f1489c6bc72
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage1_03.unity
+    guid: db70337df0f9dee4ea35649c7e7c5e32
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage2_01.unity
+    guid: a74fcff77306c93428412f0f066b1cd1
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage2_02.unity
+    guid: 8706ed571f30f5146ab97f70cd6b2a87
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage2_03.unity
+    guid: 9df864a220ae2a246959161c655ab12f
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage3_01.unity
+    guid: 07adc3cc3ef97244c9f08a4585de2233
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage3_02.unity
+    guid: 3ca39b7f1eb246541873b3e00fe3939b
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage3_03.unity
+    guid: 769242630704ff045ba2be3b0d2d2cde
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bebc9c897a427bc41b2f57e032388074, type: 2}
