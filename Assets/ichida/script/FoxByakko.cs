@@ -33,14 +33,14 @@ public class FoxByakko : MonoBehaviour
         sr.color = new Color(1, 1, 1, alpha);
 
         kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
-        if (kokkurisan.MissNum == 0) {
+        if (kokkurisan.isClear == true) {
             isClear = true;
         }
     }
 
     // Update is called once per frame
     void Update() {
-        if (kokkurisan.MissNum == 0) {
+        if (kokkurisan.isClear == true) {
             isClear = true;
         }
 
