@@ -117,6 +117,26 @@ public class Kokkurisan : MonoBehaviour
             valueNowAnswer = 0;
         }
 
+        // クリア判定///////////////////////////////////////
+        if (normalAnswerStr != null && kituneAnswerStr != null && CPData.normalClearStr != null && CPData.kituneClearStr != null)
+        {
+            bool isNormalClear = ClearJudge(normalAnswerStr, CPData.normalClearStr, ref normalMissNum, false);
+            bool isFoxClear = ClearJudge(kituneAnswerStr, CPData.kituneClearStr, ref foxMissNum, false);
+            // 人の目,狐の目両方クリアの場合は、こっくりさんクリア
+            if (isNormalClear && isFoxClear)
+            {
+                isClear = true;
+            }
+            else
+            {
+                isClear = false;
+            }
+        }
+        else
+        {
+            isClear = false;
+        }
+        ///////////////////////////////////////////////////
 
         // 回答した文字の表示
         if (isAnswer)
@@ -141,18 +161,6 @@ public class Kokkurisan : MonoBehaviour
 
             if (answerStr != null && clearStr != null)
             {
-                // クリア判定
-                bool isNormalClear = ClearJudge(normalAnswerStr, CPData.normalClearStr, ref normalMissNum, false);
-                bool isFoxClear = ClearJudge(kituneAnswerStr, CPData.kituneClearStr, ref foxMissNum, false);
-                // 人の目,狐の目両方クリアの場合は、こっくりさんクリア
-                if (isNormalClear && isFoxClear)
-                {
-                    isClear = true;
-                }
-                else
-                {
-                    isClear = false;
-                }
 
                 // それぞれの目での処理
                 char[] answerChara = answerStr.ToCharArray();
@@ -197,7 +205,6 @@ public class Kokkurisan : MonoBehaviour
             // 回答も正解も何も入ってない場合(エラー)
             else
             {
-                isClear = false;
                 missNum = -1;
             }
 
@@ -240,7 +247,6 @@ public class Kokkurisan : MonoBehaviour
     // モード遷移時のリセット
     void ResetParam()
     {
-        isClear = false;
         // 赤文字の非表示
         for (int i = 0; i < charList.Count; i++)
         {
@@ -278,19 +284,19 @@ public class Kokkurisan : MonoBehaviour
         missNum = 0;
         for (int i = 0; i < clearChara.Length; i++)
         {
-            bool isClear = false;
+            bool clear = false;
             // 回答した文字列の中で正解の文字を含んでいた場合
             for (int j = 0; j < answerStr.Length; j++)
             {
                 // 表示文字リストで同じ文字の場合、正解と判定
                 if (charList[i] == charList[j])
                 {
-                    isClear = true;
+                    clear = true;
                 }
             }
 
             // 正解だったら(文字を含むか)
-            if (isClear)
+            if (clear)
             {
                 // isMarkPrintがtrueの場合は〇で囲む
                 if (isMarkPrint)
