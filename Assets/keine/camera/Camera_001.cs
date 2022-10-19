@@ -33,6 +33,8 @@ public class Camera_001 : MonoBehaviour
     float rightTop = 0;
     float leftBottom = 0;
     float depth = 5.0f;
+
+    public ZoomLens lens;
     void Start()
     {
         //プレイヤータグ取得
@@ -44,8 +46,8 @@ public class Camera_001 : MonoBehaviour
         camera_left = this.transform.position.x - (Screen.width / 2);
 
 
-        wallObj_left = GameObject.FindGameObjectWithTag("wall_left");
-        wallObj_right = GameObject.FindGameObjectWithTag("wall_right");
+        wallObj_left = GameObject.FindGameObjectWithTag("TestWallLeft");
+        wallObj_right = GameObject.FindGameObjectWithTag("TestWallRight");
 
         //  camera = GetComponent<Camera>();
 
@@ -77,15 +79,15 @@ public class Camera_001 : MonoBehaviour
 
          Debug.Log(camera_left + ",,,,"+camera_right+",,,,"+"aaaaaaaaaa"+Screen.width/2);
 
-     //   Debug.Log(this.transform.position.x);
+        //   Debug.Log(this.transform.position.x);
 
-        //// Screen.width;
-        if (camera_left <= wallObj_left.transform.position.x) 
+        // Screen.width;
+        if (camera_left <= wallObj_left.transform.position.x)
         {
             canMove_camera = false;
-          //  Debug.Log("左止まります！！！！！！！！！！！！！！！！");
+            //  Debug.Log("左止まります！！！！！！！！！！！！！！！！");
 
-           if(playerTransform.position.x>= this.transform.position.x)
+            if (playerTransform.position.x >= this.transform.position.x)
             {
                 canMove_camera = true;
             }
@@ -94,7 +96,7 @@ public class Camera_001 : MonoBehaviour
         if (camera_right > wallObj_right.transform.position.x)
         {
             canMove_camera = false;
-          //  Debug.Log("右止まります！！！！！！！！！！！！！！！！");
+            //  Debug.Log("右止まります！！！！！！！！！！！！！！！！");
             if (playerTransform.position.x <= this.transform.position.x)
             {
                 canMove_camera = true;
@@ -102,13 +104,13 @@ public class Camera_001 : MonoBehaviour
 
 
         }
-       
-        //if (camera_right < wallObj_right.transform.position.x && camera_left < wallObj_left.transform.position.x)
-        //{
-        //    Debug.Log("カメラうごく！！！！！！！！！！！！！！！！");
 
-        //    canMove_camera = true;
-        //}
+        if (camera_right < wallObj_right.transform.position.x && camera_left < wallObj_left.transform.position.x)
+        {
+            Debug.Log("カメラうごく！！！！！！！！！！！！！！！！");
+
+            canMove_camera = true;
+        }
 
 
         if (canMove_camera)
@@ -124,8 +126,12 @@ public class Camera_001 : MonoBehaviour
 
     void MoveCamera()
     {
+        //Debug.Log(playerTransform.position);
         //追従
-        transform.position = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
+        if (lens.isZoom == false)
+        {
+            transform.position = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
+        }
     }
 
     //void cant_MoveCamera()
