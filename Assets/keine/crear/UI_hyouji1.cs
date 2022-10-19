@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_hyouji : MonoBehaviour
+public class UI_hyouji1 : MonoBehaviour
 {
     public Fade_in_crear fade_crear;
     public bool fadeIn;
@@ -23,7 +23,7 @@ public class UI_hyouji : MonoBehaviour
         if(!fadeIn)
         {
             oder.color = new Color(1, 1, 1, 1);
-            oder.sortingOrder = 6;
+            oder.sortingOrder = 5;
         }
 
 

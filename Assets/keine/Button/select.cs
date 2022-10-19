@@ -11,7 +11,7 @@ public class select : MonoBehaviour
     private bool isInputSelect;
 
     Vector2 inputSelect;
-    private InputAction inputAction;
+    private InputAction inputAction, _inputAction;
 
 
     public int selectNo;
@@ -24,7 +24,7 @@ public class select : MonoBehaviour
 
     public List<GameObject> selectObjList;
 
-    public bool isStartOK = false;
+    public bool NO1 = false;
 
 
 
@@ -36,12 +36,15 @@ public class select : MonoBehaviour
 
         //アクションマップからアクションを取得
         inputAction = actionMap["Select"];
+        _inputAction = actionMap["Fade"];
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        var current = Keyboard.current;
         inputSelect = inputAction.ReadValue<Vector2>();
 
 
@@ -99,14 +102,32 @@ public class select : MonoBehaviour
         }
 
 
+        bool Fade = _inputAction.WasPerformedThisFrame();
+        switch(selectNo)
+        {
+            case 0:
+                //ステージセレクト
+            break;
+
+          case 1:
+                //次のステージへ
+          break;
+
+        }
+
+
+        //タイトル用
         if (selectNo == selectNoMin)
         {
-            isStartOK = true;
+            //はじめから
+            NO1 = true;
         }
         else
         {
-            isStartOK = false;
+            NO1 = false;
         }
+
+
 
 
 
