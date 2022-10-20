@@ -1,3 +1,14 @@
+//=============================================================================
+//
+// 狐の窓の制御
+//
+// 作成日:2022/10/17
+// 作成者:伊地田真衣
+//
+// <開発履歴>
+// 2022/10/17 作成
+//
+//=============================================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,11 +34,14 @@ public class LensManager : MonoBehaviour
     // レンズ可視
     private EnableLens enableLens;
 
-    private bool oldIsLens;
-    private Vector2 oldPlayerPos;
+    private bool oldIsLens;         // islensがtrueになった瞬間のみする処理用
+    private Vector2 oldPlayerPos;   // 移動していなければ先ほどまで表示していた場所に表示する為の変数
 
     private bool isLensInit;    // レンズの位置を初期化するか
 
+    private RectTransform lensRT;
+
+    private RectTransform lensCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +49,9 @@ public class LensManager : MonoBehaviour
         _Player = GetComponent<CP_move01>();
         // レンズ可視の取得
         enableLens = lensObj.GetComponent<EnableLens>();
+        lensRT = lensObj.GetComponent<RectTransform>();
 
+        lensCanvas = GameObject.Find("CanvasLens").GetComponent<RectTransform>();
 
         oldIsLens = CPData.isLens;
         oldPlayerPos = CPData.playerPos;
@@ -66,13 +82,22 @@ public class LensManager : MonoBehaviour
         // レンズ移動(通常時のみ)
         if (!CPData.isKokkurisan && !CPData.isObjNameUI && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
             if (isLensInit) {
-                lensObj.transform.position = CPData.playerPos;
+                lensRT.position = CPData.playerPos;
                 isLensInit = false;
             }
             Vector2 moveVal;
+            Vector3 newLensPos = lensObj.transform.position;
             moveVal.x = _Player.GetMoveValue().x * lensSpeed;
             moveVal.y = _Player.GetMoveValue().y * lensSpeed;
-            lensObj.transform.position = new Vector3(lensObj.transform.position.x + moveVal.x, lensObj.transform.position.y + moveVal.y, lensObj.transform.position.z);
+
+            newLensPos.x += moveVal.x;
+            newLensPos.y += moveVal.y;
+
+            lensObj.transform.position = new Vector2(
+                         //エリア指定して移動する
+                         Mathf.Clamp(newLensPos.x, -8.5f, 8.5f),
+                         Mathf.Clamp(newLensPos.y, -4.5f, 4.5f)
+                         ) ; 
         }
         // レンズの注視(ぼかしモード変更)
         if (CPData.isLook && CPData.isLens) {
