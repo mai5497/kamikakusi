@@ -30,7 +30,7 @@ public class Fade_title_haikei1 : MonoBehaviour
     private bool fadeOut = false;
 
     //アクション取得用
-    private InputAction _fadeAction;
+    //private InputAction _disicionAction;
 
     private bool fading = false;
     public bool title_finish = false;
@@ -50,10 +50,10 @@ public class Fade_title_haikei1 : MonoBehaviour
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        var actionMap = pInput.currentActionMap;
+        //var actionMap = pInput.currentActionMap;
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+        //_disicionAction = actionMap["Fade"];
 
 
     }
@@ -64,10 +64,24 @@ public class Fade_title_haikei1 : MonoBehaviour
         var current = Keyboard.current;
         if (frameCount > 2)
         {
+            bool fade = false;
 
-            bool Fade = _fadeAction.WasPerformedThisFrame();
+            Gamepad gamepad = Gamepad.current;
+            if (gamepad != null) {
+                if (gamepad.buttonSouth.wasReleasedThisFrame ||
+                    gamepad.buttonNorth.wasReleasedThisFrame ||
+                    gamepad.buttonWest.wasReleasedThisFrame ||
+                    gamepad.buttonEast.wasReleasedThisFrame) {
+                    fade = !fade;
+                }
+            }
+            Keyboard keyboard = Keyboard.current;
+            if (keyboard.enterKey.wasReleasedThisFrame) {
+                fade = !fade;
+            }
 
-            if (Fade)
+
+            if (fade)
             {
                 fading = true;
             }

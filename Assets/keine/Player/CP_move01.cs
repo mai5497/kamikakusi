@@ -28,22 +28,27 @@ public class CP_move01 : MonoBehaviour {
     public float fSpeed = 0.04f;    // プレイヤーの移動と窓の移動スピード兼ねてる
 
     //アクション取得用
-    private InputAction _moveAction, _kituneAction, _cyuusiAction, _poseAction, /*_hintOpenKeyAction, _hintOpenButtonAction,*/ _hintCloseAction;
-    private CP_move_input UIAction;        // InputActionを扱う
+    private InputAction _moveAction;
+    private CP_move_input action;        // InputActionを扱う
 
     private eAnimState animState;   // アニメーションステート
 
     private SpriteRenderer sr;  // プレイヤーのspriterenderer
     private float oldMoveVal;
 
+    private FoxByakko _FoxByakko;
+
     void Start() {
         animState = eAnimState.NONE;
         sr = this.GetComponent<SpriteRenderer>();
         oldMoveVal = 0.0f;
+
+        _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
     }
 
     void Awake() {
-        UIAction = new CP_move_input();            // InputActionインスタンスを生成
+        action = new CP_move_input();            // InputActionインスタンスを生成
+
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
         var pInput = GetComponent<PlayerInput>();
@@ -51,40 +56,55 @@ public class CP_move01 : MonoBehaviour {
 
         //アクションマップからアクションを取得
         _moveAction = actionMap["Move"];
-        _kituneAction = actionMap["Kitune"];
-        _cyuusiAction = actionMap["Cyuusi"];
-        _poseAction = actionMap["Pose"];
+        //_kituneAction = actionMap["Kitune"];
+        //_cyuusiAction = actionMap["Cyuusi"];
+        //_poseAction = actionMap["Pose"];
+
         //_hintOpenKeyAction = actionMap["HintKey"];
         //_hintOpenButtonAction = actionMap["HintButton"];
-        _hintCloseAction = actionMap["HintClose"];
+
+        //_hintCloseAction = actionMap["HintClose"];
     }
 
     private void OnEnable() {
         //---Actionイベントを登録
-        _poseAction.canceled += OnPoseKey;
-        _kituneAction.canceled += OnLens;
-        _cyuusiAction.started += LookStart;
-        _cyuusiAction.canceled += LookFin;
+        action.Player.Pose.canceled += OnPoseKey;
+        action.Player.Kitune.canceled += OnLens;
+        action.Player.Cyuusi.started += LookStart;
+        action.Player.Cyuusi.canceled += LookFin;
         //_hintOpenKeyAction.started += OpenHintKey;
         //_hintOpenButtonAction.canceled += OpenHintButton;
 
-        _hintCloseAction.canceled += CloseHint;
+        action.Player.HintClose.canceled += CloseHint;
 
-        UIAction.UI.KeyKokkurisan.started += OpenHintKey;
-        UIAction.UI.ButtonKokkurisan.started += OpenHintButton;
+        action.UI.KeyKokkurisan.started += OpenHintKey;
+        action.UI.ButtonKokkurisan.started += OpenHintButton;
 
 
         //---InputActionの有効化
-        UIAction.UI.Enable();
+        action.UI.Enable();
+        action.Player.Enable();
     }
 
     private void OnDisable() {
+        _moveAction.Disable();
+
         //---InputActionの無効化
-        UIAction.UI.Disable();
+        action.UI.Disable();
+        action.Player.Disable();
     }
 
 
     void Update() {
+        if (_FoxByakko.isClear) {   // クリアしたら
+            CPData.isLook = false;  // 注視やめ
+            CPData.isLens = false;  // 窓使用やめ
+
+            _moveAction.Disable();
+
+            return;
+        }
+
         if (CPData.isLens) {    // 窓使用中になったら
             /*
              * アニメーションの再生

@@ -29,7 +29,7 @@ public class Fade_title_haikei : MonoBehaviour
     private bool fadeOut = false;
 
     //アクション取得用
-    private InputAction _fadeAction;
+    private InputAction _dicisionAction;
 
     private bool fading = false;
     public bool title_finish = false;
@@ -48,7 +48,7 @@ public class Fade_title_haikei : MonoBehaviour
         var actionMap = pInput.currentActionMap;
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+        _dicisionAction = actionMap["Disicion"];
 
 
     }
@@ -60,9 +60,9 @@ public class Fade_title_haikei : MonoBehaviour
         if (frameCount > 2)
         {
 
-            bool Fade = _fadeAction.WasPerformedThisFrame();
+            bool isDicision = _dicisionAction.WasPerformedThisFrame();
 
-            if (Fade)
+            if (isDicision)
             {
                 fading = true;
             }

@@ -38,9 +38,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Kitune"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""e00935ac-ef2e-462b-a30b-cc9542d96bf0"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -206,7 +206,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d9695ef9-1ef0-41a0-8c60-8d59e9781da4"",
+                    ""id"": ""abf85242-5f45-4ccb-811e-0f1e70d53b93"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -362,7 +362,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Dicision"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""c3d23ca1-f51f-4db8-8c21-534b57d91375"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -410,7 +410,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d7397496-440a-4c27-acab-74a0b673a85d"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/f1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

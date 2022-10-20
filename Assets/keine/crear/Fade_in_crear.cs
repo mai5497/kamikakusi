@@ -30,7 +30,7 @@ public class Fade_in_crear : MonoBehaviour
 
   //  private string Scene_ikou;
 
-    public FoxByakko start;
+    private FoxByakko start;
     public bool isFadeOk;
 
     //アクション取得用
@@ -51,7 +51,7 @@ public class Fade_in_crear : MonoBehaviour
        // img.raycastTarget = true;
         fadeIn = true;
 
-
+        start = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
 
        // var pInput = GetComponent<PlayerInput>();
 
@@ -74,7 +74,7 @@ public class Fade_in_crear : MonoBehaviour
 
         isFadeOk = start.isClear;
 
-        var current = Keyboard.current;
+        //var current = Keyboard.current;
         if (frameCount > 2)
         {
 

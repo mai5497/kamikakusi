@@ -29,7 +29,7 @@ using UnityEngine.UI;
 public class Start001 : MonoBehaviour
 {
 
-    private InputAction _fadeAction;
+    private InputAction _dicisionAction;
 
     //  public Fade_title titlle;
 
@@ -68,7 +68,7 @@ public class Start001 : MonoBehaviour
         var actionMap = pInput.currentActionMap;
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+        _dicisionAction = actionMap["Dicision"];
 
         //  titlle = GameObject.Find("Image"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         //  Titlle = titlle.GetComponent<Fade_title>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
@@ -87,15 +87,19 @@ public class Start001 : MonoBehaviour
         //  Debug.Log(titlle);
 
         var current = Keyboard.current;
-        bool Fade = _fadeAction.WasPerformedThisFrame();
+        bool isdicision = _dicisionAction.WasPerformedThisFrame();
 
-        if (Fade&& titlle_delete)
+        if (isdicision && titlle_delete)
         {
             isFade = true;
         }
         if (isSelect&&isFade)
         {
-            fadein.fade_in_use("Alpha 1", image);
+            //fadein.fade_in_use("Alpha 1", image);
+
+            //メインシーンへ遷移(引数1=ワールド番号,引数2=ステージ番号)
+            SceneManagerFade.LoadSceneMain(1, 1);   // チュートリアルないから１－１
+
             //Debug.Log("ボタン");
             //// SceneManager.LoadScene("Alpha 1");
 

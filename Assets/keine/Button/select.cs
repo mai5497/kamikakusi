@@ -5,14 +5,19 @@ using UnityEngine.InputSystem;
 
 
 
-public class select : MonoBehaviour
-{
+public class select : MonoBehaviour {
 
-    private bool isInputSelect;
+    //private bool isInputSelect;
 
     Vector2 inputSelect;
-    private InputAction inputAction, _inputAction;
+    //private InputAction _selectAction, _dicisionAction;
 
+    private CP_move_input action;        // InputActionを扱う
+
+    private bool isDicision;        // 決定キー
+
+    private GameObject fox;         // 狐オブジェクト
+    private FoxByakko _FoxByakko;   // クリアフラグ取得用
 
     public int selectNo;
 
@@ -27,29 +32,44 @@ public class select : MonoBehaviour
     public bool NO1 = false;
 
 
-
     // Start is called before the first frame update
-    void Start()
-    {
-        var pInput = GetComponent<PlayerInput>();
-        var actionMap = pInput.currentActionMap;
+    void Start() {
+        //var pInput = GetComponent<PlayerInput>();
+        //var actionMap = pInput.currentActionMap;
 
-        //アクションマップからアクションを取得
-        inputAction = actionMap["Select"];
-        _inputAction = actionMap["Fade"];
+        ////アクションマップからアクションを取得
+        //_selectAction = actionMap["Select"];
+        //_dicisionAction = actionMap["Dicision"];
 
-
+        isDicision = false;
+        //isInputSelect = false;
+        fox = GameObject.Find("FoxByakko");
+        if (fox) {
+            _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
+        }
     }
 
+
     // Update is called once per frame
-    void Update()
-    {
-        var current = Keyboard.current;
-        inputSelect = inputAction.ReadValue<Vector2>();
+    void Update() {
+        if (fox) {
+            if (_FoxByakko.isClear || CPData.lookCnt < 1) {
+                Gamepad gamepad = Gamepad.current;
+                if (gamepad != null) {
+                    if (gamepad.buttonSouth.wasReleasedThisFrame) {
+                        isDicision = !isDicision;
+                    }
+                }
+                Keyboard keyboard = Keyboard.current;
+                if (keyboard.enterKey.wasReleasedThisFrame) {
+                    isDicision = !isDicision;
+                }
 
-
-        UpdateSelect(ref selectNo, ref selectNoMin, ref selectNoMax, ref cursorObj, ref selectObjList);
-
+                UpdateSelect(ref selectNo, ref selectNoMin, ref selectNoMax, ref cursorObj, ref selectObjList);
+            }
+        } else {
+            UpdateSelect(ref selectNo, ref selectNoMin, ref selectNoMax, ref cursorObj, ref selectObjList);
+        }
 
 
 
@@ -65,73 +85,80 @@ public class select : MonoBehaviour
     /// <param name="cursorObj"></param>
     /// <param name="selectObjList"></param>
     private void UpdateSelect(ref int selectNo, ref int selectNoMin, ref int selectNoMax,
-    ref GameObject cursorObj, ref List<GameObject> selectObjList)
-    {
-        // 左入力
-        if (inputSelect.y > -0.0f)
-        {
-            if (!isInputSelect)
-            {
-                selectNo--;
-                isInputSelect = true;
-            }
+    ref GameObject cursorObj, ref List<GameObject> selectObjList) {
+        Gamepad gamepad = Gamepad.current;
+        if (gamepad != null) {
+            inputSelect.y = gamepad.dpad.y.ReadValue();
         }
-        // 右入力
-        else if (inputSelect.y < 0.0f)
-        {
-            if (!isInputSelect)
-            {
-                selectNo++;
-                isInputSelect = true;
-            }
-        }
-        // 入力リセット
-        else
-        {
-            isInputSelect = false;
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard.wKey.wasReleasedThisFrame) {
+            inputSelect.y = 1.0f;
+        }else if (keyboard.sKey.wasReleasedThisFrame) {
+            inputSelect.y = -1.0f;
+        } else {
+            inputSelect.y = 0.0f;
         }
 
+        // 左入力
+        if (inputSelect.y > -0.0f) {
+            //if (!isInputSelect) {
+                selectNo--;
+                //isInputSelect = true;
+            //}
+        }
+        // 右入力
+        else if (inputSelect.y < 0.0f) {
+           // if (!isInputSelect) {
+                selectNo++;
+                //isInputSelect = true;
+            //}
+        }
+        // 入力リセット
+        //else {
+        //    isInputSelect = false;
+        //}
+
         // セレクト番号制御
-        if (selectNo < selectNoMin)
-        {
+        if (selectNo < selectNoMin) {
             selectNo = selectNoMax;
         }
-        if (selectNo > selectNoMax)
-        {
+        if (selectNo > selectNoMax) {
             selectNo = selectNoMin;
         }
 
+        if (isDicision) {
+            switch (selectNo) {
+                case 0:
+                    //ステージセレクトへ遷移
+                    SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
+                    break;
 
-        bool Fade = _inputAction.WasPerformedThisFrame();
-        switch(selectNo)
-        {
-            case 0:
-                //ステージセレクト
-            break;
+                case 1:
+                    //次のステージへ
+                    break;
 
-          case 1:
-                //次のステージへ
-          break;
-
+            }
         }
 
 
         //タイトル用
-        if (selectNo == selectNoMin)
-        {
+        if (selectNo == selectNoMin) {
             //はじめから
             NO1 = true;
-        }
-        else
-        {
+        } else {
             NO1 = false;
         }
-
-
-
-
 
         // カーソル座標変更
         cursorObj.transform.position = selectObjList[selectNo].transform.position;
     }
+
+    private void Dicision(InputAction.CallbackContext obj) {
+        isDicision = !isDicision;
+    }
+
+    private void Select(InputAction.CallbackContext obj) {
+        inputSelect = obj.ReadValue<Vector2>();
+    }
+
 }
