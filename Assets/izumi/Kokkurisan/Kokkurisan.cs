@@ -65,6 +65,9 @@ public class Kokkurisan : MonoBehaviour
     //[System.NonSerialized]
     public bool isClear;
 
+    [Header("0エフェクト")]
+    public List<ParticleSystem> ef0 = new List<ParticleSystem>();
+
     // 間違い文字数
     // 人の目
     private int normalMissNum;
@@ -199,6 +202,15 @@ public class Kokkurisan : MonoBehaviour
                 if (markObjList.Count == 0)
                 {
                     ClearJudge(answerStr, clearStr, ref missNum, true);
+
+                    // 〇を囲む時(こっくりさんの表示した瞬間,目の切り替えた瞬間)にクリアだったら、エフェクトを再生
+                    if (isClear)
+                    {
+                        foreach(ParticleSystem ef in ef0)
+                        {
+                            ef.Play();
+                        }
+                    }
                 }
 
 
