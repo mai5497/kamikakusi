@@ -24,14 +24,23 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int lookCnt = 5;
 
-    [Header("狐の窓の正解の文字")]
-    [SerializeField]
-    private string _kituneClearStr;
     [Header("通常時の正解の文字")]
     [SerializeField]
     private string _normalClearStr;
+    [Header("狐の窓の正解の文字")]
+    [SerializeField]
+    private string _kituneClearStr;
+    [Header("狐一文字ヒント")]
+    [SerializeField]
+    private string _foxHint;
+    [Header("人一文字ヒント")]
+    [SerializeField]
+    private string _humanHint;
 
 
+    [SerializeField]
+    private GameObject sceneManager;        // シーンマネージャー自動生成用
+    private GameObject sceneManagerEntity;  // シーンマネージャーの実体
 
     // Start is called before the first frame update
     void Start()
@@ -43,17 +52,27 @@ public class GameManager : MonoBehaviour
         //SoundManager.Play(SoundData.eBGM.BGM_GAME01,SoundData.GameAudioList);
 
         //----- デバッグ用に値変更 -----
+        // 紙開ける回数
         if(paperCnt != CPData.paperCnt) {
             CPData.paperCnt = paperCnt;
         }
+        // 注視回数
         if (lookCnt != CPData.lookCnt) {
             CPData.lookCnt = lookCnt;
         }
+        // クリア文字
         if (_kituneClearStr != CPData.kituneClearStr) {
             CPData.kituneClearStr = _kituneClearStr;
         }
         if(_normalClearStr != CPData.normalClearStr) {
             CPData.normalClearStr = _normalClearStr;
+        }
+        // 一文字ひんと
+        if(_foxHint != CPData.kituneHint) {
+            CPData.kituneHint = _foxHint;
+        }
+        if(_humanHint != CPData.normalHint) {
+            CPData.normalHint = _humanHint;
         }
     }
 

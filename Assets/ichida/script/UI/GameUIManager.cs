@@ -55,13 +55,15 @@ public class GameUIManager : MonoBehaviour
             canvasObj.AddComponent<Canvas>();
 
             canvas = canvasObj.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = Camera.main;
-            canvas.sortingLayerName = "TopLayer";
-            canvas.sortingOrder = 2;
             canvasObj.AddComponent<CanvasScaler>();
             canvasObj.AddComponent<GraphicRaycaster>();
         }
+        // キャンバスの設定
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
+        canvas.sortingLayerName = "TopLayer";
+        canvas.sortingOrder = 3;
+
 
         //----- デバッグ用 -----
         if (!gameUI) {

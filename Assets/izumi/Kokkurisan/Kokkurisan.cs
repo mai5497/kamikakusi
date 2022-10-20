@@ -94,7 +94,7 @@ public class Kokkurisan : MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
         canvas.sortingLayerName = "TopLayer";
-        canvas.sortingOrder = 1;
+        canvas.sortingOrder = 2;    // ëãÇÊÇËè„Ç…ï\é¶
     }
 
     // Update is called once per frame

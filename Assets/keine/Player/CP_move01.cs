@@ -17,7 +17,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CP_move01 : MonoBehaviour {
-    public bool isDash = false;
+    enum eAnimState {   // アニメーションのステート
+        NONE = 0,
+        IDLE,
+        WALK,
+        FOXWINDOW,
+    }
 
     [Header("移動スピード")]
     public float fSpeed = 0.04f;    // プレイヤーの移動と窓の移動スピード兼ねてる
@@ -26,17 +31,15 @@ public class CP_move01 : MonoBehaviour {
     private InputAction _moveAction, _kituneAction, _cyuusiAction, _poseAction, /*_hintOpenKeyAction, _hintOpenButtonAction,*/ _hintCloseAction;
     private CP_move_input UIAction;        // InputActionを扱う
 
-    private LensManager _LensManager;
+    private eAnimState animState;   // アニメーションステート
 
-    enum Mode {
-        not_mado,
-        in_mado,
-    }
-
-    Mode mode = Mode.not_mado;
+    private SpriteRenderer sr;  // プレイヤーのspriterenderer
+    private float oldMoveVal;
 
     void Start() {
-        _LensManager = this.GetComponent<LensManager>();
+        animState = eAnimState.NONE;
+        sr = this.GetComponent<SpriteRenderer>();
+        oldMoveVal = 0.0f;
     }
 
     void Awake() {
@@ -82,8 +85,15 @@ public class CP_move01 : MonoBehaviour {
 
 
     void Update() {
+        if (CPData.isLens) {    // 窓使用中になったら
+            /*
+             * アニメーションの再生
+             */
+            animState = eAnimState.NONE;// 再生終了したらステートをNONEとかにする(FOXWINDOW以外)
+        }
+
         if (!CPData.isLens) {   // レンズ使用中処理か移動処理か
-            if (!CPData.isKokkurisan) {
+            if (!CPData.isKokkurisan && !CPData.isObjNameUI) {
                 //プレイヤーの移動処理
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
@@ -93,6 +103,15 @@ public class CP_move01 : MonoBehaviour {
                     0.0f,
                     0.0f);
 
+                // プレイヤー反転処理
+                if(move.x > -1 && oldMoveVal > 0) {
+                    this.transform.localScale = new Vector3(1,1,1);
+                } else if(move.x < 0 && oldMoveVal < 0){
+                    this.transform.localScale = new Vector3(-1,1,1);
+                }
+                oldMoveVal = move.x;
+
+                // データに保存
                 CPData.playerPos = this.transform.position;
             }
         } else {
@@ -100,9 +119,14 @@ public class CP_move01 : MonoBehaviour {
              * 狐の窓使用時は別スクリプト
              */
             if (CPData.isLook) {
-                if (CPData.isKokkurisan) {
+                if (CPData.isKokkurisan || CPData.isObjNameUI) {
                     CPData.isLook = false;
                 }
+            }
+
+            // プレイヤーの非表示
+            if(animState != eAnimState.FOXWINDOW) {
+                sr.color = new Color(1,1,1,0.0f);
             }
 
         }
@@ -113,17 +137,22 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void OnLens(InputAction.CallbackContext obj) {
-        if (CPData.isKokkurisan) {
-            return;
-        }
+        //if (CPData.isKokkurisan || CPData.isObjNameUI) {
+        //    return;
+        //}
         CPData.isLens = !CPData.isLens;
+
+        // プレイヤーの表示
+        if (!CPData.isLens) {
+            sr.color = new Color(1, 1, 1, 1.0f);
+        }
     }
     private void OnPoseKey(InputAction.CallbackContext obj) {
         CPData.isPose = !CPData.isPose;
     }
 
     private void LookStart(InputAction.CallbackContext obj) {
-        if (CPData.isKokkurisan) {
+        if (CPData.isKokkurisan || CPData.isObjNameUI) {
             return;
         }
         CPData.isLook = true;
@@ -133,10 +162,13 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void OpenHintKey(InputAction.CallbackContext obj) {
-        CPData.isKokkurisan = true;
+        // キーボードはキーを押したときに表示しかできないようになっているのでtrueのみ
+        //CPData.isKokkurisan = true;
+        StartCoroutine("DelayKokkurisan");
     }
 
     private void OpenHintButton(InputAction.CallbackContext obj) {
+        // コントローラーはボタンを押したら表示非表示切り替えるのでトグル
         CPData.isKokkurisan = !CPData.isKokkurisan;
     }
 
@@ -153,5 +185,10 @@ public class CP_move01 : MonoBehaviour {
                 }
             }
         }
+    }
+
+    private IEnumerator DelayKokkurisan() {
+        yield return null;
+        CPData.isKokkurisan = true;
     }
 }
