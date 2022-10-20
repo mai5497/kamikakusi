@@ -54,7 +54,7 @@ public class DataManager : MonoBehaviour
     // Efect(原則としてEffectData.csのenumの定義名と同じにし小文字で命名すること)
     //-----------------------------------------------------
     //---ギミック
-    [SerializeField] private ParticleSystem ef_gimick_fire;
+    //[SerializeField] private ParticleSystem ef_gimick_fire;
     //[SerializeField] private ParticleSystem ef_gimick_healitem;
     //[SerializeField] private ParticleSystem ef_gimick_magiccircle_red;
     //[SerializeField] private ParticleSystem ef_gimick_magiccircle_blue;
