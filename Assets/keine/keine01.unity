@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 24056867}
   - component: {fileID: 24056866}
   - component: {fileID: 24056869}
-  - component: {fileID: 24056868}
   - component: {fileID: 24056870}
   - component: {fileID: 24056871}
+  - component: {fileID: 24056872}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -204,27 +204,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24056865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.76, y: 4.19, z: 0}
+  m_LocalPosition: {x: 1.05, y: 4.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &24056868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24056865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96fb5152cfe235944a7345c7ebd26318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDash: 0
-  fSpeed: 0.01
 --- !u!114 &24056869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,26 +254,6 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6fc07f2d-2793-42fe-9b36-fbc956cdc287
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 96fb5152cfe235944a7345c7ebd26318, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 33429e10-9bae-4c68-bd14-fd465e0ae80f
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: e00935ac-ef2e-462b-a30b-cc9542d96bf0
     m_ActionName: Player/Kitune[/Keyboard/space]
   - m_PersistentCalls:
@@ -310,6 +276,34 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c3d23ca1-f51f-4db8-8c21-534b57d91375
     m_ActionName: UI/Dicision[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f3bca62-7d35-49fd-be53-e147c839309f
+    m_ActionName: Player/HintSwitch[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3c3aaf3-4142-458e-8f28-671a62c76604
+    m_ActionName: Player/HintClose[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8679d21-853d-4a70-b382-fc8efae106a1
+    m_ActionName: UI/Switching[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 82066831-b707-4375-a7a6-7731cb41c757
+    m_ActionName: UI/Back[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75f16f8e-9244-4cc1-ab6d-b39b1814745b
+    m_ActionName: UI/KeyKokkurisan[/Keyboard/e,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1997e27b-0467-439a-98f0-2621a62ec0ab
+    m_ActionName: UI/ButtonKokkurisan
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0df61ccb-0093-4eae-9aa1-f1bb2f96176b
+    m_ActionName: Tutorial/Dicision[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -352,65 +346,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!1001 &174510348
-PrefabInstance:
+--- !u!114 &24056872
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1002431546807909656, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841445404333199094, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_Name
-      value: Fox
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24056865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526a419fab4e3674ba715517c99aaec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDash: 0
+  fSpeed: 9
+  canMoveLeft: 0
+  canMoveRight: 0
 --- !u!1 &175589968
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +457,7 @@ RectTransform:
   m_Children:
   - {fileID: 606359526}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -523,11 +474,10 @@ GameObject:
   m_Component:
   - component: {fileID: 450990408}
   - component: {fileID: 450990407}
-  - component: {fileID: 450990406}
   - component: {fileID: 450990405}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: wall_right
+  m_TagString: TestWallRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,27 +508,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &450990406
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450990404}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &450990407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -639,12 +568,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450990404}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 10.460003, y: 0.46000046, z: 0}
-  m_LocalScale: {x: 13.273204, y: 0.64310014, z: 1}
+  m_LocalPosition: {x: 10, y: 0.46000046, z: 0}
+  m_LocalScale: {x: 13.273204, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &606359525
 GameObject:
@@ -944,11 +873,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1402142427}
   - component: {fileID: 1402142426}
-  - component: {fileID: 1402142425}
   - component: {fileID: 1402142424}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: wall_left
+  m_TagString: TestWallLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,7 +888,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402142423}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -979,27 +907,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1402142425
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402142423}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &1402142426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1060,8 +967,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402142423}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -10.1, y: 0.19, z: 0}
-  m_LocalScale: {x: 13.2732, y: 0.6431, z: 1}
+  m_LocalPosition: {x: -10, y: 0.19, z: 0}
+  m_LocalScale: {x: 13.2732, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1265,5 +1172,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

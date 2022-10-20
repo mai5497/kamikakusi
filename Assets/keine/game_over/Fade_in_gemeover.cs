@@ -2,12 +2,12 @@
 //
 //フェード
 //
-// 作成日:2022/10/19
+// 作成日:2022/10/20
 // 作成者:八木橋慧音
 //
 // <開発履歴>
-// 2022/10/19 作成
-//
+// 2022/10/20作成
+///ゲームオーバー用のフェード
 //=============================================================================
 
 
@@ -20,7 +20,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-public class Fade_in_crear : MonoBehaviour
+public class Fade_in_gemeover : MonoBehaviour
 {
     private SpriteRenderer img = null;
     private float timer = 0.0f;
@@ -28,10 +28,10 @@ public class Fade_in_crear : MonoBehaviour
     //  private bool fadeIn = false;
     public bool fadeIn = false;
 
-  //  private string Scene_ikou;
+    //  private string Scene_ikou;
 
-    public FoxByakko start;
-    public bool isFadeOk;
+    // public FoxByakko gameover;
+    public int isFadeOk;
 
     //アクション取得用
     private InputAction _fadeAction;
@@ -47,22 +47,22 @@ public class Fade_in_crear : MonoBehaviour
     {
         img = GetComponent<SpriteRenderer>();
         img.color = new Color(1, 1, 1, 0);
-       // img.fillAmount = 1;
-       // img.raycastTarget = true;
+        // img.fillAmount = 1;
+        // img.raycastTarget = true;
         fadeIn = true;
 
 
 
-       // var pInput = GetComponent<PlayerInput>();
+        // var pInput = GetComponent<PlayerInput>();
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-     //   var actionMap = pInput.currentActionMap;
+        //   var actionMap = pInput.currentActionMap;
 
 
 
         //アクションマップからアクションを取得
-      //  _fadeAction = actionMap["Fade"];
+        //  _fadeAction = actionMap["Fade"];
 
 
 
@@ -72,8 +72,8 @@ public class Fade_in_crear : MonoBehaviour
     {
         // fade_in = Fadein.fadeIn;
 
-        isFadeOk = start.isClear;
-
+         isFadeOk = CPData.lookCnt;
+       // isFadeOk = 0;
         var current = Keyboard.current;
         if (frameCount > 2)
         {
@@ -116,9 +116,9 @@ public class Fade_in_crear : MonoBehaviour
 
             //if (fading)
             //{
-          //  Debug.Log(isFadeOk);
-          //  Debug.Log("クリア！！！");
-            if (isFadeOk)
+            //  Debug.Log(isFadeOk);
+            //  Debug.Log("クリア！！！");
+            if (isFadeOk <= 0)
             {
                 if (fadeIn)
                 {
@@ -127,20 +127,20 @@ public class Fade_in_crear : MonoBehaviour
                     {
 
                         img.color = new Color(0, 0, 0, 0 + timer);
-                       // img.fillAmount = 0 + timer;
+                        // img.fillAmount = 0 + timer;
                     }
                     //フェードアウト完了 
                     else
                     {
-                        img.color = new Color(0, 0, 0 ,0+(timer/4)*3);
+                        img.color = new Color(0, 0, 0, 0 + (timer / 4) * 3);
                         //img.fillAmount = 0;
-                      //  img.raycastTarget = false;
+                        //  img.raycastTarget = false;
                         timer = 0.0f;
                         fadeIn = false;
                         // fadeIn = true;
                         fading = false;
 
-                       // SceneManager.LoadScene(Scene_ikou);
+                        // SceneManager.LoadScene(Scene_ikou);
                     }
                     timer += Time.deltaTime / 2;
                 }
@@ -153,7 +153,7 @@ public class Fade_in_crear : MonoBehaviour
     public void fade_in_use(SpriteRenderer image)
     {
 
-       // fadeIn = true;
+        // fadeIn = true;
         //  Scene_ikou = Scene;
         //  SceneManager.LoadScene(Scene_ikou);
         img = image;
