@@ -16,18 +16,28 @@ using UnityEngine;
 
 public static class SceneManagerFade
 {
-    public enum Scene {
+    // サブシーン
+    public enum SubScene {
         Title,
-        StageSelect,
-        Main
+        StageSelect
     }
-
-    public static void LoadScene(Scene scene)
+    // サブシーン読み込み
+    public static void LoadSceneSub(SubScene scene)
     {
         switch (scene) {
-            case Scene.Title:
+            case SubScene.Title:
                 Fade_in003.fade_in_use(SceneManagerData.titleScene);
                 break;
+            case SubScene.StageSelect:
+                Fade_in003.fade_in_use(SceneManagerData.stageSelectScene);
+                break;
         }
+    }
+    // メインシーン読み込み
+    public static void LoadSceneMain(int worldNo,int stageNo)
+    {
+        SceneManagerData.nowWorldNo = worldNo;
+        SceneManagerData.nowStageNo = stageNo;
+        Fade_in003.fade_in_use(SceneManagerData.mainSceneStrArray[worldNo, stageNo]);
     }
 }

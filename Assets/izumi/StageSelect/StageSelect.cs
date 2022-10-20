@@ -30,20 +30,6 @@ public class StageSelect : MonoBehaviour
     }
     [Header("モード")]
     public Mode mode = Mode.WorldSelectInit;
-    [System.SerializableAttribute]
-    public class StringList
-    {
-        public List<string> List = new List<string>();
-
-        public StringList(List<string> list)
-        {
-            List = list;
-        }
-    }
-    [Header("メインシーン名")]
-    public List<StringList> mainSceneName;
-    [Header("タイトルシーン名")]
-    public string titleSceneName;
     [Header("ワールドセレクトからステージセレクトへの遷移速度")]
     public float speedWorldSelectToStageSelect;
     [Header("ステージセレクトからワールドセレクトへの遷移速度")]
@@ -249,7 +235,7 @@ public class StageSelect : MonoBehaviour
                 // ステージセレクトの場合,メインシーンへ
                 case Mode.StageSelectUpdate:
                     //SceneManager.LoadScene(mainSceneName[selectWorldNo].List[selectStageNo]);
-                    SceneManagerFade.LoadScene(SceneManagerFade.Scene.Main);
+                    SceneManagerFade.LoadSceneMain(selectWorldNo - selectStageNoMin, selectStageNo - selectStageNoMin);
                     break;
             }
             inputDicision = false;
@@ -264,7 +250,7 @@ public class StageSelect : MonoBehaviour
                 // ワールドセレクトの場合,タイトルシーンへ
                 case Mode.WorldSelectUpdate:
                     //SceneManager.LoadScene(titleSceneName);
-                    Fade_in003.fade_in_use(titleSceneName);
+                    SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.Title);
                     break;
                 // ステージセレクトの場合,ワールドセレクトへ
                 case Mode.StageSelectUpdate:

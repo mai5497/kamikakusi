@@ -1,6 +1,6 @@
 //=============================================================================
 //
-// フェードイン
+// フェードアウト
 //
 // 作成日:2022/10/13
 // 作成者:八木橋慧音
@@ -131,7 +131,7 @@ public class Fade_in003 : MonoBehaviour
 
                 SceneManager.LoadScene(Scene_ikou);
             }
-            timer += Time.deltaTime / 2;
+            timer += Time.deltaTime * SceneManagerData.speedFadeOut;
         }
     }
 
