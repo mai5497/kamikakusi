@@ -75,7 +75,7 @@ public class Camera_001 : MonoBehaviour
         camera_left = this.transform.position.x -9.0f;
 
 
-         Debug.Log(camera_left + ",,,,"+camera_right+",,,,"+"aaaaaaaaaa"+Screen.width/2);
+        // Debug.Log(camera_left + ",,,,"+camera_right+",,,,"+"aaaaaaaaaa"+Screen.width/2);
 
      //   Debug.Log(this.transform.position.x);
 
@@ -126,6 +126,12 @@ public class Camera_001 : MonoBehaviour
     {
         //í«è]
         transform.position = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
+    }
+
+
+    public bool Get_camera_move()
+    {
+        return canMove_camera;
     }
 
     //void cant_MoveCamera()

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kino_ita_over : MonoBehaviour
+public class Kino_ita : MonoBehaviour
 {
     // public GameObject oya;
     //親オブジェクトの座標
-    public Fade_in_gemeover fade_over;
+    public Fade_in_crear fade_crear;
     public Transform transform_oya;
 
     private SpriteRenderer oder = null;
@@ -25,7 +25,7 @@ public class Kino_ita_over : MonoBehaviour
         // this.transform.position = transform_oya.position;
         this.transform.position = transform_oya.parent.position;
 
-        fadeIn = fade_over.fadeIn;
+        fadeIn = fade_crear.fadeIn;
     //    Debug.Log("asfdasfasfsf" + fadeIn);
         if (!fadeIn)
         {
