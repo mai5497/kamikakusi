@@ -2797,14 +2797,6 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6fc07f2d-2793-42fe-9b36-fbc956cdc287
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 33429e10-9bae-4c68-bd14-fd465e0ae80f
-    m_ActionName: Player/Fire[/Keyboard/shift]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: e00935ac-ef2e-462b-a30b-cc9542d96bf0
     m_ActionName: Player/Kitune[/Keyboard/space]
   - m_PersistentCalls:
@@ -2843,6 +2835,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0df61ccb-0093-4eae-9aa1-f1bb2f96176b
     m_ActionName: Tutorial/Dicision[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d669122e-0e6c-456e-9524-227abb362a00
+    m_ActionName: Player/HintKey[/Keyboard/e,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f3bca62-7d35-49fd-be53-e147c839309f
+    m_ActionName: Player/HintSwitch[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3c3aaf3-4142-458e-8f28-671a62c76604
+    m_ActionName: Player/HintClose[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -3875,6 +3879,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120586450}
+  - component: {fileID: 2120586451}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -3899,6 +3904,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120586451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120586449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a5d0b30e6b42b4e9681d2c02851b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &788648855871159050
 PrefabInstance:
   m_ObjectHideFlags: 0
