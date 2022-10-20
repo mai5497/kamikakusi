@@ -20,8 +20,7 @@ public class SceneManagerData
     public static string titleScene = "title";
     [Header("ステージセレクトシーン名")]
     public static string stageSelectScene = "StageSelect";
-    [Header("メインシーン名リスト")]
-    //public List<string> mainSceneStrList;
+    [Header("メインシーン名リスト")]  // string[ワールド番号,ステージ番号]
     public static string[,] mainSceneStrArray =
     {
         { "Tutorial","Tutorial","Tutorial" },
@@ -29,5 +28,13 @@ public class SceneManagerData
         { "Stage2_01","Stage2_02","Stage2_03" },
         { "Stage3_01","Stage3_02","Stage3_03" },
     };
+    [Header("フェードアウト速度")]
+    public static float speedFadeOut = 0.5f;
+    [Header("フェードイン速度")]
+    public static float speedFadeIn = 1.0f;
 
+    // 現在のワールド番号
+    public static int nowWorldNo = 0;
+    // 現在のステージ番号
+    public static int nowStageNo = 0;
 }
