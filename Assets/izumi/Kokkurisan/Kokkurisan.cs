@@ -293,13 +293,9 @@ public class Kokkurisan : MonoBehaviour
         {
             bool clear = false;
             // 回答した文字列の中で正解の文字を含んでいた場合
-            for (int j = 0; j < answerStr.Length; j++)
+            if (answerStr.Contains(clearChara[i]))
             {
-                // 表示文字リストで同じ文字の場合、正解と判定
-                if (charList[i] == charList[j])
-                {
-                    clear = true;
-                }
+                clear = true;
             }
 
             // 正解だったら(文字を含むか)
