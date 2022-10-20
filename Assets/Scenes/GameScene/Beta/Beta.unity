@@ -841,6 +841,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: FoxWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 6687588190245747981, guid: 671cbee24d9c0a9429c1df5e38eddcb2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6687588190305297905, guid: 671cbee24d9c0a9429c1df5e38eddcb2, type: 3}
       propertyPath: m_Pivot.x
       value: 0

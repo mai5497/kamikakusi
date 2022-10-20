@@ -18,8 +18,12 @@ public class HintObj : MonoBehaviour
 
     [SerializeField]
     private string objName;    // このオブジェクトの名前をインスペクターで設定しておく
+    //[System.NonSerialized]
+    //public bool _isHatenaHuman; // ？に変換するか
     [SerializeField]
-    private string uraObjName;
+    public string uraObjName;
+    //[System.NonSerialized]
+    //public bool _isHatenaFox; // ？に変換するか
 
 
     [System.NonSerialized]

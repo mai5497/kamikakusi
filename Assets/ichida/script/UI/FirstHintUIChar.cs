@@ -1,3 +1,15 @@
+//=============================================================================
+//
+// 始めのヒント１文字を表示するスクリプト
+//
+// 作成日:2022/10/17
+// 作成者:伊地田真衣
+//
+// <開発履歴>
+// 2022/10/17 作成(ランダムで一文字表示)
+// 2022/10/20 ランダムで表示ではなく、制作者側で設定できるように
+//
+//=============================================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +21,8 @@ public class FirstHintUIChar : MonoBehaviour
     [SerializeField]
     private bool kituneORnormal = true;
 
-    private Text hintCharText;
-    private string firstHintKitune;
+    private Text hintCharText;      // 表示用テキスト型変数
+    private string firstHintKitune; // 狐と人の一文字ヒントの両方を兼ねているのでそれぞれ用意している
     private string firstHintNormal;
 
 
@@ -22,6 +34,7 @@ public class FirstHintUIChar : MonoBehaviour
         firstHintNormal = CPData.normalHint;
 
         //----- 答えの文字からランダムで一文字取得する -----
+        // 初期化されておらず何も入っていなかった場合はランダムで表示
         int random;
         if (kituneORnormal) {
             if (firstHintKitune == "") {
