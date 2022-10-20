@@ -41,4 +41,7 @@ public class CPData : MonoBehaviour
 
     public static string kituneClearStr;    // 狐の目で見た時の正解（※）
     public static string normalClearStr;    // 人の目で見た時の正解（※）
+
+    public static string kituneHint;        // 狐の目のヒント(※)
+    public static string normalHint;        // 人の目のヒント(※)
 }

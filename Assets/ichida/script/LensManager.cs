@@ -64,7 +64,7 @@ public class LensManager : MonoBehaviour
         }
 
         // ƒŒƒ“ƒYˆÚ“®(’Êí‚Ì‚İ)
-        if (!CPData.isKokkurisan && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
+        if (!CPData.isKokkurisan && !CPData.isObjNameUI && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
             if (isLensInit) {
                 lensObj.transform.position = CPData.playerPos;
                 isLensInit = false;

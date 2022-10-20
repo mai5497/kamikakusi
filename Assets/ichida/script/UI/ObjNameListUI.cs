@@ -85,11 +85,19 @@ public class ObjNameListUI : MonoBehaviour
                 iconObjEntity[i].transform.localPosition = new Vector3(leftText.transform.localPosition.x - 300, leftText.transform.localPosition.y - (i - 2) * 110, -5);
             }
         }
+
+        //----- 名前のリストと一文字のヒントが一致したところを色を付ける -----
+        rightText.text = rightText.text.Replace(CPData.kituneHint, "<color=blue>" + CPData.kituneHint + "</color>");
+        leftText.text = leftText.text.Replace(CPData.kituneHint, "<color=blue>" + CPData.kituneHint + "</color>");
+
+        rightText.text = rightText.text.Replace(CPData.normalHint, "<color=red>" + CPData.normalHint + "</color>");
+        leftText.text = leftText.text.Replace(CPData.normalHint, "<color=red>" + CPData.normalHint + "</color>");
+
     }
 
     //// Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 }

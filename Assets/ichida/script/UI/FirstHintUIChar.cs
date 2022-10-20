@@ -18,14 +18,23 @@ public class FirstHintUIChar : MonoBehaviour
     void Start() {
         hintCharText = GetComponent<Text>();
 
+        firstHintKitune = CPData.kituneHint;
+        firstHintNormal = CPData.normalHint;
+
         //----- “š‚¦‚Ì•¶Žš‚©‚çƒ‰ƒ“ƒ_ƒ€‚Åˆê•¶ŽšŽæ“¾‚·‚é -----
         int random;
         if (kituneORnormal) {
-            random = UnityEngine.Random.Range(0, CPData.kituneClearStr.Length);
-            firstHintKitune = CPData.kituneClearStr.Substring(random, 1);
+            if (firstHintKitune == "") {
+                random = UnityEngine.Random.Range(0, CPData.kituneClearStr.Length);
+                firstHintKitune = CPData.kituneClearStr.Substring(random, 1);
+                CPData.kituneHint = firstHintKitune;
+            }
         } else {
-            random = UnityEngine.Random.Range(0, CPData.normalClearStr.Length);
-            firstHintNormal = CPData.normalClearStr.Substring(random, 1);
+            if (firstHintNormal == "") {
+                random = UnityEngine.Random.Range(0, CPData.normalClearStr.Length);
+                firstHintNormal = CPData.normalClearStr.Substring(random, 1);
+                CPData.normalHint = firstHintNormal;
+            }
         }
 
         //----- •¶Žš‚Ì•\Ž¦ -----
