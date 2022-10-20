@@ -530,7 +530,6 @@ GameObject:
   - component: {fileID: 4197482279345289709}
   - component: {fileID: 4197482279345289710}
   - component: {fileID: 4197482279345289696}
-  - component: {fileID: 4197482279345289711}
   - component: {fileID: 4731102323569512051}
   m_Layer: 0
   m_Name: stage_select
@@ -627,92 +626,6 @@ MonoBehaviour:
   - {fileID: 4197482279345289708}
   - {fileID: 4197482279691449521}
   NO1: 0
---- !u!114 &4197482279345289711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4197482279345289708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: af8596f33742e204db5cc37b92b49820, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e4263241-80bd-47b0-95ef-830803f2e14b
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e00935ac-ef2e-462b-a30b-cc9542d96bf0
-    m_ActionName: Player/Kitune[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 63c88bd0-5d31-4d25-9e35-3190872ff8ef
-    m_ActionName: Player/Cyuusi[/Keyboard/shift]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b8a066a3-ec21-4cce-8816-9aacb49654cd
-    m_ActionName: Player/Pose[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 74f3ba0f-2782-4cca-8780-60d5e6955374
-    m_ActionName: UI/Fade[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1aa55008-8a5b-4831-b46f-c36467acda8d
-    m_ActionName: UI/Select[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c3d23ca1-f51f-4db8-8c21-534b57d91375
-    m_ActionName: UI/Dicision[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e8679d21-853d-4a70-b382-fc8efae106a1
-    m_ActionName: UI/Switching[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 82066831-b707-4375-a7a6-7731cb41c757
-    m_ActionName: UI/Back[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0df61ccb-0093-4eae-9aa1-f1bb2f96176b
-    m_ActionName: Tutorial/Dicision[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0f3bca62-7d35-49fd-be53-e147c839309f
-    m_ActionName: Player/HintSwitch[/Keyboard/q,/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c3c3aaf3-4142-458e-8f28-671a62c76604
-    m_ActionName: Player/HintClose[/Keyboard/anyKey]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 75f16f8e-9244-4cc1-ab6d-b39b1814745b
-    m_ActionName: UI/KeyKokkurisan[/Keyboard/e,/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1997e27b-0467-439a-98f0-2621a62ec0ab
-    m_ActionName: UI/ButtonKokkurisan
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: UI
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &4731102323569512051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,7 +777,7 @@ RectTransform:
   - {fileID: 4197482277959293260}
   - {fileID: 4197482278447096740}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

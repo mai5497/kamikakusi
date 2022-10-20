@@ -54,12 +54,12 @@ public class Fade_in003 : MonoBehaviour
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        var actionMap = pInput.currentActionMap;
+        //var actionMap = pInput.currentActionMap;
 
 
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+        //_fadeAction = actionMap["Fade"];
 
 
 
