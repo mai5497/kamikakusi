@@ -263,11 +263,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBlur: 0
   blurMode: 0
-  valueBlurMax: 50
-  speedNormal: 0.05
-  speedPress: 0.1
-  speedHeal: 0.1
-  pressInitSecond: 1
+  valueBlurMax: 0
+  speedNormal: 0
+  speedPress: 0
+  speedHeal: 0
+  pressInitSecond: 0
   valueLerpNowBlur: 0
 --- !u!1 &6687588190058729657
 GameObject:
