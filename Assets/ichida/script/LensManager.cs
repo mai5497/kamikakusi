@@ -106,6 +106,9 @@ public class LensManager : MonoBehaviour
                 // ズーム処理
                 zoomLens.isZoom = true;
             }
+            if(zoomLens.valueZoomLerp > 0.9f) {
+                CPData.lookCnt--;
+            }
         } else {
             blurIn.blurMode = BlurIn.BlurMode.Normal;
             // ズーム解除処理

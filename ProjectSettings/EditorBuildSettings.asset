@@ -11,9 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/izumi/StageSelect/StageSelect.unity
     guid: 25b2c4ad6f45a6042bc56c959dac424b
-  - enabled: 1
-    path: Assets/Scenes/GameScene/Tutorial.unity
+  - enabled: 0
+    path: Assets/Scenes/GameScene/Tutorial/TutorialBase/Tutorial.unity
     guid: 7432138f978732c43b66dcdbbc58488a
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Tutorial/Tutorial_01.unity
+    guid: 4f74d5c2d8195b2428b272391cb2ada7
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Tutorial/Tutorial_02.unity
+    guid: bdb3353492c7a4c4a8b0d41497fd4a20
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Tutorial/Tutorial_03.unity
+    guid: 631982a1539acba44a182b75bcc7a41d
   - enabled: 1
     path: Assets/Scenes/GameScene/Stage1_01.unity
     guid: f3b31ff122bc57f4696a7e2cc85933fd

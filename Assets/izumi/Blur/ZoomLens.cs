@@ -32,7 +32,8 @@ public class ZoomLens : MonoBehaviour
     public float speedZoomIn = 0.15f;
 
     // ÉYÅ[ÉÄÇÃï‚ä‘íl
-    private float valueZoomLerp;
+    [System.NonSerialized]
+    public float valueZoomLerp;
     // canvas
     private Canvas canvasLens;
 

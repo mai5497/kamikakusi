@@ -50,9 +50,9 @@ public class FoxByakko : MonoBehaviour
     // Update is called once per frame
     void Update() {
         //----- ’‹”»’è -----
-        if(!isWindowColl && !oldIsLook && CPData.isLook) {    // ‘‹‚ª“–‚½‚Á‚Ä‚¢‚È‚¢‚Æ‚«‚É’‹‚³‚ê‚½‚Æ‚«
-            CPData.lookCnt--;
-        }
+        //if(!isWindowColl && !oldIsLook && CPData.isLook) {    // ‘‹‚ª“–‚½‚Á‚Ä‚¢‚È‚¢‚Æ‚«‚É’‹‚³‚ê‚½‚Æ‚«
+        //    CPData.lookCnt--;
+        //}
 
         if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
             CPData.isRightAnswer = true;
