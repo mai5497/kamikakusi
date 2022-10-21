@@ -23,6 +23,9 @@ public class FoxByakko : MonoBehaviour
 
     private bool oldIsLook;
 
+    // 狐を見つけた時にエフェクトを出す
+    public List<ParticleSystem> efFindList;
+
     // Start is called before the first frame update
     void Start() {
         isWindowColl = false;
@@ -60,6 +63,10 @@ public class FoxByakko : MonoBehaviour
                 sr.color = new Color(1, 1, 1, alpha);
             } else if (alpha > 1.0) {
                 isDeleting = true;
+                foreach(ParticleSystem ef in efFindList)
+                {
+                    ef.Play();
+                }
             }
         } else if (isDeleting) {
             alpha -= Time.deltaTime / appearTime;
