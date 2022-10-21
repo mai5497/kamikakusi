@@ -1990,6 +1990,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8680989155180938962, guid: 4f289428824edad429a9bd5456f6eb43, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8680989155180938963, guid: 4f289428824edad429a9bd5456f6eb43, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2066,6 +2070,7 @@ PrefabInstance:
       propertyPath: lensSpeed
       value: 0.05
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8680989155180938963, guid: 4f289428824edad429a9bd5456f6eb43, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f289428824edad429a9bd5456f6eb43, type: 3}
