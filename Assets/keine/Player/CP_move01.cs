@@ -35,7 +35,7 @@ public class CP_move01 : MonoBehaviour {
 
     private eAnimState animState;   // アニメーションステート
 
-    private SpriteRenderer sr;  // プレイヤーのspriterenderer
+    //private SpriteRenderer sr;  // プレイヤーのspriterenderer
     private float oldMoveVal;
 
     private FoxByakko _FoxByakko;
@@ -56,7 +56,7 @@ public class CP_move01 : MonoBehaviour {
 
     void Start() {
         animState = eAnimState.NONE;
-        sr = this.GetComponent<SpriteRenderer>();
+        //sr = this.GetComponent<SpriteRenderer>();
         oldMoveVal = 0.0f;
 
         _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
@@ -192,9 +192,9 @@ public class CP_move01 : MonoBehaviour {
             }
 
             // プレイヤーの非表示
-            if(animState != eAnimState.FOXWINDOW) {
-                sr.color = new Color(1,1,1,0.0f);
-            }
+            //if(animState != eAnimState.FOXWINDOW) {
+            //    sr.color = new Color(1,1,1,0.0f);
+            //}
 
         }
     }
@@ -210,9 +210,9 @@ public class CP_move01 : MonoBehaviour {
         CPData.isLens = !CPData.isLens;
 
         // プレイヤーの表示
-        if (!CPData.isLens) {
-            sr.color = new Color(1, 1, 1, 1.0f);
-        }
+        //if (!CPData.isLens) {
+        //    sr.color = new Color(1, 1, 1, 1.0f);
+        //}
     }
     private void OnPoseKey(InputAction.CallbackContext obj) {
         CPData.isPose = !CPData.isPose;
