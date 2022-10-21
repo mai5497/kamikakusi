@@ -36,7 +36,7 @@ public class Kino_ita_titlle : MonoBehaviour
         if (!fadeIn)
         {
             oder.color = new Color(1, 1, 1, 1);
-            oder.sortingOrder = -2;
+            oder.sortingOrder = -1;
         }
 
 
