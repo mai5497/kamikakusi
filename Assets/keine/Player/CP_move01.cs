@@ -29,7 +29,8 @@ public class CP_move01 : MonoBehaviour {
 
     //アクション取得用
     private InputAction _moveAction;
-    private CP_move_input action;        // InputActionを扱う
+    private CP_move_input PlayerAction;        // InputActionを扱う
+    private CP_move_input UIAction;        // InputActionを扱う
 
     private eAnimState animState;   // アニメーションステート
 
@@ -47,7 +48,8 @@ public class CP_move01 : MonoBehaviour {
     }
 
     void Awake() {
-        action = new CP_move_input();            // InputActionインスタンスを生成
+        PlayerAction = new CP_move_input();            // InputActionインスタンスを生成
+        UIAction = new CP_move_input();
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
@@ -68,30 +70,30 @@ public class CP_move01 : MonoBehaviour {
 
     private void OnEnable() {
         //---Actionイベントを登録
-        action.Player.Pose.canceled += OnPoseKey;
-        action.Player.Kitune.canceled += OnLens;
-        action.Player.Cyuusi.started += LookStart;
-        action.Player.Cyuusi.canceled += LookFin;
+        PlayerAction.Player.Pose.canceled += OnPoseKey;
+        PlayerAction.Player.Kitune.canceled += OnLens;
+        PlayerAction.Player.Cyuusi.started += LookStart;
+        PlayerAction.Player.Cyuusi.canceled += LookFin;
         //_hintOpenKeyAction.started += OpenHintKey;
         //_hintOpenButtonAction.canceled += OpenHintButton;
 
-        action.Player.HintClose.canceled += CloseHint;
+        PlayerAction.Player.HintClose.canceled += CloseHint;
 
-        action.UI.KeyKokkurisan.started += OpenHintKey;
-        action.UI.ButtonKokkurisan.started += OpenHintButton;
+        UIAction.UI.KeyKokkurisan.started += OpenHintKey;
+        UIAction.UI.ButtonKokkurisan.started += OpenHintButton;
 
 
         //---InputActionの有効化
-        action.UI.Enable();
-        action.Player.Enable();
+        UIAction.UI.Enable();
+        PlayerAction.Player.Enable();
     }
 
     private void OnDisable() {
         _moveAction.Disable();
 
         //---InputActionの無効化
-        action.UI.Disable();
-        action.Player.Disable();
+        UIAction.UI.Disable();
+        PlayerAction.Player.Disable();
     }
 
 
