@@ -96,7 +96,7 @@ public class CP_move01 : MonoBehaviour {
 
 
     void Update() {
-        if (_FoxByakko.isClear) {   // クリアしたら
+        if (_FoxByakko.isClear || CPData.lookCnt < 1) {   // クリアしたら
             CPData.isLook = false;  // 注視やめ
             CPData.isLens = false;  // 窓使用やめ
 

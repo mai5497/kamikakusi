@@ -38,9 +38,9 @@ public class GameManager : MonoBehaviour
     private string _humanHint;
 
 
-    [SerializeField]
-    private GameObject sceneManager;        // シーンマネージャー自動生成用
-    private GameObject sceneManagerEntity;  // シーンマネージャーの実体
+    //[SerializeField]
+    //private GameObject sceneManager;        // シーンマネージャー自動生成用
+    //private GameObject sceneManagerEntity;  // シーンマネージャーの実体
 
     // Start is called before the first frame update
     void Start()
