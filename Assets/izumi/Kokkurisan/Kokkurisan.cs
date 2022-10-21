@@ -74,6 +74,18 @@ public class Kokkurisan : MonoBehaviour
     [Header("片方0エフェクト")]
     public List<ParticleSystem> ef0_1 = new List<ParticleSystem>();
 
+    [Header("狐の窓")]
+    private Image frame;
+    [Header("狐の窓の通常時")]
+    public Sprite frameNormal;
+    [Header("狐の窓のものを見つけた時")]
+    public Sprite frameFind;
+
+    [Header("〇が付いた文字_人の目")]
+    public string normalMaruStr;
+    [Header("〇が付いた文字_狐の目")]
+    public string foxMaruStr;
+
     // 間違い文字数
     // 人の目
     private int normalMissNum;
@@ -104,6 +116,8 @@ public class Kokkurisan : MonoBehaviour
         canvas.worldCamera = Camera.main;
         canvas.sortingLayerName = "TopLayer";
         canvas.sortingOrder = 2;    // 窓より上に表示
+
+        frame = GameObject.FindGameObjectWithTag("Frame").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -173,6 +187,15 @@ public class Kokkurisan : MonoBehaviour
             isSideClear = false;
         }
         ///////////////////////////////////////////////////
+
+        if (normalAnswerStr != null)
+        {
+            frame.sprite = frameFind;
+        }
+        else
+        {
+            frame.sprite = frameNormal;
+        }
 
         // 回答した文字の表示
         if (isAnswer)
@@ -332,6 +355,7 @@ public class Kokkurisan : MonoBehaviour
     // クリア判定(isMarkPrintがtrueだと正解文字を〇で囲む)
     bool ClearJudge(string answerStr, string clearStr, ref int missNum, bool isMarkPrint)
     {
+
         char[] clearChara = clearStr.ToCharArray();
         missNum = 0;
         for (int i = 0; i < clearChara.Length; i++)
@@ -354,6 +378,21 @@ public class Kokkurisan : MonoBehaviour
                     markObj.transform.localPosition = new Vector3(-100, -25, 0);
                     markObj.SetActive(true);
                     markObjList.Add(markObj);
+                    // 〇で囲まれた文字をmaruStrに格納
+                    if (isNormal)
+                    {
+                        if (!normalMaruStr.Contains(clearChara[i]))
+                        {
+                            normalMaruStr = normalMaruStr + clearChara[i];
+                        }
+                    }
+                    if (isFox)
+                    {
+                        if (!foxMaruStr.Contains(clearChara[i]))
+                        {
+                            foxMaruStr = foxMaruStr + clearChara[i];
+                        }
+                    }
                 }
             }
             // 不正解だったら(文字を含んでなかった)
