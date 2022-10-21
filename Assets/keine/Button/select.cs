@@ -135,6 +135,7 @@ public class select : MonoBehaviour {
 
                 case 1:
                     //次のステージへ
+                    SceneManagerFade.LoadSceneNextStage();
                     break;
 
             }
