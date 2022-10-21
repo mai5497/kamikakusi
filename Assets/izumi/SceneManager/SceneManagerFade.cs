@@ -38,6 +38,7 @@ public static class SceneManagerFade
     {
         SceneManagerData.nowWorldNo = worldNo;
         SceneManagerData.nowStageNo = stageNo;
+        ClearManager.SaveNowStage();
         Fade_in003.fade_in_use(SceneManagerData.mainSceneStrArray[worldNo, stageNo]);
     }
 }

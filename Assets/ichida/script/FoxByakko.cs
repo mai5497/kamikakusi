@@ -39,6 +39,9 @@ public class FoxByakko : MonoBehaviour
         isClear = false;
 
         oldIsLook = CPData.isLook;
+
+        // シーン開始時現在のステージを保存
+        ClearManager.SaveNowStage();
     }
 
     // Update is called once per frame
@@ -67,6 +70,11 @@ public class FoxByakko : MonoBehaviour
         }
 
         oldIsLook = CPData.isLook;
+
+        // クリアしたらクリアステージを保存
+        if (isClear) {
+            ClearManager.SaveClearStage();
+        }
     }
     public bool GetByakko_delete() {
         return isByakko_delete;

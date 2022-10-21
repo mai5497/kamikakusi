@@ -73,6 +73,8 @@ public class StageSelect : MonoBehaviour
     public int selectWorldNoMin;
     [Header("ワールド選択最大番号")]
     public int selectWorldNoMax;
+    // ワールド選択最大番号の初期値(inspectorで設定した値)
+    private int selectWorldNoMaxInit;
     ////////////////////////////////////////////////////////
 
     // ステージセレクト用/////////////////////////////////
@@ -88,6 +90,12 @@ public class StageSelect : MonoBehaviour
     public GameObject cursorStageObj;
     [Header("ステージセレクトオブジェクトリスト")]
     public List<GameObject> selectStageObjList;
+    [Header("ステージセレクトオブジェクト_クリア")]
+    public Sprite selectStageClearObj;
+    [Header("ステージセレクトオブジェクトリスト_未クリア")]
+    public Sprite selectStageCanObj;
+    [Header("ステージセレクトオブジェクトリスト_できない")]
+    public Sprite selectStageCanNotObj;
     // ステージ選択番号
     private int selectStageNo;
     [Header("ステージ選択初期番号")]
@@ -96,6 +104,8 @@ public class StageSelect : MonoBehaviour
     public int selectStageNoMin;
     [Header("ステージ選択最大番号")]
     public int selectStageNoMax;
+    // ステージ選択最大番号の初期値(inspectorで設定した値)
+    private int selectStageNoMaxInit;
     /// //////////////////////////////////////////////////
 
     // Start is called before the first frame update
@@ -116,6 +126,8 @@ public class StageSelect : MonoBehaviour
         cursorWorldObj.transform.position = selectWorldObjList[selectWorldNo - selectWorldNoMin].transform.position;
         selectStageNo = selectStageNoInit;
         cursorStageObj.transform.position = selectStageObjList[selectStageNo - selectStageNoMin].transform.position;
+        selectStageNoMaxInit = selectStageNoMax;
+        selectWorldNoMaxInit = selectWorldNoMax;
 
         foreach (GameObject obj in selectWorldObjList)
         {
@@ -139,6 +151,23 @@ public class StageSelect : MonoBehaviour
             case Mode.WorldSelectInit:
                 worldSelectParentObj.SetActive(true);
                 stageSelectParentObj.SetActive(false);
+                selectStageNoMax = selectStageNoMaxInit;
+
+                selectWorldNoMax = 0;
+                // ワールドセレクトの表示をクリア状況により変更
+                for (int i = selectWorldNoMin + 1; i <= selectWorldNoMaxInit; i++)
+                {
+                    if (ClearManager.GetClearWorld((i - 1) - selectWorldNoMin))
+                    {
+                        selectWorldNoMax = i;
+                        selectWorldObjList[i - selectWorldNoMin].SetActive(true);
+                    }
+                    else
+                    {
+                        selectWorldObjList[i - selectWorldNoMin].SetActive(false);
+                    }
+                }
+
                 mode = Mode.WorldSelectUpdate;
                 break;
             // ワールドセレクト更新
@@ -182,11 +211,50 @@ public class StageSelect : MonoBehaviour
                     obj.SetActive(false);
                 }
                 stageSelectSelectWorldObjList[selectWorldNo - selectWorldNoMin].SetActive(true);
+
+                // データが無ければステージ最大数を変更
+                for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
+                {
+                    if (SceneManagerData.mainSceneStrArray[selectWorldNo - selectWorldNoMin, i] == null)
+                    {
+                        selectStageNoMax = (selectWorldNoMin + i) - 2;
+                    }
+                }
+
+                // ステージオブジェクトのスプライトをクリア状況により変更
+                for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
+                {
+                    if (i <= selectStageNoMax)
+                    {
+                        // クリア
+                        if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, i))
+                        {
+                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
+                        }
+                        // できる
+                        else
+                        {
+                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                        }
+                    }
+                    // できない
+                    else
+                    {
+                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
+                    }
+                }
+
+
+
                 mode = Mode.StageSelectUpdate;
                 break;
             // ステージセレクト更新
             case Mode.StageSelectUpdate:
                 UpdateSelect(ref selectStageNo, ref selectStageNoMin, ref selectStageNoMax, ref cursorStageObj, ref selectStageObjList);
+                //if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, selectStageNo - selectStageNoMin))
+                //{
+
+                //}
                 break;
             // ステージセレクトからワールドセレクトへ
             case Mode.StageSelectToWorldSelect:
