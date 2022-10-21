@@ -30,7 +30,7 @@ public class Fade_title_haikei1 : MonoBehaviour
     private bool fadeOut = false;
 
     //アクション取得用
-    //private InputAction _disicionAction;
+    private InputAction _disicionAction;
 
     private bool fading = false;
     public bool title_finish = false;
@@ -46,14 +46,14 @@ public class Fade_title_haikei1 : MonoBehaviour
         //img.raycastTarget = true;
         fadeIn = true;
 
-        var pInput = GetComponent<PlayerInput>();
+        //  var pInput = GetComponent<PlayerInput>();
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        //var actionMap = pInput.currentActionMap;
+        //   var actionMap = pInput.currentActionMap;
 
         //アクションマップからアクションを取得
-        //_disicionAction = actionMap["Fade"];
+        //  _disicionAction = actionMap["AnyKey"];
 
 
     }
@@ -62,29 +62,35 @@ public class Fade_title_haikei1 : MonoBehaviour
     {
 
         var current = Keyboard.current;
+        // var current = Gamepad.current;
         if (frameCount > 2)
         {
-            bool fade = false;
+            //bool fade = false;
 
-            Gamepad gamepad = Gamepad.current;
-            if (gamepad != null) {
-                if (gamepad.buttonSouth.wasReleasedThisFrame ||
-                    gamepad.buttonNorth.wasReleasedThisFrame ||
-                    gamepad.buttonWest.wasReleasedThisFrame ||
-                    gamepad.buttonEast.wasReleasedThisFrame) {
-                    fade = !fade;
-                }
-            }
-            Keyboard keyboard = Keyboard.current;
-            if (keyboard.enterKey.wasReleasedThisFrame) {
-                fade = !fade;
-            }
+            //Gamepad gamepad = Gamepad.current;
+            //if (gamepad != null) {
+            //    if (gamepad.buttonSouth.wasReleasedThisFrame ||
+            //        gamepad.buttonNorth.wasReleasedThisFrame ||
+            //        gamepad.buttonWest.wasReleasedThisFrame ||
+            //        gamepad.buttonEast.wasReleasedThisFrame) {
+            //        fade = !fade;
+            //    }
+            //}
+            //Keyboard keyboard = Keyboard.current;
+            //if (keyboard.enterKey.wasReleasedThisFrame) {
+            //    fade = !fade;
+            //}
 
 
-            if (fade)
+            var anyKey = current.anyKey;
+            if (  GamePadManager.PressAnyButton(0) )
             {
                 fading = true;
             }
+                if (anyKey.wasPressedThisFrame)
+                {
+                    fading = true;
+                }
             if (fading)
             {
                 if (fadeIn)
@@ -100,7 +106,7 @@ public class Fade_title_haikei1 : MonoBehaviour
                     ////フェードイン完了 
                     else
                     {
-                         title_finish = true;
+                        title_finish = true;
                         //    img.color = new Color(1, 1, 1, 0);
                         //   // img.fillAmount = 0;
                         //   // img.raycastTarget = false;
@@ -108,7 +114,7 @@ public class Fade_title_haikei1 : MonoBehaviour
                         //    fadeIn = false;
                         //    fadeOut = true;
                         //    fading = false;
-                       
+
                         //    GetTitlle_delete();
 
                         //   // Debug.Log("ボタン1");

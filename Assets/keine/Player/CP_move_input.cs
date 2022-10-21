@@ -353,9 +353,9 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Select"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""1aa55008-8a5b-4831-b46f-c36467acda8d"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
