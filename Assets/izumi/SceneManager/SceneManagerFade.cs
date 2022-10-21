@@ -41,4 +41,16 @@ public static class SceneManagerFade
         ClearManager.SaveNowStage();
         Fade_in003.fade_in_use(SceneManagerData.mainSceneStrArray[worldNo, stageNo]);
     }
+    // 次のステージシーンの読み込み
+    public static void LoadSceneNextStage()
+    {
+        // ステージ番号が最大では無ければ、
+        if (SceneManagerData.nowStageNo < SceneManagerData.mainSceneStrArray.GetLength(1) - 1)
+        {
+            if (SceneManagerData.mainSceneStrArray[SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo + 1] == null)
+            {
+                
+            }
+        }
+    }
 }

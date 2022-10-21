@@ -65,8 +65,14 @@ public class Kokkurisan : MonoBehaviour
     //[System.NonSerialized]
     public bool isClear;
 
-    [Header("0エフェクト")]
+    [Header("こっくりさん片方クリア")]
+    public bool isSideClear;
+
+    [Header("両方0(クリア)エフェクト")]
     public List<ParticleSystem> ef0 = new List<ParticleSystem>();
+
+    [Header("片方0エフェクト")]
+    public List<ParticleSystem> ef0_1 = new List<ParticleSystem>();
 
     // 間違い文字数
     // 人の目
@@ -136,15 +142,35 @@ public class Kokkurisan : MonoBehaviour
             if (isNormalClear && isFoxClear)
             {
                 isClear = true;
+                isSideClear = false;
             }
             else
             {
+                if (isNormal && isNormalClear)
+                {
+                    isSideClear = true;
+                }
+                else
+                {
+                    isSideClear = false;
+                }
+
+                if (isFox && isFoxClear)
+                {
+                    isSideClear = true;
+                }
+                else
+                {
+                    isSideClear = false;
+                }
+
                 isClear = false;
             }
         }
         else
         {
             isClear = false;
+            isSideClear = false;
         }
         ///////////////////////////////////////////////////
 
@@ -207,6 +233,13 @@ public class Kokkurisan : MonoBehaviour
                     if (isClear)
                     {
                         foreach(ParticleSystem ef in ef0)
+                        {
+                            ef.Play();
+                        }
+                    }
+                    if (isSideClear)
+                    {
+                        foreach (ParticleSystem ef in ef0_1)
                         {
                             ef.Play();
                         }
