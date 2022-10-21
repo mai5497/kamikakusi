@@ -101,8 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fb5152cfe235944a7345c7ebd26318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDash: 0
-  fSpeed: 0.03
+  fSpeed: 6
+  canMoveLeft: 0
+  canMoveRight: 0
+  Wall_player_left: 0
+  Wall_player_right: 0
 --- !u!114 &8680989155180938963
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,12 +39,37 @@ public class CP_move01 : MonoBehaviour {
 
     private FoxByakko _FoxByakko;
 
+    GameObject wallObj_left;
+    GameObject wallObj_right;
+
+    public bool canMoveLeft;
+    public bool canMoveRight;
+
+    public float Wall_player_left = 0.0f;
+    public float Wall_player_right = 0.0f;
+    //  private Rigidbody2D rigidBody;
+
+    Vector2 wallLeftPos;
+    Vector2 wallRightPos;
+
     void Start() {
         animState = eAnimState.NONE;
         sr = this.GetComponent<SpriteRenderer>();
         oldMoveVal = 0.0f;
 
         _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
+
+        wallObj_left = GameObject.FindGameObjectWithTag("TestWallLeft");
+        wallObj_right = GameObject.FindGameObjectWithTag("TestWallRight");
+
+        wallLeftPos = wallObj_left.transform.position;
+        wallRightPos = wallObj_right.transform.position;
+
+
+        Wall_player_left = this.transform.localScale.x / 2 + wallObj_left.transform.localScale.x / 2 + 0.04f;
+        Wall_player_right = this.transform.localScale.x / 2 + wallObj_right.transform.localScale.x / 2 + 0.04f;
+
+
     }
 
     void Awake() {
@@ -120,11 +145,6 @@ public class CP_move01 : MonoBehaviour {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
 
-                transform.Translate(
-                    move.x * fSpeed,
-                    0.0f,
-                    0.0f);
-
                 // プレイヤー反転処理
                 if(move.x > -1 && oldMoveVal > 0) {
                     this.transform.localScale = new Vector3(1,1,1);
@@ -132,6 +152,40 @@ public class CP_move01 : MonoBehaviour {
                     this.transform.localScale = new Vector3(-1,1,1);
                 }
                 oldMoveVal = move.x;
+
+
+                bool stopLeft = false;
+                bool stopRight = false;
+
+                // Debug.Log(Wall_player);
+
+                if (wallLeftPos.x + Wall_player_left >= this.transform.position.x) {
+                    stopLeft = true;
+                }
+
+                if (wallRightPos.x - Wall_player_right <= this.transform.position.x) {
+                    stopRight = true;
+                }
+
+
+                if (move.x > -0.0f && !stopRight) {
+                    canMoveLeft = true;
+                    //canMoveRight = false;
+                    //
+                    transform.Translate(
+                            move.x * fSpeed * Time.deltaTime,
+                            0.0f,
+                            0.0f);
+                }
+                if (move.x < 0.0f && !stopLeft) {
+                    canMoveRight = true;
+                    // canMoveLeft = false;
+                    transform.Translate(
+                             move.x * fSpeed * Time.deltaTime,
+                             0.0f,
+                             0.0f);
+                }
+
 
                 // データに保存
                 CPData.playerPos = this.transform.position;
