@@ -30,7 +30,7 @@ public class Fade_in003 : MonoBehaviour
     private static string Scene_ikou;
 
     //アクション取得用
-    private InputAction _fadeAction;
+    //private InputAction _fadeAction;
 
     private bool fading = false;
     // Scene _scene;
@@ -50,16 +50,16 @@ public class Fade_in003 : MonoBehaviour
 
 
 
-        var pInput = GetComponent<PlayerInput>();
+        //var pInput = GetComponent<PlayerInput>();
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        var actionMap = pInput.currentActionMap;
+        //var actionMap = pInput.currentActionMap;
 
 
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+        //_fadeAction = actionMap["Fade"];
 
 
 

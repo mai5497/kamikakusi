@@ -8602,6 +8602,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 9182974025689034955}
     m_Modifications:
+    - target: {fileID: 809344017388918325, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 809344017681841352, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 809344017788549862, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
       propertyPath: m_Name
       value: 'EFF_Flash '
@@ -8648,6 +8656,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 809344017788549865, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 809344018165896680, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 809344018241463221, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 809344018494282510, guid: 22f2341ec85ae704c92f0bb1143f5ba1, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

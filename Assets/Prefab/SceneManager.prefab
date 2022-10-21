@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 9043110049587729143}
   - component: {fileID: 9043110049587729142}
   - component: {fileID: 9043110049587729141}
-  - component: {fileID: 9043110049587729137}
+  - component: {fileID: 2368859296296422210}
   m_Layer: 5
   m_Name: fadeIn
   m_TagString: Untagged
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -256,10 +256,6 @@ MonoBehaviour:
     m_ActionName: Player/Pose[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 93877388-9ed4-4511-9b60-687fdfc72d34
-    m_ActionName: Player/Hint[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 74f3ba0f-2782-4cca-8780-60d5e6955374
     m_ActionName: UI/Fade[/Keyboard/enter]
   - m_PersistentCalls:
@@ -284,22 +280,26 @@ MonoBehaviour:
     m_ActionName: Tutorial/Dicision[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: d669122e-0e6c-456e-9524-227abb362a00
-    m_ActionName: Player/HintKey[/Keyboard/e,/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 0f3bca62-7d35-49fd-be53-e147c839309f
     m_ActionName: Player/HintSwitch[/Keyboard/q,/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: c3c3aaf3-4142-458e-8f28-671a62c76604
     m_ActionName: Player/HintClose[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75f16f8e-9244-4cc1-ab6d-b39b1814745b
+    m_ActionName: UI/KeyKokkurisan[/Keyboard/e,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1997e27b-0467-439a-98f0-2621a62ec0ab
+    m_ActionName: UI/ButtonKokkurisan
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &9043110049587729137
+--- !u!114 &2368859296296422210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,9 +308,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9043110049587729147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2567fe877123533458c1ffd70ec0217b, type: 3}
+  m_Script: {fileID: 11500000, guid: 57d66e80adf88a3409f8149c90a770ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeOut_finish: 0
+  fade_out: 0
 --- !u!1001 &8614897189430543574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +411,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 788648856608257604, guid: 3620c5476f045664aafdfc60fa583d92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666425408212446259, guid: 3620c5476f045664aafdfc60fa583d92, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
