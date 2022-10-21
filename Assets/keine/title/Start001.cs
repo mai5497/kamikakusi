@@ -98,7 +98,7 @@ public class Start001 : MonoBehaviour
             //fadein.fade_in_use("Alpha 1", image);
 
             //ステージセレクトへ遷移
-            SceneManagerFade.LoadSceneMain(0, 0);
+            SceneManagerFade.LoadSceneMain(1, 0);
 
             //Debug.Log("ボタン");
             //// SceneManager.LoadScene("Alpha 1");

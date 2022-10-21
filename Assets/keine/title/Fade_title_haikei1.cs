@@ -47,8 +47,8 @@ public class Fade_title_haikei1 : MonoBehaviour
     void Update()
     {
         var current = Keyboard.current;
-        if (frameCount > 2)
-        {
+        //if (frameCount > 2)
+        //{
             var anyKey = current.anyKey;
             if (GamePadManager.PressAnyButton(0))
             {
@@ -78,7 +78,7 @@ public class Fade_title_haikei1 : MonoBehaviour
 
                 }
             }
-        }
+        //}
     }
 
     /// <summary>
