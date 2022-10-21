@@ -35,7 +35,9 @@ public class CP_move02 : MonoBehaviour
     public bool canMoveLeft;
     public bool canMoveRight;
 
-  //  private Rigidbody2D rigidBody;
+    public float Wall_player_left=0.0f;
+    public float Wall_player_right = 0.0f;
+    //  private Rigidbody2D rigidBody;
 
 
 
@@ -60,6 +62,11 @@ public class CP_move02 : MonoBehaviour
 
         wallLeftPos = wallObj_left.transform.position;
         wallRightPos = wallObj_right.transform.position;
+
+
+        Wall_player_left = this.transform.localScale.x /2+ wallObj_left.transform.localScale.x/2+0.04f;
+        Wall_player_right = this.transform.localScale.x / 2 + wallObj_right.transform.localScale.x / 2 + 0.04f;
+
 
         //  rigidBody = GetComponent<Rigidbody2D>();
 
@@ -125,13 +132,14 @@ public class CP_move02 : MonoBehaviour
                 bool stopLeft=false;
                 bool stopRight=false;
 
+               // Debug.Log(Wall_player);
 
-                if (wallLeftPos.x + 1.03 >= this.transform.position.x)
+                if (wallLeftPos.x + Wall_player_left >= this.transform.position.x)
                 {
                     stopLeft = true;
                 }
                
-                if (wallRightPos.x - 1.03 <= this.transform.position.x)
+                if (wallRightPos.x - Wall_player_right <= this.transform.position.x)
                 {
                     stopRight = true;
                 }
