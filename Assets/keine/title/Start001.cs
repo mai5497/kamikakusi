@@ -97,8 +97,8 @@ public class Start001 : MonoBehaviour
         {
             //fadein.fade_in_use("Alpha 1", image);
 
-            //メインシーンへ遷移(引数1=ワールド番号,引数2=ステージ番号)
-            SceneManagerFade.LoadSceneMain(1, 1-1);   // チュートリアルないから１－１
+            //ステージセレクトへ遷移
+            SceneManagerFade.LoadSceneMain(0, 0);
 
             //Debug.Log("ボタン");
             //// SceneManager.LoadScene("Alpha 1");

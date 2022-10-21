@@ -9,6 +9,7 @@
 // <開発履歴>
 // 2022/10/12 作成
 // 2022/10/13 マージのためにいろいろ変更
+// 2022/10/21 InputPlayer消すために入力回り変更
 //
 //=============================================================================
 using UnityEngine;
@@ -47,7 +48,6 @@ public class CP_move01 : MonoBehaviour {
 
     public float Wall_player_left = 0.0f;
     public float Wall_player_right = 0.0f;
-    //  private Rigidbody2D rigidBody;
 
     Vector2 wallLeftPos;
     Vector2 wallRightPos;
@@ -75,32 +75,15 @@ public class CP_move01 : MonoBehaviour {
     void Awake() {
         PlayerAction = new CP_move_input();            // InputActionインスタンスを生成
         UIAction = new CP_move_input();
-
-        //現在のアクションマップを取得。
-        //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        var pInput = GetComponent<PlayerInput>();
-        var actionMap = pInput.currentActionMap;
-
-        //アクションマップからアクションを取得
-        _moveAction = actionMap["Move"];
-        //_kituneAction = actionMap["Kitune"];
-        //_cyuusiAction = actionMap["Cyuusi"];
-        //_poseAction = actionMap["Pose"];
-
-        //_hintOpenKeyAction = actionMap["HintKey"];
-        //_hintOpenButtonAction = actionMap["HintButton"];
-
-        //_hintCloseAction = actionMap["HintClose"];
     }
 
     private void OnEnable() {
         //---Actionイベントを登録
+        _moveAction = PlayerAction.Player.Move;
         PlayerAction.Player.Pose.canceled += OnPoseKey;
         PlayerAction.Player.Kitune.canceled += OnLens;
         PlayerAction.Player.Cyuusi.started += LookStart;
         PlayerAction.Player.Cyuusi.canceled += LookFin;
-        //_hintOpenKeyAction.started += OpenHintKey;
-        //_hintOpenButtonAction.canceled += OpenHintButton;
 
         PlayerAction.Player.HintClose.canceled += CloseHint;
 
@@ -157,8 +140,6 @@ public class CP_move01 : MonoBehaviour {
                 bool stopLeft = false;
                 bool stopRight = false;
 
-                // Debug.Log(Wall_player);
-
                 if (wallLeftPos.x + Wall_player_left >= this.transform.position.x) {
                     stopLeft = true;
                 }
@@ -170,8 +151,6 @@ public class CP_move01 : MonoBehaviour {
 
                 if (move.x > -0.0f && !stopRight) {
                     canMoveLeft = true;
-                    //canMoveRight = false;
-                    //
                     transform.Translate(
                             move.x * fSpeed * Time.deltaTime,
                             0.0f,
@@ -179,7 +158,6 @@ public class CP_move01 : MonoBehaviour {
                 }
                 if (move.x < 0.0f && !stopLeft) {
                     canMoveRight = true;
-                    // canMoveLeft = false;
                     transform.Translate(
                              move.x * fSpeed * Time.deltaTime,
                              0.0f,
@@ -264,7 +242,7 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private IEnumerator DelayKokkurisan() {
-        yield return null;
+        yield return null;  // 1フレーム後にisKokkurisanをtrueにする
         CPData.isKokkurisan = true;
     }
 }
