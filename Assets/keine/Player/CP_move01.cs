@@ -52,6 +52,8 @@ public class CP_move01 : MonoBehaviour {
     Vector2 wallLeftPos;
     Vector2 wallRightPos;
 
+    public Animator animator;
+
     void Start() {
         animState = eAnimState.NONE;
         sr = this.GetComponent<SpriteRenderer>();
@@ -148,13 +150,14 @@ public class CP_move01 : MonoBehaviour {
                     stopRight = true;
                 }
 
-
+                bool isWalk = false;
                 if (move.x > -0.0f && !stopRight) {
                     canMoveLeft = true;
                     transform.Translate(
                             move.x * fSpeed * Time.deltaTime,
                             0.0f,
                             0.0f);
+                    isWalk = true;
                 }
                 if (move.x < 0.0f && !stopLeft) {
                     canMoveRight = true;
@@ -162,6 +165,16 @@ public class CP_move01 : MonoBehaviour {
                              move.x * fSpeed * Time.deltaTime,
                              0.0f,
                              0.0f);
+                    isWalk = true;
+                }
+
+                if (isWalk)
+                {
+                    animator.SetBool("Run", true);
+                }
+                else
+                {
+                    animator.SetBool("Run", false);
                 }
 
 
