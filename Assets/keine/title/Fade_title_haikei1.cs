@@ -41,56 +41,23 @@ public class Fade_title_haikei1 : MonoBehaviour
 
         oder = GetComponent<SpriteRenderer>();
         oder.sortingOrder = 1;
-
-        //img.fillAmount = 1;
-        //img.raycastTarget = true;
         fadeIn = true;
-
-        //  var pInput = GetComponent<PlayerInput>();
-
-        //現在のアクションマップを取得。
-        //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-        //   var actionMap = pInput.currentActionMap;
-
-        //アクションマップからアクションを取得
-        //  _disicionAction = actionMap["AnyKey"];
-
-
     }
 
     void Update()
     {
-
         var current = Keyboard.current;
-        // var current = Gamepad.current;
         if (frameCount > 2)
         {
-            //bool fade = false;
-
-            //Gamepad gamepad = Gamepad.current;
-            //if (gamepad != null) {
-            //    if (gamepad.buttonSouth.wasReleasedThisFrame ||
-            //        gamepad.buttonNorth.wasReleasedThisFrame ||
-            //        gamepad.buttonWest.wasReleasedThisFrame ||
-            //        gamepad.buttonEast.wasReleasedThisFrame) {
-            //        fade = !fade;
-            //    }
-            //}
-            //Keyboard keyboard = Keyboard.current;
-            //if (keyboard.enterKey.wasReleasedThisFrame) {
-            //    fade = !fade;
-            //}
-
-
             var anyKey = current.anyKey;
-            if (  GamePadManager.PressAnyButton(0) )
+            if (GamePadManager.PressAnyButton(0))
             {
                 fading = true;
             }
-                if (anyKey.wasPressedThisFrame)
-                {
-                    fading = true;
-                }
+            if (anyKey.wasPressedThisFrame)
+            {
+                fading = true;
+            }
             if (fading)
             {
                 if (fadeIn)
@@ -100,62 +67,18 @@ public class Fade_title_haikei1 : MonoBehaviour
                     ////フェードイン中 
                     if (timer < 1)
                     {
-                        //    img.color = new Color(1, 1, 1, 1 - timer);
-                        //   // img.fillAmount = 1 - timer;
                     }
                     ////フェードイン完了 
                     else
                     {
                         title_finish = true;
-                        //    img.color = new Color(1, 1, 1, 0);
-                        //   // img.fillAmount = 0;
-                        //   // img.raycastTarget = false;
-                        //    timer = 0.0f;
-                        //    fadeIn = false;
-                        //    fadeOut = true;
-                        //    fading = false;
-
-                        //    GetTitlle_delete();
-
-                        //   // Debug.Log("ボタン1");
-
                     }
                     timer += Time.deltaTime;
 
 
                 }
             }
-            //if (fading)
-            //{
-            //    if (fadeOut)
-            //    {
-            //        //フェードイン中 
-            //        if (timer < 1)
-            //        {
-            //            img.color = new Color(1, 1, 1, 1 + timer);
-            //            img.fillAmount = 0 + timer;
-            //        }
-            //        //フェードイン完了 
-            //        else
-            //        {
-            //            img.color = new Color(1, 1, 1, 1);
-            //            img.fillAmount = 1;
-            //            img.raycastTarget = false;
-            //            timer = 0.0f;
-            //            fadeOut = false;
-            //            fadeIn = true;
-            //            fading = false;
-            //        }
-            //        timer += Time.deltaTime;
-
-            //    }
-            //  }
         }
-
-
-
-        ++frameCount;
-
     }
 
     /// <summary>
