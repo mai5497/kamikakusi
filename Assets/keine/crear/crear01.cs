@@ -12,34 +12,19 @@ public class crear01 : MonoBehaviour
     public Fade_in_crear Fade_in;
 
     public SpriteRenderer img;
-    // bool fadein;
-   // public Image image;
-
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-       
-
         //ŒÏŒ©‚Â‚¯‚½ƒNƒŠƒA”»’è
         isCrearOk = crear.isClear;
-
 
         if(isCrearOk)
         {
             Fade_in.fade_in_use(img);  
         }
-
-
-
-
-
-
-        
+   
     }
 }

@@ -88,53 +88,20 @@ public class Fade_title_haikei : MonoBehaviour
                         fading = false;
                         title_finish = true;
                         GetTitlle_delete();
-
-                       // Debug.Log("ボタン1");
-
                     }
                     timer += Time.deltaTime;
 
 
                 }
             }
-            //if (fading)
-            //{
-            //    if (fadeOut)
-            //    {
-            //        //フェードイン中 
-            //        if (timer < 1)
-            //        {
-            //            img.color = new Color(1, 1, 1, 1 + timer);
-            //            img.fillAmount = 0 + timer;
-            //        }
-            //        //フェードイン完了 
-            //        else
-            //        {
-            //            img.color = new Color(1, 1, 1, 1);
-            //            img.fillAmount = 1;
-            //            img.raycastTarget = false;
-            //            timer = 0.0f;
-            //            fadeOut = false;
-            //            fadeIn = true;
-            //            fading = false;
-            //        }
-            //        timer += Time.deltaTime;
-
-            //    }
-            //  }
         }
-
-
-
         ++frameCount;
-
     }
 
     /// <summary>
     /// タイトル削除
     /// </summary>
     /// <returns></returns>
-   
     public bool GetTitlle_delete()
     {
         return title_finish;

@@ -7,6 +7,7 @@ public class Any_key : MonoBehaviour
 {
 
     public Fade_title_haikei1 titlle;
+
     //タイトルが終わったか
     bool Titlle;
 
@@ -19,14 +20,11 @@ public class Any_key : MonoBehaviour
     //点滅
     float tikutaku = 0.0f;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
         text = GetComponent<Text>();
         text.color = new Color(1, 1, 1, 0);
-
     }
 
     // Update is called once per frame
@@ -35,26 +33,15 @@ public class Any_key : MonoBehaviour
         Titlle = titlle.title_finish;
         fadeIn_false = fade_titlle.fadeIn;
 
-
-      //  Debug.Log(fadeIn_false);
         if (!fadeIn_false)
         {
-           // text.color = new Color(1, 1, 1, 0);
-
-
-
-
-
             if (Titlle)
             {
-                //  Debug.Log("any");
-                text.color = new Color(1, 1, 1, 0 );
-
+                text.color = new Color(1, 1, 1, 0);
             }
             else
             {
                 text.color = new Color(1, 1, 1, 0 + tikutaku);
-
             }
             if (tikutaku <= 0)
             {
