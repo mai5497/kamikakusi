@@ -96,7 +96,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8680989155180938975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96fb5152cfe235944a7345c7ebd26318, type: 3}
   m_Name: 
@@ -104,7 +104,7 @@ MonoBehaviour:
   fSpeed: 6
   canMoveLeft: 0
   canMoveRight: 0
-  Wall_player_left: 0
+  Wall_player_left: 1.04
   Wall_player_right: 0
 --- !u!114 &8680989155180938963
 MonoBehaviour:
