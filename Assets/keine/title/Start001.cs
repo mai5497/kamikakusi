@@ -99,6 +99,7 @@ public class Start001 : MonoBehaviour
 
             //ステージセレクトへ遷移
             SceneManagerFade.LoadSceneMain(1, 0);
+            isFade = false;
 
             //Debug.Log("ボタン");
             //// SceneManager.LoadScene("Alpha 1");

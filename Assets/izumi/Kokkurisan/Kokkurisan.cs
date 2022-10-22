@@ -350,6 +350,16 @@ public class Kokkurisan : MonoBehaviour
             }
             markObjList.Clear();
         }
+
+        // エフェクトクリア
+        foreach (ParticleSystem ef in ef0)
+        {
+            ef.Clear();
+        }
+        foreach (ParticleSystem ef in ef0_1)
+        {
+            ef.Clear();
+        }
     }
 
     // クリア判定(isMarkPrintがtrueだと正解文字を〇で囲む)

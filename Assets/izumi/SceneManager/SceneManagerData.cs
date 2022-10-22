@@ -23,7 +23,7 @@ public class SceneManagerData
     [Header("メインシーン名リスト")]  // string[ワールド番号,ステージ番号]
     public static string[,] mainSceneStrArray =
     {
-        { "Tutorial",null,null },
+        { "Tutorial_01","Tutorial_02","Tutorial_03" },
         { "Stage1_01","Stage1_02","Stage1_03" },
         { "Stage2_01","Stage2_02","Stage2_03" },
         { "Stage3_01","Stage3_02","Stage3_03" },

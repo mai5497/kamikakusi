@@ -51,7 +51,10 @@ public static class SceneManagerFade
             // 次のステージがnullで無ければ
             if (SceneManagerData.mainSceneStrArray[SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo + 1] != null)
             {
-                LoadSceneMain(SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo + 1);
+                if (Fade_in003.GetFadeIn() == false)
+                {
+                    LoadSceneMain(SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo + 1);
+                }
             }
             else
             {
@@ -68,7 +71,10 @@ public static class SceneManagerFade
             // ワールド番号が最大で無ければ次のワールドシーンへ
             if (SceneManagerData.nowWorldNo < SceneManagerData.mainSceneStrArray.GetLength(0) - 1)
             {
-                LoadSceneMain(SceneManagerData.nowWorldNo + 1, 0);
+                if (Fade_in003.GetFadeIn() == false)
+                {
+                    LoadSceneMain(SceneManagerData.nowWorldNo + 1, 0);
+                }
             }
         }
     }

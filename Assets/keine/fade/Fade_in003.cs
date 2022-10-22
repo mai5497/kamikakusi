@@ -81,7 +81,10 @@ public class Fade_in003 : MonoBehaviour
         Scene_ikou = Scene;
     }
 
-
+    public static bool GetFadeIn()
+    {
+        return fadeIn;
+    }
 
 
 }

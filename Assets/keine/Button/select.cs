@@ -139,6 +139,7 @@ public class select : MonoBehaviour {
                     break;
 
             }
+            isDicision = false;
         }
 
 
