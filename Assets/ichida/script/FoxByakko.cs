@@ -23,6 +23,8 @@ public class FoxByakko : MonoBehaviour
 
     private bool oldIsLook;
 
+    private ZoomLens _ZoomLens; // ズームの補間値の取得用
+
     // 狐を見つけた時にエフェクトを出す
     public List<ParticleSystem> efFindList;
 
@@ -45,16 +47,27 @@ public class FoxByakko : MonoBehaviour
 
         // シーン開始時現在のステージを保存
         ClearManager.SaveNowStage();
+
+        if (GameObject.Find("CanvasLens")) {
+            _ZoomLens = GameObject.Find("CanvasLens").GetComponent<ZoomLens>();
+        }
     }
 
     // Update is called once per frame
     void Update() {
         //----- 注視判定 -----
-        //if(!isWindowColl && !oldIsLook && CPData.isLook) {    // 窓が当たっていないときに注視されたとき
-        //    CPData.lookCnt--;
+        //if (!isWindowColl && !oldIsLook && CPData.isLook) {    // 窓が当たっていないときに注視されたとき
+        //    if (_ZoomLens.valueZoomLerp > 0.9) {
+        //        CPData.lookCnt--;
+        //    }
         //}
+        if (!isWindowColl && oldIsLook && !CPData.isLook) {    // 窓が当たっていないときに注視されたとき
+            if (_ZoomLens.valueZoomLerp > 0.9) {
+                CPData.lookCnt--;
+            }
+        }
 
-        if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
+            if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
 
