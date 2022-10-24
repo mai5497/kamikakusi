@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6969942983822876633}
   - component: {fileID: 5313473881613783280}
   - component: {fileID: 6151153847819638640}
+  - component: {fileID: 5535744912940551432}
+  - component: {fileID: 4507560983664115986}
   m_Layer: 0
   m_Name: YOKOGAMI_TEMAE
   m_TagString: Untagged
@@ -122,6 +124,34 @@ MonoBehaviour:
   _renderOrder: 50
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5535744912940551432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926795593517947897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4507560983664115986
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926795593517947897}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08539478, y: 0.16833757}
+  serializedVersion: 2
+  m_Radius: 0.16951446
 --- !u!1 &929327295724956675
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +226,8 @@ GameObject:
   - component: {fileID: 4441182828921140018}
   - component: {fileID: 3599066465786903932}
   - component: {fileID: 7435518282110638732}
+  - component: {fileID: 8661801861750682597}
+  - component: {fileID: 9019874609219824588}
   m_Layer: 0
   m_Name: MAEGAMI_MIGI
   m_TagString: Untagged
@@ -305,6 +337,34 @@ MonoBehaviour:
   _renderOrder: 48
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8661801861750682597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971636618773655608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &9019874609219824588
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971636618773655608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.031110823, y: 0.24888897}
+  serializedVersion: 2
+  m_Radius: 0.118888855
 --- !u!1 &1107516162547766365
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +378,8 @@ GameObject:
   - component: {fileID: 8353187015912105573}
   - component: {fileID: 3454708489471300845}
   - component: {fileID: 3265240320757405316}
+  - component: {fileID: 9162690202594700536}
+  - component: {fileID: 5475623941631104778}
   m_Layer: 0
   m_Name: SODE_KAZARI
   m_TagString: Untagged
@@ -427,6 +489,34 @@ MonoBehaviour:
   _renderOrder: 33
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &9162690202594700536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107516162547766365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5475623941631104778
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107516162547766365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11222237, y: -0.33111113}
+  serializedVersion: 2
+  m_Radius: 0.046666637
 --- !u!1 &1192135106939841251
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +530,8 @@ GameObject:
   - component: {fileID: 2119502898400882179}
   - component: {fileID: 8756770711711523310}
   - component: {fileID: 8161109222653072836}
+  - component: {fileID: 8077542171724984515}
+  - component: {fileID: 3298005309822899215}
   m_Layer: 0
   m_Name: ME
   m_TagString: Untagged
@@ -549,6 +641,34 @@ MonoBehaviour:
   _renderOrder: 40
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8077542171724984515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192135106939841251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3298005309822899215
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192135106939841251}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011110896, y: 0.1588889}
+  serializedVersion: 2
+  m_Radius: 0.05444447
 --- !u!1 &1281461376858484833
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +682,8 @@ GameObject:
   - component: {fileID: 5943874942998469724}
   - component: {fileID: 8230064322339624442}
   - component: {fileID: 5689438902422790455}
+  - component: {fileID: 674571545314572184}
+  - component: {fileID: 4705390645356931377}
   m_Layer: 0
   m_Name: DOUKOU_HDR
   m_TagString: Untagged
@@ -671,6 +793,34 @@ MonoBehaviour:
   _renderOrder: 37
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &674571545314572184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281461376858484833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4705390645356931377
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281461376858484833}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08352797, y: 0.15644427}
+  serializedVersion: 2
+  m_Radius: 0.024277747
 --- !u!1 &1302777063266047930
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +834,8 @@ GameObject:
   - component: {fileID: 1601344243715609812}
   - component: {fileID: 4059018949623899259}
   - component: {fileID: 8826623377593643805}
+  - component: {fileID: 2679726287510327040}
+  - component: {fileID: 5051867965808765662}
   m_Layer: 0
   m_Name: ArtMesh18
   m_TagString: Untagged
@@ -793,6 +945,34 @@ MonoBehaviour:
   _renderOrder: 52
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2679726287510327040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302777063266047930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5051867965808765662
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302777063266047930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.060888894, y: 0.08622205}
+  serializedVersion: 2
+  m_Radius: 0.007999996
 --- !u!1 &1439362507138781697
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +1047,8 @@ GameObject:
   - component: {fileID: 8142575435709464344}
   - component: {fileID: 3161472037915023318}
   - component: {fileID: 817460560594463232}
+  - component: {fileID: 4902359333807732473}
+  - component: {fileID: 3246213505378406299}
   m_Layer: 0
   m_Name: O_UE_HIMODAMA
   m_TagString: Untagged
@@ -976,6 +1158,34 @@ MonoBehaviour:
   _renderOrder: 58
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4902359333807732473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452894695203424311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3246213505378406299
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452894695203424311}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07555513, y: 0.26888904}
+  serializedVersion: 2
+  m_Radius: 0.0577778
 --- !u!1 &1629697033272512853
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +1199,8 @@ GameObject:
   - component: {fileID: 7121461078247839154}
   - component: {fileID: 203156684297191904}
   - component: {fileID: 6290803710718998011}
+  - component: {fileID: 8331930110122861016}
+  - component: {fileID: 3851427749297708005}
   m_Layer: 0
   m_Name: O_SITA_HIMO
   m_TagString: Untagged
@@ -1098,6 +1310,34 @@ MonoBehaviour:
   _renderOrder: 53
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8331930110122861016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629697033272512853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3851427749297708005
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629697033272512853}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10557293, y: 0.101382345}
+  serializedVersion: 2
+  m_Radius: 0.0892328
 --- !u!1 &1634776877554396083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1351,8 @@ GameObject:
   - component: {fileID: 1013904916912925606}
   - component: {fileID: 7991862730652704457}
   - component: {fileID: 925800357129228387}
+  - component: {fileID: 1189587682360310887}
+  - component: {fileID: 7251901389289283475}
   m_Layer: 0
   m_Name: TUNAGIHIMO_HDR
   m_TagString: Untagged
@@ -1220,6 +1462,34 @@ MonoBehaviour:
   _renderOrder: 16
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &1189587682360310887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634776877554396083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7251901389289283475
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634776877554396083}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.040403415, y: -0.0070198346}
+  serializedVersion: 2
+  m_Radius: 0.041803204
 --- !u!1 &1722386413612414785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1503,8 @@ GameObject:
   - component: {fileID: 3682212439538345800}
   - component: {fileID: 477686160729500638}
   - component: {fileID: 4127346328759908505}
+  - component: {fileID: 5808141135699718124}
+  - component: {fileID: 6604246281951746282}
   m_Layer: 0
   m_Name: ASI_HANAO_HDR
   m_TagString: Untagged
@@ -1342,6 +1614,34 @@ MonoBehaviour:
   _renderOrder: 5
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5808141135699718124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722386413612414785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6604246281951746282
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722386413612414785}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012444435, y: -0.3802222}
+  serializedVersion: 2
+  m_Radius: 0.036444433
 --- !u!1 &1746820712429227401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1655,8 @@ GameObject:
   - component: {fileID: 5642483704392053345}
   - component: {fileID: 7030084604725131389}
   - component: {fileID: 5362751033032578672}
+  - component: {fileID: 6648025642973086533}
+  - component: {fileID: 8653609829812041669}
   m_Layer: 0
   m_Name: SODE_URA
   m_TagString: Untagged
@@ -1464,6 +1766,34 @@ MonoBehaviour:
   _renderOrder: 31
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6648025642973086533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746820712429227401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8653609829812041669
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746820712429227401}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.11111117, y: -0.17999999}
+  serializedVersion: 2
+  m_Radius: 0.1577778
 --- !u!1 &2069532757657011384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1807,8 @@ GameObject:
   - component: {fileID: 6608169949107731025}
   - component: {fileID: 8817361266978489932}
   - component: {fileID: 7115355962929075256}
+  - component: {fileID: 4139020927105974551}
+  - component: {fileID: 2735633438963669634}
   m_Layer: 0
   m_Name: ASI_GETA_HDR
   m_TagString: Untagged
@@ -1586,6 +1918,34 @@ MonoBehaviour:
   _renderOrder: 3
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4139020927105974551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069532757657011384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2735633438963669634
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069532757657011384}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008253997, y: -0.39481488}
+  serializedVersion: 2
+  m_Radius: 0.045502663
 --- !u!1 &2086749056155677146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,6 +1959,8 @@ GameObject:
   - component: {fileID: 7908013703697948515}
   - component: {fileID: 4343170030484128891}
   - component: {fileID: 2900741228221558763}
+  - component: {fileID: 5886320018150543407}
+  - component: {fileID: 4548764807750943059}
   m_Layer: 0
   m_Name: ArtMesh22
   m_TagString: Untagged
@@ -1708,6 +2070,34 @@ MonoBehaviour:
   _renderOrder: 23
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5886320018150543407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086749056155677146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4548764807750943059
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086749056155677146}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09888886, y: -0.008888867}
+  serializedVersion: 2
+  m_Radius: 0.09888889
 --- !u!1 &2111907421124860436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +2111,8 @@ GameObject:
   - component: {fileID: 1046205641327291499}
   - component: {fileID: 2167762223770423918}
   - component: {fileID: 8180648016667888552}
+  - component: {fileID: 6393417910378060113}
+  - component: {fileID: 2106176231274272662}
   m_Layer: 0
   m_Name: ArtMesh21
   m_TagString: Untagged
@@ -1830,6 +2222,34 @@ MonoBehaviour:
   _renderOrder: 51
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6393417910378060113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111907421124860436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2106176231274272662
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111907421124860436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10054922, y: 0.030744959}
+  serializedVersion: 2
+  m_Radius: 0.1195644
 --- !u!1 &2192841308725577982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +2324,8 @@ GameObject:
   - component: {fileID: 7919361440857131408}
   - component: {fileID: 4351698757126242817}
   - component: {fileID: 5223592645831689923}
+  - component: {fileID: 6350016120024561644}
+  - component: {fileID: 5174247720354749552}
   m_Layer: 0
   m_Name: YOKOGAMI_OKU
   m_TagString: Untagged
@@ -2013,6 +2435,34 @@ MonoBehaviour:
   _renderOrder: 10
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6350016120024561644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568100750592305748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5174247720354749552
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568100750592305748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09678907, y: 0.13723147}
+  serializedVersion: 2
+  m_Radius: 0.153983
 --- !u!1 &2573854929211253571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2476,8 @@ GameObject:
   - component: {fileID: 524174911997308481}
   - component: {fileID: 7584526754277564962}
   - component: {fileID: 3795365048857268181}
+  - component: {fileID: 8484831768111490332}
+  - component: {fileID: 5506477113191020632}
   m_Layer: 0
   m_Name: UTIHUKU_HDR
   m_TagString: Untagged
@@ -2135,6 +2587,34 @@ MonoBehaviour:
   _renderOrder: 15
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8484831768111490332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573854929211253571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5506477113191020632
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573854929211253571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.031140922, y: -0.002373688}
+  serializedVersion: 2
+  m_Radius: 0.06729878
 --- !u!1 &2625489535979356542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,6 +2628,8 @@ GameObject:
   - component: {fileID: 9157558131221911870}
   - component: {fileID: 3155849782985260285}
   - component: {fileID: 8212594746048280896}
+  - component: {fileID: 8563845651004782881}
+  - component: {fileID: 2861388109533234035}
   m_Layer: 0
   m_Name: MAEGAMI_TYUUOU
   m_TagString: Untagged
@@ -2257,6 +2739,34 @@ MonoBehaviour:
   _renderOrder: 47
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8563845651004782881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625489535979356542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2861388109533234035
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625489535979356542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.043333765, y: 0.24777767}
+  serializedVersion: 2
+  m_Radius: 0.120000064
 --- !u!1 &2737075516427077054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,6 +2780,8 @@ GameObject:
   - component: {fileID: 4746922266177767672}
   - component: {fileID: 2465458766697945917}
   - component: {fileID: 5755683283431007935}
+  - component: {fileID: 1033554513296337535}
+  - component: {fileID: 6892655896367965817}
   m_Layer: 0
   m_Name: SODE_HDR
   m_TagString: Untagged
@@ -2379,6 +2891,34 @@ MonoBehaviour:
   _renderOrder: 17
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &1033554513296337535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737075516427077054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6892655896367965817
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737075516427077054}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06477151, y: -0.17155045}
+  serializedVersion: 2
+  m_Radius: 0.17116836
 --- !u!1 &2749156543526109190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,6 +2932,8 @@ GameObject:
   - component: {fileID: 2441146711325648165}
   - component: {fileID: 6346431555116926794}
   - component: {fileID: 5064255701675886810}
+  - component: {fileID: 4109212715286459374}
+  - component: {fileID: 5853972949434495249}
   m_Layer: 0
   m_Name: ArtMesh24
   m_TagString: Untagged
@@ -2501,6 +3043,34 @@ MonoBehaviour:
   _renderOrder: 9
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4109212715286459374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749156543526109190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5853972949434495249
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749156543526109190}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06888887, y: 0.05888892}
+  serializedVersion: 2
+  m_Radius: 0.1477778
 --- !u!1 &2849260667509628029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +3084,8 @@ GameObject:
   - component: {fileID: 326444951127705771}
   - component: {fileID: 7443218656966460377}
   - component: {fileID: 8658487007672751409}
+  - component: {fileID: 6280666240964325710}
+  - component: {fileID: 2909527626411934623}
   m_Layer: 0
   m_Name: ArtMesh23
   m_TagString: Untagged
@@ -2623,6 +3195,34 @@ MonoBehaviour:
   _renderOrder: 20
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6280666240964325710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849260667509628029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2909527626411934623
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2849260667509628029}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.039313827, y: 0.03727124}
+  serializedVersion: 2
+  m_Radius: 0.059754916
 --- !u!1 &2982804436514701769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,6 +3236,8 @@ GameObject:
   - component: {fileID: 5746641167876216589}
   - component: {fileID: 6610203580619681162}
   - component: {fileID: 1516262697481484528}
+  - component: {fileID: 3058059746241991743}
+  - component: {fileID: 6936882542983950289}
   m_Layer: 0
   m_Name: O_UE
   m_TagString: Untagged
@@ -2745,6 +3347,34 @@ MonoBehaviour:
   _renderOrder: 57
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &3058059746241991743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982804436514701769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6936882542983950289
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982804436514701769}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0038799867, y: 0.3218834}
+  serializedVersion: 2
+  m_Radius: 0.153983
 --- !u!1 &3036895456930254925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,6 +3388,8 @@ GameObject:
   - component: {fileID: 4993633858909539683}
   - component: {fileID: 7229492152590335490}
   - component: {fileID: 1147450898762683784}
+  - component: {fileID: 4282505518586834321}
+  - component: {fileID: 4428126520931338588}
   m_Layer: 0
   m_Name: ASI_GETA
   m_TagString: Untagged
@@ -2867,6 +3499,34 @@ MonoBehaviour:
   _renderOrder: 6
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4282505518586834321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036895456930254925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4428126520931338588
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036895456930254925}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.047301542, y: -0.39592585}
+  serializedVersion: 2
+  m_Radius: 0.04550266
 --- !u!1 &3144651793790470019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,6 +3540,8 @@ GameObject:
   - component: {fileID: 3847215553433336553}
   - component: {fileID: 5301449295333051135}
   - component: {fileID: 3319732308836237035}
+  - component: {fileID: 2780055106642023523}
+  - component: {fileID: 3203484908978207403}
   m_Layer: 0
   m_Name: UTIHUKU_KUBI
   m_TagString: Untagged
@@ -2989,6 +3651,34 @@ MonoBehaviour:
   _renderOrder: 19
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2780055106642023523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3144651793790470019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3203484908978207403
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3144651793790470019}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011111088, y: 0.0055555403}
+  serializedVersion: 2
+  m_Radius: 0.08111112
 --- !u!1 &3450320096965122848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +3692,8 @@ GameObject:
   - component: {fileID: 924285256427846098}
   - component: {fileID: 6168121956043774679}
   - component: {fileID: 4089313080150383607}
+  - component: {fileID: 8739776259181957760}
+  - component: {fileID: 2216743673939139489}
   m_Layer: 0
   m_Name: HANA
   m_TagString: Untagged
@@ -3111,6 +3803,34 @@ MonoBehaviour:
   _renderOrder: 59
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8739776259181957760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450320096965122848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2216743673939139489
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450320096965122848}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.071333416, y: 0.11733316}
+  serializedVersion: 2
+  m_Radius: 0.008666679
 --- !u!1 &3454384060198827461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,6 +3905,8 @@ GameObject:
   - component: {fileID: 4668824165087426298}
   - component: {fileID: 2018017267597311329}
   - component: {fileID: 5086408716840968073}
+  - component: {fileID: 8326398586032428911}
+  - component: {fileID: 2560110048082703755}
   m_Layer: 0
   m_Name: TOUBU
   m_TagString: Untagged
@@ -3294,6 +4016,34 @@ MonoBehaviour:
   _renderOrder: 22
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8326398586032428911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558685276745901548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2560110048082703755
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558685276745901548}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.008888565, y: 0.19555552}
+  serializedVersion: 2
+  m_Radius: 0.16000004
 --- !u!1 &3585215045358857788
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,6 +4057,8 @@ GameObject:
   - component: {fileID: 3550740212250749354}
   - component: {fileID: 4902558684274113784}
   - component: {fileID: 392070795305593010}
+  - component: {fileID: 8578371979165707538}
+  - component: {fileID: 4007707792273202229}
   m_Layer: 0
   m_Name: KYOUMAKU_HDR
   m_TagString: Untagged
@@ -3416,6 +4168,34 @@ MonoBehaviour:
   _renderOrder: 35
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8578371979165707538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3585215045358857788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4007707792273202229
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3585215045358857788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.087777905, y: 0.1588887}
+  serializedVersion: 2
+  m_Radius: 0.05222222
 --- !u!1 &3669680164623972838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,6 +4209,8 @@ GameObject:
   - component: {fileID: 1088690326844129681}
   - component: {fileID: 6055470343842193038}
   - component: {fileID: 1808840565047688722}
+  - component: {fileID: 4612610028565106634}
+  - component: {fileID: 4612253599854776181}
   m_Layer: 0
   m_Name: TUNAGIIHIMO
   m_TagString: Untagged
@@ -3538,6 +4320,34 @@ MonoBehaviour:
   _renderOrder: 32
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4612610028565106634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669680164623972838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4612253599854776181
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669680164623972838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07999997, y: -0.005555546}
+  serializedVersion: 2
+  m_Radius: 0.042222228
 --- !u!1 &3729400504892202807
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +4361,8 @@ GameObject:
   - component: {fileID: 453805396749584920}
   - component: {fileID: 806236102016942274}
   - component: {fileID: 8545474257581465999}
+  - component: {fileID: 4077168647871072053}
+  - component: {fileID: 6157035195368185535}
   m_Layer: 0
   m_Name: ME_HDR
   m_TagString: Untagged
@@ -3660,6 +4472,34 @@ MonoBehaviour:
   _renderOrder: 36
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4077168647871072053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729400504892202807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6157035195368185535
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729400504892202807}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08444461, y: 0.1599998}
+  serializedVersion: 2
+  m_Radius: 0.051111117
 --- !u!1 &3976805419645369351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3673,6 +4513,8 @@ GameObject:
   - component: {fileID: 3443805201260760234}
   - component: {fileID: 6980122122798049496}
   - component: {fileID: 6583788182276667557}
+  - component: {fileID: 2787973467849705595}
+  - component: {fileID: 8376885666132441680}
   m_Layer: 0
   m_Name: KATA
   m_TagString: Untagged
@@ -3782,6 +4624,34 @@ MonoBehaviour:
   _renderOrder: 12
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2787973467849705595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976805419645369351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8376885666132441680
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976805419645369351}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.012222212, y: 0.018888865}
+  serializedVersion: 2
+  m_Radius: 0.07666668
 --- !u!1 &3982212011634493477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3856,6 +4726,8 @@ GameObject:
   - component: {fileID: 5037052353517621911}
   - component: {fileID: 251146454685253154}
   - component: {fileID: 5666918459345482041}
+  - component: {fileID: 4146811555757475730}
+  - component: {fileID: 7703269754592275498}
   m_Layer: 0
   m_Name: MIMI
   m_TagString: Untagged
@@ -3965,6 +4837,34 @@ MonoBehaviour:
   _renderOrder: 49
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4146811555757475730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111016380268508188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7703269754592275498
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111016380268508188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13289553, y: 0.15390596}
+  serializedVersion: 2
+  m_Radius: 0.060909152
 --- !u!1 &4201562974983975738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3978,6 +4878,8 @@ GameObject:
   - component: {fileID: 614193992993327170}
   - component: {fileID: 912011440637141311}
   - component: {fileID: 435582148220251900}
+  - component: {fileID: 1454443865962945028}
+  - component: {fileID: 1179504434646221989}
   m_Layer: 0
   m_Name: YOKOGAMI_ASOBI_OKU
   m_TagString: Untagged
@@ -4087,6 +4989,34 @@ MonoBehaviour:
   _renderOrder: 11
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &1454443865962945028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201562974983975738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1179504434646221989
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201562974983975738}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12227156, y: 0.15279385}
+  serializedVersion: 2
+  m_Radius: 0.13510352
 --- !u!1 &4208949956332709960
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,6 +5030,8 @@ GameObject:
   - component: {fileID: 1822505737882467283}
   - component: {fileID: 6302253961158340564}
   - component: {fileID: 8078207823820698628}
+  - component: {fileID: 9037267360215544748}
+  - component: {fileID: 7148802949265540299}
   m_Layer: 0
   m_Name: UWAGI_URA
   m_TagString: Untagged
@@ -4209,6 +5141,34 @@ MonoBehaviour:
   _renderOrder: 2
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &9037267360215544748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208949956332709960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7148802949265540299
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208949956332709960}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.001196254, y: -0.23333329}
+  serializedVersion: 2
+  m_Radius: 0.16666663
 --- !u!1 &4385545508682279237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4283,6 +5243,8 @@ GameObject:
   - component: {fileID: 336334326968644747}
   - component: {fileID: 6974337540524668700}
   - component: {fileID: 5615938361719058229}
+  - component: {fileID: 2008456458957125026}
+  - component: {fileID: 8377461500692657002}
   m_Layer: 0
   m_Name: UWAGI_OKU
   m_TagString: Untagged
@@ -4392,6 +5354,34 @@ MonoBehaviour:
   _renderOrder: 25
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2008456458957125026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521525043618092046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8377461500692657002
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521525043618092046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04118651, y: -0.22832143}
+  serializedVersion: 2
+  m_Radius: 0.17729762
 --- !u!1 &4537233940146348429
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +5456,8 @@ GameObject:
   - component: {fileID: 2644413477245346594}
   - component: {fileID: 759628474917829708}
   - component: {fileID: 8250408494714963022}
+  - component: {fileID: 5527375231457068116}
+  - component: {fileID: 6645199965992565993}
   m_Layer: 0
   m_Name: MAEGAMI_HDR
   m_TagString: Untagged
@@ -4575,6 +5567,34 @@ MonoBehaviour:
   _renderOrder: 46
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5527375231457068116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569352837074954934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &6645199965992565993
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4569352837074954934}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10248491, y: 0.25170502}
+  serializedVersion: 2
+  m_Radius: 0.09957569
 --- !u!1 &4627456073341414755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +5669,8 @@ GameObject:
   - component: {fileID: 4718498593026889928}
   - component: {fileID: 6854003975477628692}
   - component: {fileID: 3305501643235776336}
+  - component: {fileID: 4735046868984332680}
+  - component: {fileID: 1103715981081199817}
   m_Layer: 0
   m_Name: ASI_HDR
   m_TagString: Untagged
@@ -4758,6 +5780,34 @@ MonoBehaviour:
   _renderOrder: 4
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4735046868984332680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627568548505671377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1103715981081199817
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627568548505671377}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.011317214, y: -0.32606632}
+  serializedVersion: 2
+  m_Radius: 0.08848571
 --- !u!1 &4774845352742710782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4771,6 +5821,8 @@ GameObject:
   - component: {fileID: 7917499011641887546}
   - component: {fileID: 8378925751755941959}
   - component: {fileID: 115877096088507528}
+  - component: {fileID: 5291523522429484197}
+  - component: {fileID: 4147746279698576771}
   m_Layer: 0
   m_Name: O_SITA
   m_TagString: Untagged
@@ -4880,6 +5932,34 @@ MonoBehaviour:
   _renderOrder: 54
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5291523522429484197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774845352742710782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4147746279698576771
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774845352742710782}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.028888892, y: 0.0044443756}
+  serializedVersion: 2
+  m_Radius: 0.107777774
 --- !u!1 &4815500933782937914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4893,6 +5973,8 @@ GameObject:
   - component: {fileID: 5559354573997108988}
   - component: {fileID: 4227822510601823203}
   - component: {fileID: 2221372124566558341}
+  - component: {fileID: 2707136148368307473}
+  - component: {fileID: 4501553909691149598}
   m_Layer: 0
   m_Name: USIROGAMI_RINNKAKU
   m_TagString: Untagged
@@ -5002,6 +6084,34 @@ MonoBehaviour:
   _renderOrder: 43
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2707136148368307473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815500933782937914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4501553909691149598
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4815500933782937914}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.026122324, y: 0.25743076}
+  serializedVersion: 2
+  m_Radius: 0.1817401
 --- !u!1 &4841923914036122819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,6 +6298,8 @@ GameObject:
   - component: {fileID: 1193510326367332559}
   - component: {fileID: 448038901894224649}
   - component: {fileID: 8785880747776072927}
+  - component: {fileID: 9160006217597933319}
+  - component: {fileID: 8148383438118498526}
   m_Layer: 0
   m_Name: ASI
   m_TagString: Untagged
@@ -5297,6 +6409,34 @@ MonoBehaviour:
   _renderOrder: 7
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &9160006217597933319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200682261720766604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8148383438118498526
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200682261720766604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04423832, y: -0.32717735}
+  serializedVersion: 2
+  m_Radius: 0.088485695
 --- !u!1 &5273947531151197741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,6 +6572,8 @@ GameObject:
   - component: {fileID: 82222839977522783}
   - component: {fileID: 6174485882745670966}
   - component: {fileID: 7986135584373136843}
+  - component: {fileID: 6530639234499402032}
+  - component: {fileID: 474160220800542657}
   m_Layer: 0
   m_Name: UWAGI
   m_TagString: Untagged
@@ -5541,6 +6683,34 @@ MonoBehaviour:
   _renderOrder: 26
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6530639234499402032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641034894696561635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &474160220800542657
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641034894696561635}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.044444434, y: -0.22777781}
+  serializedVersion: 2
+  m_Radius: 0.17777777
 --- !u!1 &5650504664553110050
 GameObject:
   m_ObjectHideFlags: 0
@@ -5676,6 +6846,8 @@ GameObject:
   - component: {fileID: 2179667640886612965}
   - component: {fileID: 2193332651620460031}
   - component: {fileID: 7324928816426795609}
+  - component: {fileID: 2222446293124372405}
+  - component: {fileID: 742054429991843615}
   m_Layer: 0
   m_Name: DOUKOU
   m_TagString: Untagged
@@ -5785,6 +6957,34 @@ MonoBehaviour:
   _renderOrder: 41
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2222446293124372405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883944711104110024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &742054429991843615
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883944711104110024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007722047, y: 0.15566668}
+  serializedVersion: 2
+  m_Radius: 0.024444409
 --- !u!1 &6070626779391468392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5798,6 +6998,8 @@ GameObject:
   - component: {fileID: 6003100094446473882}
   - component: {fileID: 5998288149777255708}
   - component: {fileID: 1356449081571102658}
+  - component: {fileID: 5144242756873035021}
+  - component: {fileID: 5047476287594404383}
   m_Layer: 0
   m_Name: BOTOMUZU
   m_TagString: Untagged
@@ -5907,6 +7109,34 @@ MonoBehaviour:
   _renderOrder: 24
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5144242756873035021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070626779391468392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5047476287594404383
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070626779391468392}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02084887, y: -0.2205467}
+  serializedVersion: 2
+  m_Radius: 0.16175559
 --- !u!1 &6140803367628388383
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,6 +7150,8 @@ GameObject:
   - component: {fileID: 6027985507083715478}
   - component: {fileID: 454639300616738388}
   - component: {fileID: 1179931898685564257}
+  - component: {fileID: 6393989425021250368}
+  - component: {fileID: 1656569419459279943}
   m_Layer: 0
   m_Name: SODE
   m_TagString: Untagged
@@ -6029,6 +7261,34 @@ MonoBehaviour:
   _renderOrder: 34
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6393989425021250368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140803367628388383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1656569419459279943
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140803367628388383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10870234, y: -0.16276039}
+  serializedVersion: 2
+  m_Radius: 0.16285594
 --- !u!1 &6292375150733562682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,6 +7424,8 @@ GameObject:
   - component: {fileID: 2248726145137913511}
   - component: {fileID: 5360318559246946518}
   - component: {fileID: 7025482936245419036}
+  - component: {fileID: 1077098964679281252}
+  - component: {fileID: 3053745681470986525}
   m_Layer: 0
   m_Name: MABUTA
   m_TagString: Untagged
@@ -6273,6 +7535,34 @@ MonoBehaviour:
   _renderOrder: 42
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &1077098964679281252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316851582076750649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3053745681470986525
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316851582076750649}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011666469, y: 0.18651044}
+  serializedVersion: 2
+  m_Radius: 0.051909707
 --- !u!1 &6329873236009743755
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,6 +7576,8 @@ GameObject:
   - component: {fileID: 8383484765382531708}
   - component: {fileID: 1858968743795821366}
   - component: {fileID: 1340514446300253020}
+  - component: {fileID: 7359538315845023537}
+  - component: {fileID: 1925376589566414353}
   m_Layer: 0
   m_Name: OTIKAGE
   m_TagString: Untagged
@@ -6395,6 +7687,34 @@ MonoBehaviour:
   _renderOrder: 0
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &7359538315845023537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329873236009743755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1925376589566414353
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329873236009743755}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014999997, y: -0.41277778}
+  serializedVersion: 2
+  m_Radius: 0.122777775
 --- !u!1 &6363863775721300356
 GameObject:
   m_ObjectHideFlags: 0
@@ -6408,6 +7728,8 @@ GameObject:
   - component: {fileID: 8304983740026108996}
   - component: {fileID: 5648724533148323283}
   - component: {fileID: 1889567900880194657}
+  - component: {fileID: 2378828625318407858}
+  - component: {fileID: 5383476245959355099}
   m_Layer: 0
   m_Name: MAEKAKE_AKA
   m_TagString: Untagged
@@ -6517,6 +7839,34 @@ MonoBehaviour:
   _renderOrder: 30
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2378828625318407858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363863775721300356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5383476245959355099
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363863775721300356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011111073, y: -0.033333346}
+  serializedVersion: 2
+  m_Radius: 0.08888886
 --- !u!1 &6569505485590043963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6591,6 +7941,8 @@ GameObject:
   - component: {fileID: 8251908152860575963}
   - component: {fileID: 6871174332845462893}
   - component: {fileID: 4904293451090687458}
+  - component: {fileID: 6854877488122937926}
+  - component: {fileID: 8946024090673984211}
   m_Layer: 0
   m_Name: UDE_HDR
   m_TagString: Untagged
@@ -6700,6 +8052,34 @@ MonoBehaviour:
   _renderOrder: 14
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6854877488122937926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773669918760233271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8946024090673984211
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773669918760233271}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.058206495, y: -0.131854}
+  serializedVersion: 2
+  m_Radius: 0.12363568
 --- !u!1 &6958374497741142495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6713,6 +8093,8 @@ GameObject:
   - component: {fileID: 438465513835420531}
   - component: {fileID: 722415237841340579}
   - component: {fileID: 7247121459015224755}
+  - component: {fileID: 2394036672764305133}
+  - component: {fileID: 2510243425073132791}
   m_Layer: 0
   m_Name: UWAGI_MAEKAKESITA
   m_TagString: Untagged
@@ -6822,6 +8204,34 @@ MonoBehaviour:
   _renderOrder: 27
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2394036672764305133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958374497741142495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2510243425073132791
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958374497741142495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029999983, y: -0.042222224}
+  serializedVersion: 2
+  m_Radius: 0.08777777
 --- !u!1 &7109373625551747478
 GameObject:
   m_ObjectHideFlags: 0
@@ -6930,6 +8340,8 @@ GameObject:
   - component: {fileID: 5004112472392330805}
   - component: {fileID: 7608537918086244874}
   - component: {fileID: 8022868805471356210}
+  - component: {fileID: 8476478088224811062}
+  - component: {fileID: 4247041772192237120}
   m_Layer: 0
   m_Name: MABUTA_HDR
   m_TagString: Untagged
@@ -7039,6 +8451,34 @@ MonoBehaviour:
   _renderOrder: 38
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &8476478088224811062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143930634265476967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4247041772192237120
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143930634265476967}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08444467, y: 0.18555531}
+  serializedVersion: 2
+  m_Radius: 0.04000002
 --- !u!1 &7213987059192676556
 GameObject:
   m_ObjectHideFlags: 0
@@ -7052,6 +8492,8 @@ GameObject:
   - component: {fileID: 4000320055458528508}
   - component: {fileID: 9055435595165578570}
   - component: {fileID: 1765704013690805122}
+  - component: {fileID: 4834846287350937401}
+  - component: {fileID: 7460972677811024011}
   m_Layer: 0
   m_Name: OMEN_HIMO_SITAOKU
   m_TagString: Untagged
@@ -7161,6 +8603,34 @@ MonoBehaviour:
   _renderOrder: 18
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4834846287350937401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7213987059192676556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7460972677811024011
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7213987059192676556}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.034232795, y: 0.08154836}
+  serializedVersion: 2
+  m_Radius: 0.07629736
 --- !u!1 &7276857235204737558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7174,6 +8644,8 @@ GameObject:
   - component: {fileID: 2663614786213895214}
   - component: {fileID: 355042666430802263}
   - component: {fileID: 1198225846151707289}
+  - component: {fileID: 7674830987322078878}
+  - component: {fileID: 4636917465287240317}
   m_Layer: 0
   m_Name: USIROGAMI
   m_TagString: Untagged
@@ -7283,6 +8755,34 @@ MonoBehaviour:
   _renderOrder: 45
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &7674830987322078878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276857235204737558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4636917465287240317
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276857235204737558}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1333333, y: 0.16111133}
+  serializedVersion: 2
+  m_Radius: 0.12555563
 --- !u!1 &7358552163595695850
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,6 +8796,8 @@ GameObject:
   - component: {fileID: 2654496025915858914}
   - component: {fileID: 5374389372691710420}
   - component: {fileID: 8249223982752737699}
+  - component: {fileID: 2113588303015165433}
+  - component: {fileID: 7482483499549692148}
   m_Layer: 0
   m_Name: SODE_KAZARI_HDR
   m_TagString: Untagged
@@ -7405,6 +8907,34 @@ MonoBehaviour:
   _renderOrder: 1
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2113588303015165433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358552163595695850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7482483499549692148
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358552163595695850}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.057490002, y: -0.3288577}
+  serializedVersion: 2
+  m_Radius: 0.04340014
 --- !u!1 &7481419569180607647
 GameObject:
   m_ObjectHideFlags: 0
@@ -7418,6 +8948,8 @@ GameObject:
   - component: {fileID: 7033951458566246725}
   - component: {fileID: 3513988985760035807}
   - component: {fileID: 6134180199550942012}
+  - component: {fileID: 5673159933841102056}
+  - component: {fileID: 4015623689258365359}
   m_Layer: 0
   m_Name: SODE_URA_HDR
   m_TagString: Untagged
@@ -7527,6 +9059,34 @@ MonoBehaviour:
   _renderOrder: 13
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5673159933841102056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481419569180607647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4015623689258365359
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481419569180607647}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06012769, y: -0.16560157}
+  serializedVersion: 2
+  m_Radius: 0.16418768
 --- !u!1 &7726789868337941728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7540,6 +9100,8 @@ GameObject:
   - component: {fileID: 5776364781425599329}
   - component: {fileID: 4189807399229816997}
   - component: {fileID: 1367691956318356867}
+  - component: {fileID: 969173110814672396}
+  - component: {fileID: 7930057655404207301}
   m_Layer: 0
   m_Name: O_UE_HIMO
   m_TagString: Untagged
@@ -7649,6 +9211,34 @@ MonoBehaviour:
   _renderOrder: 56
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &969173110814672396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726789868337941728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7930057655404207301
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726789868337941728}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13049285, y: 0.22765802}
+  serializedVersion: 2
+  m_Radius: 0.06795333
 --- !u!1 &7876662127552737353
 GameObject:
   m_ObjectHideFlags: 0
@@ -7784,6 +9374,8 @@ GameObject:
   - component: {fileID: 5204395529757300663}
   - component: {fileID: 4028974429769964318}
   - component: {fileID: 4215112202720592864}
+  - component: {fileID: 6043031231971098344}
+  - component: {fileID: 2024039324490840469}
   m_Layer: 0
   m_Name: USIROGAMI_HANE
   m_TagString: Untagged
@@ -7893,6 +9485,34 @@ MonoBehaviour:
   _renderOrder: 44
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6043031231971098344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996213544484872387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2024039324490840469
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996213544484872387}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.16111103, y: 0.15000035}
+  serializedVersion: 2
+  m_Radius: 0.06555556
 --- !u!1 &8019370259817344347
 GameObject:
   m_ObjectHideFlags: 0
@@ -8087,7 +9707,7 @@ Transform:
   - {fileID: 8818288458141215505}
   - {fileID: 9093576601157993393}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5374376821960480769
 MonoBehaviour:
@@ -8139,7 +9759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Opacity: 1
-  _lastOpacity: 0
+  _lastOpacity: 1
   _isOverwrittenModelMultiplyColors: 0
   _isOverwrittenModelScreenColors: 0
   _modelMultiplyColor: {r: 0, g: 0, b: 0, a: 0}
@@ -8250,6 +9870,8 @@ GameObject:
   - component: {fileID: 1999863154126236419}
   - component: {fileID: 2785067214074978535}
   - component: {fileID: 1035156380501668293}
+  - component: {fileID: 2131400833084383183}
+  - component: {fileID: 4912160256527591606}
   m_Layer: 0
   m_Name: ASI_HANAO
   m_TagString: Untagged
@@ -8359,6 +9981,34 @@ MonoBehaviour:
   _renderOrder: 8
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &2131400833084383183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424315805361499841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4912160256527591606
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424315805361499841}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.043111075, y: -0.38222212}
+  serializedVersion: 2
+  m_Radius: 0.036444437
 --- !u!1 &8561259593762535515
 GameObject:
   m_ObjectHideFlags: 0
@@ -8372,6 +10022,8 @@ GameObject:
   - component: {fileID: 5696111372087586401}
   - component: {fileID: 7891704218275300360}
   - component: {fileID: 26504838738339982}
+  - component: {fileID: 6353020141953659111}
+  - component: {fileID: 7424311154095006617}
   m_Layer: 0
   m_Name: KYOUMAKU
   m_TagString: Untagged
@@ -8481,6 +10133,34 @@ MonoBehaviour:
   _renderOrder: 39
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &6353020141953659111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561259593762535515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7424311154095006617
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561259593762535515}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.016666478, y: 0.16333339}
+  serializedVersion: 2
+  m_Radius: 0.0577778
 --- !u!1 &8593129061493111685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8494,6 +10174,8 @@ GameObject:
   - component: {fileID: 6304753426434973776}
   - component: {fileID: 8623023929444120594}
   - component: {fileID: 2032605616246272063}
+  - component: {fileID: 958042315119595718}
+  - component: {fileID: 2630740770990197974}
   m_Layer: 0
   m_Name: O_SITA_HIMODAMA
   m_TagString: Untagged
@@ -8603,6 +10285,34 @@ MonoBehaviour:
   _renderOrder: 55
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &958042315119595718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593129061493111685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2630740770990197974
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593129061493111685}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03888893, y: 0.0016666725}
+  serializedVersion: 2
+  m_Radius: 0.020000003
 --- !u!1 &8756069354958127406
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,6 +10387,8 @@ GameObject:
   - component: {fileID: 7906377305306898602}
   - component: {fileID: 6802432485300366872}
   - component: {fileID: 5997021984326011653}
+  - component: {fileID: 3560152540468895196}
+  - component: {fileID: 4006740390690159681}
   m_Layer: 0
   m_Name: UTIHUKU
   m_TagString: Untagged
@@ -8786,6 +10498,34 @@ MonoBehaviour:
   _renderOrder: 29
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &3560152540468895196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796057537765997758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4006740390690159681
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8796057537765997758}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07555555, y: -0.004444428}
+  serializedVersion: 2
+  m_Radius: 0.05888886
 --- !u!1 &8815650425379215236
 GameObject:
   m_ObjectHideFlags: 0
@@ -8799,6 +10539,8 @@ GameObject:
   - component: {fileID: 3936318947462357793}
   - component: {fileID: 1597932252541216473}
   - component: {fileID: 7899587893476259051}
+  - component: {fileID: 5252176217515681898}
+  - component: {fileID: 7878961013918983212}
   m_Layer: 0
   m_Name: KUBI
   m_TagString: Untagged
@@ -8908,6 +10650,34 @@ MonoBehaviour:
   _renderOrder: 21
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &5252176217515681898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815650425379215236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7878961013918983212
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815650425379215236}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02295751, y: 0.065016344}
+  serializedVersion: 2
+  m_Radius: 0.062009797
 --- !u!1 &8878298585430010838
 GameObject:
   m_ObjectHideFlags: 0
@@ -8921,6 +10691,8 @@ GameObject:
   - component: {fileID: 2027478488119253896}
   - component: {fileID: 6652032223104819344}
   - component: {fileID: 1755739157922787246}
+  - component: {fileID: 4288089525722244232}
+  - component: {fileID: 8864167756761947093}
   m_Layer: 0
   m_Name: MAEKAKE_SIRO
   m_TagString: Untagged
@@ -9030,6 +10802,34 @@ MonoBehaviour:
   _renderOrder: 28
   _depthOffset: 0.00001
   _opacity: 1
+--- !u!114 &4288089525722244232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878298585430010838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd1c79fc9794484c8ca7133a03c117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8864167756761947093
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878298585430010838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007777795, y: -0.04222226}
+  serializedVersion: 2
+  m_Radius: 0.08777776
 --- !u!1 &9122230725134804649
 GameObject:
   m_ObjectHideFlags: 0

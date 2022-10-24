@@ -4,9 +4,11 @@
 //
 // 作成日:2022/10/17
 // 作成者:伊地田真衣
+// 編集者:泉優樹
 //
 // <開発履歴>
 // 2022/10/17 作成
+// 2022/10/24 編集(加速減速)
 //
 //=============================================================================
 using System.Collections;
@@ -42,6 +44,21 @@ public class LensManager : MonoBehaviour
     private RectTransform lensRT;
 
     private RectTransform lensCanvas;
+
+    // 加速度
+    public float moveAccel = 0.0f;
+    [Header("移動加速_速度")]
+    public float moveAccelSpeed;
+    [Header("移動減速_速度")]
+    public float moveDecelSpeed;
+    // 現在のフレーム
+    private int nowFrame = 0;
+    // 保存するフレーム数
+    private const int moveFrameMax = 10;
+    // 何フレーム前を使用するか
+    private const int useFrame = 5;
+    // プレイヤー速度を毎フレーム保存しているリスト
+    private Vector2[] moveBeforeList = new Vector2[moveFrameMax];
 
     // Start is called before the first frame update
     void Start()
@@ -85,20 +102,22 @@ public class LensManager : MonoBehaviour
                 lensRT.position = CPData.playerPos;
                 isLensInit = false;
             }
-            Vector2 moveVal;
-            Vector3 newLensPos = lensObj.transform.position;
-            moveVal.x = _Player.GetMoveValue().x * lensSpeed;
-            moveVal.y = _Player.GetMoveValue().y * lensSpeed;
 
-            newLensPos.x += moveVal.x;
-            newLensPos.y += moveVal.y;
-
-            lensObj.transform.position = new Vector2(
-                         //エリア指定して移動する
-                         Mathf.Clamp(newLensPos.x, -8.5f, 8.5f),
-                         Mathf.Clamp(newLensPos.y, -4.5f, 4.5f)
-                         ) ; 
+            if (Mathf.Abs(_Player.GetMoveValue().x) > 0.1f || Mathf.Abs(_Player.GetMoveValue().y) > 0.1f)
+            {
+                UpdateMove();
+            }
+            else
+            {
+                UpdateIdle();
+            }
         }
+        else
+        {
+            UpdateIdle();
+        }
+
+
         // レンズの注視(ぼかしモード変更)
         if (CPData.isLook && CPData.isLens) {
             if (blurIn.blurMode == BlurIn.BlurMode.Normal) {
@@ -111,5 +130,62 @@ public class LensManager : MonoBehaviour
             // ズーム解除処理
             zoomLens.isZoom = false;
         }
+    }
+
+    // 動き(加速)
+    private void UpdateMove()
+    {
+        Vector2 moveVal;
+        Vector3 newLensPos = lensObj.transform.position;
+        moveVal.x = _Player.GetMoveValue().x * lensSpeed * moveAccel * Time.deltaTime;
+        moveVal.y = _Player.GetMoveValue().y * lensSpeed * moveAccel * Time.deltaTime;
+
+        newLensPos.x += moveVal.x;
+        newLensPos.y += moveVal.y;
+
+        lensObj.transform.position = new Vector2(
+                     //エリア指定して移動する
+                     Mathf.Clamp(newLensPos.x, -8.5f, 8.5f),
+                     Mathf.Clamp(newLensPos.y, -4.5f, 4.5f)
+                     );
+
+        // 加速処理
+        moveAccel += moveAccelSpeed * Time.deltaTime;
+        moveAccel = Mathf.Lerp(0, 1, moveAccel);
+
+        // 現在フレームにプレイヤーの速度を保存
+        moveBeforeList[nowFrame] = _Player.GetMoveValue();
+        nowFrame++;
+        if (nowFrame >= moveFrameMax)
+        {
+            nowFrame = 0;
+        }
+    }
+    // 待機(減速)
+    private void UpdateIdle()
+    {
+        Vector2 moveVal;
+        Vector3 newLensPos = lensObj.transform.position;
+        // 指定したフレームのプレイヤーの移動速度を取り出す
+        int frame = nowFrame - useFrame;
+        if (frame < 0)
+        {
+            frame = moveFrameMax + frame;
+        }
+        moveVal.x = moveBeforeList[frame].x * lensSpeed * moveAccel * Time.deltaTime;
+        moveVal.y = moveBeforeList[frame].y * lensSpeed * moveAccel * Time.deltaTime;
+
+        newLensPos.x += moveVal.x;
+        newLensPos.y += moveVal.y;
+
+        lensObj.transform.position = new Vector2(
+                     //エリア指定して移動する
+                     Mathf.Clamp(newLensPos.x, -8.5f, 8.5f),
+                     Mathf.Clamp(newLensPos.y, -4.5f, 4.5f)
+                     );
+
+        // 減速処理
+        moveAccel -= moveDecelSpeed * Time.deltaTime;
+        moveAccel = Mathf.Lerp(0, 1, moveAccel);
     }
 }
