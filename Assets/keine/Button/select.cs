@@ -10,6 +10,7 @@ public class select : MonoBehaviour {
     //private bool isInputSelect;
 
     Vector2 inputSelect;
+    Vector2 inputSelectCon;
     //private InputAction _selectAction, _dicisionAction;
 
     private CP_move_input action;        // InputAction‚ðˆµ‚¤
@@ -88,7 +89,16 @@ public class select : MonoBehaviour {
     ref GameObject cursorObj, ref List<GameObject> selectObjList) {
         Gamepad gamepad = Gamepad.current;
         if (gamepad != null) {
-            inputSelect.y = gamepad.dpad.y.ReadValue();
+            if (gamepad.dpad.up.wasReleasedThisFrame)
+            {
+                inputSelectCon.y = 1.0f;
+            }else if (gamepad.dpad.down.wasReleasedThisFrame)
+            {
+                inputSelectCon.y = -1.0f;
+            }else
+            {
+                inputSelectCon.y = 0.0f;
+            }
         }
         Keyboard keyboard = Keyboard.current;
         if (keyboard.wKey.wasReleasedThisFrame) {
@@ -100,14 +110,14 @@ public class select : MonoBehaviour {
         }
 
         // ¶“ü—Í
-        if (inputSelect.y > -0.0f) {
+        if (inputSelect.y > -0.0f || inputSelectCon.y > 0.0f) {
             //if (!isInputSelect) {
                 selectNo--;
                 //isInputSelect = true;
             //}
         }
         // ‰E“ü—Í
-        else if (inputSelect.y < 0.0f) {
+        else if (inputSelect.y < 0.0f || inputSelectCon.y < 0.0f) {
            // if (!isInputSelect) {
                 selectNo++;
                 //isInputSelect = true;
