@@ -27,6 +27,11 @@ public class shaberu_fox : MonoBehaviour
         {
             Debug.Log(isFadeOut_Finish);
             spr.color = new Color(1, 1, 1, 1);
+
+        }
+        if(CPData.isPose==false)
+        {
+            spr.color = new Color(1, 1, 1, 0);
         }
 
 

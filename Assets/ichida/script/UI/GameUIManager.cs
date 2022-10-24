@@ -115,11 +115,15 @@ public class GameUIManager : MonoBehaviour
 
     private void OnSwitchUI(InputAction.CallbackContext obj) {
         if (tutorial) {
+          
             if (_Tutorial.isTutorial) {
                 return;
             }
         }
-        
+        if (CPData.isPose)
+        {
+            return;
+        }
         CPData.isObjNameUI = !CPData.isObjNameUI;
     }
 }
