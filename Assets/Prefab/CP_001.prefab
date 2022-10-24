@@ -56,7 +56,7 @@ MonoBehaviour:
   Wall_player_right: 0
   animator: {fileID: 518633091634576155}
   moveAccelSpeed: 2
-  moveDecelSpeed: 3
+  moveDecelSpeed: 10
 --- !u!114 &9100411136746622272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,10 @@ MonoBehaviour:
   blurIn: {fileID: 0}
   lensObj: {fileID: 0}
   zoomLens: {fileID: 0}
-  lensSpeed: 0.05
+  lensSpeed: 10
+  moveAccel: 0
+  moveAccelSpeed: 0.5
+  moveDecelSpeed: 2
 --- !u!50 &1827972463881022625
 Rigidbody2D:
   serializedVersion: 4
