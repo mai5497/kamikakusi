@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 4452046080232459460}
   - component: {fileID: 1418405850096760467}
   - component: {fileID: 8154670659615038479}
+  - component: {fileID: 5699394214054885217}
   m_Layer: 5
   m_Name: HintKitune
   m_TagString: Untagged
@@ -156,7 +157,7 @@ RectTransform:
   m_GameObject: {fileID: 471276031715835019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3182, y: 1.3182, z: 1.3182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2105147075293886327}
@@ -164,7 +165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 503, y: -58}
+  m_AnchoredPosition: {x: 428, y: -61}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4452046080232459460
@@ -222,6 +223,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kituneORnormal: 1
+--- !u!114 &5699394214054885217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471276031715835019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1973382649262176871
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bbb2fc7d510fec9458a260b0d55c65d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d281f0ddf815b0c4bafba43e6d0a3b92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -663,6 +679,7 @@ GameObject:
   - component: {fileID: 1314868860164893783}
   - component: {fileID: 4392162533505483174}
   - component: {fileID: 6762849783823862964}
+  - component: {fileID: 625668064317959839}
   m_Layer: 5
   m_Name: HintNormal
   m_TagString: Untagged
@@ -679,7 +696,7 @@ RectTransform:
   m_GameObject: {fileID: 2690758684719185931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3182, y: 1.3182, z: 1.3182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2105147075293886327}
@@ -687,7 +704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 504, y: 44}
+  m_AnchoredPosition: {x: 429, y: 77}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1314868860164893783
@@ -745,6 +762,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kituneORnormal: 0
+--- !u!114 &625668064317959839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690758684719185931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+  m_EffectDistance: {x: 2, y: 2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &7885444837965276934
 GameObject:
   m_ObjectHideFlags: 0
