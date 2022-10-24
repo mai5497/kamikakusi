@@ -54,6 +54,22 @@ public class CP_move01 : MonoBehaviour {
 
     public Animator animator;
 
+    // 加速度
+    private float moveAccel = 0.0f;
+    [Header("移動加速_速度")]
+    public float moveAccelSpeed;
+    [Header("移動減速_速度")]
+    public float moveDecelSpeed;
+
+    // 現在のフレーム
+    private int nowFrame = 0;
+    // 保存するフレーム数
+    private const int moveFrameMax = 10;
+    // 何フレーム前を使用するか
+    private const int useFrame = 5;
+    // プレイヤー速度を毎フレーム保存しているリスト
+    private float[] moveBeforeList = new float[moveFrameMax];
+
     void Start() {
         animState = eAnimState.NONE;
         //sr = this.GetComponent<SpriteRenderer>();
@@ -130,10 +146,16 @@ public class CP_move01 : MonoBehaviour {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
 
+                // 指定したフレームのプレイヤーの移動速度を取り出す
+                int frame = nowFrame - useFrame;
+                if (frame < 0)
+                {
+                    frame = moveFrameMax + frame;
+                }
                 // プレイヤー反転処理
-                if(move.x > -1 && oldMoveVal > 0) {
+                if (moveBeforeList[frame] > 0 && oldMoveVal > 0) {
                     this.transform.localScale = new Vector3(1,1,1);
-                } else if(move.x < 0 && oldMoveVal < 0){
+                } else if(moveBeforeList[frame] < 0 && oldMoveVal < 0){
                     this.transform.localScale = new Vector3(-1,1,1);
                 }
                 oldMoveVal = move.x;
@@ -153,33 +175,31 @@ public class CP_move01 : MonoBehaviour {
                 bool isWalk = false;
                 if (move.x > -0.0f && !stopRight) {
                     canMoveLeft = true;
-                    transform.Translate(
-                            move.x * fSpeed * Time.deltaTime,
-                            0.0f,
-                            0.0f);
                     isWalk = true;
                 }
                 if (move.x < 0.0f && !stopLeft) {
                     canMoveRight = true;
-                    transform.Translate(
-                             move.x * fSpeed * Time.deltaTime,
-                             0.0f,
-                             0.0f);
                     isWalk = true;
                 }
 
+                Debug.Log(move);
+
                 if (isWalk)
                 {
-                    animator.SetBool("Run", true);
+                    UpdateWalk(move.x);
                 }
                 else
                 {
-                    animator.SetBool("Run", false);
+                    UpdateIdle();
                 }
 
 
                 // データに保存
                 CPData.playerPos = this.transform.position;
+            }
+            else
+            {
+                UpdateIdle();
             }
         } else {
             /*
@@ -190,6 +210,8 @@ public class CP_move01 : MonoBehaviour {
                     CPData.isLook = false;
                 }
             }
+
+            UpdateIdle();
 
             // プレイヤーの非表示
             //if(animState != eAnimState.FOXWINDOW) {
@@ -257,5 +279,64 @@ public class CP_move01 : MonoBehaviour {
     private IEnumerator DelayKokkurisan() {
         yield return null;  // 1フレーム後にisKokkurisanをtrueにする
         CPData.isKokkurisan = true;
+    }
+
+    // 歩き処理
+    private void UpdateWalk(float move)
+    {
+        // 移動処理
+        transform.Translate(
+        move * moveAccel * fSpeed * Time.deltaTime,
+        0.0f,
+        0.0f);
+        // 歩くアニメーション
+        animator.SetBool("Run", true);
+        // 加速処理
+        moveAccel += moveAccelSpeed * Time.deltaTime;
+        moveAccel = Mathf.Lerp(0, 1, moveAccel);
+
+        // 方向変換で加速のリセット/////
+        int beforeFrame = nowFrame - 1;
+        if (beforeFrame < 0)
+        {
+            beforeFrame = moveFrameMax - 1;
+        }
+        if (move < 0 && moveBeforeList[beforeFrame] > 0)
+        {
+            moveAccel = 0;
+        }
+        else if (move > 0 && moveBeforeList[beforeFrame] < 0)
+        {
+            moveAccel = 0;
+        }
+        ///////////////////////
+        
+        // 現在フレームにプレイヤーの速度を保存
+        moveBeforeList[nowFrame] = move;
+        nowFrame++;
+        if (nowFrame >= moveFrameMax)
+        {
+            nowFrame = 0;
+        }
+    }
+    // 待機処理
+    private void UpdateIdle()
+    {
+        // 指定したフレームのプレイヤーの移動速度を取り出す
+        int frame = nowFrame - useFrame;
+        if (frame < 0)
+        {
+            frame = moveFrameMax + frame;
+        }
+        // 移動処理
+        transform.Translate(
+        moveBeforeList[frame] * moveAccel * fSpeed * Time.deltaTime,
+        0.0f,
+        0.0f);
+        // 歩きアニメーションの解除
+        animator.SetBool("Run", false);
+        // 減速処理
+        moveAccel -= moveDecelSpeed * Time.deltaTime;
+        moveAccel = Mathf.Lerp(0, 1, moveAccel);
     }
 }
