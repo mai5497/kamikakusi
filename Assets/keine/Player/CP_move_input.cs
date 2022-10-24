@@ -86,7 +86,7 @@ public partial class @CP_move_input : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""stick"",
                     ""id"": ""6183bdaf-6880-4be5-ab63-6c132673cd6d"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
