@@ -202,8 +202,6 @@ public class CP_move01 : MonoBehaviour
                         isWalk = true;
                     }
 
-                    Debug.Log(move);
-
                     if (isWalk)
                     {
                         UpdateWalk(move.x);

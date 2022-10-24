@@ -60,6 +60,11 @@ public class LensManager : MonoBehaviour
     // プレイヤー速度を毎フレーム保存しているリスト
     private Vector2[] moveBeforeList = new Vector2[moveFrameMax];
 
+    // カメラ座標
+    private Transform cameraTrans;
+    [Header("カメラ補正値")]
+    public Vector2 cameraHosei = new Vector2(0.5f, 0.5f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,19 +80,25 @@ public class LensManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-        if(oldPlayerPos != CPData.playerPos) {
+    void Update()
+    {
+        if (oldPlayerPos != CPData.playerPos)
+        {
             isLensInit = true;
 
             oldPlayerPos = CPData.playerPos;
         }
 
-        if (oldIsLens != CPData.isLens) {
-            if (blurIn.isBlur == false) {
+        if (oldIsLens != CPData.isLens)
+        {
+            if (blurIn.isBlur == false)
+            {
                 // ぼかし,レンズの有効
                 blurIn.isBlur = true;
                 enableLens.EnableImage(true);
-            } else {
+            }
+            else
+            {
                 // レンズの無効
                 blurIn.isBlur = false;
                 enableLens.EnableImage(false);
@@ -97,8 +108,10 @@ public class LensManager : MonoBehaviour
         }
 
         // レンズ移動(通常時のみ)
-        if (!CPData.isKokkurisan && !CPData.isObjNameUI && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal) {
-            if (isLensInit) {
+        if (!CPData.isKokkurisan && !CPData.isObjNameUI && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal)
+        {
+            if (isLensInit)
+            {
                 lensRT.position = CPData.playerPos;
                 isLensInit = false;
             }
@@ -119,13 +132,17 @@ public class LensManager : MonoBehaviour
 
 
         // レンズの注視(ぼかしモード変更)
-        if (CPData.isLook && CPData.isLens) {
-            if (blurIn.blurMode == BlurIn.BlurMode.Normal) {
+        if (CPData.isLook && CPData.isLens)
+        {
+            if (blurIn.blurMode == BlurIn.BlurMode.Normal)
+            {
                 blurIn.blurMode = BlurIn.BlurMode.PressInit;
                 // ズーム処理
                 zoomLens.isZoom = true;
             }
-        } else {
+        }
+        else
+        {
             blurIn.blurMode = BlurIn.BlurMode.Normal;
             // ズーム解除処理
             zoomLens.isZoom = false;
@@ -140,13 +157,15 @@ public class LensManager : MonoBehaviour
         moveVal.x = _Player.GetMoveValue().x * lensSpeed * moveAccel * Time.deltaTime;
         moveVal.y = _Player.GetMoveValue().y * lensSpeed * moveAccel * Time.deltaTime;
 
+        cameraTrans = Camera.main.transform;
+
         newLensPos.x += moveVal.x;
         newLensPos.y += moveVal.y;
 
         lensObj.transform.position = new Vector2(
                      //エリア指定して移動する
-                     Mathf.Clamp(newLensPos.x, -8.5f, 8.5f),
-                     Mathf.Clamp(newLensPos.y, -4.5f, 4.5f)
+                     Mathf.Clamp(newLensPos.x, -(9.0f - cameraHosei.x) + cameraTrans.position.x, (9.0f - cameraHosei.x) + cameraTrans.position.x),
+                     Mathf.Clamp(newLensPos.y, -(5.0f - cameraHosei.y) + cameraTrans.position.y, (5.0f - cameraHosei.y) + cameraTrans.position.y)
                      );
 
         // 加速処理

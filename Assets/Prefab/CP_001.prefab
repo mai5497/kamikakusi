@@ -76,6 +76,7 @@ MonoBehaviour:
   moveAccel: 0
   moveAccelSpeed: 0.5
   moveDecelSpeed: 2
+  cameraHosei: {x: 1, y: 1}
 --- !u!50 &1827972463881022625
 Rigidbody2D:
   serializedVersion: 4
