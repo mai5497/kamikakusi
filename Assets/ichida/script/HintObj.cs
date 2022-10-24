@@ -34,8 +34,6 @@ public class HintObj : MonoBehaviour {
     public bool isWindowColl;   // 窓と当たったかフラグ
 
     private mado _mado;     // 窓オブジェクトについている窓スクリプト
-
-    private GameObject objList;             // オブジェクトの名前を表示するスクリプトが入っている
    
     // Start is called before the first frame update
     void Start() {
@@ -54,14 +52,7 @@ public class HintObj : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = true;
-            _mado.SetLookObjName(objName, uraObjName);
-            
-            //if (_isHatenaHuman) {
-            //    _ObjNameListUI.SetText(hatenaObjName, objName);
-            //}
-            //if (_isHatenaFox) {
-            //    _ObjNameListUI.SetText(hatenaUraName, uraObjName);
-            //}
+            _mado.SetLookObjName(objName, uraObjName);    
         }
     }
 
