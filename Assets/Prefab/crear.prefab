@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 7600456142283782103}
   - component: {fileID: 7600456142283782102}
   - component: {fileID: 7600456142283782097}
+  - component: {fileID: 6070583849238643003}
   m_Layer: 5
   m_Name: crear
   m_TagString: Untagged
@@ -332,7 +333,7 @@ RectTransform:
   m_GameObject: {fileID: 7600456142283782096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7600456142624570029}
@@ -341,7 +342,7 @@ RectTransform:
   - {fileID: 7600456142721810310}
   - {fileID: 7600456143039268206}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -357,7 +358,7 @@ Canvas:
   m_GameObject: {fileID: 7600456142283782096}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -392,7 +393,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7600456142283782097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +411,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6070583849238643003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7600456142283782096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5112226b0d6a6554e906c6bde9e5eb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform_oya: {fileID: 7600456142283782100}
 --- !u!1 &7600456142306529915
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,9 +621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7945bfdd63e97364db935fff27a99644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeIn: 0
-  start: {fileID: 0}
   isFadeOk: 1
+  fadeIn: 0
   fade_out: 0
 --- !u!1 &7600456142721810305
 GameObject:

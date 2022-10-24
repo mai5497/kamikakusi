@@ -126,60 +126,8 @@ public class CP_move01 : MonoBehaviour {
 
         if (!CPData.isLens) {   // レンズ使用中処理か移動処理か
             if (!CPData.isKokkurisan && !CPData.isObjNameUI) {
-                //プレイヤーの移動処理
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                Vector2 move = _moveAction.ReadValue<Vector2>();
-
-                // プレイヤー反転処理
-                if(move.x > -1 && oldMoveVal > 0) {
-                    this.transform.localScale = new Vector3(1,1,1);
-                } else if(move.x < 0 && oldMoveVal < 0){
-                    this.transform.localScale = new Vector3(-1,1,1);
-                }
-                oldMoveVal = move.x;
-
-
-                bool stopLeft = false;
-                bool stopRight = false;
-
-                if (wallLeftPos.x + Wall_player_left >= this.transform.position.x) {
-                    stopLeft = true;
-                }
-
-                if (wallRightPos.x - Wall_player_right <= this.transform.position.x) {
-                    stopRight = true;
-                }
-
-                bool isWalk = false;
-                if (move.x > -0.0f && !stopRight) {
-                    canMoveLeft = true;
-                    transform.Translate(
-                            move.x * fSpeed * Time.deltaTime,
-                            0.0f,
-                            0.0f);
-                    isWalk = true;
-                }
-                if (move.x < 0.0f && !stopLeft) {
-                    canMoveRight = true;
-                    transform.Translate(
-                             move.x * fSpeed * Time.deltaTime,
-                             0.0f,
-                             0.0f);
-                    isWalk = true;
-                }
-
-                if (isWalk)
-                {
-                    animator.SetBool("Run", true);
-                }
-                else
-                {
-                    animator.SetBool("Run", false);
-                }
-
-
-                // データに保存
-                CPData.playerPos = this.transform.position;
+              //プレイヤー移動処理
+                MovePlayer();
             }
         } else {
             /*
@@ -258,4 +206,70 @@ public class CP_move01 : MonoBehaviour {
         yield return null;  // 1フレーム後にisKokkurisanをtrueにする
         CPData.isKokkurisan = true;
     }
+
+
+    private void MovePlayer()
+    {
+        Vector2 move = _moveAction.ReadValue<Vector2>();
+
+        // プレイヤー反転処理
+        if (move.x > -1 && oldMoveVal > 0 && CPData.isPose == false)
+        {
+            this.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (move.x < 0 && oldMoveVal < 0&& CPData.isPose == false)
+        {
+            this.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        oldMoveVal = move.x;
+
+        bool stopLeft = false;
+        bool stopRight = false;
+
+        if (wallLeftPos.x + Wall_player_left >= this.transform.position.x)
+        {
+            stopLeft = true;
+        }
+
+        if (wallRightPos.x - Wall_player_right <= this.transform.position.x)
+        {
+            stopRight = true;
+        }
+
+        bool isWalk = false;
+        if (move.x > -0.0f && !stopRight && CPData.isPose == false)
+        {
+            canMoveLeft = true;
+            transform.Translate(
+                    move.x * fSpeed * Time.deltaTime,
+                    0.0f,
+                    0.0f);
+            isWalk = true;
+        }
+        if (move.x < 0.0f && !stopLeft && CPData.isPose == false)
+        {
+            canMoveRight = true;
+            transform.Translate(
+                     move.x * fSpeed * Time.deltaTime,
+                     0.0f,
+                     0.0f);
+            isWalk = true;
+        }
+
+        if (isWalk)
+        {
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
+
+
+        // データに保存
+        CPData.playerPos = this.transform.position;
+
+
+    }
+
 }
