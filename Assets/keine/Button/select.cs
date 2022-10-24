@@ -130,12 +130,12 @@ public class select : MonoBehaviour {
             switch (selectNo) {
                 case 0:
                     //ステージセレクトへ遷移
-                    SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
+                    //SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
                     break;
 
                 case 1:
                     //次のステージへ
-                    SceneManagerFade.LoadSceneNextStage();
+                    //SceneManagerFade.LoadSceneNextStage();
                     break;
 
             }
