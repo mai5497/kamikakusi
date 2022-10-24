@@ -17,8 +17,10 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CP_move01 : MonoBehaviour {
-    enum eAnimState {   // アニメーションのステート
+public class CP_move01 : MonoBehaviour
+{
+    enum eAnimState
+    {   // アニメーションのステート
         NONE = 0,
         IDLE,
         WALK,
@@ -70,7 +72,8 @@ public class CP_move01 : MonoBehaviour {
     // プレイヤー速度を毎フレーム保存しているリスト
     private float[] moveBeforeList = new float[moveFrameMax];
 
-    void Start() {
+    void Start()
+    {
         animState = eAnimState.NONE;
         //sr = this.GetComponent<SpriteRenderer>();
         oldMoveVal = 0.0f;
@@ -90,12 +93,14 @@ public class CP_move01 : MonoBehaviour {
 
     }
 
-    void Awake() {
+    void Awake()
+    {
         PlayerAction = new CP_move_input();            // InputActionインスタンスを生成
         UIAction = new CP_move_input();
     }
 
-    private void OnEnable() {
+    public void OnEnable()
+    {
         //---Actionイベントを登録
         _moveAction = PlayerAction.Player.Move;
         PlayerAction.Player.Pose.canceled += OnPoseKey;
@@ -114,7 +119,8 @@ public class CP_move01 : MonoBehaviour {
         PlayerAction.Player.Enable();
     }
 
-    private void OnDisable() {
+    public void OnDisable()
+    {
         _moveAction.Disable();
 
         //---InputActionの無効化
@@ -123,8 +129,10 @@ public class CP_move01 : MonoBehaviour {
     }
 
 
-    void Update() {
-        if (_FoxByakko.isClear || CPData.lookCnt < 1) {   // クリアしたら
+    void Update()
+    {
+        if (_FoxByakko.isClear || CPData.lookCnt < 1)
+        {   // クリアしたら
             CPData.isLook = false;  // 注視やめ
             CPData.isLens = false;  // 窓使用やめ
 
@@ -133,67 +141,79 @@ public class CP_move01 : MonoBehaviour {
             return;
         }
 
-        if (CPData.isLens) {    // 窓使用中になったら
+        if (CPData.isLens)
+        {    // 窓使用中になったら
             /*
              * アニメーションの再生
              */
             animState = eAnimState.NONE;// 再生終了したらステートをNONEとかにする(FOXWINDOW以外)
         }
 
-        if (!CPData.isLens) {   // レンズ使用中処理か移動処理か
-            if (!CPData.isKokkurisan && !CPData.isObjNameUI) {
+        if (!CPData.isLens)
+        {   // レンズ使用中処理か移動処理か
+            if (!CPData.isKokkurisan && !CPData.isObjNameUI)
+            {
                 //プレイヤーの移動処理
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
-
-                // 指定したフレームのプレイヤーの移動速度を取り出す
-                int frame = nowFrame - useFrame;
-                if (frame < 0)
+                if (CPData.isPose == false)
                 {
-                    frame = moveFrameMax + frame;
+
+                    // 指定したフレームのプレイヤーの移動速度を取り出す
+                    int frame = nowFrame - useFrame;
+                    if (frame < 0)
+                    {
+                        frame = moveFrameMax + frame;
+                    }
+                    // プレイヤー反転処理
+                    if (moveBeforeList[frame] > 0 && oldMoveVal > 0)
+                    {
+                        this.transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    else if (moveBeforeList[frame] < 0 && oldMoveVal < 0)
+                    {
+                        this.transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    oldMoveVal = move.x;
+
+
+                    bool stopLeft = false;
+                    bool stopRight = false;
+
+                    if (wallLeftPos.x + Wall_player_left >= this.transform.position.x)
+                    {
+                        stopLeft = true;
+                    }
+
+                    if (wallRightPos.x - Wall_player_right <= this.transform.position.x)
+                    {
+                        stopRight = true;
+                    }
+
+                    bool isWalk = false;
+                    if (move.x > -0.0f && !stopRight)
+                    {
+                        canMoveLeft = true;
+                        isWalk = true;
+                    }
+                    if (move.x < 0.0f && !stopLeft)
+                    {
+                        canMoveRight = true;
+                        isWalk = true;
+                    }
+
+                    Debug.Log(move);
+
+                    if (isWalk)
+                    {
+                        UpdateWalk(move.x);
+                    }
+                    else
+                    {
+                        UpdateIdle();
+                    }
+
                 }
-                // プレイヤー反転処理
-                if (moveBeforeList[frame] > 0 && oldMoveVal > 0) {
-                    this.transform.localScale = new Vector3(1,1,1);
-                } else if(moveBeforeList[frame] < 0 && oldMoveVal < 0){
-                    this.transform.localScale = new Vector3(-1,1,1);
-                }
-                oldMoveVal = move.x;
-
-
-                bool stopLeft = false;
-                bool stopRight = false;
-
-                if (wallLeftPos.x + Wall_player_left >= this.transform.position.x) {
-                    stopLeft = true;
-                }
-
-                if (wallRightPos.x - Wall_player_right <= this.transform.position.x) {
-                    stopRight = true;
-                }
-
-                bool isWalk = false;
-                if (move.x > -0.0f && !stopRight) {
-                    canMoveLeft = true;
-                    isWalk = true;
-                }
-                if (move.x < 0.0f && !stopLeft) {
-                    canMoveRight = true;
-                    isWalk = true;
-                }
-
-                Debug.Log(move);
-
-                if (isWalk)
-                {
-                    UpdateWalk(move.x);
-                }
-                else
-                {
-                    UpdateIdle();
-                }
-
-
                 // データに保存
                 CPData.playerPos = this.transform.position;
             }
@@ -201,12 +221,17 @@ public class CP_move01 : MonoBehaviour {
             {
                 UpdateIdle();
             }
-        } else {
+
+        }
+        else
+        {
             /*
              * 狐の窓使用時は別スクリプト
              */
-            if (CPData.isLook) {
-                if (CPData.isKokkurisan || CPData.isObjNameUI) {
+            if (CPData.isLook)
+            {
+                if (CPData.isKokkurisan || CPData.isObjNameUI)
+                {
                     CPData.isLook = false;
                 }
             }
@@ -221,14 +246,17 @@ public class CP_move01 : MonoBehaviour {
         }
     }
 
-    public Vector2 GetMoveValue() {
+    public Vector2 GetMoveValue()
+    {
         return _moveAction.ReadValue<Vector2>();
     }
 
-    private void OnLens(InputAction.CallbackContext obj) {
-        //if (CPData.isKokkurisan || CPData.isObjNameUI) {
-        //    return;
-        //}
+    private void OnLens(InputAction.CallbackContext obj)
+    {
+        if (CPData.isKokkurisan || CPData.isObjNameUI || CPData.isPose)
+        {
+            return;
+        }
         CPData.isLens = !CPData.isLens;
 
         // プレイヤーの表示
@@ -236,47 +264,67 @@ public class CP_move01 : MonoBehaviour {
         //    sr.color = new Color(1, 1, 1, 1.0f);
         //}
     }
-    private void OnPoseKey(InputAction.CallbackContext obj) {
+    private void OnPoseKey(InputAction.CallbackContext obj)
+    {
         CPData.isPose = !CPData.isPose;
     }
 
-    private void LookStart(InputAction.CallbackContext obj) {
-        if (CPData.isKokkurisan || CPData.isObjNameUI) {
+    private void LookStart(InputAction.CallbackContext obj)
+    {
+        if (CPData.isKokkurisan || CPData.isObjNameUI)
+        {
             return;
         }
         CPData.isLook = true;
     }
-    private void LookFin(InputAction.CallbackContext obj) {
+    private void LookFin(InputAction.CallbackContext obj)
+    {
         CPData.isLook = false;
     }
 
-    private void OpenHintKey(InputAction.CallbackContext obj) {
+    private void OpenHintKey(InputAction.CallbackContext obj)
+    {
+        if (CPData.isPose)
+        {
+            return;
+        }
+
         // キーボードはキーを押したときに表示しかできないようになっているのでtrueのみ
         //CPData.isKokkurisan = true;
         StartCoroutine("DelayKokkurisan");
     }
 
-    private void OpenHintButton(InputAction.CallbackContext obj) {
+    private void OpenHintButton(InputAction.CallbackContext obj)
+    {
+        if (CPData.isPose)
+        {
+            return;
+        }
         // コントローラーはボタンを押したら表示非表示切り替えるのでトグル
         CPData.isKokkurisan = !CPData.isKokkurisan;
     }
 
 
-    private void CloseHint(InputAction.CallbackContext obj) {
-        if (CPData.isKokkurisan) {
+    private void CloseHint(InputAction.CallbackContext obj)
+    {
+        if (CPData.isKokkurisan)
+        {
             Keyboard keyboard = Keyboard.current;
-            if (keyboard != null) {
+            if (keyboard != null)
+            {
                 if (!keyboard.enterKey.wasReleasedThisFrame &&
                     !keyboard.escapeKey.wasReleasedThisFrame &&
                     !keyboard.eKey.wasReleasedThisFrame &&
-                    !keyboard.qKey.wasReleasedThisFrame) {
+                    !keyboard.qKey.wasReleasedThisFrame)
+                {
                     CPData.isKokkurisan = false;
                 }
             }
         }
     }
 
-    private IEnumerator DelayKokkurisan() {
+    private IEnumerator DelayKokkurisan()
+    {
         yield return null;  // 1フレーム後にisKokkurisanをtrueにする
         CPData.isKokkurisan = true;
     }
@@ -310,7 +358,7 @@ public class CP_move01 : MonoBehaviour {
             moveAccel = 0;
         }
         ///////////////////////
-        
+
         // 現在フレームにプレイヤーの速度を保存
         moveBeforeList[nowFrame] = move;
         nowFrame++;
