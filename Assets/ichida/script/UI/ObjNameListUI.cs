@@ -147,13 +147,9 @@ public class ObjNameListUI : MonoBehaviour {
             }
             if (_Kokkurisan.normalAnswerStr == null || hatenaNameList[i] != _Kokkurisan.normalAnswerStr) {
                 if (_Kokkurisan.kituneAnswerStr == null || hatenaNameList[i] != _Kokkurisan.kituneAnswerStr) {
-                    Debug.Log(2);
                     continue;
                 }
             }
-            Debug.Log(3);
-            Debug.Log("nameList:" + nameList[i]);
-            Debug.Log(hatenaNameList[i]);
             nameList[i] = hatenaNameList[i];
             _isCheckWord = true;
         }
