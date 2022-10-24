@@ -93,23 +93,31 @@ public class Start001 : MonoBehaviour
         {
             isFade = true;
         }
-        if (isSelect&&isFade)
-        {
-            //fadein.fade_in_use("Alpha 1", image);
+        if (isFade) {
+            if (isSelect)
+            {
+                //fadein.fade_in_use("Alpha 1", image);
 
-            //ステージセレクトへ遷移
-            SceneManagerFade.LoadSceneMain(1, 0);
-            isFade = false;
+                // はじめから
+                SceneManagerFade.LoadSceneMain(0, 0);
+                isFade = false;
 
-            //Debug.Log("ボタン");
-            //// SceneManager.LoadScene("Alpha 1");
+                //Debug.Log("ボタン");
+                //// SceneManager.LoadScene("Alpha 1");
 
-            //fadeout.fade_out_use(img, true);
-            //if (finish)
-            //{
-            //    fadein.fade_in_use("Alpha 1", image);
-            //}
+                //fadeout.fade_out_use(img, true);
+                //if (finish)
+                //{
+                //    fadein.fade_in_use("Alpha 1", image);
+                //}
 
+            }
+            else
+            {
+                // つづきから
+                SceneManagerFade.LoadSceneMain(ClearManager.GetNowWorld(), ClearManager.GetNowStage());
+                isFade = false;
+            }
         }
 
 
