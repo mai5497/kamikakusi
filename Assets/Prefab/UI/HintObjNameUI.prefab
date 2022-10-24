@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10117b4aafaddc4da20db55669e9241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humanTextColor: f5e56b
+  foxTextColor: b44c97
   iconObj: {fileID: 7259371204625056147, guid: e57622189fc75fd43b94f32d9d0eed43, type: 3}
 --- !u!1 &471276031715835019
 GameObject:
