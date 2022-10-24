@@ -1,15 +1,15 @@
 //=============================================================================
 //
-//ƒvƒŒƒCƒ„[ƒf[ƒ^
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒ‡ãƒ¼ã‚¿
 //
-// ì¬“ú:2022/10/11
-// ì¬Ò:”ª–Ø‹´Œd‰¹
-// •ÒWÒ:ˆÉ’n“c^ˆß
+// ä½œæˆæ—¥:2022/10/11
+// ä½œæˆè€…:å…«æœ¨æ©‹æ…§éŸ³
+// ç·¨é›†è€…:ä¼Šåœ°ç”°çœŸè¡£
 //
-// <ŠJ”­—š—ğ>
-// 2022/10/12 ì¬
-// 2022/10/13 ƒ}[ƒW‚Ì‚½‚ß‚É‚¢‚ë‚¢‚ë•ÏX
-// 2022/10/21 InputPlayerÁ‚·‚½‚ß‚É“ü—Í‰ñ‚è•ÏX
+// <é–‹ç™ºå±¥æ­´>
+// 2022/10/12 ä½œæˆ
+// 2022/10/13 ãƒãƒ¼ã‚¸ã®ãŸã‚ã«ã„ã‚ã„ã‚å¤‰æ›´
+// 2022/10/21 InputPlayeræ¶ˆã™ãŸã‚ã«å…¥åŠ›å›ã‚Šå¤‰æ›´
 //
 //=============================================================================
 using UnityEngine;
@@ -18,24 +18,24 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CP_move01 : MonoBehaviour {
-    enum eAnimState {   // ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌƒXƒe[ƒg
+    enum eAnimState {   // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¹ãƒ†ãƒ¼ãƒˆ
         NONE = 0,
         IDLE,
         WALK,
         FOXWINDOW,
     }
 
-    [Header("ˆÚ“®ƒXƒs[ƒh")]
-    public float fSpeed = 0.04f;    // ƒvƒŒƒCƒ„[‚ÌˆÚ“®‚Æ‘‹‚ÌˆÚ“®ƒXƒs[ƒhŒ“‚Ë‚Ä‚é
+    [Header("ç§»å‹•ã‚¹ãƒ”ãƒ¼ãƒ‰")]
+    public float fSpeed = 0.04f;    // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•ã¨çª“ã®ç§»å‹•ã‚¹ãƒ”ãƒ¼ãƒ‰å…¼ã­ã¦ã‚‹
 
-    //ƒAƒNƒVƒ‡ƒ“æ“¾—p
+    //ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å–å¾—ç”¨
     private InputAction _moveAction;
-    private CP_move_input PlayerAction;        // InputAction‚ğˆµ‚¤
-    private CP_move_input UIAction;        // InputAction‚ğˆµ‚¤
+    private CP_move_input PlayerAction;        // InputActionã‚’æ‰±ã†
+    private CP_move_input UIAction;        // InputActionã‚’æ‰±ã†
 
-    private eAnimState animState;   // ƒAƒjƒ[ƒVƒ‡ƒ“ƒXƒe[ƒg
+    private eAnimState animState;   // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¹ãƒ†ãƒ¼ãƒˆ
 
-    //private SpriteRenderer sr;  // ƒvƒŒƒCƒ„[‚Ìspriterenderer
+    //private SpriteRenderer sr;  // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®spriterenderer
     private float oldMoveVal;
 
     private FoxByakko _FoxByakko;
@@ -54,20 +54,20 @@ public class CP_move01 : MonoBehaviour {
 
     public Animator animator;
 
-    // ‰Á‘¬“x
+    // åŠ é€Ÿåº¦
     private float moveAccel = 0.0f;
-    [Header("ˆÚ“®‰Á‘¬_‘¬“x")]
+    [Header("ç§»å‹•åŠ é€Ÿ_é€Ÿåº¦")]
     public float moveAccelSpeed;
-    [Header("ˆÚ“®Œ¸‘¬_‘¬“x")]
+    [Header("ç§»å‹•æ¸›é€Ÿ_é€Ÿåº¦")]
     public float moveDecelSpeed;
 
-    // Œ»İ‚ÌƒtƒŒ[ƒ€
+    // ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
     private int nowFrame = 0;
-    // •Û‘¶‚·‚éƒtƒŒ[ƒ€”
+    // ä¿å­˜ã™ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°
     private const int moveFrameMax = 10;
-    // ‰½ƒtƒŒ[ƒ€‘O‚ğg—p‚·‚é‚©
+    // ä½•ãƒ•ãƒ¬ãƒ¼ãƒ å‰ã‚’ä½¿ç”¨ã™ã‚‹ã‹
     private const int useFrame = 5;
-    // ƒvƒŒƒCƒ„[‘¬“x‚ğ–ˆƒtƒŒ[ƒ€•Û‘¶‚µ‚Ä‚¢‚éƒŠƒXƒg
+    // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼é€Ÿåº¦ã‚’æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ä¿å­˜ã—ã¦ã„ã‚‹ãƒªã‚¹ãƒˆ
     private float[] moveBeforeList = new float[moveFrameMax];
 
     void Start() {
@@ -91,12 +91,12 @@ public class CP_move01 : MonoBehaviour {
     }
 
     void Awake() {
-        PlayerAction = new CP_move_input();            // InputActionƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬
+        PlayerAction = new CP_move_input();            // InputActionã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆ
         UIAction = new CP_move_input();
     }
 
     private void OnEnable() {
-        //---ActionƒCƒxƒ“ƒg‚ğ“o˜^
+        //---Actionã‚¤ãƒ™ãƒ³ãƒˆã‚’ç™»éŒ²
         _moveAction = PlayerAction.Player.Move;
         PlayerAction.Player.Pose.canceled += OnPoseKey;
         PlayerAction.Player.Kitune.canceled += OnLens;
@@ -109,7 +109,7 @@ public class CP_move01 : MonoBehaviour {
         UIAction.UI.ButtonKokkurisan.started += OpenHintButton;
 
 
-        //---InputAction‚Ì—LŒø‰»
+        //---InputActionã®æœ‰åŠ¹åŒ–
         UIAction.UI.Enable();
         PlayerAction.Player.Enable();
     }
@@ -117,42 +117,42 @@ public class CP_move01 : MonoBehaviour {
     private void OnDisable() {
         _moveAction.Disable();
 
-        //---InputAction‚Ì–³Œø‰»
+        //---InputActionã®ç„¡åŠ¹åŒ–
         UIAction.UI.Disable();
         PlayerAction.Player.Disable();
     }
 
 
     void Update() {
-        if (_FoxByakko.isClear || CPData.lookCnt < 1) {   // ƒNƒŠƒA‚µ‚½‚ç
-            CPData.isLook = false;  // ’‹‚â‚ß
-            CPData.isLens = false;  // ‘‹g—p‚â‚ß
+        if (_FoxByakko.isClear || CPData.lookCnt < 1) {   // ã‚¯ãƒªã‚¢ã—ãŸã‚‰
+            CPData.isLook = false;  // æ³¨è¦–ã‚„ã‚
+            CPData.isLens = false;  // çª“ä½¿ç”¨ã‚„ã‚
 
             _moveAction.Disable();
 
             return;
         }
 
-        if (CPData.isLens) {    // ‘‹g—p’†‚É‚È‚Á‚½‚ç
+        if (CPData.isLens) {    // çª“ä½¿ç”¨ä¸­ã«ãªã£ãŸã‚‰
             /*
-             * ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶
+             * ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿ
              */
-            animState = eAnimState.NONE;// Ä¶I—¹‚µ‚½‚çƒXƒe[ƒg‚ğNONE‚Æ‚©‚É‚·‚é(FOXWINDOWˆÈŠO)
+            animState = eAnimState.NONE;// å†ç”Ÿçµ‚äº†ã—ãŸã‚‰ã‚¹ãƒ†ãƒ¼ãƒˆã‚’NONEã¨ã‹ã«ã™ã‚‹(FOXWINDOWä»¥å¤–)
         }
 
-        if (!CPData.isLens) {   // ƒŒƒ“ƒYg—p’†ˆ—‚©ˆÚ“®ˆ—‚©
+        if (!CPData.isLens) {   // ãƒ¬ãƒ³ã‚ºä½¿ç”¨ä¸­å‡¦ç†ã‹ç§»å‹•å‡¦ç†ã‹
             if (!CPData.isKokkurisan && !CPData.isObjNameUI) {
-                //ƒvƒŒƒCƒ„[‚ÌˆÚ“®ˆ—
+                //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•å‡¦ç†
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
 
-                // w’è‚µ‚½ƒtƒŒ[ƒ€‚ÌƒvƒŒƒCƒ„[‚ÌˆÚ“®‘¬“x‚ğæ‚èo‚·
+                // æŒ‡å®šã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•é€Ÿåº¦ã‚’å–ã‚Šå‡ºã™
                 int frame = nowFrame - useFrame;
                 if (frame < 0)
                 {
                     frame = moveFrameMax + frame;
                 }
-                // ƒvƒŒƒCƒ„[”½“]ˆ—
+                // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼åè»¢å‡¦ç†
                 if (moveBeforeList[frame] > 0 && oldMoveVal > 0) {
                     this.transform.localScale = new Vector3(1,1,1);
                 } else if(moveBeforeList[frame] < 0 && oldMoveVal < 0){
@@ -194,7 +194,7 @@ public class CP_move01 : MonoBehaviour {
                 }
 
 
-                // ƒf[ƒ^‚É•Û‘¶
+                // ãƒ‡ãƒ¼ã‚¿ã«ä¿å­˜
                 CPData.playerPos = this.transform.position;
             }
             else
@@ -203,7 +203,7 @@ public class CP_move01 : MonoBehaviour {
             }
         } else {
             /*
-             * ŒÏ‚Ì‘‹g—p‚Í•ÊƒXƒNƒŠƒvƒg
+             * ç‹ã®çª“ä½¿ç”¨æ™‚ã¯åˆ¥ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
              */
             if (CPData.isLook) {
                 if (CPData.isKokkurisan || CPData.isObjNameUI) {
@@ -213,7 +213,7 @@ public class CP_move01 : MonoBehaviour {
 
             UpdateIdle();
 
-            // ƒvƒŒƒCƒ„[‚Ì”ñ•\¦
+            // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®éè¡¨ç¤º
             //if(animState != eAnimState.FOXWINDOW) {
             //    sr.color = new Color(1,1,1,0.0f);
             //}
@@ -231,7 +231,7 @@ public class CP_move01 : MonoBehaviour {
         //}
         CPData.isLens = !CPData.isLens;
 
-        // ƒvƒŒƒCƒ„[‚Ì•\¦
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è¡¨ç¤º
         //if (!CPData.isLens) {
         //    sr.color = new Color(1, 1, 1, 1.0f);
         //}
@@ -251,13 +251,13 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private void OpenHintKey(InputAction.CallbackContext obj) {
-        // ƒL[ƒ{[ƒh‚ÍƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚É•\¦‚µ‚©‚Å‚«‚È‚¢‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é‚Ì‚Åtrue‚Ì‚İ
+        // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã¯ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã«è¡¨ç¤ºã—ã‹ã§ããªã„ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ã®ã§trueã®ã¿
         //CPData.isKokkurisan = true;
         StartCoroutine("DelayKokkurisan");
     }
 
     private void OpenHintButton(InputAction.CallbackContext obj) {
-        // ƒRƒ“ƒgƒ[ƒ‰[‚Íƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚ç•\¦”ñ•\¦Ø‚è‘Ö‚¦‚é‚Ì‚ÅƒgƒOƒ‹
+        // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ãƒ¼ã¯ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã‚‰è¡¨ç¤ºéè¡¨ç¤ºåˆ‡ã‚Šæ›¿ãˆã‚‹ã®ã§ãƒˆã‚°ãƒ«
         CPData.isKokkurisan = !CPData.isKokkurisan;
     }
 
@@ -277,25 +277,25 @@ public class CP_move01 : MonoBehaviour {
     }
 
     private IEnumerator DelayKokkurisan() {
-        yield return null;  // 1ƒtƒŒ[ƒ€Œã‚ÉisKokkurisan‚ğtrue‚É‚·‚é
+        yield return null;  // 1ãƒ•ãƒ¬ãƒ¼ãƒ å¾Œã«isKokkurisanã‚’trueã«ã™ã‚‹
         CPData.isKokkurisan = true;
     }
 
-    // •à‚«ˆ—
+    // æ­©ãå‡¦ç†
     private void UpdateWalk(float move)
     {
-        // ˆÚ“®ˆ—
+        // ç§»å‹•å‡¦ç†
         transform.Translate(
         move * moveAccel * fSpeed * Time.deltaTime,
         0.0f,
         0.0f);
-        // •à‚­ƒAƒjƒ[ƒVƒ‡ƒ“
+        // æ­©ãã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
         animator.SetBool("Run", true);
-        // ‰Á‘¬ˆ—
+        // åŠ é€Ÿå‡¦ç†
         moveAccel += moveAccelSpeed * Time.deltaTime;
         moveAccel = Mathf.Lerp(0, 1, moveAccel);
 
-        // •ûŒü•ÏŠ·‚Å‰Á‘¬‚ÌƒŠƒZƒbƒg/////
+        // æ–¹å‘å¤‰æ›ã§åŠ é€Ÿã®ãƒªã‚»ãƒƒãƒˆ/////
         int beforeFrame = nowFrame - 1;
         if (beforeFrame < 0)
         {
@@ -311,7 +311,7 @@ public class CP_move01 : MonoBehaviour {
         }
         ///////////////////////
         
-        // Œ»İƒtƒŒ[ƒ€‚ÉƒvƒŒƒCƒ„[‚Ì‘¬“x‚ğ•Û‘¶
+        // ç¾åœ¨ãƒ•ãƒ¬ãƒ¼ãƒ ã«ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®é€Ÿåº¦ã‚’ä¿å­˜
         moveBeforeList[nowFrame] = move;
         nowFrame++;
         if (nowFrame >= moveFrameMax)
@@ -319,23 +319,23 @@ public class CP_move01 : MonoBehaviour {
             nowFrame = 0;
         }
     }
-    // ‘Ò‹@ˆ—
+    // å¾…æ©Ÿå‡¦ç†
     private void UpdateIdle()
     {
-        // w’è‚µ‚½ƒtƒŒ[ƒ€‚ÌƒvƒŒƒCƒ„[‚ÌˆÚ“®‘¬“x‚ğæ‚èo‚·
+        // æŒ‡å®šã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•é€Ÿåº¦ã‚’å–ã‚Šå‡ºã™
         int frame = nowFrame - useFrame;
         if (frame < 0)
         {
             frame = moveFrameMax + frame;
         }
-        // ˆÚ“®ˆ—
+        // ç§»å‹•å‡¦ç†
         transform.Translate(
         moveBeforeList[frame] * moveAccel * fSpeed * Time.deltaTime,
         0.0f,
         0.0f);
-        // •à‚«ƒAƒjƒ[ƒVƒ‡ƒ“‚Ì‰ğœ
+        // æ­©ãã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®è§£é™¤
         animator.SetBool("Run", false);
-        // Œ¸‘¬ˆ—
+        // æ¸›é€Ÿå‡¦ç†
         moveAccel -= moveDecelSpeed * Time.deltaTime;
         moveAccel = Mathf.Lerp(0, 1, moveAccel);
     }
