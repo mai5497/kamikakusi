@@ -34,28 +34,39 @@ public class HintObj : MonoBehaviour {
     public bool isWindowColl;   // 窓と当たったかフラグ
 
     private mado _mado;     // 窓オブジェクトについている窓スクリプト
-   
+
+    [System.NonSerialized]
+    public bool isCheckThis;    // このオブジェクトが窓で覗かれたか
+
     // Start is called before the first frame update
     void Start() {
         isWindowColl = false;
 
         _mado = GameObject.Find("Lens").GetComponent<mado>();
+
+        isCheckThis = false;
     }
 
     // Update is called once per frame
     void Update() {
-        if (isWindowColl && CPData.isLook) {
-            CPData.isRightAnswer = true;
-        }
+        //if (isWindowColl && CPData.isLook) {
+        //    CPData.isRightAnswer = true;
+        //}
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = true;
-            _mado.SetLookObjName(objName, uraObjName);    
+            _mado.SetLookObjName(objName, uraObjName);
+            if (isCheckThis == false && CPData.paperCnt > 0) {
+                if (CPData.isLens && CPData.isKokkurisan) {
+                    isCheckThis = true;
+                    CPData.paperCnt--;
+                }
+            }
         }
-    }
 
+    }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = false;
