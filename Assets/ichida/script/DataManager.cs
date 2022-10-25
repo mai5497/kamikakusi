@@ -126,10 +126,22 @@ public class DataManager : MonoBehaviour
         SoundData.SEDataSet(se_back, (int)SoundData.eSE.SE_BACK);
         SoundData.SEDataSet(se_select, (int)SoundData.eSE.SE_SELECT);
         SoundData.SEDataSet(se_decision, (int)SoundData.eSE.SE_DICISION);
+        SoundData.SEDataSet(se_clear, (int)SoundData.eSE.SE_CLEAR);
+        SoundData.SEDataSet(se_gameover, (int)SoundData.eSE.SE_GAMEOVER);
+        SoundData.SEDataSet(se_get, (int)SoundData.eSE.SE_GET);
+        SoundData.SEDataSet(se_hit, (int)SoundData.eSE.SE_HIT);
+        SoundData.SEDataSet(se_kokkurisan, (int)SoundData.eSE.SE_KOKKURISAN);
+        SoundData.SEDataSet(se_miss, (int)SoundData.eSE.SE_MISS);
 
         SoundData.SEVolume[(int)SoundData.eSE.SE_BACK] = 1.0f;
         SoundData.SEVolume[(int)SoundData.eSE.SE_SELECT] = 1.0f;
         SoundData.SEVolume[(int)SoundData.eSE.SE_DICISION] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_CLEAR] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_GAMEOVER] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_GET] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_HIT] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_KOKKURISAN] = 1.0f;
+        SoundData.SEVolume[(int)SoundData.eSE.SE_MISS] = 1.0f;
 
         //-----------------------------------------------------
         // Efect

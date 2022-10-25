@@ -31,7 +31,7 @@ public static class SoundData
         SE_BACK = 0,
         SE_DICISION,
         SE_SELECT,
-        SE_SLEAR,
+        SE_CLEAR,
         SE_GAMEOVER,
         SE_GET,
         SE_HIT,

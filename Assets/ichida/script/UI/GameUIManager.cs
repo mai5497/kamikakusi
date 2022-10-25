@@ -15,8 +15,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
-public class GameUIManager : MonoBehaviour
-{
+public class GameUIManager : MonoBehaviour {
     private GameObject canvasObj;       // UI表示のためのキャンバスがあるオブジェクトの格納
     private Canvas canvas;              // UI表示のためのキャンバス
 
@@ -33,6 +32,8 @@ public class GameUIManager : MonoBehaviour
     private GameObject tutorial;
     private Tutorial _Tutorial;
 
+    private FoxByakko _FoxByakko;       // クリアフラグの取得
+
 
     void Awake() {
         UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
@@ -40,6 +41,12 @@ public class GameUIManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        //----- ゲームクリアだったら表示しないためクリアフラグ取得準備 -----
+        if (GameObject.Find("FoxByakko")) {
+            _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
+        }
+
+        //----- チュートリアルだったら表示しないためチュートリアルフラグの取得準備 -----
         tutorial = GameObject.Find("FoxTutorial");
         if (tutorial) {
             _Tutorial = tutorial.GetComponent<Tutorial>();
@@ -70,7 +77,7 @@ public class GameUIManager : MonoBehaviour
 #if UNITY_EDITOR
             Debug.LogError("<color=red>gameUIのパネル入れ忘れてる！</color>");
 #endif
-        }else {
+        } else {
             gameUIEntity = Instantiate(gameUI);
             gameUIEntity.transform.SetParent(canvas.transform, false);
         }
@@ -88,7 +95,8 @@ public class GameUIManager : MonoBehaviour
 
     private void OnEnable() {
         //---Actionイベントを登録
-        UIActionAssets.UI.Switching.started += OnSwitchUI;
+        UIActionAssets.UI.Switching.started += OpenSwitchUI;
+        UIActionAssets.UI.Switching.canceled += OffSwitchUI;
 
         //---InputActionの有効化
         UIActionAssets.UI.Enable();
@@ -102,8 +110,7 @@ public class GameUIManager : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (CPData.isObjNameUI) {
             hintUIEntity.SetActive(true);
             gameUIEntity.SetActive(false);
@@ -113,17 +120,27 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    private void OnSwitchUI(InputAction.CallbackContext obj) {
+    private void OpenSwitchUI(InputAction.CallbackContext obj) {
         if (tutorial) {
-          
             if (_Tutorial.isTutorial) {
                 return;
             }
         }
-        if (CPData.isPose)
-        {
+        if (CPData.isPose || _FoxByakko.isClear) {
             return;
         }
-        CPData.isObjNameUI = !CPData.isObjNameUI;
+        CPData.isObjNameUI = true;
+    }
+
+    private void OffSwitchUI(InputAction.CallbackContext obj) {
+        if (tutorial) {
+            if (_Tutorial.isTutorial) {
+                return;
+            }
+        }
+        if (CPData.isPose || _FoxByakko.isClear) {
+            return;
+        }
+        CPData.isObjNameUI = false;
     }
 }

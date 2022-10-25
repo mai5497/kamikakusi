@@ -264,6 +264,7 @@ public class Kokkurisan : MonoBehaviour
                         {
                             ef.Play();
                         }
+                        SoundManager2.Play(SoundData.eSE.SE_HIT, SoundData.GameAudioList);
                     }
                     if (isSideClear)
                     {
@@ -271,6 +272,7 @@ public class Kokkurisan : MonoBehaviour
                         {
                             ef.Play();
                         }
+                        SoundManager2.Play(SoundData.eSE.SE_HIT, SoundData.GameAudioList);
                     }
                 }
 
