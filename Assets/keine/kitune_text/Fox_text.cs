@@ -12,6 +12,9 @@ public class Fox_text : MonoBehaviour
     private RectTransform rec;
     public CP_move01 move;
 
+    public string No1Text;
+    public string No2Text;
+    public string No3Text;
 
     private int count = 0;
 
@@ -82,15 +85,15 @@ public class Fox_text : MonoBehaviour
                 {
                     text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
                 }
-                text.text = "‚¤‚í‚ ‚ ‚ ";
+                text.text = No1Text;
                 break;
 
             case 1:
-                text.text = "‚¢‚¬‚á‚ ‚ ";
+                text.text = No2Text;
                 break;
 
             case 3:
-                text.text = "‚ª‚Í‚Í";
+                text.text = No3Text;
 
                 break;
 
