@@ -146,16 +146,18 @@ public class select : MonoBehaviour {
             selectNo = selectNoMin;
         }
 
-        if (isDicision) {
+        //  if (isDicision) {
+        if (keyboard.enterKey.wasReleasedThisFrame)
+        {
             switch (selectNo) {
                 case 0:
                     //ステージセレクトへ遷移
-                    //SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
+                    SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
                     break;
 
                 case 1:
                     //次のステージへ
-                    //SceneManagerFade.LoadSceneNextStage();
+                    SceneManagerFade.LoadSceneNextStage();
                     break;
 
             }
