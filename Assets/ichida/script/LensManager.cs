@@ -82,6 +82,9 @@ public class LensManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ÉJÉÅÉâÇÃéÊìæ
+        cameraTrans = Camera.main.transform;
+
         if (oldPlayerPos != CPData.playerPos)
         {
             isLensInit = true;
@@ -156,8 +159,6 @@ public class LensManager : MonoBehaviour
         Vector3 newLensPos = lensObj.transform.position;
         moveVal.x = _Player.GetMoveValue().x * lensSpeed * moveAccel * Time.deltaTime;
         moveVal.y = _Player.GetMoveValue().y * lensSpeed * moveAccel * Time.deltaTime;
-
-        cameraTrans = Camera.main.transform;
 
         newLensPos.x += moveVal.x;
         newLensPos.y += moveVal.y;
