@@ -199,8 +199,8 @@ public class LensManager : MonoBehaviour
 
         lensObj.transform.position = new Vector2(
                      //ÉGÉäÉAéwíËÇµÇƒà⁄ìÆÇ∑ÇÈ
-                     Mathf.Clamp(newLensPos.x, -8.5f, 8.5f),
-                     Mathf.Clamp(newLensPos.y, -4.5f, 4.5f)
+                     Mathf.Clamp(newLensPos.x, -(9.0f - cameraHosei.x) + cameraTrans.position.x, (9.0f - cameraHosei.x) + cameraTrans.position.x),
+                     Mathf.Clamp(newLensPos.y, -(5.0f - cameraHosei.y) + cameraTrans.position.y, (5.0f - cameraHosei.y) + cameraTrans.position.y)
                      );
 
         // å∏ë¨èàóù
