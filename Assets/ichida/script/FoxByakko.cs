@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoxByakko : MonoBehaviour
-{
+public class FoxByakko : MonoBehaviour {
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
     private SpriteRenderer sr;  // 狐のスプライトレンダラー
@@ -64,10 +63,11 @@ public class FoxByakko : MonoBehaviour
         if (!isWindowColl && oldIsLook && !CPData.isLook) {    // 窓が当たっていないときに注視されたとき
             if (_ZoomLens.valueZoomLerp > 0.9) {
                 CPData.lookCnt--;
+                SoundManager2.Play(SoundData.eSE.SE_MISS, SoundData.GameAudioList);
             }
         }
 
-            if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
+        if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
 
@@ -76,9 +76,9 @@ public class FoxByakko : MonoBehaviour
                 sr.color = new Color(1, 1, 1, alpha);
             } else if (alpha > 1.0) {
                 isDeleting = true;
-                foreach(ParticleSystem ef in efFindList)
-                {
+                foreach (ParticleSystem ef in efFindList) {
                     ef.Play();
+                    SoundManager2.Play(SoundData.eSE.SE_GET, SoundData.GameAudioList);
                 }
             }
         } else if (isDeleting) {

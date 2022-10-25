@@ -82,8 +82,10 @@ public class CanvasOnOff : MonoBehaviour
         if (CPData.isKokkurisan) {
             if (obj.ReadValue<float>() > 0) {
                 isKituneORHuman = true;
+                SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
             } else {
                 isKituneORHuman = false;
+                SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
             }
         }
     }
