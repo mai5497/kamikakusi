@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 19fd11fe1d75f3a4c96bbc4c996e5d82, type: 3}
+    - target: {fileID: 289109746337199590, guid: 6bf9112f070440742802a0a2646b956c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 901205522317252278, guid: 6bf9112f070440742802a0a2646b956c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -228,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b1faec448e4d80d4e8c5cf1b3e0281bd, type: 3}
+    - target: {fileID: 3711256201819200494, guid: 6bf9112f070440742802a0a2646b956c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 6bf9112f070440742802a0a2646b956c, type: 3}
       propertyPath: objName
       value: "\u3057\u305D\u3046"
@@ -324,6 +332,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 31249f2f0850e1546b4c29325931b55b, type: 3}
+    - target: {fileID: 289109746337199590, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 904095519015727634, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Size.x
       value: 2.063777
@@ -396,6 +408,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 19fd11fe1d75f3a4c96bbc4c996e5d82, type: 3}
+    - target: {fileID: 3711256201819200494, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: objName
       value: "\u304B\u3044\u3068\u3046"
@@ -490,6 +506,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b1faec448e4d80d4e8c5cf1b3e0281bd, type: 3}
+    - target: {fileID: 289109746337199590, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 904095519015727634, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Size.x
       value: 1.7557344
@@ -562,6 +582,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c9c3110095ac8f949a506d04127c3191, type: 3}
+    - target: {fileID: 3711256201819200494, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: objName
       value: "\u3042\u3057\u3055\u3044"
@@ -642,11 +666,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 289109746337199590, guid: 359192b90e1c8544cbc98cd767d96cdd, type: 3}
       propertyPath: m_Size.x
-      value: 2.12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 289109746337199590, guid: 359192b90e1c8544cbc98cd767d96cdd, type: 3}
       propertyPath: m_Size.y
-      value: 5.79
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 289109746337199590, guid: 359192b90e1c8544cbc98cd767d96cdd, type: 3}
       propertyPath: m_Sprite
@@ -724,6 +748,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 31249f2f0850e1546b4c29325931b55b, type: 3}
+    - target: {fileID: 3711256201819200494, guid: 359192b90e1c8544cbc98cd767d96cdd, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 359192b90e1c8544cbc98cd767d96cdd, type: 3}
       propertyPath: objName
       value: "\u3044\u3061\u3057\u304F"
