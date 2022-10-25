@@ -82,6 +82,10 @@ public class LensManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CPData.isPose) {    // ポーズ中は全ての窓の処理をしないためここで返す
+            return;
+        }
+
         if (oldPlayerPos != CPData.playerPos)
         {
             isLensInit = true;
