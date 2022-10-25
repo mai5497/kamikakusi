@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameUI: {fileID: 311942214118435195, guid: 9744116de7bd46c40b4e4578d9794267, type: 3}
   hintUI: {fileID: 2105147076538734344, guid: bce7c3711fd2af643aa70a1ddd6ff11c, type: 3}
+  pauseUI: {fileID: 2465102808049769002, guid: 80c57088f9bc31149b49983f81aca10e, type: 3}

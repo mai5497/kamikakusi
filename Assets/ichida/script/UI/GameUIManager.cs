@@ -27,6 +27,10 @@ public class GameUIManager : MonoBehaviour {
     private GameObject hintUI;         // ヒントとオブジェクトの名前を表示するUI
     private GameObject hintUIEntity;   // ヒントとオブジェクトの名前を表示するUIの実体
 
+    [SerializeField]
+    private GameObject pauseUI;         // ポーズのUI
+    private GameObject pauseUIEntity;   // ポーズのUIの実体
+
     private CP_move_input UIActionAssets;        // InputActionのUIを扱う
 
     private GameObject tutorial;
@@ -91,6 +95,17 @@ public class GameUIManager : MonoBehaviour {
             hintUIEntity.transform.SetParent(canvas.transform, false);
             hintUIEntity.SetActive(false);   // 始めは非表示
         }
+
+        if (!pauseUI) {
+#if UNITY_EDITOR
+            Debug.LogError("<color=red>ポーズのパネル入れ忘れてる！</color>");
+#endif
+        } else {
+            pauseUIEntity = Instantiate(pauseUI);
+            pauseUIEntity.transform.SetParent(canvas.transform, false);
+            pauseUIEntity.SetActive(false);   // 始めは非表示
+        }
+
     }
 
     private void OnEnable() {
@@ -114,9 +129,15 @@ public class GameUIManager : MonoBehaviour {
         if (CPData.isObjNameUI) {
             hintUIEntity.SetActive(true);
             gameUIEntity.SetActive(false);
+            pauseUIEntity.SetActive(false);
+        }else if(CPData.isPose){
+            hintUIEntity.SetActive(false);
+            gameUIEntity.SetActive(false);
+            pauseUIEntity.SetActive(true);
         } else {
             hintUIEntity.SetActive(false);
             gameUIEntity.SetActive(true);
+            pauseUIEntity.SetActive(false);
         }
     }
 
