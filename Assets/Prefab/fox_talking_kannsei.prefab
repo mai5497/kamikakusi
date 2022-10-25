@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139375544612367791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67, y: 60, z: 0}
-  m_LocalScale: {x: 594.02, y: 547.0113, z: 341.88202}
+  m_LocalPosition: {x: -295, y: 385, z: 0}
+  m_LocalScale: {x: 657.58374, y: 605.54486, z: 378.46548}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2139375545834895070}
@@ -125,9 +125,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139375545332215490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 560, y: -356.8, z: -9720}
-  m_LocalScale: {x: 60.270477, y: 60.270477, z: 60.270477}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 560, y: -379, z: -9720}
+  m_LocalScale: {x: 42.399693, y: 42.399693, z: 42.399693}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2139375545702136938}
   m_RootOrder: -1
@@ -231,7 +231,7 @@ RectTransform:
   - {fileID: 2139375544612367776}
   - {fileID: 2139375545332215492}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -382,7 +382,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!114 &2139375545834895057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 5873942910647825290}
   - component: {fileID: 5873942910647825288}
   m_Layer: 0
-  m_Name: Square
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
