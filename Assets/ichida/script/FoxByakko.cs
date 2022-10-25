@@ -68,6 +68,7 @@ public class FoxByakko : MonoBehaviour {
         }
 
         if (_Kokkurisan.isClear && isWindowColl && CPData.isLook && !isDeleting) {
+            // Ç†ÇΩÇËÅI
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
 
