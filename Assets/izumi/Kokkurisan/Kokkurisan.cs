@@ -81,6 +81,9 @@ public class Kokkurisan : MonoBehaviour
     [Header("狐の窓のものを見つけた時")]
     public Sprite frameFind;
 
+    [Header("狐の窓で物を見つけたか")]
+    public static bool isFind;
+
     [Header("〇が付いた文字_人の目")]
     public string normalMaruStr;
     [Header("〇が付いた文字_狐の目")]
@@ -191,10 +194,12 @@ public class Kokkurisan : MonoBehaviour
         if (normalAnswerStr != null)
         {
             frame.sprite = frameFind;
+            isFind = true;
         }
         else
         {
             frame.sprite = frameNormal;
+            isFind = false;
         }
 
         // 回答した文字の表示
@@ -293,26 +298,26 @@ public class Kokkurisan : MonoBehaviour
         // 人の目
         if (isNormal)
         {
-            normalNoImage.enabled = false;
-            foxYesImage.enabled = false;
-            normalYesImage.enabled = true;
-            foxNoImage.enabled = true;
+            normalNoImage.gameObject.SetActive(false);
+            foxYesImage.gameObject.SetActive(false);
+            normalYesImage.gameObject.SetActive(true);
+            foxNoImage.gameObject.SetActive(true);
         }
         // 狐の目
         else if (isFox)
         {
-            normalYesImage.enabled = false;
-            foxNoImage.enabled = false;
-            foxYesImage.enabled = true;
-            normalNoImage.enabled = true;
+            normalYesImage.gameObject.SetActive(false);
+            foxNoImage.gameObject.SetActive(false);
+            foxYesImage.gameObject.SetActive(true);
+            normalNoImage.gameObject.SetActive(true);
         }
         // どちらでもない
         else
         {
-            normalYesImage.enabled = false;
-            foxYesImage.enabled = false;
-            normalNoImage.enabled = true;
-            foxNoImage.enabled = true;
+            normalYesImage.gameObject.SetActive(false);
+            foxYesImage.gameObject.SetActive(false);
+            normalNoImage.gameObject.SetActive(true);
+            foxNoImage.gameObject.SetActive(true);
         }
 
         isNormalBefore = isNormal;

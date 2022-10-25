@@ -282,6 +282,11 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintKey(InputAction.CallbackContext obj)
     {
+        if(!CPData.isLens || !Kokkurisan.isFind)
+        {
+            return;
+        }
+
         if (CPData.isPose)
         {
             return;
@@ -294,6 +299,11 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintButton(InputAction.CallbackContext obj)
     {
+        if (!CPData.isLens || !Kokkurisan.isFind)
+        {
+            return;
+        }
+
         if (CPData.isPose)
         {
             return;
