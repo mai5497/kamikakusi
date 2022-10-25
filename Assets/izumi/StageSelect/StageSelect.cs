@@ -135,6 +135,12 @@ public class StageSelect : MonoBehaviour
         }
         #endregion
 
+        #region サウンド再生
+        for (int i = 0; i < SoundData.SelectAudioList.Length; ++i) {
+            SoundData.SelectAudioList[i] = gameObject.AddComponent<AudioSource>();
+        }
+        SoundManager2.Play(SoundData.eBGM.BGM_SELECT, SoundData.SelectAudioList);
+        #endregion
     }
 
     // Update is called once per frame
@@ -355,6 +361,7 @@ public class StageSelect : MonoBehaviour
             {
                 selectNo--;
                 isInputSelect = true;
+                SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.SelectAudioList);
             }
         }
         // 右入力
@@ -364,6 +371,7 @@ public class StageSelect : MonoBehaviour
             {
                 selectNo++;
                 isInputSelect = true;
+                SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.SelectAudioList);
             }
         }
         // 入力リセット
@@ -392,6 +400,7 @@ public class StageSelect : MonoBehaviour
     private void OnDicision(InputAction.CallbackContext obj)
     {
         inputDicision = !inputDicision;
+        SoundManager2.Play(SoundData.eSE.SE_DICISION, SoundData.SelectAudioList);
     }
 
     /// <summary>
@@ -400,5 +409,6 @@ public class StageSelect : MonoBehaviour
     private void OnBack(InputAction.CallbackContext obj)
     {
         inputBack = !inputBack;
+        SoundManager2.Play(SoundData.eSE.SE_BACK, SoundData.SelectAudioList);
     }
 }

@@ -97,7 +97,7 @@ public class Start001 : MonoBehaviour
             if (isSelect)
             {
                 //fadein.fade_in_use("Alpha 1", image);
-
+                SoundManager2.Play(SoundData.eSE.SE_DICISION, SoundData.TitleAudioList);
                 // ‚Í‚¶‚ß‚©‚ç
                 SceneManagerFade.LoadSceneMain(0, 0);
                 isFade = false;
@@ -114,6 +114,7 @@ public class Start001 : MonoBehaviour
             }
             else
             {
+                SoundManager2.Play(SoundData.eSE.SE_DICISION, SoundData.TitleAudioList);
                 // ‚Â‚Ã‚«‚©‚ç
                 SceneManagerFade.LoadSceneMain(ClearManager.GetNowWorld(), ClearManager.GetNowStage());
                 isFade = false;

@@ -42,9 +42,6 @@ public class ObjNameListUI : MonoBehaviour {
 
     private Kokkurisan _Kokkurisan; // 窓で見てるオブジェクトが何かを取得する
 
-    private string hatenaStr;
-    private string notHatenaStr;
-
 
     // Start is called before the first frame update
     void Start() {
@@ -52,8 +49,6 @@ public class ObjNameListUI : MonoBehaviour {
         if (GameObject.Find("CanvasKokkurisan")) {
             _Kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
         }
-        hatenaStr = "";
-        notHatenaStr = "";
 
         //----- 文字を表示するテキストボックスを左右に分けたからそれぞれ取得 -----
         textObj[0] = transform.GetChild(0).gameObject;  // 左
@@ -140,7 +135,7 @@ public class ObjNameListUI : MonoBehaviour {
     }
 
     void Update() {
-        bool _isCheckWord = false;
+        bool _isCheckWord = false;  // 値に変更がかかったかのフラグ
         for (int i = 0; i < 10; i++) {
             if (hatenaNameList[i] == null) {
                 continue;

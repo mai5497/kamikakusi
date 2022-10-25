@@ -17,7 +17,7 @@ using UnityEngine;
 public class SceneManagerData
 {
     [Header("タイトルシーン名")]
-    public static string titleScene = "title";
+    public static string titleScene = "Title";
     [Header("ステージセレクトシーン名")]
     public static string stageSelectScene = "StageSelect";
     [Header("メインシーン名リスト")]  // string[ワールド番号,ステージ番号]

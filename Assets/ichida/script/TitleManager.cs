@@ -11,7 +11,7 @@ public class TitleManager : MonoBehaviour
         for (int i = 0; i < SoundData.TitleAudioList.Length; ++i) {
             SoundData.TitleAudioList[i] = gameObject.AddComponent<AudioSource>();
         }
-        SoundManager2.Play(SoundData.eBGM.BGM_GAME01, SoundData.TitleAudioList);
+        SoundManager2.Play(SoundData.eBGM.BGM_TITLE, SoundData.TitleAudioList);
     }
 
     // Update is called once per frame
