@@ -48,6 +48,19 @@ public class DataManager : MonoBehaviour
     private AudioClip se_decision;
     [SerializeField]
     private AudioClip se_select;
+    [SerializeField]
+    private AudioClip se_clear;
+    [SerializeField]
+    private AudioClip se_gameover;
+    [SerializeField]
+    private AudioClip se_get;
+    [SerializeField]
+    private AudioClip se_hit;
+    [SerializeField]
+    private AudioClip se_kokkurisan;
+    [SerializeField]
+    private AudioClip se_miss;
+
 
 
     //-----------------------------------------------------

@@ -31,17 +31,25 @@ public static class SoundData
         SE_BACK = 0,
         SE_DICISION,
         SE_SELECT,
+        SE_SLEAR,
+        SE_GAMEOVER,
+        SE_GET,
+        SE_HIT,
+        SE_KOKKURISAN,
+        SE_MISS,
+
 
         MAX_SE
-    }
+}
 
     public static AudioClip[] BGMClip = new AudioClip[(int)eBGM.MAX_BGM];   // ƒf[ƒ^‚ğ‚Ü‚Æ‚ß‚Ä“ü‚ê‚é
     public static AudioClip[] SEClip = new AudioClip[(int)eSE.MAX_SE];
     public static float[] SEVolume = new float[(int)eSE.MAX_SE];
 
-    public static AudioSource[] TitleAudioList = new AudioSource[20];    // ˆê‰ñ‚É“¯‚É‚È‚ç‚¹‚é”
+    public static AudioSource[] TitleAudioList = new AudioSource[5];    // ˆê‰ñ‚É“¯‚É‚È‚ç‚¹‚é”
+    public static AudioSource[] SelectAudioList = new AudioSource[5];    // ˆê‰ñ‚É“¯‚É‚È‚ç‚¹‚é”
     public static AudioSource[] IndelibleAudioList = new AudioSource[10];    // ˆê‰ñ‚É“¯‚É‚È‚ç‚¹‚é”
-    public static AudioSource[] GameAudioList = new AudioSource[30];    // ˆê‰ñ‚É“¯‚É‚È‚ç‚¹‚é”
+    public static AudioSource[] GameAudioList = new AudioSource[10];    // ˆê‰ñ‚É“¯‚É‚È‚ç‚¹‚é”
 
     public static bool isSetSound = false;
 

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6789750497463595694
 MonoBehaviour:
@@ -52,3 +52,9 @@ MonoBehaviour:
   se_back: {fileID: 8300000, guid: 8dcbd972657cb4a41a3f118b9a28d1d5, type: 3}
   se_decision: {fileID: 8300000, guid: 133cae78680c6da44ba8418d4218bb4c, type: 3}
   se_select: {fileID: 8300000, guid: e27ac8198e81d924ba3278f04d91d56e, type: 3}
+  se_clear: {fileID: 8300000, guid: 391b80ab640c7954caed32d97f103c8b, type: 3}
+  se_gameover: {fileID: 8300000, guid: 389f33256f297cd46bbd0d2042348873, type: 3}
+  se_get: {fileID: 8300000, guid: b2f007eafb2a3974eb937cdcccacf641, type: 3}
+  se_hit: {fileID: 8300000, guid: ce509eba532034742b33ffd52183495d, type: 3}
+  se_kokkurisan: {fileID: 8300000, guid: e246eb8023b7c67488dbd8afad021096, type: 3}
+  se_miss: {fileID: 8300000, guid: f06cf61ff6dbd83468f8b0937c02e278, type: 3}

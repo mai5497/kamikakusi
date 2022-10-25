@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 
 public class select : MonoBehaviour {
@@ -95,7 +95,7 @@ public class select : MonoBehaviour {
             }else if (gamepad.dpad.down.wasReleasedThisFrame)
             {
                 inputSelectCon.y = -1.0f;
-            }else
+            } else
             {
                 inputSelectCon.y = 0.0f;
             }
@@ -103,7 +103,7 @@ public class select : MonoBehaviour {
         Keyboard keyboard = Keyboard.current;
         if (keyboard.wKey.wasReleasedThisFrame) {
             inputSelect.y = 1.0f;
-        }else if (keyboard.sKey.wasReleasedThisFrame) {
+        } else if (keyboard.sKey.wasReleasedThisFrame) {
             inputSelect.y = -1.0f;
         } else {
             inputSelect.y = 0.0f;
@@ -113,14 +113,24 @@ public class select : MonoBehaviour {
         if (inputSelect.y > -0.0f || inputSelectCon.y > 0.0f) {
             //if (!isInputSelect) {
                 selectNo--;
-                //isInputSelect = true;
+            if (SceneManager.GetActiveScene().name == SceneManagerData.titleScene) {
+                SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.TitleAudioList);
+            } else {
+                SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.GameAudioList);
+            }
+            //isInputSelect = true;
             //}
         }
         // 右入力
         else if (inputSelect.y < 0.0f || inputSelectCon.y < 0.0f) {
            // if (!isInputSelect) {
                 selectNo++;
-                //isInputSelect = true;
+            if (SceneManager.GetActiveScene().name == SceneManagerData.titleScene) {
+                SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.TitleAudioList);
+            } else {
+                SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.GameAudioList);
+            }
+            //isInputSelect = true;
             //}
         }
         // 入力リセット
