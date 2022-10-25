@@ -16,11 +16,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class mado : MonoBehaviour {
-    private GameObject fox; // 狐のオブジェクト
-    private CircleCollider2D foxCol;    // 狐のコライダー
-    private Fox _Fox;   //狐オブジェクトについている狐クラス
-
-    private CircleCollider2D windowCol;
+    private GameObject fox; // 狐のオブジェクト(親)
 
     private string lookObjName; // 今見ているオブジェクトの名前
     private string lookUraObjName; // 今見ているオブジェクトの名前
@@ -29,13 +25,10 @@ public class mado : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        fox = GameObject.FindWithTag("Fox");
-        _Fox = fox.GetComponent<Fox>();
-        foxCol = fox.GetComponent<CircleCollider2D>();
-
-        windowCol = GetComponent<CircleCollider2D>();
-
         kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
+
+        fox = GameObject.Find("Fox");
+
     }
 
     // Update is called once per frame
@@ -44,21 +37,10 @@ public class mado : MonoBehaviour {
 
         kokkurisan.kituneAnswerStr = lookUraObjName;
         kokkurisan.normalAnswerStr = lookObjName;
-        
-        //if (!CPData.isLens) {
-        //    return; // 窓使用中でなければこのスクリプトにやることはないので返す
-        //}
 
-        //// 指定した範囲にモノがあるかの判定
-        //if (Physics2D.OverlapCircle(fox.transform.position, 0) == windowCol) {
-        //Debug.Log("きつね?");
-        //    if (CPData.isLook) {
-        //        _Fox.isWindowColl = true;
-        //        Debug.Log("きつね！");
-        //    } else {
-        //        _Fox.isWindowColl = false;
-        //    }
-        //}
+        if (kokkurisan.isClear) {
+            fox.transform.position = this.transform.position;
+        }
     }
 
     /// <summary>

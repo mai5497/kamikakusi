@@ -47,17 +47,12 @@ public class HintObj : MonoBehaviour {
         isCheckThis = false;
     }
 
-    // Update is called once per frame
-    void Update() {
-        //if (isWindowColl && CPData.isLook) {
-        //    CPData.isRightAnswer = true;
-        //}
-    }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = true;
             _mado.SetLookObjName(objName, uraObjName);
+            //----- ‚±‚Á‚­‚è‚³‚ñ‚ÌŽ†‚ÌƒJƒEƒ“ƒg -----
             if (isCheckThis == false && CPData.paperCnt > 0) {
                 if (CPData.isLens && CPData.isKokkurisan) {
                     isCheckThis = true;
