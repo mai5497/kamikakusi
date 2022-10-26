@@ -21,11 +21,15 @@ public class ZoomLens : MonoBehaviour
     // カメラ前フレームフラグ
     private bool isBeforeZoom;
     [Header("カメラ")]
-    public Camera _camera;
+    private Camera _camera;
+    [Header("多重スクロールカメラ")]
+    private List<Camera> _cameraMultList = new List<Camera>();
     [Header("カメラの初期値")]
     public float cameraInit = 5;
     [Header("注視時のズームの値")]
     public float cameraZoom = 3;
+    [Header("多重スクロールカメラのズームの値")]
+    public float _cameraMultZoom = 5;
     [Header("ズームする座標")]
     public Transform pointZoom;
     [Header("ズーム速度")]
@@ -38,13 +42,29 @@ public class ZoomLens : MonoBehaviour
     private Canvas canvasLens;
 
     private Vector3 cameraInitPos;
+    private List<Vector3> cameraMultInitPosList = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
     {
+        _camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (GameObject.Find("CameraForward") != null)
+        {
+            _cameraMultList.Add(GameObject.Find("CameraForward").GetComponent<Camera>());
+            _cameraMultList.Add(GameObject.Find("CameraMiddle1").GetComponent<Camera>());
+            _cameraMultList.Add(GameObject.Find("CameraMiddle2").GetComponent<Camera>());
+            _cameraMultList.Add(GameObject.Find("CameraMiddle3").GetComponent<Camera>());
+            _cameraMultList.Add(GameObject.Find("CameraBack").GetComponent<Camera>());
+        }
+
         canvasLens = this.GetComponent<Canvas>();
 
         cameraInitPos = _camera.transform.position;
+
+        for (int i = 0; i < _cameraMultList.Count; i++)
+        {
+            cameraMultInitPosList.Add(_cameraMultList[i].transform.position);
+        }
     }
 
     // Update is called once per frame
@@ -56,6 +76,10 @@ public class ZoomLens : MonoBehaviour
             if (isBeforeZoom != isZoom)
             {
                 cameraInitPos = _camera.transform.position;
+                for (int i = 0; i < _cameraMultList.Count; i++)
+                {
+                    cameraMultInitPosList[i] = (_cameraMultList[i].transform.position);
+                }
             }
             // canvasをワールド座標に(手がズームと一緒に動かないようにするため)
             canvasLens.renderMode = RenderMode.WorldSpace;
@@ -69,6 +93,11 @@ public class ZoomLens : MonoBehaviour
 
             _camera.orthographicSize = Mathf.Lerp(cameraInit, cameraZoom, valueZoomLerp);
             _camera.transform.position = Vector3.Lerp(new Vector3(cameraInitPos.x, cameraInitPos.y, _camera.transform.position.z), new Vector3(pointZoom.position.x, pointZoom.position.y, _camera.transform.position.z), valueZoomLerp);
+
+            for (int i = 0; i < _cameraMultList.Count; i++)
+            {
+                _cameraMultList[i].transform.position = Vector3.Lerp(cameraMultInitPosList[i], new Vector3(pointZoom.position.x + (cameraMultInitPosList[i].x - cameraInitPos.x), pointZoom.position.y + (cameraMultInitPosList[i].y - cameraInitPos.y), _cameraMultList[i].transform.position.z + _cameraMultZoom), valueZoomLerp);
+            }
         }
         // ズーム解除
         else
@@ -82,6 +111,11 @@ public class ZoomLens : MonoBehaviour
                 valueZoomLerp = 0;
                 _camera.orthographicSize = cameraInit;
                 _camera.transform.position = new Vector3(cameraInitPos.x, cameraInitPos.y, _camera.transform.position.z);
+
+                for (int i = 0; i < _cameraMultList.Count; i++)
+                {
+                    _cameraMultList[i].transform.position = cameraMultInitPosList[i];
+                }
             }
         }
         isBeforeZoom = isZoom;
