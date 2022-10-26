@@ -24,14 +24,12 @@ public class Fade_title_haikei1 : MonoBehaviour {
     private SpriteRenderer img = null;
     private SpriteRenderer oder = null;
     private float timer = 0.0f;
-    private int frameCount = 0;
     private bool fadeIn = false;
-    private bool fadeOut = false;
 
     //アクション取得用
     private InputAction _disicionAction;
 
-    private bool fading = false;
+    public bool fading = false;
     public bool title_finish = false;
     void Start() {
         img = GetComponent<SpriteRenderer>();
