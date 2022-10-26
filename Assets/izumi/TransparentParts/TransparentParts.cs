@@ -18,8 +18,6 @@ using UnityEngine;
 public class TransparentParts : MonoBehaviour
 {
     private bool isColFoxWindow;
-    // “–‚½‚è”»’è‰¡
-    private const float hitWidth = 1;
     // “–‚½‚è”»’è‰ŠúÀ•W
     private Vector2 hitInitPos;
     // “–‚½‚è”»’è‚Ì•â³
