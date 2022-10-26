@@ -92,12 +92,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330634803344665129}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 330634804988424762}
 --- !u!1 &330634804067658052
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 330634804988424762}
 --- !u!1 &330634804988424758
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform_oya: {fileID: 330634804988424757}
   text: {fileID: 330634804988424756}
-  move: {fileID: 0}
   TextList:
   - "\u30EF\u30B7\u3068\u304B\u304F\u308C\u3093\u307C\u3067\u52DD\u8CA0\u3058\u3083"
   - "\u30EF\u30B7\u306F\u3044\u308D\u3093\u306A\"\u30E2\u30CE\"\u306B\u96A0\u308C\u308B\u3053\u3068\u304C
@@ -318,7 +319,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   GazouImage: {fileID: 5233851096178636641}
-  FadeOut: {fileID: 0}
+  count: 0
   isTextFin: 0
 --- !u!114 &330634804988424761
 MonoBehaviour:
@@ -566,14 +567,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform_oya: {fileID: 1812188827220051817}
   text: {fileID: 1812188827220050069}
-  move: {fileID: 0}
   TextList:
   - "\u30EF\u30B7\u304C\u96A0\u308C\u308B\u30E2\u30CE\u306E\"\u540D\u524D\"\u306B\u306F\u3000"
   countMax: 1
   ImageList:
   - {fileID: 21300000, guid: 041504fabd1f15e4a8b9c6167ee96a9f, type: 3}
   GazouImage: {fileID: 1812188828072968097}
-  FadeOut: {fileID: 0}
+  count: 0
   isTextFin: 0
 --- !u!114 &1812188827220050071
 MonoBehaviour:
@@ -717,7 +717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 0}
 --- !u!1 &5233851096178636654
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,4 +816,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 330634804988424762}
