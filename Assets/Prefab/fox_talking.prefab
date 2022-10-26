@@ -97,6 +97,11 @@ MonoBehaviour:
   transform_oya: {fileID: 5491287957464080379}
   text: {fileID: 5491287957464080378}
   move: {fileID: 0}
+  TextList:
+  - 
+  - 
+  - 
+  countMax: 0
   FadeOut: {fileID: 0}
   isTextFin: 0
 --- !u!114 &5491287957464080375

@@ -293,8 +293,9 @@ public class CP_move01 : MonoBehaviour
         }
 
         // キーボードはキーを押したときに表示しかできないようになっているのでtrueのみ
-        //CPData.isKokkurisan = true;
         StartCoroutine("DelayKokkurisan");
+
+        SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
     }
 
     private void OpenHintButton(InputAction.CallbackContext obj)
@@ -310,6 +311,8 @@ public class CP_move01 : MonoBehaviour
         }
         // コントローラーはボタンを押したら表示非表示切り替えるのでトグル
         CPData.isKokkurisan = !CPData.isKokkurisan;
+
+        SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
     }
 
 
@@ -326,6 +329,7 @@ public class CP_move01 : MonoBehaviour
                     !keyboard.qKey.wasReleasedThisFrame)
                 {
                     CPData.isKokkurisan = false;
+                    SoundManager2.Play(SoundData.eSE.SE_BACK, SoundData.GameAudioList);
                 }
             }
         }

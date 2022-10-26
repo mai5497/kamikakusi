@@ -1,14 +1,14 @@
 //=============================================================================
 //
-// ŒÏ‚Ì‘‹‚Ì§Œä
+// ç‹ã®çª“ã®åˆ¶å¾¡
 //
-// ì¬“ú:2022/10/17
-// ì¬Ò:ˆÉ’n“c^ˆß
-// •ÒWÒ:ò—D÷
+// ä½œæˆæ—¥:2022/10/17
+// ä½œæˆè€…:ä¼Šåœ°ç”°çœŸè¡£
+// ç·¨é›†è€…:æ³‰å„ªæ¨¹
 //
-// <ŠJ”­—š—ğ>
-// 2022/10/17 ì¬
-// 2022/10/24 •ÒW(‰Á‘¬Œ¸‘¬)
+// <é–‹ç™ºå±¥æ­´>
+// 2022/10/17 ä½œæˆ
+// 2022/10/24 ç·¨é›†(åŠ é€Ÿæ¸›é€Ÿ)
 //
 //=============================================================================
 using System.Collections;
@@ -17,59 +17,59 @@ using UnityEngine;
 
 public class LensManager : MonoBehaviour
 {
-    [Header("‚Ú‚©‚µ")]
+    [Header("ã¼ã‹ã—")]
     [SerializeField]
     private BlurIn blurIn;
-    [Header("ƒŒƒ“ƒYƒIƒuƒWƒFƒNƒg")]
+    [Header("ãƒ¬ãƒ³ã‚ºã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     [SerializeField]
     private GameObject lensObj;
-    [Header("ƒY[ƒ€")]
+    [Header("ã‚ºãƒ¼ãƒ ")]
     [SerializeField]
     private ZoomLens zoomLens;
-    [Header("ƒŒƒ“ƒY‘¬“x”{—¦")]
+    [Header("ãƒ¬ãƒ³ã‚ºé€Ÿåº¦å€ç‡")]
     [SerializeField]
     private float lensSpeed = 0.05f;
 
 
     private CP_move01 _Player;
 
-    // ƒŒƒ“ƒY‰Â‹
+    // ãƒ¬ãƒ³ã‚ºå¯è¦–
     private EnableLens enableLens;
 
-    private bool oldIsLens;         // islens‚ªtrue‚É‚È‚Á‚½uŠÔ‚Ì‚İ‚·‚éˆ——p
-    private Vector2 oldPlayerPos;   // ˆÚ“®‚µ‚Ä‚¢‚È‚¯‚ê‚Îæ‚Ù‚Ç‚Ü‚Å•\¦‚µ‚Ä‚¢‚½êŠ‚É•\¦‚·‚éˆ×‚Ì•Ï”
+    private bool oldIsLens;         // islensãŒtrueã«ãªã£ãŸç¬é–“ã®ã¿ã™ã‚‹å‡¦ç†ç”¨
+    private Vector2 oldPlayerPos;   // ç§»å‹•ã—ã¦ã„ãªã‘ã‚Œã°å…ˆã»ã©ã¾ã§è¡¨ç¤ºã—ã¦ã„ãŸå ´æ‰€ã«è¡¨ç¤ºã™ã‚‹ç‚ºã®å¤‰æ•°
 
-    private bool isLensInit;    // ƒŒƒ“ƒY‚ÌˆÊ’u‚ğ‰Šú‰»‚·‚é‚©
+    private bool isLensInit;    // ãƒ¬ãƒ³ã‚ºã®ä½ç½®ã‚’åˆæœŸåŒ–ã™ã‚‹ã‹
 
     private RectTransform lensRT;
 
     private RectTransform lensCanvas;
 
-    // ‰Á‘¬“x
+    // åŠ é€Ÿåº¦
     public float moveAccel = 0.0f;
-    [Header("ˆÚ“®‰Á‘¬_‘¬“x")]
+    [Header("ç§»å‹•åŠ é€Ÿ_é€Ÿåº¦")]
     public float moveAccelSpeed;
-    [Header("ˆÚ“®Œ¸‘¬_‘¬“x")]
+    [Header("ç§»å‹•æ¸›é€Ÿ_é€Ÿåº¦")]
     public float moveDecelSpeed;
-    // Œ»İ‚ÌƒtƒŒ[ƒ€
+    // ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
     private int nowFrame = 0;
-    // •Û‘¶‚·‚éƒtƒŒ[ƒ€”
+    // ä¿å­˜ã™ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°
     private const int moveFrameMax = 10;
-    // ‰½ƒtƒŒ[ƒ€‘O‚ğg—p‚·‚é‚©
+    // ä½•ãƒ•ãƒ¬ãƒ¼ãƒ å‰ã‚’ä½¿ç”¨ã™ã‚‹ã‹
     private const int useFrame = 5;
-    // ƒvƒŒƒCƒ„[‘¬“x‚ğ–ˆƒtƒŒ[ƒ€•Û‘¶‚µ‚Ä‚¢‚éƒŠƒXƒg
+    // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼é€Ÿåº¦ã‚’æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ä¿å­˜ã—ã¦ã„ã‚‹ãƒªã‚¹ãƒˆ
     private Vector2[] moveBeforeList = new Vector2[moveFrameMax];
 
-    // ƒJƒƒ‰À•W
+    // ã‚«ãƒ¡ãƒ©åº§æ¨™
     private Transform cameraTrans;
-    [Header("ƒJƒƒ‰•â³’l")]
+    [Header("ã‚«ãƒ¡ãƒ©è£œæ­£å€¤")]
     public Vector2 cameraHosei = new Vector2(0.5f, 0.5f);
 
     // Start is called before the first frame update
     void Start()
     {
         _Player = GetComponent<CP_move01>();
-        // ƒŒƒ“ƒY‰Â‹‚Ìæ“¾
+        // ãƒ¬ãƒ³ã‚ºå¯è¦–ã®å–å¾—
         enableLens = lensObj.GetComponent<EnableLens>();
         lensRT = lensObj.GetComponent<RectTransform>();
 
@@ -82,7 +82,11 @@ public class LensManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ƒJƒƒ‰‚Ìæ“¾
+        if (CPData.isPose) {    // ãƒãƒ¼ã‚ºä¸­ã¯å…¨ã¦ã®çª“ã®å‡¦ç†ã‚’ã—ãªã„ãŸã‚ã“ã“ã§è¿”ã™
+            return;
+        }
+        
+        // ã‚«ãƒ¡ãƒ©ã®å–å¾—
         cameraTrans = Camera.main.transform;
 
         if (oldPlayerPos != CPData.playerPos)
@@ -96,13 +100,13 @@ public class LensManager : MonoBehaviour
         {
             if (blurIn.isBlur == false)
             {
-                // ‚Ú‚©‚µ,ƒŒƒ“ƒY‚Ì—LŒø
+                // ã¼ã‹ã—,ãƒ¬ãƒ³ã‚ºã®æœ‰åŠ¹
                 blurIn.isBlur = true;
                 enableLens.EnableImage(true);
             }
             else
             {
-                // ƒŒƒ“ƒY‚Ì–³Œø
+                // ãƒ¬ãƒ³ã‚ºã®ç„¡åŠ¹
                 blurIn.isBlur = false;
                 enableLens.EnableImage(false);
             }
@@ -110,7 +114,7 @@ public class LensManager : MonoBehaviour
             oldIsLens = CPData.isLens;
         }
 
-        // ƒŒƒ“ƒYˆÚ“®(’Êí‚Ì‚İ)
+        // ãƒ¬ãƒ³ã‚ºç§»å‹•(é€šå¸¸æ™‚ã®ã¿)
         if (!CPData.isKokkurisan && !CPData.isObjNameUI && CPData.isLens && blurIn.blurMode == BlurIn.BlurMode.Normal)
         {
             if (isLensInit)
@@ -134,25 +138,25 @@ public class LensManager : MonoBehaviour
         }
 
 
-        // ƒŒƒ“ƒY‚Ì’‹(‚Ú‚©‚µƒ‚[ƒh•ÏX)
+        // ãƒ¬ãƒ³ã‚ºã®æ³¨è¦–(ã¼ã‹ã—ãƒ¢ãƒ¼ãƒ‰å¤‰æ›´)
         if (CPData.isLook && CPData.isLens)
         {
             if (blurIn.blurMode == BlurIn.BlurMode.Normal)
             {
                 blurIn.blurMode = BlurIn.BlurMode.PressInit;
-                // ƒY[ƒ€ˆ—
+                // ã‚ºãƒ¼ãƒ å‡¦ç†
                 zoomLens.isZoom = true;
             }
         }
         else
         {
             blurIn.blurMode = BlurIn.BlurMode.Normal;
-            // ƒY[ƒ€‰ğœˆ—
+            // ã‚ºãƒ¼ãƒ è§£é™¤å‡¦ç†
             zoomLens.isZoom = false;
         }
     }
 
-    // “®‚«(‰Á‘¬)
+    // å‹•ã(åŠ é€Ÿ)
     private void UpdateMove()
     {
         Vector2 moveVal;
@@ -164,16 +168,16 @@ public class LensManager : MonoBehaviour
         newLensPos.y += moveVal.y;
 
         lensObj.transform.position = new Vector2(
-                     //ƒGƒŠƒAw’è‚µ‚ÄˆÚ“®‚·‚é
+                     //ã‚¨ãƒªã‚¢æŒ‡å®šã—ã¦ç§»å‹•ã™ã‚‹
                      Mathf.Clamp(newLensPos.x, -(9.0f - cameraHosei.x) + cameraTrans.position.x, (9.0f - cameraHosei.x) + cameraTrans.position.x),
                      Mathf.Clamp(newLensPos.y, -(5.0f - cameraHosei.y) + cameraTrans.position.y, (5.0f - cameraHosei.y) + cameraTrans.position.y)
                      );
 
-        // ‰Á‘¬ˆ—
+        // åŠ é€Ÿå‡¦ç†
         moveAccel += moveAccelSpeed * Time.deltaTime;
         moveAccel = Mathf.Lerp(0, 1, moveAccel);
 
-        // Œ»İƒtƒŒ[ƒ€‚ÉƒvƒŒƒCƒ„[‚Ì‘¬“x‚ğ•Û‘¶
+        // ç¾åœ¨ãƒ•ãƒ¬ãƒ¼ãƒ ã«ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®é€Ÿåº¦ã‚’ä¿å­˜
         moveBeforeList[nowFrame] = _Player.GetMoveValue();
         nowFrame++;
         if (nowFrame >= moveFrameMax)
@@ -181,12 +185,12 @@ public class LensManager : MonoBehaviour
             nowFrame = 0;
         }
     }
-    // ‘Ò‹@(Œ¸‘¬)
+    // å¾…æ©Ÿ(æ¸›é€Ÿ)
     private void UpdateIdle()
     {
         Vector2 moveVal;
         Vector3 newLensPos = lensObj.transform.position;
-        // w’è‚µ‚½ƒtƒŒ[ƒ€‚ÌƒvƒŒƒCƒ„[‚ÌˆÚ“®‘¬“x‚ğæ‚èo‚·
+        // æŒ‡å®šã—ãŸãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•é€Ÿåº¦ã‚’å–ã‚Šå‡ºã™
         int frame = nowFrame - useFrame;
         if (frame < 0)
         {
@@ -199,12 +203,12 @@ public class LensManager : MonoBehaviour
         newLensPos.y += moveVal.y;
 
         lensObj.transform.position = new Vector2(
-                     //ƒGƒŠƒAw’è‚µ‚ÄˆÚ“®‚·‚é
+                     //ã‚¨ãƒªã‚¢æŒ‡å®šã—ã¦ç§»å‹•ã™ã‚‹
                      Mathf.Clamp(newLensPos.x, -(9.0f - cameraHosei.x) + cameraTrans.position.x, (9.0f - cameraHosei.x) + cameraTrans.position.x),
                      Mathf.Clamp(newLensPos.y, -(5.0f - cameraHosei.y) + cameraTrans.position.y, (5.0f - cameraHosei.y) + cameraTrans.position.y)
                      );
 
-        // Œ¸‘¬ˆ—
+        // æ¸›é€Ÿå‡¦ç†
         moveAccel -= moveDecelSpeed * Time.deltaTime;
         moveAccel = Mathf.Lerp(0, 1, moveAccel);
     }
