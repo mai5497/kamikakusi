@@ -212,6 +212,10 @@ public class CP_move01 : MonoBehaviour
                     }
 
                 }
+                else
+                {
+                    UpdateIdle();
+                }
                 // データに保存
                 CPData.playerPos = this.transform.position;
             }
