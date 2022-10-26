@@ -47,7 +47,7 @@ public class ZoomLens : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        _camera = Camera.main;
         if (GameObject.Find("CameraForward") != null)
         {
             _cameraMultList.Add(GameObject.Find("CameraForward").GetComponent<Camera>());

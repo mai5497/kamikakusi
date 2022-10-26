@@ -1,12 +1,12 @@
 //=============================================================================
 //
-// ƒXƒe[ƒWƒZƒŒƒNƒgˆ—
+// ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆå‡¦ç†
 //
-// ì¬“ú:2022/10/17
-// ì¬Ò:ò—D÷
+// ä½œæˆæ—¥:2022/10/17
+// ä½œæˆè€…:æ³‰å„ªæ¨¹
 //
-// <ŠJ”­—š—ğ>
-// 2022/10/17 ì¬
+// <é–‹ç™ºå±¥æ­´>
+// 2022/10/17 ä½œæˆ
 //
 //=============================================================================
 
@@ -18,100 +18,113 @@ using UnityEngine.SceneManagement;
 
 public class StageSelect : MonoBehaviour
 {
-    // ƒ‚[ƒh
+    // ãƒ¢ãƒ¼ãƒ‰
     public enum Mode
     {
         WorldSelectInit,
         WorldSelectUpdate,
         WorldSelectToStageSelect,
+        ScrollOpenAnim,
         StageSelectInit,
         StageSelectUpdate,
         StageSelectToWorldSelect,
+        ScrollCloseAnim,
     }
-    [Header("ƒ‚[ƒh")]
+    [Header("ãƒ¢ãƒ¼ãƒ‰")]
     public Mode mode = Mode.WorldSelectInit;
-    [Header("ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚©‚çƒXƒe[ƒWƒZƒŒƒNƒg‚Ö‚Ì‘JˆÚ‘¬“x")]
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã¸ã®é·ç§»é€Ÿåº¦")]
     public float speedWorldSelectToStageSelect;
-    [Header("ƒXƒe[ƒWƒZƒŒƒNƒg‚©‚çƒ[ƒ‹ƒhƒZƒŒƒNƒg‚Ö‚Ì‘JˆÚ‘¬“x")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã¸ã®é·ç§»é€Ÿåº¦")]
     public float speedStageSelectToWorldSelect;
-    // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚©‚çƒXƒe[ƒWƒZƒŒƒNƒg‚Ö‚Ì‘JˆÚ•âŠÔ’l
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆï½ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆé–“ã®é·ç§»ç›®æ¨™")]
+    public Vector3 posWorldSelectToStageSelect = new Vector3(15, 0, 0);
+    // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã¸ã®é·ç§»è£œé–“å€¤
     private float lerpWorldSelectToStageSelect;
-    // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚©‚çƒXƒe[ƒWƒZƒŒƒNƒg‚Ö‘JˆÚ‘O‚Ì‰ŠúˆÊ’uƒŠƒXƒg
+    // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã¸é·ç§»å‰ã®åˆæœŸä½ç½®ãƒªã‚¹ãƒˆ
     private List<Vector3> positionInitWorldSelectToStageSelectList=new List<Vector3>();
 
-    // “ü—Í—p///////////////////////////////////////////////
+    [Header("å·»ç‰©é–‹ãã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é€Ÿåº¦")]
+    public float speedScrollOpenAnim;
+    [Header("å·»ç‰©é–‰ã˜ã‚‹ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é€Ÿåº¦")]
+    public float speedScrollCloseAnim;
+    // å·»ç‰©é–‹ãã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³è£œé–“å€¤
+    private float lerpScrollOpenAnim;
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
+    public GameObject stageObject;
+
+    // å…¥åŠ›ç”¨///////////////////////////////////////////////
     [Space(30)]
-    [HeaderAttribute("y“ü—Í—pz")]
+    [HeaderAttribute("ã€å…¥åŠ›ç”¨ã€‘")]
     // PlayerInput
     [Header("PlayerInput")]
     public PlayerInput playerInput;
-    // InputActionƒCƒxƒ“ƒg
-    private InputAction selectAction;   // ‘I‘ğ
-    private InputAction dicisionAction; // Œˆ’è
-    private InputAction backAction;     // –ß‚é
-    // “ü—Í’l
-    private bool isInputSelect = false; // ‘I‘ğ“ü—Íó•tƒtƒ‰ƒO
-    private Vector2 inputSelect;        // ‘I‘ğ
-    private bool inputDicision;         // Œˆ’è
-    private bool inputBack;             // –ß‚é
+    // InputActionã‚¤ãƒ™ãƒ³ãƒˆ
+    private InputAction selectAction;   // é¸æŠ
+    private InputAction dicisionAction; // æ±ºå®š
+    private InputAction backAction;     // æˆ»ã‚‹
+    // å…¥åŠ›å€¤
+    private bool isInputSelect = false; // é¸æŠå…¥åŠ›å—ä»˜ãƒ•ãƒ©ã‚°
+    private Vector2 inputSelect;        // é¸æŠ
+    private bool inputDicision;         // æ±ºå®š
+    private bool inputBack;             // æˆ»ã‚‹
     /// ///////////////////////////////////////////////////
 
-    // ƒ[ƒ‹ƒhƒZƒŒƒNƒg—p///////////////////////////////////
+    // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆç”¨///////////////////////////////////
     [Space(30)]
-    [HeaderAttribute("yƒ[ƒ‹ƒhƒZƒŒƒNƒg—pz")]
-    [Header("ƒ[ƒ‹ƒhƒZƒŒƒNƒgeƒIƒuƒWƒFƒNƒg")]
+    [HeaderAttribute("ã€ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆç”¨ã€‘")]
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆè¦ªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject worldSelectParentObj;
-    [Header("ƒJ[ƒ\ƒ‹ƒIƒuƒWƒFƒNƒg")]
+    [Header("ã‚«ãƒ¼ã‚½ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject cursorWorldObj;
-    [Header("ƒ[ƒ‹ƒhƒZƒŒƒNƒgƒIƒuƒWƒFƒNƒgƒŠƒXƒg")]
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒªã‚¹ãƒˆ")]
     public List<GameObject> selectWorldObjList;
-    // ƒ[ƒ‹ƒh‘I‘ğ”Ô†
+    // ãƒ¯ãƒ¼ãƒ«ãƒ‰é¸æŠç•ªå·
     private int selectWorldNo;
-    [Header("ƒ[ƒ‹ƒh‘I‘ğ‰Šú”Ô†")]
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰é¸æŠåˆæœŸç•ªå·")]
     public int selectWorldNoInit;
-    [Header("ƒ[ƒ‹ƒh‘I‘ğÅ¬”Ô†")]
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰é¸æŠæœ€å°ç•ªå·")]
     public int selectWorldNoMin;
-    [Header("ƒ[ƒ‹ƒh‘I‘ğÅ‘å”Ô†")]
+    [Header("ãƒ¯ãƒ¼ãƒ«ãƒ‰é¸æŠæœ€å¤§ç•ªå·")]
     public int selectWorldNoMax;
-    // ƒ[ƒ‹ƒh‘I‘ğÅ‘å”Ô†‚Ì‰Šú’l(inspector‚Åİ’è‚µ‚½’l)
+    // ãƒ¯ãƒ¼ãƒ«ãƒ‰é¸æŠæœ€å¤§ç•ªå·ã®åˆæœŸå€¤(inspectorã§è¨­å®šã—ãŸå€¤)
     private int selectWorldNoMaxInit;
     ////////////////////////////////////////////////////////
 
-    // ƒXƒe[ƒWƒZƒŒƒNƒg—p/////////////////////////////////
+    // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”¨/////////////////////////////////
     [Space(30)]
-    [HeaderAttribute("yƒXƒe[ƒWƒZƒŒƒNƒg—pz")]
-    [Header("ƒXƒe[ƒWƒZƒŒƒNƒgeƒIƒuƒWƒFƒNƒg")]
+    [HeaderAttribute("ã€ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”¨ã€‘")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆè¦ªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject stageSelectParentObj;
-    [Header("‘I‘ğƒ[ƒ‹ƒheƒIƒuƒWƒFƒNƒg")]
+    [Header("é¸æŠãƒ¯ãƒ¼ãƒ«ãƒ‰è¦ªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject stageSelectSelectWorldParentObj;
-    [Header("‘I‘ğƒ[ƒ‹ƒhƒIƒuƒWƒFƒNƒgƒŠƒXƒg")]
+    [Header("é¸æŠãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒªã‚¹ãƒˆ")]
     public List<GameObject> stageSelectSelectWorldObjList;
-    [Header("ƒJ[ƒ\ƒ‹ƒIƒuƒWƒFƒNƒg")]
+    [Header("ã‚«ãƒ¼ã‚½ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     public GameObject cursorStageObj;
-    [Header("ƒXƒe[ƒWƒZƒŒƒNƒgƒIƒuƒWƒFƒNƒgƒŠƒXƒg")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒªã‚¹ãƒˆ")]
     public List<GameObject> selectStageObjList;
-    [Header("ƒXƒe[ƒWƒZƒŒƒNƒgƒIƒuƒWƒFƒNƒg_ƒNƒŠƒA")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ_ã‚¯ãƒªã‚¢")]
     public Sprite selectStageClearObj;
-    [Header("ƒXƒe[ƒWƒZƒŒƒNƒgƒIƒuƒWƒFƒNƒgƒŠƒXƒg_–¢ƒNƒŠƒA")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒªã‚¹ãƒˆ_æœªã‚¯ãƒªã‚¢")]
     public Sprite selectStageCanObj;
-    [Header("ƒXƒe[ƒWƒZƒŒƒNƒgƒIƒuƒWƒFƒNƒgƒŠƒXƒg_‚Å‚«‚È‚¢")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒªã‚¹ãƒˆ_ã§ããªã„")]
     public Sprite selectStageCanNotObj;
-    // ƒXƒe[ƒW‘I‘ğ”Ô†
+    // ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠç•ªå·
     private int selectStageNo;
-    [Header("ƒXƒe[ƒW‘I‘ğ‰Šú”Ô†")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠåˆæœŸç•ªå·")]
     public int selectStageNoInit;
-    [Header("ƒXƒe[ƒW‘I‘ğÅ¬”Ô†")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠæœ€å°ç•ªå·")]
     public int selectStageNoMin;
-    [Header("ƒXƒe[ƒW‘I‘ğÅ‘å”Ô†")]
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠæœ€å¤§ç•ªå·")]
     public int selectStageNoMax;
-    // ƒXƒe[ƒW‘I‘ğÅ‘å”Ô†‚Ì‰Šú’l(inspector‚Åİ’è‚µ‚½’l)
+    // ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠæœ€å¤§ç•ªå·ã®åˆæœŸå€¤(inspectorã§è¨­å®šã—ãŸå€¤)
     private int selectStageNoMaxInit;
     /// //////////////////////////////////////////////////
 
     // Start is called before the first frame update
     void Start()
     {
-        #region “ü—Í‰Šú‰»
+        #region å…¥åŠ›åˆæœŸåŒ–
         var pInput = playerInput.GetComponent<PlayerInput>();
         var actionMap = pInput.currentActionMap;
         selectAction = actionMap["Select"];
@@ -121,7 +134,7 @@ public class StageSelect : MonoBehaviour
         backAction.canceled += OnBack;
         #endregion
 
-        #region ƒZƒŒƒNƒg‰Šú‰»
+        #region ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
         selectWorldNo = selectWorldNoInit;
         cursorWorldObj.transform.position = selectWorldObjList[selectWorldNo - selectWorldNoMin].transform.position;
         selectStageNo = selectStageNoInit;
@@ -135,7 +148,7 @@ public class StageSelect : MonoBehaviour
         }
         #endregion
 
-        #region ƒTƒEƒ“ƒhÄ¶
+        #region ã‚µã‚¦ãƒ³ãƒ‰å†ç”Ÿ
         for (int i = 0; i < SoundData.SelectAudioList.Length; ++i) {
             SoundData.SelectAudioList[i] = gameObject.AddComponent<AudioSource>();
         }
@@ -146,21 +159,21 @@ public class StageSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region “ü—ÍXV
+        #region å…¥åŠ›æ›´æ–°
         InputUpdate();
         #endregion
 
-        #region ƒ‚[ƒh•ÊƒZƒŒƒNƒgXVˆ—
+        #region ãƒ¢ãƒ¼ãƒ‰åˆ¥ã‚»ãƒ¬ã‚¯ãƒˆæ›´æ–°å‡¦ç†
         switch (mode)
         {
-            // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‰Šú‰»
+            // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
             case Mode.WorldSelectInit:
                 worldSelectParentObj.SetActive(true);
                 stageSelectParentObj.SetActive(false);
                 selectStageNoMax = selectStageNoMaxInit;
 
                 selectWorldNoMax = 0;
-                // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚Ì•\¦‚ğƒNƒŠƒAó‹µ‚É‚æ‚è•ÏX
+                // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã®è¡¨ç¤ºã‚’ã‚¯ãƒªã‚¢çŠ¶æ³ã«ã‚ˆã‚Šå¤‰æ›´
                 for (int i = selectWorldNoMin + 1; i <= selectWorldNoMaxInit; i++)
                 {
                     if (ClearManager.GetClearWorld((i - 1) - selectWorldNoMin))
@@ -176,11 +189,11 @@ public class StageSelect : MonoBehaviour
 
                 mode = Mode.WorldSelectUpdate;
                 break;
-            // ƒ[ƒ‹ƒhƒZƒŒƒNƒgXV
+            // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆæ›´æ–°
             case Mode.WorldSelectUpdate:
                 UpdateSelect(ref selectWorldNo, ref selectWorldNoMin, ref selectWorldNoMax, ref cursorWorldObj, ref selectWorldObjList);
                 break;
-            // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚©‚çƒXƒe[ƒWƒZƒŒƒNƒg‚Ö
+            // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã¸
             case Mode.WorldSelectToStageSelect:
                 lerpWorldSelectToStageSelect += Time.deltaTime * speedWorldSelectToStageSelect;
 
@@ -189,15 +202,19 @@ public class StageSelect : MonoBehaviour
                     Vector3 nowPosition;
                     if (i == selectWorldNo)
                     {
-                        //¶‚ÉŠñ‚¹‚é
+                        //å·¦ã«å¯„ã›ã‚‹
+                        selectWorldObjList[i - selectWorldNoMin].GetComponent<SpriteRenderer>().sortingOrder = 1;
+                        selectWorldObjList[i - selectWorldNoMin].transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 1;
                         nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], stageSelectSelectWorldParentObj.transform.position, lerpWorldSelectToStageSelect);
                         selectWorldObjList[i - selectWorldNoMin].transform.position = nowPosition;
                         cursorWorldObj.transform.position = nowPosition;
                     }
                     else
                     {
-                        //‰E‚É‘|‚­
-                        nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], new Vector3(15, 0, 0), lerpWorldSelectToStageSelect);
+                        //å³ã«æƒã
+                        selectWorldObjList[i - selectWorldNoMin].GetComponent<SpriteRenderer>().sortingOrder = 0;
+                        selectWorldObjList[i - selectWorldNoMin].transform.GetChild(0).GetComponent<Canvas>().sortingOrder = 0;
+                        nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], positionInitWorldSelectToStageSelectList[i - selectWorldNoMin] + posWorldSelectToStageSelect, lerpWorldSelectToStageSelect);
                         selectWorldObjList[i - selectWorldNoMin].transform.position = nowPosition;
                     }
                 }
@@ -205,20 +222,32 @@ public class StageSelect : MonoBehaviour
                 if (lerpWorldSelectToStageSelect >= 1.0f)
                 {
                     lerpWorldSelectToStageSelect = 1.0f;
-                    mode = Mode.StageSelectInit;
+                    mode = Mode.ScrollOpenAnim;
                 }
                 break;
-            // ƒXƒe[ƒWƒZƒŒƒNƒg‰Šú‰»
-            case Mode.StageSelectInit:
+            // å·»ç‰©é–‹ãã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
+            case Mode.ScrollOpenAnim:
                 worldSelectParentObj.SetActive(false);
                 stageSelectParentObj.SetActive(true);
+                cursorWorldObj.SetActive(false);
+                cursorStageObj.SetActive(false);
                 foreach (GameObject obj in stageSelectSelectWorldObjList)
                 {
                     obj.SetActive(false);
                 }
                 stageSelectSelectWorldObjList[selectWorldNo - selectWorldNoMin].SetActive(true);
+                lerpScrollOpenAnim += speedScrollOpenAnim * Time.deltaTime;
+                GameObject backGround = stageSelectSelectWorldObjList[selectWorldNo - selectWorldNoMin].transform.Find("BackGround").gameObject;
+                stageObject.transform.parent = backGround.transform;
+                backGround.transform.localPosition = Vector3.Lerp(new Vector3(5.6f, 0, 0), new Vector3(-7.4f, 0, 0), lerpScrollOpenAnim);
+                if (lerpScrollOpenAnim >= 1.0f)
+                {
+                    lerpScrollOpenAnim = 1.0f;
+                    mode = Mode.StageSelectInit;
+                }
 
-                // ƒf[ƒ^‚ª–³‚¯‚ê‚ÎƒXƒe[ƒWÅ‘å”‚ğ•ÏX
+
+                // ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã‘ã‚Œã°ã‚¹ãƒ†ãƒ¼ã‚¸æœ€å¤§æ•°ã‚’å¤‰æ›´
                 for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
                 {
                     if (SceneManagerData.mainSceneStrArray[selectWorldNo - selectWorldNoMin, i] == null)
@@ -227,23 +256,68 @@ public class StageSelect : MonoBehaviour
                     }
                 }
 
-                // ƒXƒe[ƒWƒIƒuƒWƒFƒNƒg‚ÌƒXƒvƒ‰ƒCƒg‚ğƒNƒŠƒAó‹µ‚É‚æ‚è•ÏX
+                // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚’ã‚¯ãƒªã‚¢çŠ¶æ³ã«ã‚ˆã‚Šå¤‰æ›´
                 for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
                 {
                     if (i <= selectStageNoMax)
                     {
-                        // ƒNƒŠƒA
+                        // ã‚¯ãƒªã‚¢
                         if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, i))
                         {
                             selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
                         }
-                        // ‚Å‚«‚é
+                        // ã§ãã‚‹
                         else
                         {
                             selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
                         }
                     }
-                    // ‚Å‚«‚È‚¢
+                    // ã§ããªã„
+                    else
+                    {
+                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
+                    }
+                }
+
+                break;
+            // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆåˆæœŸåŒ–
+            case Mode.StageSelectInit:
+                worldSelectParentObj.SetActive(false);
+                stageSelectParentObj.SetActive(true);
+                cursorWorldObj.SetActive(true);
+                cursorStageObj.SetActive(true);
+                foreach (GameObject obj in stageSelectSelectWorldObjList)
+                {
+                    obj.SetActive(false);
+                }
+                stageSelectSelectWorldObjList[selectWorldNo - selectWorldNoMin].SetActive(true);
+
+                // ãƒ‡ãƒ¼ã‚¿ãŒç„¡ã‘ã‚Œã°ã‚¹ãƒ†ãƒ¼ã‚¸æœ€å¤§æ•°ã‚’å¤‰æ›´
+                for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
+                {
+                    if (SceneManagerData.mainSceneStrArray[selectWorldNo - selectWorldNoMin, i] == null)
+                    {
+                        selectStageNoMax = (selectWorldNoMin + i) - 2;
+                    }
+                }
+
+                // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚’ã‚¯ãƒªã‚¢çŠ¶æ³ã«ã‚ˆã‚Šå¤‰æ›´
+                for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
+                {
+                    if (i <= selectStageNoMax)
+                    {
+                        // ã‚¯ãƒªã‚¢
+                        if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, i))
+                        {
+                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
+                        }
+                        // ã§ãã‚‹
+                        else
+                        {
+                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                        }
+                    }
+                    // ã§ããªã„
                     else
                     {
                         selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
@@ -254,7 +328,7 @@ public class StageSelect : MonoBehaviour
 
                 mode = Mode.StageSelectUpdate;
                 break;
-            // ƒXƒe[ƒWƒZƒŒƒNƒgXV
+            // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆæ›´æ–°
             case Mode.StageSelectUpdate:
                 UpdateSelect(ref selectStageNo, ref selectStageNoMin, ref selectStageNoMax, ref cursorStageObj, ref selectStageObjList);
                 //if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, selectStageNo - selectStageNoMin))
@@ -262,10 +336,32 @@ public class StageSelect : MonoBehaviour
 
                 //}
                 break;
-            // ƒXƒe[ƒWƒZƒŒƒNƒg‚©‚çƒ[ƒ‹ƒhƒZƒŒƒNƒg‚Ö
+            // å·»ç‰©é–‰ã˜ã‚‹ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
+            case Mode.ScrollCloseAnim:
+                cursorWorldObj.SetActive(false);
+                cursorStageObj.SetActive(false);
+                lerpScrollOpenAnim -= speedScrollCloseAnim * Time.deltaTime;
+                GameObject backGround2 = stageSelectSelectWorldObjList[selectWorldNo - selectWorldNoMin].transform.Find("BackGround").gameObject;
+                stageObject.transform.parent = backGround2.transform;
+                backGround2.transform.localPosition = Vector3.Lerp(new Vector3(5.6f, 0, 0), new Vector3(-7.4f, 0, 0), lerpScrollOpenAnim);
+                if (lerpScrollOpenAnim <= 0.0f)
+                {
+                    worldSelectParentObj.SetActive(true);
+                    stageSelectParentObj.SetActive(false);
+                    backGround2.transform.localPosition = new Vector3(-7.4f, 0, 0);
+                    stageObject.transform.parent = stageSelectParentObj.transform;
+
+                    lerpScrollOpenAnim = 0.0f;
+                    mode = Mode.StageSelectToWorldSelect;
+                }
+
+                break;
+            // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã¸
             case Mode.StageSelectToWorldSelect:
                 worldSelectParentObj.SetActive(true);
                 stageSelectParentObj.SetActive(false);
+                cursorWorldObj.SetActive(true);
+                cursorStageObj.SetActive(true);
                 lerpWorldSelectToStageSelect -= Time.deltaTime * speedStageSelectToWorldSelect;
 
                 for (int i = 0; i < stageSelectSelectWorldObjList.Count; i++)
@@ -273,15 +369,15 @@ public class StageSelect : MonoBehaviour
                     Vector3 nowPosition;
                     if (i == selectWorldNo)
                     {
-                        //¶‚ğ–ß‚·
+                        //å·¦ã‚’æˆ»ã™
                         nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], stageSelectSelectWorldParentObj.transform.position, lerpWorldSelectToStageSelect);
                         selectWorldObjList[i - selectWorldNoMin].transform.position = nowPosition;
                         cursorWorldObj.transform.position = nowPosition;
                     }
                     else
                     {
-                        //‰E‚ğ–ß‚·
-                        nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], new Vector3(15, 0, 0), lerpWorldSelectToStageSelect);
+                        //å³ã‚’æˆ»ã™
+                        nowPosition = Vector3.Lerp(positionInitWorldSelectToStageSelectList[i - selectWorldNoMin], positionInitWorldSelectToStageSelectList[i - selectWorldNoMin] + posWorldSelectToStageSelect, lerpWorldSelectToStageSelect);
                         selectWorldObjList[i - selectWorldNoMin].transform.position = nowPosition;
                     }
                 }
@@ -292,21 +388,22 @@ public class StageSelect : MonoBehaviour
                     mode = Mode.WorldSelectInit;
                 }
                 break;
+
         }
         #endregion
 
 
-        #region Œˆ’è
+        #region æ±ºå®š
         if (inputDicision == true)
         {
             switch (mode)
             {
-                // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚Ìê‡,ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚©‚çƒXƒe[ƒWƒZƒŒƒNƒg‚Ö‚Ì‘JˆÚ
+                // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã®å ´åˆ,ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã‹ã‚‰ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã¸ã®é·ç§»
                 case Mode.WorldSelectUpdate:
                     lerpWorldSelectToStageSelect = 0.0f;
                     mode = Mode.WorldSelectToStageSelect;
                     break;
-                // ƒXƒe[ƒWƒZƒŒƒNƒg‚Ìê‡,ƒƒCƒ“ƒV[ƒ“‚Ö
+                // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã®å ´åˆ,ãƒ¡ã‚¤ãƒ³ã‚·ãƒ¼ãƒ³ã¸
                 case Mode.StageSelectUpdate:
                     //SceneManager.LoadScene(mainSceneName[selectWorldNo].List[selectStageNo]);
                     SceneManagerFade.LoadSceneMain(selectWorldNo - selectStageNoMin, selectStageNo - selectStageNoMin);
@@ -316,22 +413,22 @@ public class StageSelect : MonoBehaviour
         }
         #endregion
 
-        #region –ß‚é
+        #region æˆ»ã‚‹
         if (inputBack == true)
         {
             switch (mode)
             {
-                // ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚Ìê‡,ƒ^ƒCƒgƒ‹ƒV[ƒ“‚Ö
+                // ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã®å ´åˆ,ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³ã¸
                 case Mode.WorldSelectUpdate:
                     //SceneManager.LoadScene(titleSceneName);
                     SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.Title);
                     break;
-                // ƒXƒe[ƒWƒZƒŒƒNƒg‚Ìê‡,ƒ[ƒ‹ƒhƒZƒŒƒNƒg‚Ö
+                // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆã®å ´åˆ,ãƒ¯ãƒ¼ãƒ«ãƒ‰ã‚»ãƒ¬ã‚¯ãƒˆã¸
                 case Mode.StageSelectUpdate:
                     lerpWorldSelectToStageSelect = 1.0f;
-                    mode = Mode.StageSelectToWorldSelect;
+                    mode = Mode.ScrollCloseAnim;
 
-                    // ƒXƒe[ƒW‘I‘ğ”Ô†‚ğÅ¬’l‚É–ß‚·
+                    // ã‚¹ãƒ†ãƒ¼ã‚¸é¸æŠç•ªå·ã‚’æœ€å°å€¤ã«æˆ»ã™
                     selectStageNo = selectStageNoMin;
                     break;
             }
@@ -341,7 +438,7 @@ public class StageSelect : MonoBehaviour
     }
 
     /// <summary>
-    /// “ü—ÍXV 
+    /// å…¥åŠ›æ›´æ–° 
     /// </summary>
     private void InputUpdate()
     {
@@ -349,12 +446,12 @@ public class StageSelect : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒZƒŒƒNƒgˆ—XV
+    /// ã‚»ãƒ¬ã‚¯ãƒˆå‡¦ç†æ›´æ–°
     /// </summary>
     private void UpdateSelect(ref int selectNo, ref int selectNoMin, ref int selectNoMax,
         ref GameObject cursorObj, ref List<GameObject> selectObjList)
     {
-        // ¶“ü—Í
+        // å·¦å…¥åŠ›
         if (inputSelect.x < -0.0f)
         {
             if (!isInputSelect)
@@ -364,7 +461,7 @@ public class StageSelect : MonoBehaviour
                 SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.SelectAudioList);
             }
         }
-        // ‰E“ü—Í
+        // å³å…¥åŠ›
         else if (inputSelect.x > 0.0f)
         {
             if (!isInputSelect)
@@ -374,13 +471,13 @@ public class StageSelect : MonoBehaviour
                 SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.SelectAudioList);
             }
         }
-        // “ü—ÍƒŠƒZƒbƒg
+        // å…¥åŠ›ãƒªã‚»ãƒƒãƒˆ
         else
         {
             isInputSelect = false;
         }
 
-        // ƒZƒŒƒNƒg”Ô†§Œä
+        // ã‚»ãƒ¬ã‚¯ãƒˆç•ªå·åˆ¶å¾¡
         if (selectNo < selectNoMin)
         {
             selectNo = selectNoMax;
@@ -390,12 +487,12 @@ public class StageSelect : MonoBehaviour
             selectNo = selectNoMin;
         }
 
-        // ƒJ[ƒ\ƒ‹À•W•ÏX
+        // ã‚«ãƒ¼ã‚½ãƒ«åº§æ¨™å¤‰æ›´
         cursorObj.transform.position = selectObjList[selectNo - selectNoMin].transform.position;
     }
 
     /// <summary>
-    /// Œˆ’èƒ{ƒ^ƒ“
+    /// æ±ºå®šãƒœã‚¿ãƒ³
     /// </summary>
     private void OnDicision(InputAction.CallbackContext obj)
     {
@@ -404,7 +501,7 @@ public class StageSelect : MonoBehaviour
     }
 
     /// <summary>
-    /// –ß‚éƒ{ƒ^ƒ“
+    /// æˆ»ã‚‹ãƒœã‚¿ãƒ³
     /// </summary>
     private void OnBack(InputAction.CallbackContext obj)
     {
