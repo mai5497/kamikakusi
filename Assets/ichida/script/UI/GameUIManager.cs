@@ -130,7 +130,7 @@ public class GameUIManager : MonoBehaviour {
             hintUIEntity.SetActive(true);
             gameUIEntity.SetActive(false);
             pauseUIEntity.SetActive(false);
-        }else if(CPData.isPose){
+        }else if(Pause.isPause) {
             hintUIEntity.SetActive(false);
             gameUIEntity.SetActive(false);
             pauseUIEntity.SetActive(true);
@@ -147,7 +147,7 @@ public class GameUIManager : MonoBehaviour {
                 return;
             }
         }
-        if (CPData.isPose || _FoxByakko.isClear) {
+        if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear) {
             return;
         }
         CPData.isObjNameUI = true;
@@ -159,7 +159,7 @@ public class GameUIManager : MonoBehaviour {
                 return;
             }
         }
-        if (CPData.isPose || _FoxByakko.isClear) {
+        if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear) {
             return;
         }
         CPData.isObjNameUI = false;

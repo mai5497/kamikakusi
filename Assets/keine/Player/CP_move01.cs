@@ -156,7 +156,7 @@ public class CP_move01 : MonoBehaviour
                 //プレイヤーの移動処理
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 Vector2 move = _moveAction.ReadValue<Vector2>();
-                if (CPData.isPose == false)
+                if (!CPData.isPose && !Pause.isPause)
                 {
 
                     // 指定したフレームのプレイヤーの移動速度を取り出す
@@ -251,7 +251,7 @@ public class CP_move01 : MonoBehaviour
 
     private void OnLens(InputAction.CallbackContext obj)
     {
-        if (CPData.isKokkurisan || CPData.isObjNameUI || CPData.isPose)
+        if (CPData.isKokkurisan || CPData.isObjNameUI || CPData.isPose || Pause.isPause)
         {
             return;
         }
@@ -264,12 +264,12 @@ public class CP_move01 : MonoBehaviour
     }
     private void OnPoseKey(InputAction.CallbackContext obj)
     {
-        CPData.isPose = !CPData.isPose;
+        Pause.isPause = !Pause.isPause;
     }
 
     private void LookStart(InputAction.CallbackContext obj)
     {
-        if (CPData.isKokkurisan || CPData.isObjNameUI)
+        if (CPData.isKokkurisan || CPData.isObjNameUI || Pause.isPause)
         {
             return;
         }
@@ -287,7 +287,7 @@ public class CP_move01 : MonoBehaviour
             return;
         }
 
-        if (CPData.isPose)
+        if (CPData.isPose || Pause.isPause)
         {
             return;
         }
@@ -305,7 +305,7 @@ public class CP_move01 : MonoBehaviour
             return;
         }
 
-        if (CPData.isPose)
+        if (CPData.isPose || Pause.isPause)
         {
             return;
         }
