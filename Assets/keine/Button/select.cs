@@ -31,7 +31,7 @@ public class select : MonoBehaviour {
     public List<GameObject> selectObjList;
 
     public bool NO1 = false;
-
+    public clear_animation Clear;
 
     // Start is called before the first frame update
     void Start() {
@@ -157,7 +157,18 @@ public class select : MonoBehaviour {
 
                 case 1:
                     //次のステージへ
-                    SceneManagerFade.LoadSceneNextStage();
+                 //   SceneManagerFade.LoadSceneNextStage();
+                 if(Clear.isClear==true)
+                    {
+                        //クリアなら
+                        SceneManagerFade.LoadSceneNextStage();
+                    }
+                 else
+                    {
+                        //ゲームオーバーなら
+                        Application.LoadLevel(Application.loadedLevelName);
+                    }
+                   
                     break;
 
             }

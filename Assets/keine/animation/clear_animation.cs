@@ -8,6 +8,7 @@ public class clear_animation : MonoBehaviour
 
     public Fade_in_crear fade_crear;
     public bool fadeIn;
+    public bool isClear=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,13 @@ public class clear_animation : MonoBehaviour
         {
             
             anim.SetBool("Clear_finish",true);
+            isClear = true;
         }
 
     }
+  public bool GetClear()
+    {
+        return isClear;
+    }
+
 }
