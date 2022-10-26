@@ -166,7 +166,8 @@ public class select : MonoBehaviour {
                  else
                     {
                         //ゲームオーバーなら
-                        Application.LoadLevel(Application.loadedLevelName);
+                        SceneManagerFade.LoadSceneMain(SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo);
+                        //Application.LoadLevel(Application.loadedLevelName);
                     }
                    
                     break;

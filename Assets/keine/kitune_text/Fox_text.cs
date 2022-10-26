@@ -10,10 +10,10 @@ public class Fox_text : MonoBehaviour
     public Transform transform_oya;
     public Text text;
     private RectTransform rec;
-    public CP_move01 move;
+    private CP_move01 move;
     public List<string> TextList = new List<string>();
     [Header("会話の行数いれてね＾＿＾")]
-    public int countMax = 0;
+    public int countMax;
 
     [Header("チュートリアルリスト画像リスト")]
     public List<Sprite> ImageList;
@@ -22,11 +22,13 @@ public class Fox_text : MonoBehaviour
     public SpriteRenderer GazouImage;
 
 
-    private int count = 0;
+    public int count;
 
-    public Fade_out003 FadeOut;
+
+    private Fade_out003 Fade;
+    //  public Fade_out003 FadeOut;
     private bool isFadeOut_Finish;
-    public bool isTextFin = false;
+    public bool isTextFin ;
 
     private InputAction _fadeAction;
     // Start is called before the first frame update
@@ -39,20 +41,23 @@ public class Fox_text : MonoBehaviour
         var actionMap = pInput.currentActionMap;
 
         //アクションマップからアクションを取得
-        _fadeAction = actionMap["Fade"];
+        _fadeAction = actionMap["Dicision"];
 
 
         text.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
-
+        count = 0;
         //  count = TextNo.Count;
+        isTextFin = false;
 
+        Fade = GameObject.Find("fadeIn").GetComponent<Fade_out003>();
+        move = GameObject.Find("CP_001").GetComponent<CP_move01>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isFadeOut_Finish = FadeOut.fadeOut_finish;
+        isFadeOut_Finish = Fade.fadeOut_finish;
 
 
         //テキストの場所
@@ -78,35 +83,59 @@ public class Fox_text : MonoBehaviour
     }
     public void Text()
     {
-     
-        bool Fade = _fadeAction.WasPerformedThisFrame();
-        if (Fade)
-        {
-            // text.text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            count += 1;
-        }
+        //  Debug.Log(count + "asd" + countMax);
 
+        Debug.Log(isFadeOut_Finish + "11asd" + countMax);
         if (isFadeOut_Finish)
         {
             text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
-        }
 
-        if (count < countMax)
-        {
-            text.text = TextList[count];
-           GazouImage.sprite = ImageList[count];
-        }
-        else
-        {
-            text.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-            CPData.isPose = false;
-            //        //  move.OnEnable();
-            //        //  isTextFin = true;
+            bool Dicision = _fadeAction.WasPerformedThisFrame();
+            Keyboard keyboard = Keyboard.current;
+            if (keyboard.enterKey.wasReleasedThisFrame)
+            {
+                // text.text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+                count += 1;
+            }
+
+
+            //  Debug.Log(count+"asd"+ countMax);
+            if (count < countMax)
+            {
+                text.text = TextList[count];
+                if(count<ImageList.Count)
+                {
+                    if (ImageList[count] == null)
+                    {
+                        GazouImage.enabled = false;
+                    }
+                    else
+                    {
+                        GazouImage.enabled = true;
+                        GazouImage.sprite = ImageList[count];
+                    }
+                }
+                else
+                {
+                    GazouImage.enabled = false;
+                }
+
+            }
+            else
+            {
+                text.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+                CPData.isPose = false;
+                isTextFin = true;
+                // count = 0;
+                //        //  move.OnEnable();
+                //        //  isTextFin = true;
+            }
         }
     }
-}
 
-//public bool GetTextFinish()
-//{
-//    return isTextFin;
-//}}
+
+    public bool GetTextFinish()
+    {
+        return isTextFin;
+    }
+}
