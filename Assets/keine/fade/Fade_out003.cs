@@ -30,7 +30,7 @@ public class Fade_out003 : MonoBehaviour
    //フェードアウト
     private bool fadeOut = false;
     //フェードアウトが終わった
-    public bool fadeOut_finish = false;
+    public bool fadeOut_finish;
 
     //アクション取得用
   //  private InputAction _fadeAction;
@@ -48,17 +48,19 @@ public class Fade_out003 : MonoBehaviour
         img.fillAmount = 1;
         img.raycastTarget = true;
         fadeOut = false;
+        fadeOut_finish = false;
+
 
       //  var pInput = GetComponent<PlayerInput>();
 
         //現在のアクションマップを取得。
         //初期状態はPlayerInputコンポーネントのinspectorのDefaultMap
-       // var actionMap = pInput.currentActionMap;
+        // var actionMap = pInput.currentActionMap;
 
 
 
         //アクションマップからアクションを取得
-       // _fadeAction = actionMap["Fade"];
+        // _fadeAction = actionMap["Fade"];
 
 
 

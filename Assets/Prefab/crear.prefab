@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1294539115
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3b7a69076aaa7c248b99016f152c661d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -208,6 +208,7 @@ MonoBehaviour:
   - {fileID: 7600456141923147558}
   - {fileID: 7600456142306529915}
   NO1: 0
+  Clear: {fileID: 0}
 --- !u!114 &7600456141923147557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,14 +240,6 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6fc07f2d-2793-42fe-9b36-fbc956cdc287
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 33429e10-9bae-4c68-bd14-fd465e0ae80f
-    m_ActionName: Player/Fire[/Keyboard/shift]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: e00935ac-ef2e-462b-a30b-cc9542d96bf0
     m_ActionName: Player/Kitune[/Keyboard/space]
   - m_PersistentCalls:
@@ -257,10 +250,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b8a066a3-ec21-4cce-8816-9aacb49654cd
     m_ActionName: Player/Pose[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 93877388-9ed4-4511-9b60-687fdfc72d34
-    m_ActionName: Player/Hint[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 74f3ba0f-2782-4cca-8780-60d5e6955374
@@ -285,6 +274,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0df61ccb-0093-4eae-9aa1-f1bb2f96176b
     m_ActionName: Tutorial/Dicision[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f3bca62-7d35-49fd-be53-e147c839309f
+    m_ActionName: Player/HintSwitch[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3c3aaf3-4142-458e-8f28-671a62c76604
+    m_ActionName: Player/HintClose[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 75f16f8e-9244-4cc1-ab6d-b39b1814745b
+    m_ActionName: UI/KeyKokkurisan[/Keyboard/e,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1997e27b-0467-439a-98f0-2621a62ec0ab
+    m_ActionName: UI/ButtonKokkurisan
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -698,7 +703,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1294539115
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 26
   m_Sprite: {fileID: 21300000, guid: 881f865a24c7e3246811b94fcfbfdb40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -744,6 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade_crear: {fileID: 7600456142624570035}
   fadeIn: 0
+  isClear: 0
 --- !u!1 &7600456143039268201
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,8 +821,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1294539115
+  m_SortingLayer: 1
   m_SortingOrder: -5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
@@ -914,8 +920,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1294539115
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3b7a69076aaa7c248b99016f152c661d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

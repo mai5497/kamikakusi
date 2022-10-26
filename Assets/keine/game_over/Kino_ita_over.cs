@@ -24,7 +24,7 @@ public class Kino_ita : MonoBehaviour
         if (!fadeIn)
         {
             oder.color = new Color(1, 1, 1, 1);
-            oder.sortingOrder = 4;
+            oder.sortingOrder = 8;
         }
     }
 }
