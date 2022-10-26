@@ -88,7 +88,6 @@ public class Fox_text : MonoBehaviour
         Debug.Log(isFadeOut_Finish + "11asd" + countMax);
         if (isFadeOut_Finish)
         {
-            text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
 
             bool Dicision = _fadeAction.WasPerformedThisFrame();
             Keyboard keyboard = Keyboard.current;
@@ -102,6 +101,7 @@ public class Fox_text : MonoBehaviour
             //  Debug.Log(count+"asd"+ countMax);
             if (count < countMax)
             {
+                text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
                 text.text = TextList[count];
                 if(count<ImageList.Count)
                 {
@@ -117,13 +117,16 @@ public class Fox_text : MonoBehaviour
                 }
                 else
                 {
+                   
                     GazouImage.enabled = false;
                 }
-
+                text.enabled = true;
+                //   Debug.Log(count + "aaa"+countMax);
             }
             else
             {
                 text.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+                text.enabled = false;
                 CPData.isPose = false;
                 isTextFin = true;
                 // count = 0;

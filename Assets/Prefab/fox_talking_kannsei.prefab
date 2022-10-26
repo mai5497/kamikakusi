@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 15.64, y: 5.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2139375544612367778
@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 2139375545834895057}
 --- !u!1 &2139375545332215490
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 2139375545834895057}
 --- !u!1 &2139375545702136918
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform_oya: {fileID: 2139375545834895070}
   text: {fileID: 2139375545834895071}
-  move: {fileID: 0}
   TextList:
   - 123
   - qwe
@@ -408,7 +409,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 687b5654c3f47494ca2ae12fc91d4c44, type: 3}
   - {fileID: 21300000, guid: 4b39d3a5527e48945a4ff1f0ed268288, type: 3}
   GazouImage: {fileID: 5873942910647825290}
-  FadeOut: {fileID: 0}
+  count: 0
   isTextFin: 0
 --- !u!114 &2139375545834895058
 MonoBehaviour:
@@ -537,4 +538,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826c310413c2ae94b96aa442c99725e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeOut: {fileID: 0}
+  Fade: {fileID: 0}
+  text: {fileID: 2139375545834895057}
