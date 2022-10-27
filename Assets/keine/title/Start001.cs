@@ -22,7 +22,7 @@ using UnityEngine.UI;
 
 public class Start001 : MonoBehaviour {
 
-    private InputAction _dicisionAction, _selectAction;
+    private InputAction _selectAction;
 
     //public bool titlle_delete;
 
@@ -30,9 +30,9 @@ public class Start001 : MonoBehaviour {
 
     //public select sel;
 
-    public bool isSelect;
+    //public bool isSelect;
 
-    public Fade_in002 fadein;
+    //public Fade_in002 fadein;
 
     public bool isFade;
 
@@ -42,12 +42,23 @@ public class Start001 : MonoBehaviour {
 
     enum eTitleState {
         FROMSTART = 0,
-        CONTINUE
+        CONTINUE,
+        EXIT
     }
 
-    private int state;
+    private enum eQuitState {
+        NONE,
+        YES,
+        NO
+    }
+
+
+    private int state;                  // 選択肢のステート
+    private int quitSelect;                 // 最終確認選択
+    private int oldSelect;               // 戻らなきゃいけない選択肢
 
     private bool isDicision;    // 決定キーが押されたか
+    private bool isExitGame;    // ゲーム終了するか
 
     private Fade_title_haikei1 pressAnyButton;
     private ObservedValue<bool> isPressAnyButton;   // プレスエニーボタンされた瞬間を検知する
@@ -62,7 +73,9 @@ public class Start001 : MonoBehaviour {
     private GameObject continueObj;
     private RectTransform continueRT;       // 続きからのレクトトランスフォーム
 
-
+    private GameObject kakuninObj;          // 確認画面のポップアップ
+    private Image kakuninYes;
+    private Image kakuninNo;
     void Awake() {
         inputAction = new CP_move_input();            // InputActionインスタンスを生成
     }
@@ -71,6 +84,8 @@ public class Start001 : MonoBehaviour {
     void Start() {
 
         state = (int)eTitleState.FROMSTART;
+        quitSelect = (int)eQuitState.NONE;
+        oldSelect = state;
 
         canDicision = false;
 
@@ -78,7 +93,7 @@ public class Start001 : MonoBehaviour {
 
         isPressAnyButton = new ObservedValue<bool>(false);  // falseで初期化
         isPressAnyButton.OnValueChange += () => { canDicision = false; };
-        
+
         selectBoxObj = GameObject.Find("cursor");
         selectBoxRT = selectBoxObj.GetComponent<RectTransform>();
         selectBoxObj.SetActive(false);
@@ -88,13 +103,17 @@ public class Start001 : MonoBehaviour {
         continueObj = GameObject.Find("UI_002");
         continueRT = continueObj.GetComponent<RectTransform>();
         continueObj.SetActive(false);
+        kakuninObj = GameObject.Find("Kakunin");
+        kakuninYes = kakuninObj.transform.Find("Kakunin_charbox_1").GetComponent<Image>();
+        kakuninNo = kakuninObj.transform.Find("Kakunin_charbox_2").GetComponent<Image>();
+        kakuninObj.SetActive(false);
     }
 
     private void OnEnable() {
         //アクションマップからアクションを取得
         inputAction.UI.Dicision.canceled += Dicision;
+        inputAction.UI.Back.canceled += Back;
         _selectAction = inputAction.UI.Select;
-
 
         //---InputActionの有効化
         inputAction.UI.Enable();
@@ -121,10 +140,27 @@ public class Start001 : MonoBehaviour {
 
         selectVal = _selectAction.ReadValue<Vector2>();
         //---少しでも倒されたら処理に入る
-        if (selectVal.y > 0.0f) {
-            SelectUp();
-        } else if (selectVal.y < 0.0f) {
-            SelectDown();
+        if (state == (int)eTitleState.EXIT) {
+            if (selectVal.x > 0.0f) {
+                SelectRight();
+            } else if (selectVal.x < 0.0f) {
+                SelectLeft();
+            }
+        } else {
+            if (selectVal.y > 0.0f) {
+                SelectUp();
+            } else if (selectVal.y < 0.0f) {
+                SelectDown();
+            }
+        }
+
+        if (state == (int)eTitleState.EXIT) {
+            if (quitSelect == (int)eQuitState.NONE) {
+                // 初期化
+                quitSelect = (int)eQuitState.YES;
+                state = (int)eTitleState.EXIT;
+                kakuninObj.SetActive(true);
+            }
         }
 
         if (isDicision) {
@@ -132,13 +168,42 @@ public class Start001 : MonoBehaviour {
                 case (int)eTitleState.FROMSTART:
                     // はじめから
                     SceneManagerFade.LoadSceneMain(0, 0);
+                    isDicision = false;
+
                     break;
                 case (int)eTitleState.CONTINUE:
                     // つづきから
                     SceneManagerFade.LoadSceneMain(ClearManager.GetNowWorld(), ClearManager.GetNowStage());
+                    isDicision = false;
+
+                    break;
+                case (int)eTitleState.EXIT:
+                    // ゲームをやめる
+                    if (quitSelect == (int)eQuitState.NONE) {
+
+
+                    } else if (quitSelect == (int)eQuitState.YES) {
+                        // ゲームをやめる
+#if UNITY_EDITOR
+                        UnityEditor.EditorApplication.isPlaying = false;
+#else
+                        Application.Quit();
+#endif
+                    } else if (quitSelect == (int)eQuitState.NO) {
+                        // NOで戻ってきたときはリセット
+                        quitSelect = (int)eQuitState.NONE;
+                        kakuninObj.SetActive(false);
+                        state = oldSelect;    // さっきまで選択してたところにステートを戻す
+                    }
+                    isDicision = false;
+
                     break;
             }
         }
+
+        Debug.Log("quitselect"+quitSelect);
+        Debug.Log("state"+state);
+
     }
 
     private void Dicision(InputAction.CallbackContext obj) {
@@ -151,6 +216,12 @@ public class Start001 : MonoBehaviour {
         isDicision = true;
     }
 
+    private void Back(InputAction.CallbackContext obj) {
+        oldSelect = state;
+        state = (int)eTitleState.EXIT;
+    }
+
+
     private void SelectBoxPosUpdete() {
         /*
          * 選択枠の位置の更新
@@ -160,6 +231,17 @@ public class Start001 : MonoBehaviour {
             selectBoxRT.localPosition = startRT.localPosition;
         } else if (state == (int)eTitleState.CONTINUE) {
             selectBoxRT.localPosition = continueRT.localPosition;
+        } else if (state == (int)eTitleState.EXIT) {
+
+            // 本当にいいですかは選択枠を動かすのではなく
+            // はいいいえの木の板の色味を黒っぽくすることで表現する
+            if (quitSelect == (int)eQuitState.YES) {
+                kakuninYes.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                kakuninNo.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
+            } else if (quitSelect == (int)eQuitState.NO) {
+                kakuninYes.color = new Color(0.7f, 0.7f, 0.7f, 1.0f);
+                kakuninNo.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
         }
     }
 
@@ -189,6 +271,32 @@ public class Start001 : MonoBehaviour {
         if (state > (int)eTitleState.CONTINUE)   // 例外処理
         {
             state = (int)eTitleState.CONTINUE;
+        }
+        SelectBoxPosUpdete();   // 選択枠の更新
+    }
+
+    /// <summary>
+    /// 選択右
+    /// </summary>
+    private void SelectRight() {
+        // 音
+        SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.IndelibleAudioList);
+        quitSelect++;
+        if (quitSelect > (int)eQuitState.NO) {
+            quitSelect = (int)eQuitState.NO;
+        }
+        SelectBoxPosUpdete();   // 選択枠の更新
+    }
+
+    /// <summary>
+    /// 選択左
+    /// </summary>
+    private void SelectLeft() {
+        // 音
+        SoundManager2.Play(SoundData.eSE.SE_SELECT, SoundData.IndelibleAudioList);
+        quitSelect--;
+        if (quitSelect < (int)eQuitState.YES) {
+            quitSelect = (int)eQuitState.YES;
         }
         SelectBoxPosUpdete();   // 選択枠の更新
     }
