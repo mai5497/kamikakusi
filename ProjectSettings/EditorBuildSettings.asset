@@ -17,6 +17,39 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Tutorial/Tutorial_01.unity
     guid: 4f74d5c2d8195b2428b272391cb2ada7
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Tutorial/Tutorial_02.unity
+    guid: 7133e439571da7e4aa5c48179c24990a
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Tutorial/Tutorial_03.unity
+    guid: 8899cb2ef5899524a8e639405fd10ec3
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage1_01.unity
+    guid: bfff3c6db6881fc4980deb4fe7682842
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage1_02.unity
+    guid: 56ab25288fa071f4898085236920bf35
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage1_03.unity
+    guid: acef48c2381339f45b1a2dc90960cfed
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage2_01.unity
+    guid: 3e32e2a70e90a144d8e4fd1a77ddafa3
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage2_02.unity
+    guid: efcee0e126ea5c445968be70820392a5
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage2_03.unity
+    guid: 53b5df706ccfed14d9ac0f9797d1dc6a
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage3_01.unity
+    guid: b50805b0b6a95f4439c2aafaebb10eb0
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage3_02.unity
+    guid: 2dff4bace9810f547b75bd0119ef8223
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Stage3_03.unity
+    guid: d11fe02555e715b4c9550a85c5192a07
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
@@ -27,27 +60,6 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
     path: 
     guid: 00000000000000000000000000000000
   m_configObjects:
