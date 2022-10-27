@@ -141,6 +141,7 @@ public class PauseManager : MonoBehaviour {
                         kakunin.SetActive(true);
                     } else if (quitSelect == (int)eQuitState.YES) {
                         //ステージセレクトへ遷移
+                        Pause.isPause = false;
                         SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
                     } else if (quitSelect == (int)eQuitState.NO) {
                         // NOで戻ってきたときはリセット
