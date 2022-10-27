@@ -44,32 +44,49 @@ public class ZoomLens : MonoBehaviour
     private Vector3 cameraInitPos;
     private List<Vector3> cameraMultInitPosList = new List<Vector3>();
 
+    // ÉJÉÅÉâÇ™å©Ç¬Ç©ÇÁÇ»Ç©Ç¡ÇΩ
+    private bool isFindNotCamera;
+
     // Start is called before the first frame update
     void Start()
     {
         _camera = Camera.main;
-        if (GameObject.Find("CameraForward") != null)
-        {
-            _cameraMultList.Add(GameObject.Find("CameraForward").GetComponent<Camera>());
-            _cameraMultList.Add(GameObject.Find("CameraMiddle1").GetComponent<Camera>());
-            _cameraMultList.Add(GameObject.Find("CameraMiddle2").GetComponent<Camera>());
-            _cameraMultList.Add(GameObject.Find("CameraMiddle3").GetComponent<Camera>());
-            _cameraMultList.Add(GameObject.Find("CameraBack").GetComponent<Camera>());
-        }
+        isFindNotCamera = true;
+        //if (GameObject.Find("CameraForward") != null)
+        //{
+        //    _cameraMultList.Add(GameObject.Find("CameraForward").GetComponent<Camera>());
+        //    _cameraMultList.Add(GameObject.Find("CameraMiddle1").GetComponent<Camera>());
+        //    _cameraMultList.Add(GameObject.Find("CameraMiddle2").GetComponent<Camera>());
+        //    _cameraMultList.Add(GameObject.Find("CameraMiddle3").GetComponent<Camera>());
+        //    _cameraMultList.Add(GameObject.Find("CameraBack").GetComponent<Camera>());
+        //    isFindNotCamera = false;
+        //}
 
         canvasLens = this.GetComponent<Canvas>();
 
         cameraInitPos = _camera.transform.position;
-
-        for (int i = 0; i < _cameraMultList.Count; i++)
-        {
-            cameraMultInitPosList.Add(_cameraMultList[i].transform.position);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isFindNotCamera == true)
+        {
+            if (GameObject.Find("CameraForward") != null)
+            {
+                _cameraMultList.Add(GameObject.Find("CameraForward").GetComponent<Camera>());
+                _cameraMultList.Add(GameObject.Find("CameraMiddle1").GetComponent<Camera>());
+                _cameraMultList.Add(GameObject.Find("CameraMiddle2").GetComponent<Camera>());
+                _cameraMultList.Add(GameObject.Find("CameraMiddle3").GetComponent<Camera>());
+                _cameraMultList.Add(GameObject.Find("CameraBack").GetComponent<Camera>());
+                for (int i = 0; i < _cameraMultList.Count; i++)
+                {
+                    cameraMultInitPosList.Add(_cameraMultList[i].transform.position);
+                }
+            }
+            isFindNotCamera = false;
+        }
+
         // ÉYÅ[ÉÄ
         if (isZoom == true)
         {
