@@ -200,10 +200,6 @@ public class Start001 : MonoBehaviour {
                     break;
             }
         }
-
-        Debug.Log("quitselect"+quitSelect);
-        Debug.Log("state"+state);
-
     }
 
     private void Dicision(InputAction.CallbackContext obj) {

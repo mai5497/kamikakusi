@@ -78,7 +78,7 @@ public class CP_move01 : MonoBehaviour
     [System.NonSerialized]
     public bool foxFind = false;
 
-    private clear_animation ani;
+    //private clear_animation ani;
 
     void Start()
     {
@@ -98,8 +98,9 @@ public class CP_move01 : MonoBehaviour
         Wall_player_left = this.transform.localScale.x / 2 + wallObj_left.transform.localScale.x / 2 + 0.04f;
         Wall_player_right = this.transform.localScale.x / 2 + wallObj_right.transform.localScale.x / 2 + 0.04f;
 
-        ani = GameObject.Find("Clear").GetComponent<clear_animation>();
-
+        //if (GameObject.Find("Clear")) {
+        //    ani = GameObject.Find("Clear").GetComponent<clear_animation>();
+        //}
     }
 
     void Awake()
@@ -249,12 +250,6 @@ public class CP_move01 : MonoBehaviour
             }
 
             UpdateIdle();
-
-            // プレイヤーの非表示
-            //if(animState != eAnimState.FOXWINDOW) {
-            //    sr.color = new Color(1,1,1,0.0f);
-            //}
-
         }
     }
 
@@ -265,18 +260,11 @@ public class CP_move01 : MonoBehaviour
 
     private void OnLens(InputAction.CallbackContext obj)
     {
-        if (CPData.isKokkurisan || CPData.isObjNameUI || CPData.isPose || Pause.isPause)
+        if (CPData.isKokkurisan || CPData.isObjNameUI || CPData.isPose || Pause.isPause || CPData.lookCnt < 1 || foxFind)
         {
             return;
         }
-        //if (CPData.lookCnt > 0 || ani.isClear == false)
-        //{
-            CPData.isLens = !CPData.isLens;
-     //   }
-        // プレイヤーの表示
-        //if (!CPData.isLens) {
-        //    sr.color = new Color(1, 1, 1, 1.0f);
-        //}
+        CPData.isLens = !CPData.isLens;
     }
     private void OnPoseKey(InputAction.CallbackContext obj)
     {
@@ -293,15 +281,15 @@ public class CP_move01 : MonoBehaviour
     }
     private void LookFin(InputAction.CallbackContext obj)
     {
-        if (foxFind == false)
-        {
-            CPData.isLook = false;
+        if (foxFind){
+            return;
         }
+        CPData.isLook = false;
     }
 
     private void OpenHintKey(InputAction.CallbackContext obj)
     {
-        if (!CPData.isLens || !Kokkurisan.isFind)
+        if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1)
         {
             return;
         }
@@ -319,7 +307,7 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintButton(InputAction.CallbackContext obj)
     {
-        if (!CPData.isLens || !Kokkurisan.isFind)
+        if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1)
         {
             return;
         }
