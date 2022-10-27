@@ -72,6 +72,11 @@ public class FoxByakko : MonoBehaviour {
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
 
+            // 当たりの時に注視し終わった時はズームを解除させない
+            if (_ZoomLens.valueZoomLerp > 0.9)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<CP_move01>().foxFind = true;
+            }
             if (lookStopTimer < 0 && alpha <= 1.0f) {
                 alpha += Time.deltaTime / appearTime;
                 sr.color = new Color(1, 1, 1, alpha);
@@ -89,6 +94,13 @@ public class FoxByakko : MonoBehaviour {
                 isByakko_delete = true;
             }
         }
+        // 解除したらリセット
+        else
+        {
+            lookStopTimer = lookStopTime;
+            alpha = 0;
+            sr.color = new Color(1, 1, 1, alpha);
+        }
 
         oldIsLook = CPData.isLook;
 
@@ -102,15 +114,23 @@ public class FoxByakko : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "FoxWindow") {
-            isWindowColl = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision) {
+    //    if (collision.tag == "FoxWindow") {
+    //        isWindowColl = true;
+    //    }
+    //}
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "FoxWindow") {
             isWindowColl = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "FoxWindow")
+        {
+            isWindowColl = true;
         }
     }
 }
