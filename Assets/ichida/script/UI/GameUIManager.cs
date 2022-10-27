@@ -38,6 +38,7 @@ public class GameUIManager : MonoBehaviour {
 
     private FoxByakko _FoxByakko;       // クリアフラグの取得
 
+    public bool UI_out;                 //ものの名前が出てるとき
 
     void Awake() {
         UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
@@ -151,6 +152,7 @@ public class GameUIManager : MonoBehaviour {
             return;
         }
         CPData.isObjNameUI = true;
+        UI_out = true;
     }
 
     private void OffSwitchUI(InputAction.CallbackContext obj) {
@@ -163,5 +165,6 @@ public class GameUIManager : MonoBehaviour {
             return;
         }
         CPData.isObjNameUI = false;
+        UI_out = false;
     }
 }

@@ -28,7 +28,7 @@ public class Fox_text : MonoBehaviour
     private Fade_out003 Fade;
     //  public Fade_out003 FadeOut;
     private bool isFadeOut_Finish;
-    public bool isTextFin ;
+    public bool isTextFin;
 
     private InputAction _fadeAction;
     // Start is called before the first frame update
@@ -91,7 +91,18 @@ public class Fox_text : MonoBehaviour
 
             bool Dicision = _fadeAction.WasPerformedThisFrame();
             Keyboard keyboard = Keyboard.current;
-            if (keyboard.enterKey.wasReleasedThisFrame)
+            Gamepad gamepad = Gamepad.current;
+
+            bool pushAbutton = false;
+            //  if (isDicision) {
+            if (gamepad != null)
+            {
+                pushAbutton = gamepad.aButton.wasReleasedThisFrame;
+
+
+            }
+
+            if (keyboard.enterKey.wasReleasedThisFrame|| pushAbutton)
             {
                 // text.text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
                 count += 1;
@@ -103,7 +114,7 @@ public class Fox_text : MonoBehaviour
             {
                 text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
                 text.text = TextList[count];
-                if(count<ImageList.Count)
+                if (count < ImageList.Count)
                 {
                     if (ImageList[count] == null)
                     {
@@ -117,7 +128,7 @@ public class Fox_text : MonoBehaviour
                 }
                 else
                 {
-                   
+
                     GazouImage.enabled = false;
                 }
                 text.enabled = true;
