@@ -23,8 +23,14 @@ public class mado : MonoBehaviour {
 
     private Kokkurisan kokkurisan;
 
+    [SerializeField]
+    private List<ParticleSystem> efSmokeList;
+
+
     [Header("åœÇÃèoåªç¿ïW")]
     public Vector3 posFox;
+
+    private int oldLookCount;
 
     // Start is called before the first frame update
     void Start() {
@@ -32,11 +38,14 @@ public class mado : MonoBehaviour {
 
         fox = GameObject.Find("Fox");
 
+        oldLookCount = CPData.lookCnt;
     }
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(lookObjName);
+        //Debug.Log(lookObjName);
+
+
 
         kokkurisan.kituneAnswerStr = lookUraObjName;
         kokkurisan.normalAnswerStr = lookObjName;
@@ -44,6 +53,12 @@ public class mado : MonoBehaviour {
         if (kokkurisan.isClear) {
             fox.transform.position = this.transform.position + posFox;
         }
+
+        if(oldLookCount != CPData.lookCnt) {
+            PlayEffect();
+            oldLookCount = CPData.lookCnt;
+        }
+        
     }
 
     /// <summary>
@@ -64,6 +79,12 @@ public class mado : MonoBehaviour {
     }
     public string GetLookUraObjName() {
         return lookUraObjName;
+    }
+
+    public void PlayEffect() {
+        foreach (ParticleSystem ef in efSmokeList) {
+            ef.Play();
+        }
     }
 
 }
