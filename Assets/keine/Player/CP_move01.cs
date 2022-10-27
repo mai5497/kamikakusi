@@ -72,6 +72,10 @@ public class CP_move01 : MonoBehaviour
     // プレイヤー速度を毎フレーム保存しているリスト
     private float[] moveBeforeList = new float[moveFrameMax];
 
+    // 狐を見つけたフラグ
+    [System.NonSerialized]
+    public bool foxFind = false;
+
     void Start()
     {
         animState = eAnimState.NONE;
@@ -281,7 +285,10 @@ public class CP_move01 : MonoBehaviour
     }
     private void LookFin(InputAction.CallbackContext obj)
     {
-        CPData.isLook = false;
+        if (foxFind == false)
+        {
+            CPData.isLook = false;
+        }
     }
 
     private void OpenHintKey(InputAction.CallbackContext obj)
