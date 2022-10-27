@@ -24,6 +24,8 @@ public class FoxByakko : MonoBehaviour {
 
     private ZoomLens _ZoomLens; // ズームの補間値の取得用
 
+    private bool isSave = false;
+
     // 狐を見つけた時にエフェクトを出す
     public List<ParticleSystem> efFindList;
 
@@ -107,8 +109,9 @@ public class FoxByakko : MonoBehaviour {
         oldIsLook = CPData.isLook;
 
         // クリアしたらクリアステージを保存
-        if (isClear) {
+        if (isClear && isSave == false) {
             ClearManager.SaveClearStage();
+            isSave = true;
         }
     }
     public bool GetByakko_delete() {

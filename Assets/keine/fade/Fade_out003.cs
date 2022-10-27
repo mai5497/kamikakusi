@@ -68,12 +68,68 @@ public class Fade_out003 : MonoBehaviour
 
     void Update()
     {
-        //Keyboard keyboard;
-        //keyboard = Keyboard.current;
-        //if (keyboard.f1Key.wasReleasedThisFrame)
-        //{
-        //    SceneManagerFade.LoadSceneMain(0, 0);
-        //}
+        Keyboard keyboard;
+        keyboard = Keyboard.current;
+        if (keyboard.f1Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(0, 0);
+        }
+        if (keyboard.f2Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(0, 1);
+        }
+        if (keyboard.f3Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(0, 2);
+        }
+        if (keyboard.f4Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(1, 0);
+        }
+        if (keyboard.f5Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(1, 1);
+        }
+        if (keyboard.f6Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(1, 2);
+        }
+        if (keyboard.f7Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(2, 0);
+        }
+        if (keyboard.f8Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(2, 1);
+        }
+        if (keyboard.f9Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(2, 2);
+        }
+        if (keyboard.f10Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(3, 0);
+        }
+        if (keyboard.f11Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(3, 1);
+        }
+        if (keyboard.f12Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneMain(3, 2);
+        }
+        if (keyboard.digit1Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.Title);
+        }
+        if (keyboard.digit2Key.wasReleasedThisFrame)
+        {
+            SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
+        }
+        if (keyboard.digit0Key.wasPressedThisFrame)
+        {
+            ClearManager.Delete();
+        }
 
 
         var current = Keyboard.current;

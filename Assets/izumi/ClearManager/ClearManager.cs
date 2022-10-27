@@ -27,6 +27,7 @@ public static class ClearManager
         PlayerPrefs.SetInt(clearStageName + SceneManagerData.nowWorldNo.ToString() + SceneManagerData.nowStageNo.ToString(), 1);
         PlayerPrefs.SetInt(saveName, 1);
         PlayerPrefs.Save();
+        SaveNextStage();
     }
     // 現在のワールド,ステージを保存
     public static void SaveNowStage()
@@ -36,10 +37,47 @@ public static class ClearManager
         PlayerPrefs.SetInt(saveName, 1);
         PlayerPrefs.Save();
     }
+
+    // 現在のワールド,ステージを次のステージで保存
+    public static void SaveNextStage()
+    {
+        bool isNextWorld = false;
+        // ステージ番号が最大は無ければ、
+        if (SceneManagerData.nowStageNo < SceneManagerData.mainSceneStrArray.GetLength(1) - 1)
+        {
+            // 次のステージがnullで無ければ
+            if (SceneManagerData.mainSceneStrArray[SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo + 1] != null)
+            {
+                PlayerPrefs.SetInt(nowWorldName, SceneManagerData.nowWorldNo);
+                PlayerPrefs.SetInt(nowWorldName, SceneManagerData.nowStageNo + 1);
+            }
+            else
+            {
+                isNextWorld = true;
+            }
+        }
+        else
+        {
+            isNextWorld = true;
+        }
+
+        if (isNextWorld)
+        {
+            // ワールド番号が最大で無ければ次のワールドシーン
+            if (SceneManagerData.nowWorldNo < SceneManagerData.mainSceneStrArray.GetLength(0) - 1)
+            {
+                PlayerPrefs.SetInt(nowWorldName, SceneManagerData.nowWorldNo + 1);
+                PlayerPrefs.SetInt(nowStageName, 0);
+            }
+        }
+        PlayerPrefs.SetInt(saveName, 1);
+        PlayerPrefs.Save();
+    }
+
     // 引数で指定したステージがクリアしているかを取得
     public static bool GetClearStage(int worldNo, int stageNo)
     {
-        int clear = PlayerPrefs.GetInt(clearStageName + SceneManagerData.nowWorldNo.ToString() + SceneManagerData.nowStageNo.ToString(), 0);
+        int clear = PlayerPrefs.GetInt(clearStageName + worldNo + stageNo, 0);
         if (clear == 1){
             return true;
         }
