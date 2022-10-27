@@ -17,38 +17,38 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Tutorial/Tutorial_01.unity
     guid: 4f74d5c2d8195b2428b272391cb2ada7
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Tutorial/Tutorial_02.unity
-    guid: bdb3353492c7a4c4a8b0d41497fd4a20
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Tutorial/Tutorial_03.unity
-    guid: 631982a1539acba44a182b75bcc7a41d
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Stage1_01.unity
-    guid: f3b31ff122bc57f4696a7e2cc85933fd
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Stage1_02.unity
-    guid: 8609ccc66cd8ac04c9147f1489c6bc72
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Stage1_03.unity
-    guid: db70337df0f9dee4ea35649c7e7c5e32
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Stage2_01.unity
-    guid: a74fcff77306c93428412f0f066b1cd1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameScene/Stage2_02.unity
-    guid: 8706ed571f30f5146ab97f70cd6b2a87
-  - enabled: 1
-    path: Assets/Scenes/GameScene/Stage2_03.unity
-    guid: 9df864a220ae2a246959161c655ab12f
-  - enabled: 1
-    path: Assets/Scenes/GameScene/Stage3_01.unity
-    guid: 07adc3cc3ef97244c9f08a4585de2233
-  - enabled: 1
-    path: Assets/Scenes/GameScene/Stage3_02.unity
-    guid: 3ca39b7f1eb246541873b3e00fe3939b
-  - enabled: 1
-    path: Assets/Scenes/GameScene/Stage3_03.unity
-    guid: 769242630704ff045ba2be3b0d2d2cde
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bebc9c897a427bc41b2f57e032388074, type: 2}
