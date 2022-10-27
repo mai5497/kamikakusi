@@ -51,6 +51,8 @@ public class CP_move01 : MonoBehaviour
     public float Wall_player_left = 0.0f;
     public float Wall_player_right = 0.0f;
 
+    public bool isUiOk;
+
     Vector2 wallLeftPos;
     Vector2 wallRightPos;
 
@@ -81,7 +83,7 @@ public class CP_move01 : MonoBehaviour
         animState = eAnimState.NONE;
         //sr = this.GetComponent<SpriteRenderer>();
         oldMoveVal = 0.0f;
-
+        isUiOk = false;
         _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
 
         wallObj_left = GameObject.FindGameObjectWithTag("TestWallLeft");
@@ -209,6 +211,7 @@ public class CP_move01 : MonoBehaviour
                     if (isWalk)
                     {
                         UpdateWalk(move.x);
+                        isUiOk = true;
                     }
                     else
                     {
@@ -234,7 +237,7 @@ public class CP_move01 : MonoBehaviour
             /*
              * 狐の窓使用時は別スクリプト
              */
-            if (CPData.isLook)
+            if (CPData.isLook) //&& CPData.lookCnt <= 0 && CPData.isLook && _FoxByakko.isClear == false
             {
                 if (CPData.isKokkurisan || CPData.isObjNameUI)
                 {
@@ -293,7 +296,7 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintKey(InputAction.CallbackContext obj)
     {
-        if(!CPData.isLens || !Kokkurisan.isFind)
+        if (!CPData.isLens || !Kokkurisan.isFind)
         {
             return;
         }
