@@ -39,6 +39,7 @@ public class GameUIManager : MonoBehaviour {
     private FoxByakko _FoxByakko;       // クリアフラグの取得
 
     public bool UI_out;                 //ものの名前が出てるとき
+    private clear_animation ani;
 
     void Awake() {
         UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
@@ -46,6 +47,8 @@ public class GameUIManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        ani = GameObject.Find("Clear").GetComponent<clear_animation>();
+
         //----- ゲームクリアだったら表示しないためクリアフラグ取得準備 -----
         if (GameObject.Find("FoxByakko")) {
             _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
@@ -151,6 +154,7 @@ public class GameUIManager : MonoBehaviour {
         if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear) {
             return;
         }
+        if(CPData.lookCnt>0|| ani.isClear==false)
         CPData.isObjNameUI = true;
         UI_out = true;
     }
