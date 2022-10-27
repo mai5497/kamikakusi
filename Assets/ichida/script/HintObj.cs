@@ -57,6 +57,14 @@ public class HintObj : MonoBehaviour {
     // ズームレンズ
     private ZoomLens zoomLens;
 
+    // 子オブジェクト
+    List<SpriteRenderer> childrenList = new List<SpriteRenderer>();
+
+    // 子オブジェクト初期座標
+    Vector3 localInitPos;
+    // 子オブジェクトの初期オフセット
+    Vector2 localInitOffset;
+
     // Start is called before the first frame update
     void Start() {
         isWindowColl = false;
@@ -64,7 +72,7 @@ public class HintObj : MonoBehaviour {
         _mado = GameObject.Find("Lens").GetComponent<mado>();
 
         isCheckThis = false;
-        
+
         switch (this.gameObject.layer)
         {
             // Middle1
@@ -89,7 +97,21 @@ public class HintObj : MonoBehaviour {
         cpObj = GameObject.FindGameObjectWithTag("Player");
 
         zoomLens = GameObject.Find("CanvasLens").GetComponent<ZoomLens>();
+
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            childrenList.Add(this.transform.GetChild(i).GetComponent<SpriteRenderer>());
+        }
+        foreach (SpriteRenderer child in childrenList)
+        {
+            if (child.maskInteraction == SpriteMaskInteraction.VisibleInsideMask)
+            {
+                localInitPos = child.transform.localPosition;
+                localInitOffset = this.GetComponent<CapsuleCollider2D>().offset;
+            }
+        }
     }
+
 
     void Update()
     {
@@ -103,6 +125,34 @@ public class HintObj : MonoBehaviour {
                 hitPos.x = hitInitPos.x + (cameraToPlayer * hitCameraHosei + Camera.main.transform.position.x * hitPlayerHosei);
                 hitPos.y = hitInitPos.y;
                 this.GetComponent<CapsuleCollider2D>().offset = hitPos;
+            }
+        }
+
+        if (CPData.isLens)
+        {
+            foreach (SpriteRenderer child in childrenList)
+            {
+                switch (child.maskInteraction)
+                {
+                    // 後ろオブジェクト
+                    case SpriteMaskInteraction.VisibleInsideMask:
+                        child.gameObject.layer = 0;
+                        child.transform.localPosition = new Vector3(localInitPos.x + this.GetComponent<CapsuleCollider2D>().offset.x - localInitOffset.x, localInitPos.y + this.transform.GetComponent<CapsuleCollider2D>().offset.y - localInitOffset.y, localInitPos.z);
+                        break;
+                }
+            }
+        }
+        else
+        {
+            foreach (SpriteRenderer child in childrenList)
+            {
+                switch (child.maskInteraction)
+                {
+                    // 前オブジェクト
+                    case SpriteMaskInteraction.VisibleOutsideMask:
+                        child.enabled = true;
+                        break;
+                }
             }
         }
     }
@@ -122,13 +172,42 @@ public class HintObj : MonoBehaviour {
                     CPData.paperCnt--;
                 }
             }
+
+            if (CPData.isLens)
+            {
+                foreach (SpriteRenderer child in childrenList)
+                {
+                    switch (child.maskInteraction)
+                    {
+                        // 前オブジェクト
+                        case SpriteMaskInteraction.VisibleOutsideMask:
+                            child.enabled = false;
+                            break;
+                    }
+                }
+            }
         }
 
     }
     private void OnTriggerExit2D(Collider2D collision) {
+
         if (collision.tag == "FoxWindow") {
             isWindowColl = false;
             _mado.SetLookObjName(null, null);
+
+            if (CPData.isLens)
+            {
+                foreach (SpriteRenderer child in childrenList)
+                {
+                    switch (child.maskInteraction)
+                    {
+                        // 前オブジェクト
+                        case SpriteMaskInteraction.VisibleOutsideMask:
+                            child.enabled = true;
+                            break;
+                    }
+                }
+            }
         }
     }
 

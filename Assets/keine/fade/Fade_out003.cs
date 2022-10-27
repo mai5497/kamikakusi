@@ -68,6 +68,13 @@ public class Fade_out003 : MonoBehaviour
 
     void Update()
     {
+        //Keyboard keyboard;
+        //keyboard = Keyboard.current;
+        //if (keyboard.f1Key.wasReleasedThisFrame)
+        //{
+        //    SceneManagerFade.LoadSceneMain(0, 0);
+        //}
+
 
         var current = Keyboard.current;
         if (frameCount > 2)
