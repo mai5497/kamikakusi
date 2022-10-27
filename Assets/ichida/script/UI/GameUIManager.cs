@@ -40,6 +40,7 @@ public class GameUIManager : MonoBehaviour {
 
     public bool UI_out;                 //ものの名前が出てるとき
     private clear_animation ani;
+    private Fade_in_gemeover over;
 
     void Awake() {
         UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
@@ -52,6 +53,7 @@ public class GameUIManager : MonoBehaviour {
         //----- ゲームクリアだったら表示しないためクリアフラグ取得準備 -----
         if (GameObject.Find("FoxByakko")) {
             _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
+            over = GameObject.Find("fade_over").GetComponent<Fade_in_gemeover>();
         }
 
         //----- チュートリアルだったら表示しないためチュートリアルフラグの取得準備 -----
@@ -154,9 +156,12 @@ public class GameUIManager : MonoBehaviour {
         if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear) {
             return;
         }
-        if(CPData.lookCnt>0|| ani.isClear==false)
-        CPData.isObjNameUI = true;
-        UI_out = true;
+        if (over.isOver_fade == true|| ani.isClear == true){
+            return; 
+        }
+            CPData.isObjNameUI = true;
+            UI_out = true;
+        
     }
 
     private void OffSwitchUI(InputAction.CallbackContext obj) {

@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4197482278031334520}
   - component: {fileID: 4731102324832757178}
   m_Layer: 0
-  m_Name: fade
+  m_Name: fade_over
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFadeOk: 0
   fadeIn: 0
+  isOver_fade: 0
   fade_out: 0
 --- !u!1 &4197482278447096739
 GameObject:
@@ -625,6 +626,7 @@ MonoBehaviour:
   selectObjList:
   - {fileID: 4197482279345289708}
   - {fileID: 4197482279691449521}
+  over: {fileID: 4731102324832757178}
   NO1: 0
   Clear: {fileID: 0}
 --- !u!114 &4731102323569512051

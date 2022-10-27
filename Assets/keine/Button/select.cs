@@ -31,6 +31,8 @@ public class select : MonoBehaviour
 
     public List<GameObject> selectObjList;
 
+    public Fade_in_gemeover over;
+
     public bool NO1 = false;
     public clear_animation Clear;
 
@@ -50,6 +52,7 @@ public class select : MonoBehaviour
         if (fox)
         {
             _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
+           // over = GameObject.Find("fade").GetComponent<Fade_in_gemeover>();
         }
     }
 
@@ -175,44 +178,44 @@ public class select : MonoBehaviour
         {
             selectNo = selectNoMin;
         }
-        bool pushAbutton=false;
+        bool pushAbutton = false;
         //  if (isDicision) {
         if (gamepad != null)
         {
             pushAbutton = gamepad.aButton.wasReleasedThisFrame;
-           
-            
+
+
         }
         //    gamepad.aButton.wasReleasedThisFrame
 
 
-            if (keyboard.enterKey.wasReleasedThisFrame|| pushAbutton)
+        if (keyboard.enterKey.wasReleasedThisFrame || pushAbutton)
+        {
+            switch (selectNo)
             {
-                switch (selectNo)
-                {
-                    case 0:
-                        //ステージセレクトへ遷移
-                        SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
-                        break;
+                case 0:
+                    //ステージセレクトへ遷移
+                    SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
+                    break;
 
-                    case 1:
-                        //次のステージへ
-                        //   SceneManagerFade.LoadSceneNextStage();
-                        if (Clear.isClear == true)
-                        {
-                            //クリアなら
-                            SceneManagerFade.LoadSceneNextStage();
-                        }
-                        else
-                        {
-                            //ゲームオーバーなら
-                            SceneManagerFade.LoadSceneMain(SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo);
-                            //Application.LoadLevel(Application.loadedLevelName);
-                        }
+                case 1:
+                    //次のステージへ
+                    //   SceneManagerFade.LoadSceneNextStage();
+                    if (Clear.isClear == true)
+                    {
+                        //クリアなら
+                        SceneManagerFade.LoadSceneNextStage();
+                    }
+                    if (over.isOver_fade == true)
+                    {
+                        //ゲームオーバーなら
+                        SceneManagerFade.LoadSceneMain(SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo);
+                        //Application.LoadLevel(Application.loadedLevelName);
+                    }
 
-                        break;
+                    break;
 
-                }
+            }
             isDicision = false;
         }
 
