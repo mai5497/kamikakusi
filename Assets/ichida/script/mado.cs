@@ -23,6 +23,9 @@ public class mado : MonoBehaviour {
 
     private Kokkurisan kokkurisan;
 
+    [Header("åœÇÃèoåªç¿ïW")]
+    public Vector3 posFox;
+
     // Start is called before the first frame update
     void Start() {
         kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
@@ -39,7 +42,7 @@ public class mado : MonoBehaviour {
         kokkurisan.normalAnswerStr = lookObjName;
 
         if (kokkurisan.isClear) {
-            fox.transform.position = this.transform.position;
+            fox.transform.position = this.transform.position + posFox;
         }
     }
 

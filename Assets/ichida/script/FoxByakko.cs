@@ -54,6 +54,8 @@ public class FoxByakko : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        this.gameObject.layer = 0;
+
         //----- ’Ž‹”»’è -----
         //if (!isWindowColl && !oldIsLook && CPData.isLook) {    // ‘‹‚ª“–‚½‚Á‚Ä‚¢‚È‚¢‚Æ‚«‚É’Ž‹‚³‚ê‚½‚Æ‚«
         //    if (_ZoomLens.valueZoomLerp > 0.9) {
