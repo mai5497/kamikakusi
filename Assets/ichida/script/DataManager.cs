@@ -66,8 +66,7 @@ public class DataManager : MonoBehaviour
     //-----------------------------------------------------
     // Efect(原則としてEffectData.csのenumの定義名と同じにし小文字で命名すること)
     //-----------------------------------------------------
-    //---ギミック
-    //[SerializeField] private ParticleSystem ef_gimick_fire;
+    //[SerializeField] private ParticleSystem ef_smoke;
 
 
     void Awake() {
@@ -105,7 +104,7 @@ public class DataManager : MonoBehaviour
         // Efect
         //-----------------------------------------------------
         //---ギミック関連
-        //EffectData.EFDataSet(ef_gimick_fire, (int)EffectData.eEFFECT.EF_GIMICK_FIRE);
+        //EffectData.EFDataSet(ef_smoke, (int)EffectData.eEFFECT.EF_SMOKE);
 
         SoundData.isSetSound = true;                 // デバッグ時サウンド初期化してない場合にエラーが出るからけす
         //EffectData.isSetEffect = true;                  // デバッグ時エフェクト初期化していない場合にエラーを出さない
