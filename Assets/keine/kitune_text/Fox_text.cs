@@ -12,8 +12,6 @@ public class Fox_text : MonoBehaviour
     private RectTransform rec;
     private CP_move01 move;
     public List<string> TextList = new List<string>();
-    [Header("会話の行数いれてね＾＿＾")]
-    public int countMax;
 
     [Header("チュートリアルリスト画像リスト")]
     public List<Sprite> ImageList;
@@ -85,7 +83,7 @@ public class Fox_text : MonoBehaviour
     {
         //  Debug.Log(count + "asd" + countMax);
 
-        Debug.Log(isFadeOut_Finish + "11asd" + countMax);
+        Debug.Log(isFadeOut_Finish + "11asd" + TextList.Count);
         if (isFadeOut_Finish)
         {
 
@@ -110,7 +108,7 @@ public class Fox_text : MonoBehaviour
 
 
             //  Debug.Log(count+"asd"+ countMax);
-            if (count < countMax)
+            if (count < TextList.Count)
             {
                 text.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
                 text.text = TextList[count];
