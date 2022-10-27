@@ -444,7 +444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13acec420cabc2943b9de64f47deefab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9cd4b0a3d46987446954c67d7995be6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -571,9 +571,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isZoom: 0
-  _camera: {fileID: 0}
   cameraInit: 5
   cameraZoom: 3
+  _cameraMultZoom: 5
   pointZoom: {fileID: 6687588190245747981}
   speedZoomIn: 0.5
 --- !u!1 &6687588190313179878
