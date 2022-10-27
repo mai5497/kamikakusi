@@ -577,7 +577,7 @@ MonoBehaviour:
   isZoom: 0
   cameraInit: 5
   cameraZoom: 3
-  _cameraMultZoom: 5
+  _cameraMultZoom: 3
   pointZoom: {fileID: 6687588190245747981}
   speedZoomIn: 0.5
 --- !u!1 &6687588190313179878
