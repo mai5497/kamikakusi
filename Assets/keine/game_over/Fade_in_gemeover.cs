@@ -30,7 +30,7 @@ public class Fade_in_gemeover : MonoBehaviour
     private int frameCount = 0;
     public int isFadeOk;
     public bool fadeIn = false;
-    private bool fading = false;
+    public bool isOver_fade = false;
     public bool fade_out;
 
     void Start()
@@ -61,7 +61,7 @@ public class Fade_in_gemeover : MonoBehaviour
                         img.color = new Color(0, 0, 0, 0 + (timer / 4) * 3);
                         timer = 0.0f;
                         fadeIn = false;
-                        fading = false;
+                        isOver_fade = true;
                     }
                     timer += Time.deltaTime / 2;
                 }
@@ -69,6 +69,8 @@ public class Fade_in_gemeover : MonoBehaviour
         }
         ++frameCount;
     }
+
+
 
     public void fade_in_use(SpriteRenderer image)
     {
