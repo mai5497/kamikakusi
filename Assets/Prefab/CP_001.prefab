@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5093899037619718635}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8680989155180938962
 MonoBehaviour:
@@ -74,8 +74,8 @@ MonoBehaviour:
   zoomLens: {fileID: 0}
   lensSpeed: 10
   moveAccel: 0
-  moveAccelSpeed: 0.5
-  moveDecelSpeed: 2
+  moveAccelSpeed: 2
+  moveDecelSpeed: 6
   cameraHosei: {x: 1, y: 1}
 --- !u!50 &1827972463881022625
 Rigidbody2D:
