@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2f13e09143c264ab65af9fa4489727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posFox: {x: 0.2, y: -0.5, z: 0}
 --- !u!58 &1692697937305015861
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -571,9 +572,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isZoom: 0
-  _camera: {fileID: 0}
   cameraInit: 5
   cameraZoom: 3
+  _cameraMultZoom: 5
   pointZoom: {fileID: 6687588190245747981}
   speedZoomIn: 0.5
 --- !u!1 &6687588190313179878

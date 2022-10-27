@@ -162,11 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1529652715146047141, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1529652715146047141, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1294539115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1914746512396006825, guid: 47a58af5945c57a4db967c0aadcdca95, type: 3}
       propertyPath: efFindList.Array.size
@@ -258,11 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8670034202529663657, guid: bb7bd4d7cf35c3340b4a4c84924530d0, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8670034202529663657, guid: bb7bd4d7cf35c3340b4a4c84924530d0, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1294539115
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

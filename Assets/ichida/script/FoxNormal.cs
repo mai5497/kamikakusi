@@ -26,6 +26,8 @@ public class FoxNormal : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        this.gameObject.layer = 0;
+
         isDelete = fox.GetByakko_delete();
 
         if (isDelete) {
