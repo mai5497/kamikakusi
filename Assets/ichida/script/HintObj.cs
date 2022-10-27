@@ -54,6 +54,9 @@ public class HintObj : MonoBehaviour {
     // プレイヤーオブジェクト
     private GameObject cpObj;
 
+    // ズームレンズ
+    private ZoomLens zoomLens;
+
     // Start is called before the first frame update
     void Start() {
         isWindowColl = false;
@@ -84,19 +87,23 @@ public class HintObj : MonoBehaviour {
         hitInitPos = this.GetComponent<CapsuleCollider2D>().offset;
 
         cpObj = GameObject.FindGameObjectWithTag("Player");
+
+        zoomLens = GameObject.Find("CanvasLens").GetComponent<ZoomLens>();
     }
 
     void Update()
     {
-
-        // 当たり判定の座標変更
-        if (this.gameObject.layer == 7 || this.gameObject.layer == 9 || this.gameObject.layer == 10)
+        if (zoomLens.isZoom == false)
         {
-            Vector2 hitPos;
-            cameraToPlayer = Camera.main.transform.position.x - cpObj.transform.position.x;
-            hitPos.x = hitInitPos.x + (cameraToPlayer * hitCameraHosei + Camera.main.transform.position.x * hitPlayerHosei);
-            hitPos.y = hitInitPos.y;
-            this.GetComponent<CapsuleCollider2D>().offset = hitPos;
+            // 当たり判定の座標変更
+            if (this.gameObject.layer == 7 || this.gameObject.layer == 9 || this.gameObject.layer == 10)
+            {
+                Vector2 hitPos;
+                cameraToPlayer = Camera.main.transform.position.x - cpObj.transform.position.x;
+                hitPos.x = hitInitPos.x + (cameraToPlayer * hitCameraHosei + Camera.main.transform.position.x * hitPlayerHosei);
+                hitPos.y = hitInitPos.y;
+                this.GetComponent<CapsuleCollider2D>().offset = hitPos;
+            }
         }
     }
 
