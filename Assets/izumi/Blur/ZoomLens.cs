@@ -50,7 +50,6 @@ public class ZoomLens : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _camera = Camera.main;
         isFindNotCamera = true;
         //if (GameObject.Find("CameraForward") != null)
         //{
@@ -62,16 +61,15 @@ public class ZoomLens : MonoBehaviour
         //    isFindNotCamera = false;
         //}
 
-        canvasLens = this.GetComponent<Canvas>();
 
-        cameraInitPos = _camera.transform.position;
     }
-
     // Update is called once per frame
+
     void Update()
     {
         if (isFindNotCamera == true)
         {
+            _camera = Camera.main;
             if (GameObject.Find("CameraForward") != null)
             {
                 _cameraMultList.Add(GameObject.Find("CameraForward").GetComponent<Camera>());
@@ -84,6 +82,8 @@ public class ZoomLens : MonoBehaviour
                     cameraMultInitPosList.Add(_cameraMultList[i].transform.position);
                 }
             }
+            canvasLens = this.GetComponent<Canvas>();
+            cameraInitPos = _camera.transform.position;
             isFindNotCamera = false;
         }
 
