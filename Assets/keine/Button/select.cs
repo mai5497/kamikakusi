@@ -210,7 +210,7 @@ public class select : MonoBehaviour
                     {
                         //ゲームオーバーなら
                         SceneManagerFade.LoadSceneMain(SceneManagerData.nowWorldNo, SceneManagerData.nowStageNo);
-                        //Application.LoadLevel(Application.loadedLevelName);
+                      //  Application.LoadLevel(Application.loadedLevelName);
                     }
 
                     break;

@@ -4,8 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - bgm_title: {fileID: 8300000, guid: 48aa1030c61f47d488377a7087b90de9, type: 3}
-  - bgm_select: {fileID: 8300000, guid: 00b6cea3d9f130c4da31a6e08dfb00a1, type: 3}
+  - bgm_title: {fileID: 8300000, guid: 2b3b86bf5c60fc34ba88afad63a8c6c2, type: 3}
+  - bgm_select: {fileID: 8300000, guid: 5ab435585a8b52447b5bce0aa50a5372, type: 3}
   - bgm_game01: {fileID: 8300000, guid: 7c18ff9c7a80d4a4181fc4455ba4129c, type: 3}
   - bgm_game02: {fileID: 8300000, guid: b2190692ba709774c9b5872a81acb859, type: 3}
   - bgm_game03: {fileID: 8300000, guid: a86f964995b74fe47a393d92961aa0c6, type: 3}
