@@ -289,7 +289,7 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintKey(InputAction.CallbackContext obj)
     {
-        if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1)
+        if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1 || CPData.lookCnt < 1)
         {
             return;
         }
@@ -307,7 +307,7 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintButton(InputAction.CallbackContext obj)
     {
-        if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1)
+        if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1 || CPData.lookCnt < 1)
         {
             return;
         }

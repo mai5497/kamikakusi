@@ -38,6 +38,7 @@ public class GameUIManager : MonoBehaviour {
 
     private FoxByakko _FoxByakko;       // クリアフラグの取得
 
+    [System.NonSerialized]
     public bool UI_out;                 //ものの名前が出てるとき
     //private clear_animation ani;
     //private Fade_in_gemeover over;
@@ -153,7 +154,7 @@ public class GameUIManager : MonoBehaviour {
                 return;
             }
         }
-        if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear || CPData.paperCnt < 1) {
+        if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear || CPData.lookCnt < 1) {
             return;
         }
         //if (over.isOver_fade == true|| ani.isClear == true){
