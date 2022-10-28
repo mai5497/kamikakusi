@@ -19,7 +19,7 @@ public class UI_hyouji1 : MonoBehaviour
         if(!fadeIn)
         {
             oder.color = new Color(1, 1, 1, 1);
-            oder.sortingOrder = 9;
+            oder.sortingOrder = 7;
         }
     }
 }
