@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403ae2dd693bb1d4b924f6b8d206b053, type: 3}
   m_Name: FoxL2D.fadeMotionList
   m_EditorClassIdentifier: 
-  MotionInstanceIds: 3c29ffff2626ffff1c26ffff1226ffff
+  MotionInstanceIds: e821ffffda1effff1c26ffff1226ffff
   CubismFadeMotionObjects:
   - {fileID: 11400000, guid: 77e2e13f2c3f36642bbcaf92fbca7954, type: 2}
   - {fileID: 11400000, guid: 4bab8cc448642034589ba98193213be4, type: 2}
