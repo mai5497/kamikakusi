@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Live2D.Cubism.Rendering;
+using Live2D.Cubism.Framework;
 
 public class FoxByakko : MonoBehaviour {
     [System.NonSerialized]
     public bool isWindowColl;   // 窓と当たったかフラグ
-    private SpriteRenderer sr;  // 狐のスプライトレンダラー
+    [Header("狐のパーツ(live2d)")]
+    public CubismPartsInspector pi;
+    public List<CubismRenderer> crList;
+    private List<float> crAlphaList = new List<float>();
+    private Animator animator;
     private float alpha;    // 狐のアルファ値
 
     private const float lookStopTime = 3.0f;    // 注視して止まらないといけない時間
@@ -29,6 +35,8 @@ public class FoxByakko : MonoBehaviour {
     // 狐を見つけた時にエフェクトを出す
     public List<ParticleSystem> efFindList;
 
+    private bool isInitAlpha = false;
+
     // Start is called before the first frame update
     void Start() {
         isWindowColl = false;
@@ -37,9 +45,16 @@ public class FoxByakko : MonoBehaviour {
 
         lookStopTimer = lookStopTime;
 
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
         alpha = 0.0f;
-        sr.color = new Color(1, 1, 1, alpha);
+        foreach (CubismRenderer cr in crList)
+        {
+            crAlphaList.Add(cr.Color.a);
+            //cr.Color = new Color(cr.Color.r, cr.Color.g, cr.Color.b, alpha);
+        }
+        //rc.Opacity = alpha;
+        //pi.SendMessage("B_SIRO_KITUNE", alpha);
+        animator = pi.gameObject.GetComponent<Animator>();
 
         _Kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
         isClear = false;
@@ -75,6 +90,10 @@ public class FoxByakko : MonoBehaviour {
             // あたり！
             CPData.isRightAnswer = true;
             lookStopTimer -= Time.deltaTime;
+            for (int i = 0; i < crList.Count; i++)
+            {
+                crList[i].gameObject.SetActive(true);
+            }
 
             // 当たりの時に注視し終わった時はズームを解除させない
             if (_ZoomLens.valueZoomLerp > 0.9)
@@ -83,17 +102,50 @@ public class FoxByakko : MonoBehaviour {
             }
             if (lookStopTimer < 0 && alpha <= 1.0f) {
                 alpha += Time.deltaTime / appearTime;
-                sr.color = new Color(1, 1, 1, alpha);
+                if (isInitAlpha == false)
+                {
+                    isInitAlpha = true;
+                }
+                else
+                {
+                    for (int i = 0; i < crList.Count; i++)
+                    {
+                        crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, alpha);
+                        if (alpha < crAlphaList[i])
+                        {
+                            crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, alpha);
+                        }
+                        else
+                        {
+                            crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, crAlphaList[i]);
+                        }
+                    }
+                }
+                //pi.SendMessage("B_SIRO_KITUNE", alpha);
+
             } else if (alpha > 1.0) {
                 isDeleting = true;
                 foreach (ParticleSystem ef in efFindList) {
                     ef.Play();
                     SoundManager2.Play(SoundData.eSE.SE_GET, SoundData.GameAudioList);
+                    animator.SetBool("isChange", true);
                 }
             }
         } else if (isDeleting) {
             alpha -= Time.deltaTime / appearTime;
-            sr.color = new Color(1, 1, 1, alpha);
+            //for (int i = 0; i < crList.Count; i++)
+            //{
+            //    if (alpha < crAlphaList[i])
+            //    {
+            //        crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, alpha);
+            //    }
+            //    else
+            //    {
+            //        crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, crAlphaList[i]);
+            //    }
+            //}
+            //pi.SendMessage("B_SIRO_KITUNE", alpha);
+            //animator.SetBool("isChange", false);
             if (alpha < 0.0f) {
                 isByakko_delete = true;
             }
@@ -103,7 +155,20 @@ public class FoxByakko : MonoBehaviour {
         {
             lookStopTimer = lookStopTime;
             alpha = 0;
-            sr.color = new Color(1, 1, 1, alpha);
+            for (int i = 0; i < crList.Count; i++)
+            {
+                crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, alpha);
+                if (alpha < crAlphaList[i])
+                {
+                    crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, alpha);
+                }
+                else
+                {
+                    crList[i].Color = new Color(crList[i].Color.r, crList[i].Color.g, crList[i].Color.b, crAlphaList[i]);
+                }
+            }
+            animator.SetBool("isChange", false);
+            //pi.SendMessage("B_SIRO_KITUNE", alpha);
         }
 
         oldIsLook = CPData.isLook;
