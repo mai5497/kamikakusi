@@ -49,7 +49,14 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < SoundData.GameAudioList.Length; ++i) {
             SoundData.GameAudioList[i] = gameObject.AddComponent<AudioSource>();
         }
-        SoundManager2.Play(SoundData.eBGM.BGM_GAME01, SoundData.GameAudioList);
+        if (SceneManagerData.nowWorldNo == 1) {
+            SoundManager2.Play(SoundData.eBGM.BGM_GAME01, SoundData.GameAudioList);
+        } else if (SceneManagerData.nowWorldNo == 2) {
+            SoundManager2.Play(SoundData.eBGM.BGM_GAME02, SoundData.GameAudioList);
+        } else if (SceneManagerData.nowWorldNo == 3) {
+            SoundManager2.Play(SoundData.eBGM.BGM_GAME03, SoundData.GameAudioList);
+        }
+        Debug.Log(SceneManagerData.nowWorldNo);
 
         //----- デバッグ用に値変更 -----
         // 紙開ける回数
