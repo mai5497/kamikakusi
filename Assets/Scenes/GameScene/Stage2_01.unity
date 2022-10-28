@@ -1078,7 +1078,7 @@ PrefabInstance:
     - target: {fileID: 289109746337199590, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
+      objectReference: {fileID: 21300000, guid: e0ee37a7e2c9fbf4d90c566241d5039f, type: 3}
     - target: {fileID: 904095519015727634, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Size.x
       value: 1.8653388
@@ -1150,14 +1150,14 @@ PrefabInstance:
     - target: {fileID: 3711256201819200494, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
+      objectReference: {fileID: 21300000, guid: aa68b153debe6c54ea7426c83787a1ab, type: 3}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: objName
       value: "\u3059\u3044\u305B\u3093"
       objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: uraObjName
-      value: "\u3053\u3051\u3057"
+      value: "\u305F\u3051\u306E\u3053"
       objectReference: {fileID: 0}
     - target: {fileID: 4893372400289795360, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Name
@@ -9218,7 +9218,7 @@ PrefabInstance:
     - target: {fileID: 6681764610602162226, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
+      objectReference: {fileID: 21300000, guid: e0ee37a7e2c9fbf4d90c566241d5039f, type: 3}
     - target: {fileID: 6681764610602162226, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -9310,7 +9310,7 @@ PrefabInstance:
     - target: {fileID: 7726063222564084806, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 31240652f2d846e4590551633d40eb78, type: 3}
+      objectReference: {fileID: 21300000, guid: aa68b153debe6c54ea7426c83787a1ab, type: 3}
     - target: {fileID: 7726063222564084806, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -9342,7 +9342,7 @@ PrefabInstance:
     - target: {fileID: 7726063224410021695, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: aa68b153debe6c54ea7426c83787a1ab, type: 3}
+      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
     - target: {fileID: 7726063224410021695, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -9419,7 +9419,7 @@ PrefabInstance:
     - target: {fileID: 289109746337199590, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
+      objectReference: {fileID: 21300000, guid: 31240652f2d846e4590551633d40eb78, type: 3}
     - target: {fileID: 904095519015727634, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Size.x
       value: 1.8653388
@@ -9491,14 +9491,14 @@ PrefabInstance:
     - target: {fileID: 3711256201819200494, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
+      objectReference: {fileID: 21300000, guid: e0ee37a7e2c9fbf4d90c566241d5039f, type: 3}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: objName
       value: "\u3057\u3044\u305F\u3051"
       objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: uraObjName
-      value: "\u3053\u3051\u3057"
+      value: "\u3059\u3044\u305B\u3093"
       objectReference: {fileID: 0}
     - target: {fileID: 4838435714527477353, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: hatenaObjName
@@ -13630,7 +13630,7 @@ PrefabInstance:
     - target: {fileID: 289109746337199590, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 603c0ad424ef89a4ebb800a126b11836, type: 3}
+      objectReference: {fileID: 21300000, guid: 31240652f2d846e4590551633d40eb78, type: 3}
     - target: {fileID: 904095519015727634, guid: 820f095ebbaf63f408f967283c6c275f, type: 3}
       propertyPath: m_Size.x
       value: 1.8653388
