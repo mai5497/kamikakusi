@@ -39,8 +39,8 @@ public class GameUIManager : MonoBehaviour {
     private FoxByakko _FoxByakko;       // クリアフラグの取得
 
     public bool UI_out;                 //ものの名前が出てるとき
-    private clear_animation ani;
-    private Fade_in_gemeover over;
+    //private clear_animation ani;
+    //private Fade_in_gemeover over;
 
     void Awake() {
         UIActionAssets = new CP_move_input();            // InputActionインスタンスを生成
@@ -48,12 +48,12 @@ public class GameUIManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        ani = GameObject.Find("Clear").GetComponent<clear_animation>();
+        //ani = GameObject.Find("Clear").GetComponent<clear_animation>();
 
         //----- ゲームクリアだったら表示しないためクリアフラグ取得準備 -----
         if (GameObject.Find("FoxByakko")) {
             _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
-            over = GameObject.Find("fade_over").GetComponent<Fade_in_gemeover>();
+            //over = GameObject.Find("fade_over").GetComponent<Fade_in_gemeover>();
         }
 
         //----- チュートリアルだったら表示しないためチュートリアルフラグの取得準備 -----
@@ -153,12 +153,12 @@ public class GameUIManager : MonoBehaviour {
                 return;
             }
         }
-        if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear) {
+        if (CPData.isPose|| Pause.isPause || _FoxByakko.isClear || CPData.paperCnt < 1) {
             return;
         }
-        if (over.isOver_fade == true|| ani.isClear == true){
-            return; 
-        }
+        //if (over.isOver_fade == true|| ani.isClear == true){
+        //    return; 
+        //}
             CPData.isObjNameUI = true;
             UI_out = true;
         
