@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/izumi/StageSelect/StageSelect.unity
     guid: 25b2c4ad6f45a6042bc56c959dac424b
-  - enabled: 0
-    path: Assets/Scenes/GameScene/Tutorial/TutorialBase/Tutorial.unity
-    guid: 7432138f978732c43b66dcdbbc58488a
   - enabled: 1
     path: Assets/Scenes/GameScene/Tutorial/Tutorial_01.unity
     guid: 4f74d5c2d8195b2428b272391cb2ada7
@@ -50,17 +47,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Stage3_03.unity
     guid: d11fe02555e715b4c9550a85c5192a07
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bebc9c897a427bc41b2f57e032388074, type: 2}
