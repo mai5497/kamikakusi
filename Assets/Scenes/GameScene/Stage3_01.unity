@@ -8238,15 +8238,15 @@ PrefabInstance:
     - target: {fileID: 6789750497463595694, guid: f4c4949e5344d4f42b36ae26601d0645, type: 3}
       propertyPath: bgm_game01
       value: 
-      objectReference: {fileID: 8300000, guid: faf8266304614da428deb5a7df5d860f, type: 3}
+      objectReference: {fileID: 8300000, guid: 7c18ff9c7a80d4a4181fc4455ba4129c, type: 3}
     - target: {fileID: 6789750497463595694, guid: f4c4949e5344d4f42b36ae26601d0645, type: 3}
       propertyPath: bgm_game02
       value: 
-      objectReference: {fileID: 8300000, guid: d62afdf9b6701044d9872820c5d49d99, type: 3}
+      objectReference: {fileID: 8300000, guid: b2190692ba709774c9b5872a81acb859, type: 3}
     - target: {fileID: 6789750497463595694, guid: f4c4949e5344d4f42b36ae26601d0645, type: 3}
       propertyPath: bgm_game03
       value: 
-      objectReference: {fileID: 8300000, guid: 5fef77309f79b0345a5bf5a89717bfbe, type: 3}
+      objectReference: {fileID: 8300000, guid: a86f964995b74fe47a393d92961aa0c6, type: 3}
     - target: {fileID: 6789750497463595694, guid: f4c4949e5344d4f42b36ae26601d0645, type: 3}
       propertyPath: bgm_select
       value: 
