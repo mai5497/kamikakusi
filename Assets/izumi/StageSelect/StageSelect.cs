@@ -256,6 +256,8 @@ public class StageSelect : MonoBehaviour
                     }
                 }
 
+                bool isInitCan = false;
+
                 // ステージオブジェクトのスプライトをクリア状況により変更
                 for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
                 {
@@ -266,10 +268,31 @@ public class StageSelect : MonoBehaviour
                         {
                             selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
                         }
-                        // できる
+                        // クリアしてない
                         else
                         {
-                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                            if (selectWorldNo == selectWorldNoMax)
+                            {
+                                // できる
+                                if(ClearManager.GetClearStage(selectStageNoMax, i))
+                                {
+                                    selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                                }
+                                // できない
+                                else
+                                {
+                                    if (isInitCan == false)
+                                    {
+                                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                                        selectStageNoMax = i;
+                                        isInitCan = true;
+                                    }
+                                    else
+                                    {
+                                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
+                                    }
+                                }
+                            }
                         }
                     }
                     // できない
@@ -301,6 +324,8 @@ public class StageSelect : MonoBehaviour
                     }
                 }
 
+                bool isInitCan2 = false;
+
                 // ステージオブジェクトのスプライトをクリア状況により変更
                 for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
                 {
@@ -311,10 +336,31 @@ public class StageSelect : MonoBehaviour
                         {
                             selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
                         }
-                        // できる
+                        // クリアしてない
                         else
                         {
-                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                            if (selectWorldNo == selectWorldNoMax)
+                            {
+                                // できる
+                                if (ClearManager.GetClearStage(selectStageNoMax, i))
+                                {
+                                    selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                                }
+                                // できない
+                                else
+                                {
+                                    if (isInitCan2 == false)
+                                    {
+                                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                                        selectStageNoMax = i;
+                                        isInitCan2 = true;
+                                    }
+                                    else
+                                    {
+                                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
+                                    }
+                                }
+                            }
                         }
                     }
                     // できない

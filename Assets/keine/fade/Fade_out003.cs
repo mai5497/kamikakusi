@@ -70,6 +70,7 @@ public class Fade_out003 : MonoBehaviour
     {
         Keyboard keyboard;
         keyboard = Keyboard.current;
+        // シーン遷移
         if (keyboard.f1Key.wasReleasedThisFrame)
         {
             SceneManagerFade.LoadSceneMain(0, 0);
@@ -126,9 +127,15 @@ public class Fade_out003 : MonoBehaviour
         {
             SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.StageSelect);
         }
+        // クリアデータ削除
         if (keyboard.digit0Key.wasPressedThisFrame)
         {
             ClearManager.Delete();
+        }
+        // 全てクリア
+        if (keyboard.digit9Key.wasPressedThisFrame)
+        {
+            ClearManager.SaveClearStageAll();
         }
 
 
