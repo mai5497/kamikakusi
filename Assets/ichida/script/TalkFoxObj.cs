@@ -8,7 +8,8 @@ public class TalkFoxObj : MonoBehaviour
 
     private Fox_text _Fox_text;
 
-    private Renderer renderer;
+    private GameObject rendereParent;
+    private Renderer[] renderers;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,14 @@ public class TalkFoxObj : MonoBehaviour
 
         _Fox_text = GameObject.Find("Text (fox)").GetComponent<Fox_text>();
 
-        renderer = GetComponent<Renderer>();
+        rendereParent = transform.Find("Drawables").gameObject;
+
+        renderers = new Renderer[rendereParent.transform.childCount];
+
+        for(int i = 0;i < renderers.Length; i++) {
+            renderers[i] = rendereParent.transform.GetChild(i).GetComponent<Renderer>();
+        }
+        //renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -28,12 +36,16 @@ public class TalkFoxObj : MonoBehaviour
                 animator.SetBool("isChange", true);
             }
             if (_Fox_text.isTextFin) {
-                renderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                for (int i = 0; i < renderers.Length; i++) {
+                    renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                }
             }
         } else {
             if (_Fox_text.isTextFin) {
                 animator.SetBool("isChange", true);
-                renderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                for (int i = 0; i < renderers.Length; i++) {
+                    renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                }
             }
         }
     }

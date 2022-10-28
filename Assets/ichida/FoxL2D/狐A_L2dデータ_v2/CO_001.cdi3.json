@@ -1,0 +1,61 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "頭部_前後"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "耳揺れ_R"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "耳揺れ_L"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "",
+			"Name": "白狐_切り替え"
+		},
+		{
+			"Id": "Param9",
+			"GroupId": "",
+			"Name": "尻尾上げ_完全版"
+		},
+		{
+			"Id": "Param10",
+			"GroupId": "",
+			"Name": "尻尾下げ_完全版"
+		},
+		{
+			"Id": "Param7",
+			"GroupId": "",
+			"Name": "呼吸"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "MASUKU",
+			"Name": "MASUKU"
+		},
+		{
+			"Id": "B_SIRO_KITUNE",
+			"Name": "B_SIRO_KITUNE"
+		},
+		{
+			"Id": "KITUNE",
+			"Name": "KITUNE"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"Param9",
+			"Param10"
+		]
+	]
+}
