@@ -83,7 +83,7 @@ public class Fox_text : MonoBehaviour
     {
         //  Debug.Log(count + "asd" + countMax);
 
-        Debug.Log(isFadeOut_Finish + "11asd" + TextList.Count);
+     //   Debug.Log(isFadeOut_Finish + "11asd" + TextList.Count);
         if (isFadeOut_Finish)
         {
 

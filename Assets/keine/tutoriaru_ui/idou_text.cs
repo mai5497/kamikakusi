@@ -22,7 +22,7 @@ public class idou_text : MonoBehaviour
         move = GameObject.Find("CP_001").GetComponent<CP_move01>();
         //spr = GetComponent<Text>();
         //spr.color = new Color(1, 1, 1, 0);
-        this.text_idou.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        text_idou.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
         DeleteOk = false;
     }
