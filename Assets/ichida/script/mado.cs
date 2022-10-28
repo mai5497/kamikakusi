@@ -32,6 +32,8 @@ public class mado : MonoBehaviour {
 
     private int oldLookCount;
 
+    private bool isLookCountInit = false;
+
     // Start is called before the first frame update
     void Start() {
         kokkurisan = GameObject.Find("CanvasKokkurisan").GetComponent<Kokkurisan>();
@@ -54,9 +56,22 @@ public class mado : MonoBehaviour {
             fox.transform.position = this.transform.position + posFox;
         }
 
-        if(oldLookCount != CPData.lookCnt) {
-            PlayEffect();
-            oldLookCount = CPData.lookCnt;
+        // 初期フレームはlookCntに変更がかかっても初期化なのでエフェクトは流さない
+        if (isLookCountInit == false)
+        {
+            if (oldLookCount != CPData.lookCnt)
+            {
+                oldLookCount = CPData.lookCnt;
+            }
+            isLookCountInit = true;
+        }
+        else
+        {
+            if (oldLookCount != CPData.lookCnt)
+            {
+                PlayEffect();
+                oldLookCount = CPData.lookCnt;
+            }
         }
         
     }
