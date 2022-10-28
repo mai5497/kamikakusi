@@ -233,7 +233,7 @@ RectTransform:
   - {fileID: 2139375544612367776}
   - {fileID: 2139375545332215492}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2139375545702136919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +403,6 @@ MonoBehaviour:
   - 123
   - qwe
   - asd
-  countMax: 3
   ImageList:
   - {fileID: 21300000, guid: 871681bba5bbfd244943e28a298c11dd, type: 3}
   - {fileID: 21300000, guid: 687b5654c3f47494ca2ae12fc91d4c44, type: 3}
