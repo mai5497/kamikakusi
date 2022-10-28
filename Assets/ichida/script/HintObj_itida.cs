@@ -15,7 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HintObj : MonoBehaviour {
+public class HintObj_itida : MonoBehaviour {
 
     //[System.NonSerialized]
     public string objName;    // このオブジェクトの名前をインスペクターで設定しておく
@@ -73,8 +73,7 @@ public class HintObj : MonoBehaviour {
 
         isCheckThis = false;
 
-        switch (this.gameObject.layer)
-        {
+        switch (this.gameObject.layer) {
             // Middle1
             case 7:
                 cameraUse = GameObject.Find("CameraMiddle1").GetComponent<Camera>();
@@ -98,14 +97,11 @@ public class HintObj : MonoBehaviour {
 
         zoomLens = GameObject.Find("CanvasLens").GetComponent<ZoomLens>();
 
-        for (int i = 0; i < this.transform.childCount; i++)
-        {
+        for (int i = 0; i < this.transform.childCount; i++) {
             childrenList.Add(this.transform.GetChild(i).GetComponent<SpriteRenderer>());
         }
-        foreach (SpriteRenderer child in childrenList)
-        {
-            if (child.maskInteraction == SpriteMaskInteraction.VisibleInsideMask)
-            {
+        foreach (SpriteRenderer child in childrenList) {
+            if (child.maskInteraction == SpriteMaskInteraction.VisibleInsideMask) {
                 localInitPos = child.transform.localPosition;
                 localInitOffset = this.GetComponent<CapsuleCollider2D>().offset;
             }
@@ -113,13 +109,10 @@ public class HintObj : MonoBehaviour {
     }
 
 
-    void Update()
-    {
-        if (zoomLens.isZoom == false)
-        {
+    void Update() {
+        if (zoomLens.isZoom == false) {
             // 当たり判定の座標変更
-            if (this.gameObject.layer == 7 || this.gameObject.layer == 9 || this.gameObject.layer == 10)
-            {
+            if (this.gameObject.layer == 7 || this.gameObject.layer == 9 || this.gameObject.layer == 10) {
                 Vector2 hitPos;
                 cameraToPlayer = Camera.main.transform.position.x - cpObj.transform.position.x;
                 hitPos.x = hitInitPos.x + (cameraToPlayer * hitCameraHosei + Camera.main.transform.position.x * hitPlayerHosei);
@@ -128,12 +121,9 @@ public class HintObj : MonoBehaviour {
             }
         }
 
-        if (CPData.isLens)
-        {
-            foreach (SpriteRenderer child in childrenList)
-            {
-                switch (child.maskInteraction)
-                {
+        if (CPData.isLens) {
+            foreach (SpriteRenderer child in childrenList) {
+                switch (child.maskInteraction) {
                     // 後ろオブジェクト
                     case SpriteMaskInteraction.VisibleInsideMask:
                         child.gameObject.layer = 0;
@@ -146,12 +136,9 @@ public class HintObj : MonoBehaviour {
                 isCheckThis = true;
                 CPData.paperCnt--;
             }
-        } else
-        {
-            foreach (SpriteRenderer child in childrenList)
-            {
-                switch (child.maskInteraction)
-                {
+        } else {
+            foreach (SpriteRenderer child in childrenList) {
+                switch (child.maskInteraction) {
                     // 前オブジェクト
                     case SpriteMaskInteraction.VisibleOutsideMask:
                         child.enabled = true;
@@ -161,19 +148,22 @@ public class HintObj : MonoBehaviour {
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "FoxWindow")
-        {
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.tag == "FoxWindow") {
             isWindowColl = true;
             _mado.SetLookObjName(objName, uraObjName);
+            ////----- こっくりさんの紙のカウント -----
+            //if (isCheckThis == false && CPData.paperCnt > 0) {
+            //    if (CPData.isLens && CPData.isKokkurisan) {
+            //        isCheckThis = true;
+            //        CPData.paperCnt--;
+            //    }
+            //}
+         
 
-            if (CPData.isLens)
-            {
-                foreach (SpriteRenderer child in childrenList)
-                {
-                    switch (child.maskInteraction)
-                    {
+            if (CPData.isLens) {
+                foreach (SpriteRenderer child in childrenList) {
+                    switch (child.maskInteraction) {
                         // 前オブジェクト
                         case SpriteMaskInteraction.VisibleOutsideMask:
                             child.enabled = false;
@@ -190,12 +180,9 @@ public class HintObj : MonoBehaviour {
             isWindowColl = false;
             _mado.SetLookObjName(null, null);
 
-            if (CPData.isLens)
-            {
-                foreach (SpriteRenderer child in childrenList)
-                {
-                    switch (child.maskInteraction)
-                    {
+            if (CPData.isLens) {
+                foreach (SpriteRenderer child in childrenList) {
+                    switch (child.maskInteraction) {
                         // 前オブジェクト
                         case SpriteMaskInteraction.VisibleOutsideMask:
                             child.enabled = true;
