@@ -54,6 +54,7 @@ MonoBehaviour:
   canMoveRight: 0
   Wall_player_left: 1.04
   Wall_player_right: 0
+  isUiOk: 0
   animator: {fileID: 518633091634576155}
   moveAccelSpeed: 2
   moveDecelSpeed: 10
@@ -92,7 +93,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
