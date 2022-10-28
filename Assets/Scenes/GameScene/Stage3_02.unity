@@ -9572,9 +9572,25 @@ PrefabInstance:
       propertyPath: _isHatenaHuman
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1989722347640640445, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
+      propertyPath: objName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989722347640640445, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
+      propertyPath: uraObjName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1989722347966577336, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: uraObjName
-      value: "\uFF1F\uFF1F\uFF1F\uFF1F\u3057"
+      value: "\u3057\u308D\u3044\u306F\u306A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989722347966577336, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
+      propertyPath: _isHatenaFox
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989722347966577336, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
+      propertyPath: hatenaUraName
+      value: "\uFF1F\u308D\uFF1F\u306F\uFF1F"
       objectReference: {fileID: 0}
     - target: {fileID: 2296785427698455990, guid: 68a90750d58cadb40954a2ad71d3677f, type: 3}
       propertyPath: m_Name
