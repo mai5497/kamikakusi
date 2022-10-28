@@ -29,6 +29,19 @@ public static class ClearManager
         PlayerPrefs.Save();
         SaveNextStage();
     }
+    // 全てのステージをクリアにする
+    public static void SaveClearStageAll()
+    {
+        for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(0); i++)
+        {
+            for (int j = 0; j < SceneManagerData.mainSceneStrArray.GetLength(1); j++)
+            {
+                PlayerPrefs.SetInt(clearStageName + i + j, 1);
+                PlayerPrefs.SetInt(saveName, 1);
+                PlayerPrefs.Save();
+            }
+        }
+    }
     // 現在のワールド,ステージを保存
     public static void SaveNowStage()
     {
