@@ -309,6 +309,9 @@ public class CP_move01 : MonoBehaviour
     {
         if (!CPData.isLens || !Kokkurisan.isFind || CPData.paperCnt < 1 || CPData.lookCnt < 1)
         {
+            if (CPData.isKokkurisan) {
+                CPData.isKokkurisan = false;
+            }
             return;
         }
 
