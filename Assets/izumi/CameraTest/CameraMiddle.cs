@@ -34,6 +34,7 @@ public class CameraMiddle : MonoBehaviour
     void Update()
     {
         Vector3 v = (player.transform.position - startPlayerOffset) * rate;
-        this.transform.position = startCameraPos + v;
+        Vector3 pos = startCameraPos + v;
+        this.transform.position = new Vector3(pos.x, 0, pos.z);
     }
 }

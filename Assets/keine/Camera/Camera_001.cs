@@ -125,7 +125,7 @@ public class Camera_001 : MonoBehaviour
     void MoveCamera()
     {
         //í«è]
-        transform.position = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(playerTransform.position.x, this.transform.position.y, transform.position.z);
     }
 
 
