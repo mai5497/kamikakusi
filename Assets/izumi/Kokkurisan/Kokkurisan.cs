@@ -49,8 +49,10 @@ public class Kokkurisan : MonoBehaviour
     public List<TextMeshProUGUI> charList;
     [Header("表示数字リスト")]
     public List<TextMeshProUGUI> numList;
-    [Header("正解した場合に表示する丸")]
-    public Image markClear;
+    [Header("正解した場合に表示する丸(人の目)")]
+    public Image markClearNormal;
+    [Header("正解した場合に表示する丸(狐の目)")]
+    public Image markClearFox;
     private List<GameObject> markObjList = new List<GameObject>();
     [Header("表示人の目")]
     public Image normalYesImage;
@@ -112,7 +114,8 @@ public class Kokkurisan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        markClear.gameObject.SetActive(false);
+        markClearNormal.gameObject.SetActive(false);
+        markClearFox.gameObject.SetActive(false);
         canvas = GetComponent<Canvas>();
 
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
@@ -391,7 +394,16 @@ public class Kokkurisan : MonoBehaviour
                 if (isMarkPrint)
                 {
                     int clearNo = (int)clearChara[i] - 12353;
-                    GameObject markObj = Instantiate(markClear.gameObject, charList[clearNo].transform);
+                    GameObject markClearObj = markClearNormal.gameObject;
+                    if (isNormal)
+                    {
+                        markClearObj = markClearNormal.gameObject;
+                    }
+                    else if (isFox)
+                    {
+                        markClearObj = markClearFox.gameObject;
+                    }
+                    GameObject markObj = Instantiate(markClearObj, charList[clearNo].transform);
                     markObj.transform.localPosition = new Vector3(-100, -25, 0);
                     markObj.SetActive(true);
                     markObjList.Add(markObj);
