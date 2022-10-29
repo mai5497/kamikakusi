@@ -35,7 +35,7 @@ public class Fade_out003 : MonoBehaviour
     //アクション取得用
   //  private InputAction _fadeAction;
 
-    private bool fading = true;
+    private static bool fading = true;
     // Scene _scene;
     public bool fade_out;
 
@@ -63,7 +63,7 @@ public class Fade_out003 : MonoBehaviour
         // _fadeAction = actionMap["Fade"];
 
 
-
+        fading = true;
     }
 
     void Update()
@@ -224,7 +224,11 @@ public class Fade_out003 : MonoBehaviour
         return fadeOut_finish;
     }
 
-
+    // フェード
+    public static bool GetFading()
+    {
+        return fading;
+    }
 
 }
 

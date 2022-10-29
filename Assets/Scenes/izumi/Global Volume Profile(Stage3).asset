@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 2.86
+    m_Value: 0.31
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -26,7 +26,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 65472
   tint:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
@@ -69,13 +69,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   postExposure:
     m_OverrideState: 1
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: -7
+    m_Value: -0.5
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -85,6 +85,28 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &-3435278472037247698
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  lift:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 0.99891186, z: 0.9956475, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 0.9889027, y: 0.98958486, z: 1, w: -0.013898539}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 0.9592803, y: 0.94840616, z: 1, w: -0.087560624}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +117,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile
+  m_Name: Global Volume Profile(Stage3)
   m_EditorClassIdentifier: 
   components:
   - {fileID: -4765671334369563481}
@@ -104,7 +126,8 @@ MonoBehaviour:
   - {fileID: -3604078089293014322}
   - {fileID: 768847178010107344}
   - {fileID: -4669930888972997916}
-  - {fileID: 3505569587909020692}
+  - {fileID: -3435278472037247698}
+  - {fileID: 3428392733818019068}
 --- !u!114 &768847178010107344
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -352,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   color:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
@@ -361,14 +384,14 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.542
+    m_Value: 0.123
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.238
+    m_Value: 0.544
   rounded:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &3505569587909020692
+--- !u!114 &3428392733818019068
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -377,16 +400,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
-  m_Name: LiftGammaGain
+  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
+  m_Name: WhiteBalance
   m_EditorClassIdentifier: 
-  active: 1
-  lift:
-    m_OverrideState: 1
-    m_Value: {x: 0.9649267, y: 1, z: 0.9654897, w: 0}
-  gamma:
-    m_OverrideState: 1
-    m_Value: {x: 0.8107189, y: 0.85600823, z: 1, w: 0}
-  gain:
-    m_OverrideState: 1
-    m_Value: {x: 0.70304507, y: 0.81857985, z: 1, w: 0}
+  active: 0
+  temperature:
+    m_OverrideState: 0
+    m_Value: -5.5
+  tint:
+    m_OverrideState: 0
+    m_Value: 3.3

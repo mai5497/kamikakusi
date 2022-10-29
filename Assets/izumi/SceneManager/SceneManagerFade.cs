@@ -36,6 +36,12 @@ public static class SceneManagerFade
     // メインシーン読み込み
     public static void LoadSceneMain(int worldNo,int stageNo)
     {
+        // ワールドによってポストプロセスを生成
+        if (worldNo == 2 || worldNo == 3)
+        {
+            PostProcessGenerator.SetPostProcess(worldNo);
+        }
+
         SceneManagerData.nowWorldNo = worldNo;
         SceneManagerData.nowStageNo = stageNo;
         ClearManager.SaveNowStage();
