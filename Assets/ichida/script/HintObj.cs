@@ -46,7 +46,9 @@ public class HintObj : MonoBehaviour {
     private float hitCameraHosei = 1.0f;
     private float hitPlayerHosei = 0.25f;
     // カメラとプレイヤーの距離
-    private float cameraToPlayer;
+    public float cameraToPlayer;
+    // カメラとオブジェクトの距離
+    public float cameraToObj;
 
     // 使用カメラ
     private Camera cameraUse;
@@ -104,6 +106,7 @@ public class HintObj : MonoBehaviour {
         }
         foreach (SpriteRenderer child in childrenList)
         {
+            // 後ろオブジェクト
             if (child.maskInteraction == SpriteMaskInteraction.VisibleInsideMask)
             {
                 localInitPos = child.transform.localPosition;
@@ -122,7 +125,8 @@ public class HintObj : MonoBehaviour {
             {
                 Vector2 hitPos;
                 cameraToPlayer = Camera.main.transform.position.x - cpObj.transform.position.x;
-                hitPos.x = hitInitPos.x + (cameraToPlayer * hitCameraHosei + Camera.main.transform.position.x * hitPlayerHosei);
+                cameraToObj = Camera.main.transform.position.x - this.transform.position.x;
+                hitPos.x = hitInitPos.x + (cameraToPlayer * hitCameraHosei + Camera.main.transform.position.x * hitPlayerHosei) / this.transform.lossyScale.x;
                 hitPos.y = hitInitPos.y;
                 this.GetComponent<CapsuleCollider2D>().offset = hitPos;
             }
@@ -130,14 +134,14 @@ public class HintObj : MonoBehaviour {
 
         if (CPData.isLens)
         {
-            foreach (SpriteRenderer child in childrenList)
+            for (int i=0;i< childrenList.Count;i++)
             {
-                switch (child.maskInteraction)
+                switch (childrenList[i].maskInteraction)
                 {
                     // 後ろオブジェクト
                     case SpriteMaskInteraction.VisibleInsideMask:
-                        child.gameObject.layer = 0;
-                        child.transform.localPosition = new Vector3(localInitPos.x + this.GetComponent<CapsuleCollider2D>().offset.x - localInitOffset.x, localInitPos.y + this.transform.GetComponent<CapsuleCollider2D>().offset.y - localInitOffset.y, localInitPos.z);
+                        childrenList[i].gameObject.layer = 0;
+                        childrenList[i].transform.localPosition = new Vector3(localInitPos.x + this.GetComponent<CapsuleCollider2D>().offset.x - localInitOffset.x, localInitPos.y + this.transform.GetComponent<CapsuleCollider2D>().offset.y - localInitOffset.y, localInitPos.z);
                         break;
                 }
             }
