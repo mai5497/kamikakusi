@@ -8,7 +8,7 @@ public class mado_zu : MonoBehaviour
     private CP_move01 move;
     //   private GameUIManager manager;
     private bool UIok;
-
+    private float time = 0.0f;
     private SpriteRenderer spr = null;
     private bool DeleteOk;
     public bool nextUI2;
@@ -38,14 +38,16 @@ public class mado_zu : MonoBehaviour
         {
             spr.color = new Color(1, 1, 1, 1);
 
-
-            if (CPData.isLens)
+            time += Time.deltaTime;
+            if (time >= 1)
             {
-                spr.color = new Color(1, 1, 1, 0);
-                nextUI2 = true;
-                UIok = false;
+                if (CPData.isLens)
+                {
+                    spr.color = new Color(1, 1, 1, 0);
+                    nextUI2 = true;
+                    UIok = false;
+                }
             }
-
         }
 
 

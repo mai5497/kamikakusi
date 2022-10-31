@@ -14,7 +14,7 @@ public class cyuusi_text : MonoBehaviour
     public Text text = null;
     private bool DeleteOk;
     public bool nextUI3;
-
+    private float time = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,12 +41,15 @@ public class cyuusi_text : MonoBehaviour
         //    text.sortingOrder = 10;
             text.color = new Color(1, 1, 1, 1);
 
-
-            if (CPData.isLook && CPData.isLens)
+            time += Time.deltaTime;
+            if (time >= 1)
             {
-                text.color = new Color(1, 1, 1, 0);
-                nextUI3 = true;
-                UIok = false;
+                if (CPData.isLook && CPData.isLens)
+                {
+                    text.color = new Color(1, 1, 1, 0);
+                    nextUI3 = true;
+                    UIok = false;
+                }
             }
 
         }

@@ -12,7 +12,7 @@ public class cyuusi_zu : MonoBehaviour
     private SpriteRenderer spr = null;
     private bool DeleteOk;
     public bool nextUI3;
-
+    private float time = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +38,15 @@ public class cyuusi_zu : MonoBehaviour
         {
             spr.color = new Color(1, 1, 1, 1);
 
-
-            if (CPData.isLook&& CPData.isLens)
+            time += Time.deltaTime;
+            if (time >= 1)
             {
-                spr.color = new Color(1, 1, 1, 0);
-                nextUI3 = true;
-                UIok = false;
+                if (CPData.isLook && CPData.isLens)
+                {
+                    spr.color = new Color(1, 1, 1, 0);
+                    nextUI3 = true;
+                    UIok = false;
+                }
             }
 
         }
