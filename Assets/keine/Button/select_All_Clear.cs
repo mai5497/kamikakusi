@@ -205,7 +205,8 @@ public class select_All_Clear : MonoBehaviour
                     {
                         //ÉNÉäÉAÇ»ÇÁ
                         //  SceneManagerFade.LoadSceneNextStage();
-                        SceneManager.LoadScene("All_Clear");
+                        // SceneManager.LoadScene("All_Clear");
+                        SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.AllClear);
                     }
                     if (over.isOver_fade == true)
                     {
