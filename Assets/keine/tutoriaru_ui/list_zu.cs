@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class list_zu : MonoBehaviour
 {
     private idou_zu idou;
@@ -14,6 +14,8 @@ public class list_zu : MonoBehaviour
     private float time = 0.0f;
     public int col;
 
+    private Text childText;   // 子オブジェクトについているテキスト
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,9 @@ public class list_zu : MonoBehaviour
         manager = GameObject.Find("GameUIManager").GetComponent<GameUIManager>();
         spr = GetComponent<SpriteRenderer>();
         spr.color = new Color(1, 1, 1, 0);
+        childText = this.transform.GetChild(0).GetComponent<Text>();
+        childText.enabled = false;
+
         DeleteOk = false;
         col = 1;
     }
@@ -38,10 +43,10 @@ public class list_zu : MonoBehaviour
         DeleteOk = manager.UI_out;
 
 
-            if (UIok)
-            {
-                spr.color = new Color(1, 1, 1, col);
-
+        if (UIok)
+        {
+            spr.color = new Color(1, 1, 1, col);
+            childText.enabled = true;
 
             time += Time.deltaTime;
             if (time >= 2)
@@ -50,6 +55,8 @@ public class list_zu : MonoBehaviour
                 {
                     col = 0;
                     spr.color = new Color(1, 1, 1, col);
+                    childText.enabled = false;
+
                     nextUI1 = true;
                 }
             }
