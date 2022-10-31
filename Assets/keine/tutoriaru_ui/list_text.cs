@@ -26,7 +26,7 @@ public class list_text : MonoBehaviour
         // move = GameObject.Find("CP_001").GetComponent<CP_move01>();
         //spr = GetComponent<Text>();
         //spr.color = new Color(1, 1, 1, 0);
-        text_list.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        text_list.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         col = 1;
         DeleteOk = false;
     }
@@ -47,12 +47,12 @@ public class list_text : MonoBehaviour
         if (UIok)
         {
           //  spr.color = new Color(1, 1, 1, col);
-            text_list.color = new Color(0.0f, 0.0f, 0.0f, col);
+            text_list.color = new Color(1.0f, 1.0f, 1.0f, col);
 
             if (DeleteOk)
             {
                 col = 0;
-                text_list.color = new Color(0.0f, 0.0f, 0.0f, col);
+                text_list.color = new Color(1.0f, 1.0f, 1.0f, col);
                 nextUI1 = true;
             }
 

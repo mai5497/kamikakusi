@@ -21,7 +21,7 @@ public class mado_text : MonoBehaviour
         list = GameObject.Find("list_zu").GetComponent<list_zu>();
         move = GameObject.Find("CP_001").GetComponent<CP_move01>();
         text = GetComponent<Text>();
-        text.color = new Color(0, 0, 0, 0);
+        text.color = new Color(1, 1, 1, 0);
 
     }
 
@@ -38,12 +38,12 @@ public class mado_text : MonoBehaviour
 
         if (UIok)
         {
-            text.color = new Color(0, 0, 0, 1);
+            text.color = new Color(1, 1, 1, 1);
 
 
             if (CPData.isLens)
             {
-                text.color = new Color(0, 0, 0, 0);
+                text.color = new Color(1, 1, 1, 0);
                 nextUI2 = true;
                 UIok = false;
             }
