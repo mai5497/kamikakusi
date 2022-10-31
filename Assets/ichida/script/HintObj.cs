@@ -146,9 +146,21 @@ public class HintObj : MonoBehaviour {
                 }
             }
             //----- ‚±‚Á‚­‚è‚³‚ñ‚ÌŽ†‚ÌƒJƒEƒ“ƒg -----
-            if (isCheckThis == false && CPData.paperCnt > 0 && CPData.isKokkurisan && isWindowColl) {
-                isCheckThis = true;
-                CPData.paperCnt--;
+            if (isCheckThis) {
+                if (isWindowColl) {
+                    if (CPData.kokkurisanButton) {
+                        CPData.isKokkurisan = true;
+                    }
+                } else {
+                    CPData.kokkurisanButton = false;
+                }
+            } else {
+                if (CPData.isKokkurisan && isWindowColl) {
+                    if (CPData.paperCnt > 0) {
+                        isCheckThis = true;
+                        CPData.paperCnt--;
+                    }
+                }
             }
         } else
         {

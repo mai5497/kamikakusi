@@ -289,37 +289,40 @@ public class CP_move01 : MonoBehaviour
 
     private void OpenHintKey(InputAction.CallbackContext obj)
     {
-        if (!CPData.isLens || !Kokkurisan.isFind || CPData.lookCnt < 1)
-        {
-            return;
+        if (!CPData.isKokkurisan) {
+            if (!CPData.isLens || !Kokkurisan.isFind || CPData.lookCnt < 1) {
+                return;
+            }
+
+            if (CPData.isPose || Pause.isPause) {
+                return;
+            }
+
+            // キーボードはキーを押したときに表示しかできないようになっているのでtrueのみ
+            StartCoroutine("DelayKokkurisan");
+
+            SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
         }
-
-        if (CPData.isPose || Pause.isPause)
-        {
-            return;
-        }
-
-        // キーボードはキーを押したときに表示しかできないようになっているのでtrueのみ
-        StartCoroutine("DelayKokkurisan");
-
-        SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
     }
 
     private void OpenHintButton(InputAction.CallbackContext obj)
     {
         if (!CPData.isKokkurisan) {
-            if (!CPData.isLens || !Kokkurisan.isFind || CPData.lookCnt < 1) {
+            if (CPData.isPose || Pause.isPause || !CPData.isLens || !Kokkurisan.isFind || CPData.lookCnt < 1 ) {
                 return;
             }
-            if (CPData.isPose || Pause.isPause) {
-                return;
+            if (CPData.paperCnt > 0) {
+                CPData.isKokkurisan = true;
+            } else {
+                CPData.kokkurisanButton = true;
+                CPData.isKokkurisan = false;
             }
 
-            CPData.isKokkurisan = true;
             SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
 
         } else {
             CPData.isKokkurisan = false;
+            CPData.kokkurisanButton = false;
             SoundManager2.Play(SoundData.eSE.SE_KOKKURISAN, SoundData.GameAudioList);
         }
     }
@@ -338,6 +341,8 @@ public class CP_move01 : MonoBehaviour
                     !keyboard.qKey.wasReleasedThisFrame)
                 {
                     CPData.isKokkurisan = false;
+                    CPData.kokkurisanButton = false;
+
                     SoundManager2.Play(SoundData.eSE.SE_BACK, SoundData.GameAudioList);
                 }
             }
@@ -347,7 +352,12 @@ public class CP_move01 : MonoBehaviour
     private IEnumerator DelayKokkurisan()
     {
         yield return null;  // 1フレーム後にisKokkurisanをtrueにする
-        CPData.isKokkurisan = true;
+        if (CPData.paperCnt > 0) {
+            CPData.isKokkurisan = true;
+        } else {
+            CPData.kokkurisanButton = true;
+            CPData.isKokkurisan = false;
+        }
     }
 
     // 歩き処理
