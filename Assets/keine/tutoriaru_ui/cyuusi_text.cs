@@ -39,12 +39,12 @@ public class cyuusi_text : MonoBehaviour
         if (UIok)
         {
         //    text.sortingOrder = 10;
-            text.color = new Color(0, 0, 0, 1);
+            text.color = new Color(1, 1, 1, 1);
 
 
             if (CPData.isLook && CPData.isLens)
             {
-                text.color = new Color(0, 0, 0, 0);
+                text.color = new Color(1, 1, 1, 0);
                 nextUI3 = true;
                 UIok = false;
             }

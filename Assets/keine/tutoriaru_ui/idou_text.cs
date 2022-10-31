@@ -22,7 +22,7 @@ public class idou_text : MonoBehaviour
         move = GameObject.Find("CP_001").GetComponent<CP_move01>();
         //spr = GetComponent<Text>();
         //spr.color = new Color(1, 1, 1, 0);
-        text_idou.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        text_idou.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
         DeleteOk = false;
     }
@@ -37,11 +37,11 @@ public class idou_text : MonoBehaviour
 
         if (isTextFin)
         {
-            text_idou.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+            text_idou.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
             if (DeleteOk)
             {
-                text_idou.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+                text_idou.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
                 nextUI = true;
             }
 
