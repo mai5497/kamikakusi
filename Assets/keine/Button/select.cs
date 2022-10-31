@@ -108,11 +108,11 @@ public class select : MonoBehaviour
         Gamepad gamepad = Gamepad.current;
         if (gamepad != null)
         {
-            if (gamepad.dpad.up.wasReleasedThisFrame)
+            if (gamepad.dpad.up.wasReleasedThisFrame || gamepad.leftStick.up.wasReleasedThisFrame)
             {
                 inputSelectCon.y = 1.0f;
             }
-            else if (gamepad.dpad.down.wasReleasedThisFrame)
+            else if (gamepad.dpad.down.wasReleasedThisFrame || gamepad.leftStick.down.wasReleasedThisFrame)
             {
                 inputSelectCon.y = -1.0f;
             }
