@@ -237,6 +237,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 91c303568a34b23459d786bdc5050750, type: 3}
+--- !u!114 &292961408640553438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4731102324832757178, guid: 91c303568a34b23459d786bdc5050750, type: 3}
+  m_PrefabInstance: {fileID: 5023922228707030116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d9f5b27e190f845b1c360745b173e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9221398700232500602 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4197482279806570782, guid: 91c303568a34b23459d786bdc5050750, type: 3}
@@ -270,6 +281,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a91aa3cffd349dc4db39af2458ede077, type: 3}
+    - target: {fileID: 39571532296691053, guid: 784442a08350bb240bb5baf15c20440d, type: 3}
+      propertyPath: over
+      value: 
+      objectReference: {fileID: 292961408640553438}
+    - target: {fileID: 39571532296691053, guid: 784442a08350bb240bb5baf15c20440d, type: 3}
+      propertyPath: Clear
+      value: 
+      objectReference: {fileID: 7498263870111846452}
     - target: {fileID: 39571532607026576, guid: 784442a08350bb240bb5baf15c20440d, type: 3}
       propertyPath: m_Camera
       value: 
