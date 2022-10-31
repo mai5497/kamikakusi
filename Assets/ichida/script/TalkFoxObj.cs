@@ -1,3 +1,14 @@
+//=============================================================================
+//
+// しゃべってる狐の管理
+//
+// 作成日:2022/10/27
+// 作成者:伊地田真衣
+//
+// <開発履歴>
+// 2022/10/27 作成
+//
+//=============================================================================
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,16 +31,14 @@ public class TalkFoxObj : MonoBehaviour
 
         _Fox_text = GameObject.Find("Text (fox)").GetComponent<Fox_text>();
 
+        //----- アルファ値調整のためにレンダラー取得 -----
         rendereParent = transform.Find("Drawables").gameObject;
-
         renderers = new Renderer[rendereParent.transform.childCount];
-
         for(int i = 0;i < renderers.Length; i++) {
             renderers[i] = rendereParent.transform.GetChild(i).GetComponent<Renderer>();
         }
 
         alpha = 1.0f;
-        //renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -58,7 +67,6 @@ public class TalkFoxObj : MonoBehaviour
         for (int i = 0; i < renderers.Length; i++) {
             alpha -= Time.deltaTime / deleteTime;
             renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
-            //renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, 0);
         }
     }
 }
