@@ -54,6 +54,9 @@ public class select : MonoBehaviour
             _FoxByakko = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
            // over = GameObject.Find("fade").GetComponent<Fade_in_gemeover>();
         }
+
+        Clear = GameObject.Find("Clear").GetComponent<clear_animation>();
+        over = GameObject.Find("fade_over").GetComponent<Fade_in_gemeover>();
     }
 
 
