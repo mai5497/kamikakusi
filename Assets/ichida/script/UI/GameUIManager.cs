@@ -80,7 +80,7 @@ public class GameUIManager : MonoBehaviour {
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
         canvas.sortingLayerName = "TopLayer";
-        canvas.sortingOrder = 3;
+        canvas.sortingOrder = 4;
 
 
         //----- デバッグ用 -----
