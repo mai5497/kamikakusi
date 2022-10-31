@@ -43,7 +43,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8ce4119534451e545962e2f4baa49d04, type: 2}
+  m_Motion: {fileID: 7400000, guid: acc796d54b7a2984b953033d5c22dd2a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -81,7 +81,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CO_FindAnim 1
+  m_Name: CO_ClearAnim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isChange
