@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class cyuusi_zu : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class cyuusi_zu : MonoBehaviour
     private bool DeleteOk;
     public bool nextUI3;
     private float time = 0.0f;
+
+    private Text childText;   // 子オブジェクトについているテキスト
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,8 @@ public class cyuusi_zu : MonoBehaviour
         move = GameObject.Find("CP_001").GetComponent<CP_move01>();
         spr = GetComponent<SpriteRenderer>();
         spr.color = new Color(1, 1, 1, 0);
+        childText = this.transform.GetChild(0).GetComponent<Text>();
+        childText.enabled = false;
 
     }
 
@@ -37,6 +43,7 @@ public class cyuusi_zu : MonoBehaviour
         if (UIok)
         {
             spr.color = new Color(1, 1, 1, 1);
+            childText.enabled = true;
 
             time += Time.deltaTime;
             if (time >= 1)
@@ -44,6 +51,8 @@ public class cyuusi_zu : MonoBehaviour
                 if (CPData.isLook && CPData.isLens)
                 {
                     spr.color = new Color(1, 1, 1, 0);
+                    childText.enabled = false;
+
                     nextUI3 = true;
                     UIok = false;
                 }
