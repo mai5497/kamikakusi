@@ -33,6 +33,7 @@ public class CPData : MonoBehaviour
     public static bool isRightAnswer = false;   // 覗いてるところがあってるのであれあばtrue
 
     public static bool isKokkurisan = false;      // こっくりさん画面をだしてるか
+    public static bool kokkurisanButton = false;    // こっくりさんの画面のぼたんがおされてるかどうか
 
     public static bool isObjNameUI = false;      // ヒントとオブジェクトの名前を表示する 
 
