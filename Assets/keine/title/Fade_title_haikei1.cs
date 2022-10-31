@@ -63,10 +63,12 @@ public class Fade_title_haikei1 : MonoBehaviour {
             var anyKey = current.anyKey;
             if (GamePadManager.PressAnyButton(0)) {
                 fading = true;
+                timer = 1.0f;
                 SoundManager2.Play(SoundData.eSE.SE_DICISION, SoundData.TitleAudioList);
             }
             if (anyKey.wasPressedThisFrame) {
                 fading = true;
+                timer = 1.0f;
                 SoundManager2.Play(SoundData.eSE.SE_DICISION, SoundData.TitleAudioList);
             }
 

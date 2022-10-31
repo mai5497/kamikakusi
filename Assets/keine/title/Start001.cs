@@ -1,12 +1,10 @@
-
-
-
 //=============================================================================
 //スタートボタン
 //
 //
 // 作成日:2022/10/13
 // 作成者:八木橋慧音
+// 編集者:伊地田真衣
 //
 // <開発履歴>
 // 2022/10/18 作成
@@ -23,16 +21,6 @@ using UnityEngine.UI;
 public class Start001 : MonoBehaviour {
 
     private InputAction _selectAction;
-
-    //public bool titlle_delete;
-
-    //public Fade_title_haikei1 Titlle;
-
-    //public select sel;
-
-    //public bool isSelect;
-
-    //public Fade_in002 fadein;
 
     public bool isFade;
 
@@ -54,8 +42,8 @@ public class Start001 : MonoBehaviour {
 
 
     private int state;                  // 選択肢のステート
-    private int quitSelect;                 // 最終確認選択
-    private int oldSelect;               // 戻らなきゃいけない選択肢
+    private int quitSelect;             // 最終確認選択
+    private int oldSelect;              // 戻らなきゃいけない選択肢
 
     private bool isDicision;    // 決定キーが押されたか
     private bool isExitGame;    // ゲーム終了するか
@@ -63,8 +51,8 @@ public class Start001 : MonoBehaviour {
     private Fade_title_haikei1 pressAnyButton;
     private ObservedValue<bool> isPressAnyButton;   // プレスエニーボタンされた瞬間を検知する
 
-    private bool canDicision;   // 決定キーを押しても良いか
-                                // プレスエニーキーと同じフレームで来るとすぐに決定したことになってしまう
+    private bool canDicision;               // 決定キーを押しても良いか
+                                            // プレスエニーキーと同じフレームで来るとすぐに決定したことになってしまう
 
     private GameObject selectBoxObj;
     private RectTransform selectBoxRT;      // 選択枠のレクトトランスフォーム
@@ -82,7 +70,7 @@ public class Start001 : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-
+        //----- 各種ステート初期化 -----
         state = (int)eTitleState.FROMSTART;
         quitSelect = (int)eQuitState.NONE;
         oldSelect = state;
@@ -94,6 +82,7 @@ public class Start001 : MonoBehaviour {
         isPressAnyButton = new ObservedValue<bool>(false);  // falseで初期化
         isPressAnyButton.OnValueChange += () => { canDicision = false; };
 
+        //----- 選択時に動かすオブジェクトの取得 -----
         selectBoxObj = GameObject.Find("cursor");
         selectBoxRT = selectBoxObj.GetComponent<RectTransform>();
         selectBoxObj.SetActive(false);
@@ -126,10 +115,6 @@ public class Start001 : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //titlle_delete = Titlle.GetTitlle_delete();
-        //isSelect = sel.NO1;
-
-        //var current = Keyboard.current;
         isPressAnyButton.Value = pressAnyButton.fading;
 
         if (isPressAnyButton.Value) {
@@ -157,8 +142,8 @@ public class Start001 : MonoBehaviour {
         if (state == (int)eTitleState.EXIT) {
             if (quitSelect == (int)eQuitState.NONE) {
                 // 初期化
-                quitSelect = (int)eQuitState.YES;
-                state = (int)eTitleState.EXIT;
+                quitSelect = (int)eQuitState.NO;
+                SelectBoxPosUpdete();
                 kakuninObj.SetActive(true);
             }
         }
@@ -181,7 +166,6 @@ public class Start001 : MonoBehaviour {
                     // ゲームをやめる
                     if (quitSelect == (int)eQuitState.NONE) {
 
-
                     } else if (quitSelect == (int)eQuitState.YES) {
                         // ゲームをやめる
 #if UNITY_EDITOR
@@ -200,6 +184,10 @@ public class Start001 : MonoBehaviour {
                     break;
             }
         }
+
+        Debug.Log("state:" + state);
+        Debug.Log("oldstate:" + oldSelect);
+        Debug.Log("quitselect:" + quitSelect);
     }
 
     private void Dicision(InputAction.CallbackContext obj) {
