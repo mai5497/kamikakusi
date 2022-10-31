@@ -141,10 +141,6 @@ public class Start001 : MonoBehaviour {
 
         if (state == (int)eTitleState.EXIT) {
             if (quitSelect == (int)eQuitState.NONE) {
-                // èâä˙âª
-                quitSelect = (int)eQuitState.NO;
-                SelectBoxPosUpdete();
-                kakuninObj.SetActive(true);
             }
         }
 
@@ -184,10 +180,6 @@ public class Start001 : MonoBehaviour {
                     break;
             }
         }
-
-        Debug.Log("state:" + state);
-        Debug.Log("oldstate:" + oldSelect);
-        Debug.Log("quitselect:" + quitSelect);
     }
 
     private void Dicision(InputAction.CallbackContext obj) {
@@ -202,7 +194,11 @@ public class Start001 : MonoBehaviour {
 
     private void Back(InputAction.CallbackContext obj) {
         oldSelect = state;
+        // ÉQÅ[ÉÄèIóπópèâä˙âª
+        kakuninObj.SetActive(true);
+        quitSelect = (int)eQuitState.NO;
         state = (int)eTitleState.EXIT;
+        SelectBoxPosUpdete();
     }
 
 
