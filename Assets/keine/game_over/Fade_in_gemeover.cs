@@ -33,11 +33,17 @@ public class Fade_in_gemeover : MonoBehaviour
     public bool isOver_fade = false;
     public bool fade_out;
 
+    private bool isDelayFade = false;
+
+    private CP_move01 player;
+
     void Start()
     {
         img = GetComponent<SpriteRenderer>();
         img.color = new Color(1, 1, 1, 0);
         fadeIn = true;
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CP_move01>();
     }
 
     void Update()
@@ -48,26 +54,32 @@ public class Fade_in_gemeover : MonoBehaviour
         {
             if (isFadeOk <= 0)
             {
-                if (fadeIn)
-                {
-                    //フェード中 
-                    if (timer < 1)
-                    {
-                        img.color = new Color(0, 0, 0, 0 + timer);
-                    }
-                    //フェードアウト完了 
-                    else
-                    {
-                        img.color = new Color(0, 0, 0, 0 + (timer / 4) * 3);
-                        timer = 0.0f;
-                        fadeIn = false;
-                        isOver_fade = true;
-                    }
-                    timer += Time.deltaTime / 2;
-                }
+                player.isGameOver = true;
+                Invoke("DelayFade", 4.0f);
             }
         }
         ++frameCount;
+
+        if (isDelayFade)
+        {
+            if (fadeIn)
+            {
+                //フェード中 
+                if (timer < 1)
+                {
+                    img.color = new Color(0, 0, 0, 0 + timer);
+                }
+                //フェードアウト完了 
+                else
+                {
+                    img.color = new Color(0, 0, 0, 0 + (timer / 4) * 3);
+                    timer = 0.0f;
+                    fadeIn = false;
+                    isOver_fade = true;
+                }
+                timer += Time.deltaTime / 2;
+            }
+        }
     }
 
 
@@ -76,6 +88,11 @@ public class Fade_in_gemeover : MonoBehaviour
     {
         img = image;
     }
+    private void DelayFade()
+    {
+        isDelayFade = true;
+    }
+
 }
 
 

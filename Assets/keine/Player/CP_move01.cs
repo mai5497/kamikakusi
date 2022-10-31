@@ -80,6 +80,9 @@ public class CP_move01 : MonoBehaviour
 
     //private clear_animation ani;
 
+    public bool isGameOver;
+    public bool isClear;
+
     void Start()
     {
         animState = eAnimState.NONE;
@@ -141,6 +144,16 @@ public class CP_move01 : MonoBehaviour
 
     void Update()
     {
+        // ゲームオーバー,クリアでアニメーション変更
+        if (isGameOver == true)
+        {
+            animator.SetBool("Miss", true);
+        }
+        if (isClear == true)
+        {
+            animator.SetBool("Clear", true);
+        }
+
         if (_FoxByakko.isClear || CPData.lookCnt < 1)
         {   // クリアしたら
             CPData.isLook = false;  // 注視やめ

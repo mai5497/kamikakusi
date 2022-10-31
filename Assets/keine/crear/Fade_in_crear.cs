@@ -33,6 +33,10 @@ public class Fade_in_crear : MonoBehaviour
     private bool fading = false;
     public bool fade_out;
 
+    private bool isDelayFade = false;
+
+    private CP_move01 player;
+
     void Start()
     {
         img = GetComponent<SpriteRenderer>();
@@ -40,6 +44,8 @@ public class Fade_in_crear : MonoBehaviour
         fadeIn = true;
 
         start = GameObject.Find("FoxByakko").GetComponent<FoxByakko>();
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CP_move01>();
     }
 
     void Update()
@@ -50,26 +56,32 @@ public class Fade_in_crear : MonoBehaviour
         {
             if (isFadeOk)
             {
-                if (fadeIn)
-                {
-                    //フェード中 
-                    if (timer < 1)
-                    {
-                        img.color = new Color(0, 0, 0, 0 + timer);
-                    }
-                    //フェードアウト完了 
-                    else
-                    {
-                        img.color = new Color(0, 0, 0 ,0+(timer/4)*3);
-                        timer = 0.0f;
-                        fadeIn = false;
-                        fading = false;
-                    }
-                    timer += Time.deltaTime / 2;
-                }
+                player.isClear = true;
+                Invoke("DelayFade", 2.0f);
             }
         }
         ++frameCount;
+
+        if (isDelayFade)
+        {
+            if (fadeIn)
+            {
+                //フェード中 
+                if (timer < 1)
+                {
+                    img.color = new Color(0, 0, 0, 0 + timer);
+                }
+                //フェードアウト完了 
+                else
+                {
+                    img.color = new Color(0, 0, 0, 0 + (timer / 4) * 3);
+                    timer = 0.0f;
+                    fadeIn = false;
+                    fading = false;
+                }
+                timer += Time.deltaTime / 2;
+            }
+        }
     }
 
     public void fade_in_use(SpriteRenderer image)
@@ -77,7 +89,10 @@ public class Fade_in_crear : MonoBehaviour
         img = image;
     }
 
-
+    private void DelayFade()
+    {
+        isDelayFade = true;
+    }
 
 
 
