@@ -13,7 +13,7 @@ public class idou_zu : MonoBehaviour
     private bool DeleteOk;
 
     public bool nextUI;
-
+    private float time = 0.0f;
     private SpriteRenderer spr=null;
     // Start is called before the first frame update
     void Start()
@@ -36,12 +36,15 @@ public class idou_zu : MonoBehaviour
         if (isTextFin)
         {
             spr.color = new Color(1, 1, 1, 1);
-
-
-            if (DeleteOk)
+            time += Time.deltaTime;
+            if (time >= 1)
             {
-                spr.color = new Color(1, 1, 1, 0);
-                nextUI = true;
+              
+                if (DeleteOk)
+                {
+                    spr.color = new Color(1, 1, 1, 0);
+                    nextUI = true;
+                }
             }
 
         }

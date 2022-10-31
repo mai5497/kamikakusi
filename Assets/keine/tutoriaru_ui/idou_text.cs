@@ -13,7 +13,7 @@ public class idou_text : MonoBehaviour
     private bool DeleteOk;
 
     public bool nextUI;
-
+    private float time = 0.0f;
     public Text text_idou;
     // Start is called before the first frame update
     void Start()
@@ -38,11 +38,16 @@ public class idou_text : MonoBehaviour
         if (isTextFin)
         {
             text_idou.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-
-            if (DeleteOk)
+            time += Time.deltaTime;
+            if (time >= 1)
             {
-                text_idou.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-                nextUI = true;
+              
+
+                if (DeleteOk)
+                {
+                    text_idou.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                    nextUI = true;
+                }
             }
 
         }

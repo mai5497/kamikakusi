@@ -11,7 +11,7 @@ public class list_zu : MonoBehaviour
     private SpriteRenderer spr = null;
     private bool DeleteOk;
     public bool nextUI1;
-
+    private float time = 0.0f;
     public int col;
 
     // Start is called before the first frame update
@@ -38,16 +38,20 @@ public class list_zu : MonoBehaviour
         DeleteOk = manager.UI_out;
 
 
-        if (UIok)
-        {
-            spr.color = new Color(1, 1, 1, col);
-
-
-            if (DeleteOk)
+            if (UIok)
             {
-                col = 0;
                 spr.color = new Color(1, 1, 1, col);
-                nextUI1 = true;
+
+
+            time += Time.deltaTime;
+            if (time >= 2)
+            {
+                if (DeleteOk)
+                {
+                    col = 0;
+                    spr.color = new Color(1, 1, 1, col);
+                    nextUI1 = true;
+                }
             }
 
         }

@@ -12,7 +12,7 @@ public class list_text : MonoBehaviour
 
     private bool isTextFin;
     private bool DeleteOk;
-
+    private float time = 0.0f;
     public bool nextUI1;
     private bool UIok;
     public int col;
@@ -48,14 +48,16 @@ public class list_text : MonoBehaviour
         {
           //  spr.color = new Color(1, 1, 1, col);
             text_list.color = new Color(1.0f, 1.0f, 1.0f, col);
-
-            if (DeleteOk)
+            time += Time.deltaTime;
+            if (time >= 2)
             {
-                col = 0;
-                text_list.color = new Color(1.0f, 1.0f, 1.0f, col);
-                nextUI1 = true;
+                if (DeleteOk)
+                {
+                    col = 0;
+                    text_list.color = new Color(1.0f, 1.0f, 1.0f, col);
+                    nextUI1 = true;
+                }
             }
-
         }
 
 
