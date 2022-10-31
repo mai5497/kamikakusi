@@ -19,7 +19,8 @@ public static class SceneManagerFade
     // サブシーン
     public enum SubScene {
         Title,
-        StageSelect
+        StageSelect,
+        AllClear
     }
     // サブシーン読み込み
     public static void LoadSceneSub(SubScene scene)
@@ -30,6 +31,9 @@ public static class SceneManagerFade
                 break;
             case SubScene.StageSelect:
                 Fade_in003.fade_in_use(SceneManagerData.stageSelectScene);
+                break;
+            case SubScene.AllClear:
+                Fade_in003.fade_in_use(SceneManagerData.allClearScene);
                 break;
         }
     }
