@@ -188,6 +188,13 @@ public class select_All_Clear : MonoBehaviour
         }
         //    gamepad.aButton.wasReleasedThisFrame
 
+        if (Clear.isClear == true)
+            {
+                //クリアなら
+                //  SceneManagerFade.LoadSceneNextStage();
+               SceneManager.LoadScene("All_Clear");
+                //  SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.AllClear);
+            }
 
         if (keyboard.enterKey.wasReleasedThisFrame || pushAbutton)
         {
@@ -206,7 +213,7 @@ public class select_All_Clear : MonoBehaviour
                         //クリアなら
                         //  SceneManagerFade.LoadSceneNextStage();
                         // SceneManager.LoadScene("All_Clear");
-                        SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.AllClear);
+                      //  SceneManagerFade.LoadSceneSub(SceneManagerFade.SubScene.AllClear);
                     }
                     if (over.isOver_fade == true)
                     {
