@@ -36,7 +36,7 @@ public class TalkFoxObj : MonoBehaviour
     void Update()
     {
         if (SceneManagerData.nowWorldNo == 0 && SceneManagerData.nowStageNo == 0) {
-            if (_Fox_text.count > 5) {
+            if (_Fox_text.count > 6) {
                 animator.SetBool("isChange", true);
             }
             if (_Fox_text.isTextFin) {
