@@ -57,7 +57,7 @@ public class Fade_in004 : MonoBehaviour
         {
 
            // time += Time.deltaTime;
-            if (time <= 1000)
+            if (time >= 4)
             {
                 if (timer < 1)
                 {
