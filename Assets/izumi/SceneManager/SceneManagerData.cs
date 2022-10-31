@@ -20,6 +20,8 @@ public class SceneManagerData
     public static string titleScene = "Title";
     [Header("ステージセレクトシーン名")]
     public static string stageSelectScene = "StageSelect";
+    [Header("全クリアシーン名")]
+    public static string allClearScene = "All_Clear";
     [Header("メインシーン名リスト")]  // string[ワールド番号,ステージ番号]
     public static string[,] mainSceneStrArray =
     {

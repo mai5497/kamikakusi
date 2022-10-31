@@ -120,6 +120,12 @@ public class StageSelect : MonoBehaviour
     // ステージ選択最大番号の初期値(inspectorで設定した値)
     private int selectStageNoMaxInit;
     /// //////////////////////////////////////////////////
+     
+    // 追加
+    [Header("赤い線1")]
+    public GameObject SenRed1;
+    [Header("赤い線2")]
+    public GameObject SenRed2;
 
     // Start is called before the first frame update
     void Start()
@@ -258,6 +264,9 @@ public class StageSelect : MonoBehaviour
 
                 bool isInitCan = false;
 
+                bool isRed1 = false;
+                bool isRed2 = false;
+
                 // ステージオブジェクトのスプライトをクリア状況により変更
                 for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
                 {
@@ -267,6 +276,14 @@ public class StageSelect : MonoBehaviour
                         if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, i))
                         {
                             selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
+                            if (i == 0)
+                            {
+                                isRed1 = true;
+                            }
+                            else if(i == 1)
+                            {
+                                isRed2 = true;
+                            }
                         }
                         // クリアしてない
                         else
@@ -302,6 +319,23 @@ public class StageSelect : MonoBehaviour
                     }
                 }
 
+                if (isRed1)
+                {
+                    SenRed1.SetActive(true);
+                }
+                else
+                {
+                    SenRed1.SetActive(false);
+                }
+                if (isRed2)
+                {
+                    SenRed2.SetActive(true);
+                }
+                else
+                {
+                    SenRed2.SetActive(false);
+                }
+
                 break;
             // ステージセレクト初期化
             case Mode.StageSelectInit:
@@ -315,60 +349,60 @@ public class StageSelect : MonoBehaviour
                 }
                 stageSelectSelectWorldObjList[selectWorldNo - selectWorldNoMin].SetActive(true);
 
-                // データが無ければステージ最大数を変更
-                for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
-                {
-                    if (SceneManagerData.mainSceneStrArray[selectWorldNo - selectWorldNoMin, i] == null)
-                    {
-                        selectStageNoMax = (selectWorldNoMin + i) - 2;
-                    }
-                }
+                //// データが無ければステージ最大数を変更
+                //for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
+                //{
+                //    if (SceneManagerData.mainSceneStrArray[selectWorldNo - selectWorldNoMin, i] == null)
+                //    {
+                //        selectStageNoMax = (selectWorldNoMin + i) - 2;
+                //    }
+                //}
 
-                bool isInitCan2 = false;
+                //bool isInitCan2 = false;
 
-                // ステージオブジェクトのスプライトをクリア状況により変更
-                for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
-                {
-                    if (i <= selectStageNoMax)
-                    {
-                        // クリア
-                        if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, i))
-                        {
-                            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
-                        }
-                        // クリアしてない
-                        else
-                        {
-                            if (selectWorldNo == selectWorldNoMax)
-                            {
-                                // できる
-                                if (ClearManager.GetClearStage(selectStageNoMax, i))
-                                {
-                                    selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
-                                }
-                                // できない
-                                else
-                                {
-                                    if (isInitCan2 == false)
-                                    {
-                                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
-                                        selectStageNoMax = i;
-                                        isInitCan2 = true;
-                                    }
-                                    else
-                                    {
-                                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    // できない
-                    else
-                    {
-                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
-                    }
-                }
+                //// ステージオブジェクトのスプライトをクリア状況により変更
+                //for (int i = 0; i < SceneManagerData.mainSceneStrArray.GetLength(1); i++)
+                //{
+                //    if (i <= selectStageNoMax)
+                //    {
+                //        // クリア
+                //        if (ClearManager.GetClearStage(selectWorldNo - selectWorldNoMin, i))
+                //        {
+                //            selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageClearObj;
+                //        }
+                //        // クリアしてない
+                //        else
+                //        {
+                //            if (selectWorldNo == selectWorldNoMax)
+                //            {
+                //                // できる
+                //                if (ClearManager.GetClearStage(selectStageNoMax, i))
+                //                {
+                //                    selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                //                }
+                //                // できない
+                //                else
+                //                {
+                //                    if (isInitCan2 == false)
+                //                    {
+                //                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanObj;
+                //                        selectStageNoMax = i;
+                //                        isInitCan2 = true;
+                //                    }
+                //                    else
+                //                    {
+                //                        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
+                //                    }
+                //                }
+                //            }
+                //        }
+                //    }
+                //    // できない
+                //    else
+                //    {
+                //        selectStageObjList[i].GetComponent<SpriteRenderer>().sprite = selectStageCanNotObj;
+                //    }
+                //}
 
 
 
