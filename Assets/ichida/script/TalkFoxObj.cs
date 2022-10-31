@@ -36,7 +36,7 @@ public class TalkFoxObj : MonoBehaviour
     void Update()
     {
         if (SceneManagerData.nowWorldNo == 0 && SceneManagerData.nowStageNo == 0) {
-            if (_Fox_text.count > 4) {
+            if (_Fox_text.count > 5) {
                 animator.SetBool("isChange", true);
             }
             if (_Fox_text.isTextFin) {
@@ -57,8 +57,8 @@ public class TalkFoxObj : MonoBehaviour
 
         for (int i = 0; i < renderers.Length; i++) {
             alpha -= Time.deltaTime / deleteTime;
-            //renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
-            renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, 0);
+            renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, alpha);
+            //renderers[i].material.color = new Color(1.0f, 1.0f, 1.0f, 0);
         }
     }
 }
